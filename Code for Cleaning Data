@@ -1,0 +1,19 @@
+# Checking for NULL values
+
+## FitabaseData_20160312-20160411
+
+**weightLogInfo**
+`
+SELECT 
+  COUNTIF(Id IS NULL) AS id_nulls,
+  COUNTIF(Date IS NULL) AS date_nulls,
+  COUNTIF(WeightKg IS NULL) AS weightKg_nulls,
+  COUNTIF(Fat IS NULL) AS fat_nulls
+
+FROM analysisbellabeat246.FitabaseData_20160312_20160411.weightLogInfo
+`
+
+
+
+
+## FitabaseData_20160412-20160512
