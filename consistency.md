@@ -260,3 +260,56 @@ Results:
 | hourlySteps | 34 |
 | hourlyCalories | 34 | 
 | hourlyIntensities | 34 |
+
+**The number of users is consistent across these tables, nevertheless, it returns a number of 34 participants, which is incorrect because the number of users who participated in the survey is 33**.
+
+
+
+## Checking number of users from `FitabaseData_20160312_20160411` vs `FitabaseData_20160412_20160512` datasets
+
+In order to compare the users (Id) for both datasets, we use `hourlySteps` and `hourlySteps_secondPeriod`, each one belongs to a different dataset. Both cointain the data but in different periods of time.
+
+### Total number of users
+
+**hourlySteps**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+              
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+
+**hourlySteps_secondPeriod**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+              
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
+
+Results:
+
+| Table | total_users |
+| :---: | :---:|
+| hourlySteps | 34 |
+| hourlySteps_secondPeriod | 33 | 
+
+### Comparing users Ids in both datasets
+
+**hourlySteps**
+
+        SELECT
+              DISTINCT Id 
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+        
+        ORDER BY ID DESC 
+
+**hourlySteps_secondPeriod**
+
+        SELECT
+              DISTINCT Id 
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
+        
+        ORDER BY Id DESC
+
+Both results were merged in Google Sheets, to identify what Id was different across the datasets. 
