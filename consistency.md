@@ -170,5 +170,8 @@
 **`dailyActivity` sum up a different number of steps because it was tracked in a different period of time by user**
 
 
-## Intensity 
+## Checking for consistency between hourly steps, hourly calories and hourly intensity tables.
+
+### Period of time
+
 
