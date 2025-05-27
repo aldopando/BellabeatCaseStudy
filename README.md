@@ -33,7 +33,6 @@ Prepare Guiding questions
  **This collection contains several tables across different metrics of personal tracker data**
  **This collection is broken down into two folders,  both with same metrics but each folder contains data in different periods of time**
 
-   **** 
  - How is the data organized? Is it in long
    or wide format?  
    **The data is organized in two folders, each folder representing a different period of time:**
@@ -63,66 +62,66 @@ Prepare Guiding questions
 		- `hourlyIntensities_merged.csv`
 			- The dataset is in **long format**. It has more than column apparently representing more than one variable. In reality, the second column represents an aggregate function to calculate the **average** of intensity state exhibited during a specific hour by the user. In other words, the column `AverageIntensity` is the statistical summary of the variable `TotalIntensity`.  Therefore, this dataset only contains one variable where each row represents one observation of this variable at a specific time.
 
-		- **hourlySteps_merged.csv** - The dataset is in **long format**.
+		- `hourlySteps_merged.csv` - The dataset is in **long format**.
   
-		- **minuteCaloriesNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteCaloriesNarrow_merged.csv` - The dataset is in **long format**.
      
-		- **minuteIntensitiesNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteIntensitiesNarrow_merged.csv` - The dataset is in **long format**.
      			
-		- **minuteMETsNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteMETsNarrow_merged.csv` - The dataset is in **long format**.
 			
-		- **minuteSleep_merged.csv**
+		- `minuteSleep_merged.csv`
 			- The dataset is in **wide format**.  Each row represents a unique combination of identifiers (user **id**, **date** and **logId**).
 			
-		- **minuteStepsNarrow_merged.csv** - The dataset is in **long format**
+		- `minuteStepsNarrow_merged.csv` - The dataset is in **long format**
 		
-		- **weightLogInfo_merged.csv**
+		- `weightLogInfo_merged.csv`
 			- The dataset is in **wide format**. Each data subject `id` has a row of a combination of multiple attributes such as `WeightKg, WeightPounds, Fat, BMI, IsManualReport, LogId`
 
 	- Second Folder  (18 tables) **2016/04/11 - 2016/05/11** 
-		 - **dailyActivity_merged.csv** - The dataset is in **wide format**.
+		 - `dailyActivity_merged.csv*` - The dataset is in **wide format**.
 			
-		 - **dailyCalories_merged.csv** - The dataset is in **long format**.
+		 - `dailyCalories_merged.csv` - The dataset is in **long format**.
 		
-		- **dailyIntensities_merged.csv**
+		- `dailyIntensities_merged.csv`
 			- The dataset is in **wide format**. In this dataset there is a combination of multiple columns representing attributes for each row. Each column has its own variable.  A single row has atributes such as `SedentaryMinutes, LightlyActiveMinutes, VeryActiveMinutes, ModeratelyActiveDistance, etc.`
 		
-		- **dailySteps_merged.csv** - The dataset is in **long format**.
+		- `dailySteps_merged.csv` - The dataset is in **long format**.
 			
-		- **heartrate_seconds_merged.csv** - The dataset is in **long format**.
+		- `heartrate_seconds_merged.csv` - The dataset is in **long format**.
 			
-		- **hourlyCalories_merged.csv** - The dataset is in **long format**.
+		- `hourlyCalories_merged.csv` - The dataset is in **long format**.
 			
-		- **hourlyIntensities_merged.csv** - The dataset is in **long format**.
+		- `hourlyIntensities_merged.csv` - The dataset is in **long format**.
 			
-		- **hourlySteps_merged.csv** - The dataset is in **long format**.
+		- `hourlySteps_merged.csv` - The dataset is in **long format**.
 			
-		- **minuteCaloriesNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteCaloriesNarrow_merged.csv` - The dataset is in **long format**.
 			
-		- **minuteCaloriesWide_merged.csv**
+		- `minuteCaloriesWide_merged.csv`
 			- The dataset is in **wide format**.  *It has multiple columns that contain the same type of data for different time points.*  For example, columns for `"Calories00", "Calories01", "Calories02"... "Calories59"`  
 			E.g.
 			***Calories05 = calories burned in fifth minute of the hour.***
 			
-		- **minuteIntensitiesNarrow_merged.csv**
+		- `minuteIntensitiesNarrow_merged.csv`
 			- The dataset is in **long format**. The same data as "minuteCaloriesWide_merged.csv" but in long format. **The time points (minutes) are spread out through the rows.**
 			
-		- **minuteIntensitiesWide_merged.csv** - The dataset is in **wide format**.
+		- `minuteIntensitiesWide_merged.csv` - The dataset is in **wide format**.
 			
-		- **minuteMETsNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteMETsNarrow_merged.csv` - The dataset is in **long format**.
 			
-		- **minuteSleep_merged.csv** - The dataset is in **wide format**.
+		- `minuteSleep_merged.csv` - The dataset is in **wide format**.
 			
-		- **minuteStepsNarrow_merged.csv** - The dataset is in **long format**.
+		- `minuteStepsNarrow_merged.csv` - The dataset is in **long format**.
 			
-		- **minuteStepsWide_merged.csv** - The dataset is in **wide format**.
+		- `minuteStepsWide_merged.csv` - The dataset is in **wide format**.
 			
-		- **sleepDay_merged.csv**
+		- `sleepDay_merged.csv`
 			- The dataset is in **wide format**. The number of rows in this dataset can initially suggest a "long" format, especially when it can be observed many repeated IDs or timestamps. But **the format (wide vs. long) is not defined by the number of rows**. it’s defined by **how the variables are organized**
 Each row of this dataset is a summary of many variables (`TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed `) for a specific time `SleepDay`
 
 			
-		- **weightLogInfo_merged.csv** - The dataset is in **wide format**.
+		- `weightLogInfo_merged.csv` - The dataset is in **wide format**.
 
 ****
  - Are there issues with bias or credibility in this data? Does your
@@ -267,9 +266,11 @@ Author: Aldair Pichon Aguila.
 			}  
 		]
 
-5. I uploaded the rest of tables through manually writing the schema in JSON format for the datasets `FitabaseData_20160312-20160411` and `FitabaseData_20160412-20160512`. 05/21/2025
+5. I uploaded the rest of tables through manually writing the schema in JSON format for the datasets `FitabaseData_20160312-20160411` and `FitabaseData_20160412-20160512`.
+    [Here](SchemaTables.md) you can find the code in JSON format to define the schemma of tables uploaded in BigQuery. Except for the tables `dailyCalories`,  `dailyIntensities`, and `dailySteps`. Their schema created automatically by BigQuery due to it didn't have problems to parse them.
+    05/21/2025
  
-6. When uploading the tables into the dataset `FitabaseData_20160412-20160512`, I decided to add `_secondPeriod` at the end of each table's name to distinguish these tables from the tables of the `FitabaseData_20160312-20160411` dataset . It will avoid any confusion in the future when merging the tables. This is important because after downloading the datasets from Kaggle I noticed that some table's name repeat across the two folders representing the same information but in different periods of time.
+7. When uploading the tables into the dataset `FitabaseData_20160412-20160512`, I decided to add `_secondPeriod` at the end of each table's name to distinguish these tables from the tables of the `FitabaseData_20160312-20160411` dataset . It will avoid any confusion in the future when merging the tables. This is important because after downloading the datasets from Kaggle I noticed that some table's name repeat across the two folders representing the same information but in different periods of time. 05/21/2025
    
     E.g.
     
@@ -281,21 +282,11 @@ Author: Aldair Pichon Aguila.
     	 `FitabaseData_20160312-20160411 -> heartrate_seconds.csv`
     	 `FitabaseData_20160412-20160512 -> heartrate_seconds_secondPeriod.csv`
 
-8.  Checking for NULL values in each dataset.
 
-`heartrate_seconds` table
+8.  Checking for NULL values in each table. In order to figure out how to address possible NULL values in the data, first I need to know if they exist at all and in what columns. I counted the null values for each column in each table of the project. [Here](checkingNulls.md) you can see the queries used and the results in each table.
+   05/26/2025
 
-    
-        SELECT *
-        FROM analysisbellabeat246.FitabaseData_20160312_20160411.heartrate_seconds
-        WHERE 
-          Id IS NULL OR
-          Time IS NULL OR
-          Value IS NULL;
-
-
-
-
+9. Checking for consistency between tables. 
 	
 10. I created a subquery in the `heartrate_seconds` table to convert the STRING values of the `"Time"` column to `TIMESTAMP` values using the `PARSE_TIMESTAMP()`function. 
 
