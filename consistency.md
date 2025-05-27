@@ -172,6 +172,91 @@
 
 ## Checking for consistency between hourly steps, hourly calories and hourly intensity tables.
 
-### Period of time
+### Consistency period of time
 
 
+**hourlySteps**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps`
+        
+        GROUP BY Id
+        ORDER BY Id
+        LIMIT 5
+
+**hourlyCalories**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`
+        
+        GROUP BY Id
+        ORDER BY Id
+        LIMIT 5
+
+
+**hourlyIntensities**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`
+        
+        GROUP BY Id
+        ORDER BY Id
+        LIMIT 5
+
+Results:
+
+| Steps |  |  | Calories |  |  | Intensities |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Id | latest_date | oldest_date | Id | latest_date | oldest_date | Id | latest_date | oldest_date |
+| 1503960366 | 2016-04-11 23:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1503960366 | 2016-04-11 23:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1503960366 | 2016-04-11 23:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC |
+| 1624580081 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1624580081 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1624580081 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC |
+| 1644430081 | 2016-04-10 03:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1644430081 | 2016-04-10 03:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1644430081 | 2016-04-10 03:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC |
+| 1844505072 | 2016-04-12 06:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1844505072 | 2016-04-12 06:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1844505072 | 2016-04-12 06:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC |
+| 1927972279 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1927972279 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC | 1927972279 | 2016-04-12 10:00:00.000000 UTC | 2016-03-12 00:00:00.000000 UTC |
+
+**We can notice that the three tables tracked the data during the same period of time by user**
+
+### Consistency number of users (Id)
+
+**hourlySteps**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps`
+
+**hourlyCalories**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`
+
+
+**hourlyIntensities**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`
+
+
+Results:
+
+| Table | total_users |
+| :---: | :---:|
+| hourlySteps | 34 |
+| hourlyCalories | 34 | 
+| hourlyIntensities | 34 |
