@@ -170,7 +170,7 @@
 **`dailyActivity` sum up a different number of steps because it was tracked in a different period of time by user**
 
 
-## Checking for consistency between hourly steps, hourly calories and hourly intensity tables.
+## Checking for consistency between steps, calories and intensity, hourly tables.
 
 ### Consistency period of time
 
@@ -264,6 +264,42 @@ Results:
 **The number of users is consistent across these tables, nevertheless, it returns a number of 34 participants, which is incorrect because the number of users who participated in the survey is 33**.
 
 
+## Checking for consistency between calories, intensity, METs, steps and sleep minute tables.
+
+### Consistent period of time
+
+## Users Id minuteSleep vs minuteCaloriesNarrow
+
+minuteSleep
+
+        SELECT 
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteSleep` 
+        
+        GROUP BY Id
+        ORDER BY Id DESC LIMIT 10
+        
+
+minuteCaloriesNarrow
+
+        SELECT 
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow` 
+        
+        GROUP BY Id
+        ORDER BY Id DESC LIMIT 10
+
+
+![image](https://github.com/user-attachments/assets/238720ce-6538-4a16-8a49-63243e7a524b)
+
+number of users 
+**After comparing the user Ids in both tables, we discovered tha `miunteSleep` was tracked in a diferent period of time compared to the rest of minute tables**
 
 ## Checking number of users from `FitabaseData_20160312_20160411` vs `FitabaseData_20160412_20160512` datasets
 
