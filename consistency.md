@@ -1,3 +1,135 @@
+
+## Checking for consistency between calories, intensity, METs, steps and sleep in minute tables.
+
+### FitabaseData_20160312_20160411 dataset
+
+#### Users Id 
+
+I converted the 'ActivityMinute' as a TIMESTAMP data type in order to accurately pull the oldest and latest time of the period of time when the health metrics of each user wre tracked.
+
+**minuteCaloriesNarrow**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow`
+        
+        GROUP BY Id
+        ORDER BY Id
+
+**minuteIntensitiesNarrow**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteIntensitiesNarrow`
+                
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteMETsNarrow**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteMETsNarrow`
+                
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteStepsNarrow**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteStepsNarrow`
+                
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteSleep**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS oldest_date
+                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteSleep`
+                
+        GROUP BY Id
+        ORDER BY Id
+
+![image](https://github.com/user-attachments/assets/28454fa0-b571-48fd-9653-cd0f938791bc)
+
+number of users 
+**After comparing the user Ids in both tables, we discovered tha `miunteSleep` was tracked in a diferent period of time compared to the rest of minute tables**
+
+## Checking number of users from `FitabaseData_20160312_20160411` vs `FitabaseData_20160412_20160512` datasets
+
+In order to compare the users (Id) for both datasets, we use `hourlySteps` and `hourlySteps_secondPeriod`, each one belongs to a different dataset. Both cointain the data but in different periods of time.
+
+### Total number of users
+
+**hourlySteps**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+              
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+
+**hourlySteps_secondPeriod**
+
+        SELECT
+          COUNT(DISTINCT Id) AS total_users
+              
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
+
+Results:
+
+| Table | total_users |
+| :---: | :---:|
+| hourlySteps | 34 |
+| hourlySteps_secondPeriod | 33 | 
+
+### Comparing users Ids in both datasets
+
+**hourlySteps**
+
+        SELECT
+              DISTINCT Id 
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+        
+        ORDER BY ID DESC 
+
+**hourlySteps_secondPeriod**
+
+        SELECT
+              DISTINCT Id 
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
+        
+        ORDER BY Id DESC
+
+Both results were merged in Google Sheets, to identify what Id was different across the datasets. 
+
+
+
+
+
+
+
 ## Steps
 
 ### Comparing the total number of steps tracked for each user. 
@@ -262,90 +394,3 @@ Results:
 | hourlyIntensities | 34 |
 
 **The number of users is consistent across these tables, nevertheless, it returns a number of 34 participants, which is incorrect because the number of users who participated in the survey is 33**.
-
-
-## Checking for consistency between calories, intensity, METs, steps and sleep minute tables.
-
-### Consistent period of time
-
-## Users Id minuteSleep vs minuteCaloriesNarrow
-
-minuteSleep
-
-        SELECT 
-          DISTINCT Id,
-          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS latest_date,
-          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS oldest_date
-        
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteSleep` 
-        
-        GROUP BY Id
-        ORDER BY Id DESC LIMIT 10
-        
-
-minuteCaloriesNarrow
-
-        SELECT 
-          DISTINCT Id,
-          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
-          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
-        
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow` 
-        
-        GROUP BY Id
-        ORDER BY Id DESC LIMIT 10
-
-
-![image](https://github.com/user-attachments/assets/238720ce-6538-4a16-8a49-63243e7a524b)
-
-number of users 
-**After comparing the user Ids in both tables, we discovered tha `miunteSleep` was tracked in a diferent period of time compared to the rest of minute tables**
-
-## Checking number of users from `FitabaseData_20160312_20160411` vs `FitabaseData_20160412_20160512` datasets
-
-In order to compare the users (Id) for both datasets, we use `hourlySteps` and `hourlySteps_secondPeriod`, each one belongs to a different dataset. Both cointain the data but in different periods of time.
-
-### Total number of users
-
-**hourlySteps**
-
-        SELECT
-          COUNT(DISTINCT Id) AS total_users
-              
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
-
-**hourlySteps_secondPeriod**
-
-        SELECT
-          COUNT(DISTINCT Id) AS total_users
-              
-        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
-
-Results:
-
-| Table | total_users |
-| :---: | :---:|
-| hourlySteps | 34 |
-| hourlySteps_secondPeriod | 33 | 
-
-### Comparing users Ids in both datasets
-
-**hourlySteps**
-
-        SELECT
-              DISTINCT Id 
-        
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
-        
-        ORDER BY ID DESC 
-
-**hourlySteps_secondPeriod**
-
-        SELECT
-              DISTINCT Id 
-        
-        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod` 
-        
-        ORDER BY Id DESC
-
-Both results were merged in Google Sheets, to identify what Id was different across the datasets. 
