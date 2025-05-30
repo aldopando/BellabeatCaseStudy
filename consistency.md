@@ -70,10 +70,44 @@ I converted the 'ActivityMinute' as a TIMESTAMP data type in order to accurately
         GROUP BY Id
         ORDER BY Id
 
-![image](https://github.com/user-attachments/assets/28454fa0-b571-48fd-9653-cd0f938791bc)
 
-number of users 
-**After comparing the user Ids in both tables, we discovered tha `miunteSleep` was tracked in a diferent period of time compared to the rest of minute tables**
+We merged the results of the five tables obtained from BigQuery SQL into Google Sheets, then we created a pivot table to dispaly if users Id are consistent across the tables.
+![image](https://github.com/user-attachments/assets/e3357b87-7761-448b-8d31-62fe53f9a02a)
+
+
+***We discovered that minuteSleep table lack of users Id, only containing 23 users, meanwhile the rest of the tables remain consistent between them, nevertheless they add up 34 users, when they should sum up 33 users based on the data collection***
+***Therefore, minuteSleep table is going to be used individually for the analysis****
+
+Then knowing that the rest of the tables (`minuteCaloriesNarrow`,`minuteIntensitiesNarrow`, `minuteMETsNarrow`, and `minuteStepsNarrow`) contain the same users id, we compared if these tables have the same periods of time when the health data of each user were tracked. 
+We created a pivot table and used the function `XLOOKUP()` to compare the beginning of period of time by each user id across the four tables.
+
+![image](https://github.com/user-attachments/assets/6f16ca9f-1682-4ad4-bafb-c664180ba9d2)
+
+
+***We discovered that 33 participants started to track their data at the same time, except for one user. We figured out that this different user is the same across the four tables***
+
+Afterwards, we created a pivot table grouping the users by the latest date when they finished tracking their data, due to users finished their interval in different times. Then we counted how many times the same user with same latest date repeated across the four tables 
+
+![image](https://github.com/user-attachments/assets/d46e4ddd-3f65-4134-a0cd-f41846d29eec)
+
+
+***The results were that the latest date each user finished their time frame were consistent across the four tables***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Checking number of users from `FitabaseData_20160312_20160411` vs `FitabaseData_20160412_20160512` datasets
 
