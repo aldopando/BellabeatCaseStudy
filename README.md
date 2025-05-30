@@ -286,9 +286,23 @@ Author: Aldair Pichon Aguila.
 8.  Checking for NULL values in each table. In order to figure out how to address possible NULL values in the data, first I need to know if they exist at all and in what columns. I counted the null values for each column in each table of the project. [Here](checkingNulls.md) you can see the queries used and the results in each table.
    05/26/2025
 
-9. Checking for consistency between tables. 
+9. Before knowing what tables I'm going to use for the analysis, I decided to to go over some certain tables and determinate if they represent accurate and comnplete information for analysis and make sense with other tables. 
+
+10. Checking for consistency between minute tables in each dataset.  Allegedlly, each minute table contains a specific metric (calories, steps, METs, intensities, and sleep) that was tracked simultaniously at the same time and for the same users (Id) along with the other metrics. Therefore, I decided to compare and see if the tables contain the same users Id and during the same periods of time. For this task, I used SQL along with Google sheets.
+
+
+
+
+
+
+
+
+
+    
+12. I ensured that minutes and hours tables were consistent between them in each dataset. They allegedlly were tracked during the same peiod of time and add up the same total for each id user.
+
 	
-10. I created a subquery in the `heartrate_seconds` table to convert the STRING values of the `"Time"` column to `TIMESTAMP` values using the `PARSE_TIMESTAMP()`function. 
+13. I created a subquery in the `heartrate_seconds` table to convert the STRING values of the `"Time"` column to `TIMESTAMP` values using the `PARSE_TIMESTAMP()`function. 
 
     `enter code here`
 
