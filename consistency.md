@@ -323,6 +323,140 @@ Period of time:
 
 ## Checking for consistency minutes VS. hourly tables.
 
+Now that we know minute tables are consistent between them as well as hourly tables, we can select a single metric to check for their consistency 
+
+### FitabaseData_20160312_20160411 dataset 
+
+***Period of Time***
+
+**hourlyCalories**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+        LIMIT 5
+
+
+**minuteCaloriesNarrow**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+        LIMIT 5
+
+
+![image](https://github.com/user-attachments/assets/c3d94f2b-646d-44c9-a055-4ece8eba1d06)
+
+
+![image](https://github.com/user-attachments/assets/89a2a169-60fa-47a2-b9c5-39396ae7ddf8)
+
+
+***Total  hourlyCalories vs Total minuteCaloriesNarrow***
+
+**hourlyCalories**
+
+        SELECT
+          DISTINCT Id,
+          SUM(Calories) AS total_hourlyCalories
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+**minuteCaloriesNarrow**
+
+        SELECT
+          DISTINCT Id,
+          ROUND(SUM(Calories), 0) AS total_minutesCalories
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+
+
+***Total  hourlyIntensities vs Total minuteIntensitiesNarrow***
+
+**hourlyIntensities**
+
+        SELECT
+          DISTINCT Id,
+          SUM(TotalIntensity) AS total_hourlyIntensities
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+**minuteIntensitiesNarrow**
+
+        SELECT
+          DISTINCT Id,
+          SUM(Intensity) AS total_minutesIntensities
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteIntensitiesNarrow`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+***Total  hourlySteps vs Total minuteStepsNarrow***
+
+**hourlySteps**
+
+        SELECT
+          DISTINCT Id,
+          SUM(StepTotal) AS total_hourlySteps
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteStepsNarrow**
+
+        SELECT
+          DISTINCT Id,
+          SUM(Steps) AS total_minuteSteps
+                                
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteStepsNarrow`     
+                                        
+        GROUP BY Id
+        ORDER BY Id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
