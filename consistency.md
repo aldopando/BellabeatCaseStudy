@@ -92,11 +92,111 @@ Afterwards, we created a pivot table grouping the users by the latest date when 
 
 
 ***The results were that the latest date each user finished their time frame were consistent across the four tables***
+**After comparing the users and their period of time in the minute tables, we can ensure that `minuteCaloriesNarrow`,`minuteIntensitiesNarrow`, `minuteMETsNarrow`, and `minuteStepsNarrow` are consistent between them. Therefore,we can merge them to create a single table to compare the correlation between the variables. 
+
+
+
+### FitabaseData_20160412_20160512 dataset
+
+Knowing that the minutes tables in the second dataset are basically the same as in the first but in a different period of time, I performed the same steps as above. 
+
+#### Users Id 
+
+**minuteCaloriesNarrow_secondPeriod**
+
+                SELECT
+                    DISTINCT Id,
+                    MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+                    MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+                FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteCaloriesNarrow_secondPeriod`         
+                        
+                GROUP BY Id
+                ORDER BY Id
+
+
+
+**minuteIntensitiesNarrow_secondPeriod**
+
+                SELECT
+                    DISTINCT Id,
+                    MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+                    MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+                FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteIntensitiesNarrow_secondPeriod`         
+                        
+                GROUP BY Id
+                ORDER BY Id
+
+
+**minuteMETsNarrow_secondPeriod**
+
+                SELECT
+                    DISTINCT Id,
+                    MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+                    MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+                FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteMETsNarrow_secondPeriod`         
+                        
+                GROUP BY Id
+                ORDER BY Id
+
+
+**minuteStepsNarrow_secondPeriod**
+
+                SELECT
+                    DISTINCT Id,
+                    MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
+                    MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
+                
+                FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteStepsNarrow_secondPeriod`         
+                        
+                GROUP BY Id
+                ORDER BY Id
+
+**minuteSleep_secondPeriod**
+           
+                SELECT
+                    DISTINCT Id,
+                    MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS latest_date,
+                    MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date)) AS oldest_date
+                
+                FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteSleep_secondPeriod`         
+                        
+                GROUP BY Id
+                ORDER BY Id
+
+
+We merged the results of the five tables obtained from BigQuery SQL into Google Sheets, then we created a pivot table to count how many times a unique user Id repeated across the five tables.
+
+![image](https://github.com/user-attachments/assets/301496c1-58ac-4f36-8522-3e7e1e2e4ce0)
+
+***We discovered that minuteSleep table lack of users Id, only containing 24 users, meanwhile the rest of the tables remain consistent between them, adding up 33 users each one which is correct, knowing that 33 users participate in the survey***
+***minuteSleep_secondPeriod table is going to be used individually for the analysis****
+
+Now we created a pivot tables to compare the consistency of the time period of time by each user across the tables that until now remain consistent. 
+
+In the first pivot table we count how many times users with a specific oldest date appear across the tables. 
+
+
+![image](https://github.com/user-attachments/assets/b9a229a0-b360-4dbc-9787-655a74cd9d51)
+
+***The results shown that all the users across the four tables started to track their data at the same date***
+
+
+In the second pivot table we filter the tables (calories, intensities, METs, and Steps). Then we grouped the users by the date when they finished to track their data, and we check if each combination (user-lastest date) repeated across the four tables by counting if this combination appear or not in each table.
+
+
+![image](https://github.com/user-attachments/assets/58c05481-0ca3-47c7-86ff-53a9b18f2ca5)
+
+**We counclude that the tables`minuteCaloriesNarrow_secondPeriod`,`minuteIntensitiesNarrow_secondPeriod`, `minuteMETsNarrow_secondPeriod`, and `minuteStepsNarrow_secondPeriod` are consistent between them containing the same users Id tracking their data during the same periods of time**
 
 
 
 
+## Checking for consistency in hour tables (calories, intensity, METs, and steps).
 
+### FitabaseData_20160312_20160411 dataset
 
 
 
