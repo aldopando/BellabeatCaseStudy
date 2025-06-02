@@ -194,11 +194,134 @@ In the second pivot table we filter the tables (calories, intensities, METs, and
 
 
 
-## Checking for consistency in hour tables (calories, intensity, METs, and steps).
+## Checking for consistency in hour tables (calories, intensity, and steps).
+
+In order to check for the consistency between these tables, we performed the same steps as in the minute tables.
 
 ### FitabaseData_20160312_20160411 dataset
 
 
+**hourlyCalories**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`      
+                                
+        GROUP BY Id
+        ORDER BY Id
+
+
+**hourlyIntensities**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`     
+                                
+        GROUP BY Id
+        ORDER BY Id
+
+
+**hourlySteps**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps`      
+                                
+        GROUP BY Id
+        ORDER BY Id
+
+
+Consistency in users:
+
+
+![image](https://github.com/user-attachments/assets/9fc3afd3-b4fa-4935-9b43-6a7866608970)
+
+
+Consistency in period of time:
+
+
+![image](https://github.com/user-attachments/assets/49376dc9-5839-4d3b-b240-6157eeea0a1d)
+
+
+![image](https://github.com/user-attachments/assets/8dcefebe-8b9e-4734-af7e-435bde8ea7af)
+
+
+**The tables `hourlyCalories`, `hourlyIntensities`, and `hourlySteps` contain the same users Id and each user tracked their data during the same peiod of time across the tables, therefore these tables are consistent between them**
+
+
+
+
+### FitabaseData_20160412_20160512 dataset
+
+
+**hourlyCalories_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyCalories_secondPeriod`      
+                                
+        GROUP BY Id
+        ORDER BY Id
+
+**hourlyIntensities_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod`      
+                                
+        GROUP BY Id
+        ORDER BY Id
+        
+
+**hourlySteps_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS latest_date,
+          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour)) AS oldest_date
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod`      
+                                
+        GROUP BY Id
+        ORDER BY Id
+
+
+
+Users: 
+
+![image](https://github.com/user-attachments/assets/b1cab425-25a3-4c60-82bb-219345872b53)
+
+
+Period of time: 
+
+![image](https://github.com/user-attachments/assets/7a1ed078-ff4b-4d3b-9eda-42c56c4a1356)
+
+
+
+![image](https://github.com/user-attachments/assets/a40a7e3e-98f0-4ed2-a94b-aba181444dfc)
+
+
+**The tables `hourlyCalories_secondPeriod`, `hourlyIntensities_secondPeriod`, and `hourlySteps_secondPeriod` contain the same users Id and each user tracked their data during the same peiod of time across the tables, therefore these tables are consistent between them**
+
+
+
+
+## Checking for consistency minutes VS. hourly tables.
 
 
 
