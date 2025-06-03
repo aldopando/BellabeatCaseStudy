@@ -557,6 +557,21 @@ Now that we know minute tables are consistent between them as well as hourly tab
 
 
 
+SELECT
+  DISTINCT Id,
+  SUM(Calories) AS total_dailyCalories
+
+FROM `analysisbellabeat246.FitabaseData_20160412_20160512.dailyCalories_secondPeriod` 
+
+GROUP BY Id
+ORDER BY Id
+
+
+
+
+
+
+
 
 
 
