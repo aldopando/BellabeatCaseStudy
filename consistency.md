@@ -461,8 +461,99 @@ Now that we know minute tables are consistent between them as well as hourly tab
 
 
 
+***Total hourlyCalories_secondPeriod vs Total minuteCaloriesNarrow_secondPeriod***
 
 
+**hourlyCalories_secondPeriod**
+
+        SELECT
+            DISTINCT Id,
+            SUM(Calories) AS total_hourlyCalories
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyCalories_secondPeriod` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteCaloriesNarrow_secondPeriod**
+
+
+        SELECT
+            DISTINCT Id,
+            ROUND(SUM(Calories), 0) AS total_minutesCalories
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteCaloriesNarrow_secondPeriod` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+![image](https://github.com/user-attachments/assets/d9d7bb35-20e1-4c2d-bf66-76736797d787)
+
+
+
+***Total hourlyIntensities_secondPeriod vs Total minuteIntensitiesNarrow_secondPeriod***
+
+
+**hourlyIntensities_secondPeriod**
+
+        SELECT
+            DISTINCT Id,
+            SUM(TotalIntensity) AS total_hourlyIntensities
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+**minuteIntensitiesNarrow_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          SUM(Intensity) AS total_minutesIntensities
+                                        
+          FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteIntensitiesNarrow_secondPeriod`     
+                                                
+        GROUP BY Id
+        ORDER BY Id
+        
+
+
+![image](https://github.com/user-attachments/assets/4a185fe6-d9fe-4d80-a28e-13c3444eca4f)
+
+
+
+
+
+***Total hourlySteps_secondPeriod vs Total minuteStepsNarrow_secondPeriod***
+
+**Total hourlySteps_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          SUM(StepTotal) AS total_hourlySteps
+                                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod`     
+                                                
+        GROUP BY Id
+        ORDER BY Id
+
+**minuteStepsNarrow_secondPeriod**
+
+
+        SELECT
+          DISTINCT Id,
+          SUM(Steps) AS total_minuteSteps
+                                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteStepsNarrow_secondPeriod`     
+                                                
+        GROUP BY Id
+        ORDER BY Id
+
+
+![image](https://github.com/user-attachments/assets/a7707ad6-4c03-4830-a05b-b54adca64920)
 
 
 
