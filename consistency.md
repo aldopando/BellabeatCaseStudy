@@ -323,7 +323,7 @@ Period of time:
 
 ## Checking for consistency minutes VS. hourly tables.
 
-Now that we know minute tables are consistent between them as well as hourly tables, we can select a single metric to check for their consistency 
+Now that we know minute tables are consistent between them as well as hourly tables, we can select one minute table and one hourly table to compare the period of time between them.
 
 ### FitabaseData_20160312_20160411 dataset 
 
@@ -342,23 +342,28 @@ Now that we know minute tables are consistent between them as well as hourly tab
         ORDER BY Id
         LIMIT 5
 
+In order to compare the time between hourlyCalories and minuteCalories, we need to truncate the data type TIMESTAMP in the column 'ActivityMinute' in the `minuteCaloriesNarrow` table to hours. In this way, we can agreggate the data by hoursrather than minutes and still conserving the TIMESTAMP format.
 
 **minuteCaloriesNarrow**
 
         SELECT
           DISTINCT Id,
-          MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS latest_date,
-          MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute)) AS oldest_date
-                                
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow`     
+          MAX(TIMESTAMP_TRUNC(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute), HOUR)) AS latest_date,
+          MIN(TIMESTAMP_TRUNC(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute), HOUR)) AS oldest_date
                                         
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteCaloriesNarrow`     
+                                                
         GROUP BY Id
         ORDER BY Id
-        LIMIT 5
 
+We saved the results in Google Sheets and created a pivot table to compare the oldest and latest date of every user between hourlyCalories and hourlyMinutes.
+
+**Oldest date**
 
 ![image](https://github.com/user-attachments/assets/c3d94f2b-646d-44c9-a055-4ece8eba1d06)
 
+
+**Latest Day**
 
 ![image](https://github.com/user-attachments/assets/89a2a169-60fa-47a2-b9c5-39396ae7ddf8)
 
