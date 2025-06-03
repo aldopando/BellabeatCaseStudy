@@ -388,6 +388,9 @@ Now that we know minute tables are consistent between them as well as hourly tab
         ORDER BY Id
 
 
+![image](https://github.com/user-attachments/assets/b340e2dc-c0fb-4371-b080-36c208281383)
+
+
 
 ***Total  hourlyIntensities vs Total minuteIntensitiesNarrow***
 
@@ -412,6 +415,13 @@ Now that we know minute tables are consistent between them as well as hourly tab
                                         
         GROUP BY Id
         ORDER BY Id
+
+
+
+![image](https://github.com/user-attachments/assets/1c1bd1c9-cb6f-4ae2-bbb7-4e2c87ef2a22)
+
+
+
 
 ***Total  hourlySteps vs Total minuteStepsNarrow***
 
@@ -439,6 +449,7 @@ Now that we know minute tables are consistent between them as well as hourly tab
         ORDER BY Id
 
 
+![image](https://github.com/user-attachments/assets/3d997cc7-82e1-4f4b-bec4-4f45525bf5d1)
 
 
 
