@@ -656,6 +656,13 @@ To confirm whether this inconsistency in the time period affects other variables
 
 
 
+
+
+
+
+
+---
+
 ## Checking user consistency across datasets before merging tables.
 
 In order to merge both periods into a whole, we will check if users Id are consistent between both datasets.
@@ -768,11 +775,45 @@ We already know that calories, intensities, METs, and steps are consistent betwe
 
 As in the previous cases, there are some users that lack information about hear rate in one of the two datasets. Both tables sum 15 unique users together. However, we wil need that user ID is present in both datasets, therefore we will exclude the participants that lack information in one of the two datasets, resulting in 12 out of 15 participants.
 
+---
 
 
+
+## Checking consistency in dailyActivity tables.
+
+Daily Activity is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. We have that the assumption that 
+
+**dailyActivity**
+
+
+        SELECT
+          DISTINCT Id,
+          MIN(ActivityDate) AS oldest_date,
+          MAX(ActivityDate) AS latest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.dailyActivity` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+**hourlySteps**
+
+        SELECT  
+          Id,
+          DATE(MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour))) AS oldest_date,
+          DATE(MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour))) AS latest_date
+          
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+---
 ## Results.
 
-After verifying the consistency between tables across the two datasets and ensuring they don't contain NULL values, the tables that are consistent between them or are the exception, wi will be used for our analysis.
+After verifying the consistency between tables across the two datasets and ensuring they don't contain NULL values, the tables that are consistent between them or are the exception will be used for our analysis.
 
 ### FitabaseData_20160312_20160411 dataset 
 
