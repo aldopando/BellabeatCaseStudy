@@ -543,7 +543,10 @@ In order to convert each value per hour into an integer, we used two functions i
 ![image](https://github.com/user-attachments/assets/3d997cc7-82e1-4f4b-bec4-4f45525bf5d1)
 
 
-***We can notice that the total steps in the whole month by user in both tables is the same, therefore, the tables are consistent between them***
+***We noticed that the total steps in the whole month by user in both tables is the same, therefore, the tables are consistent between them***
+
+
+**Even though we got inconsistent totals in the calories tables, now we know that was due to rounding the decimals in the minute table. In the other variables, we didn't find any inconsistency in the time period or the values, specially because these tables use integer values. Therefore, knowing that minute and hour tables are consistent between them inthe first dataset, we will use only the hourly tables for our analysis and to build our daily table**
 
 ---
 
