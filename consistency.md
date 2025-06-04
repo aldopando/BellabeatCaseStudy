@@ -578,6 +578,8 @@ To compare the time periods between the `hourlyCalories_secondPeriod` and `minut
 
 ![image](https://github.com/user-attachments/assets/ef872f20-f363-4c6f-ae42-6daaae3a5ef8)
 
+***We noticed that the latest date on which the users `2022484408`, `4445114986`, `8378563200`, and `8877689391` finished tracking their data is inconsistent between the `hourlyCalories_secondPeriod` and `minuteCaloriesNarrow_secondPeriod ` tables. We observe that each has a different date when they finished their period between both tables. This is unusual, as the hourlyCalories table is supposedly built based on the minuteCalories data.
+To confirm whether this inconsistency in the time period affects other variables, we will compare the total steps and intensity levels in the minute and hourly tables by summing the values each user tracked throughout the entire month***.
 
 
 ***Total hourlyIntensities_secondPeriod vs Total minuteIntensitiesNarrow_secondPeriod***
@@ -612,9 +614,6 @@ To compare the time periods between the `hourlyCalories_secondPeriod` and `minut
 
 
 
-![image](https://github.com/user-attachments/assets/a9ce9df5-cf50-4b13-889c-b19d65307445)
-
-
 
 ***Total hourlySteps_secondPeriod vs Total minuteStepsNarrow_secondPeriod***
 
@@ -646,15 +645,10 @@ To compare the time periods between the `hourlyCalories_secondPeriod` and `minut
 
 
 
-SELECT
-  DISTINCT Id,
-  SUM(Calories) AS total_dailyCalories
+***After comparing the total steps and intensity levels between the minute and hourly tables, we found that the totals differ for the same users who had inconsistent latest dates across the two tables***.
 
-FROM `analysisbellabeat246.FitabaseData_20160412_20160512.dailyCalories_secondPeriod` 
 
-GROUP BY Id
-ORDER BY Id
-
+**To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves, as well as the daily tables to ensure we are using the same time period and with the same values**.
 
 
 
