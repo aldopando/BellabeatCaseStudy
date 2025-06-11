@@ -295,18 +295,9 @@ Author: Aldair Pichon Aguila.
     05/27/2025
 
 12. Afterward, I compared the minute and hourly tables to verify whether they represent the same data, aggregated using different time measures. You can find the method and results for this comparison [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-minutes-vs-hourly-tables).We found that the minute and hourly tables within the `FitabaseData_20160312_20160411` dataset are consistent, meaning they represent the same data. Although we observed differences in the total values between the `minuteCalories` and `hourlyCalories` tables for each user, this inconsistency is due to the data types: `minuteCalories` contains float values (with decimals), while `hourlyCalories` contains integer values. This is because the `minuteCalories` table was created by dividing the calories per hour values by 60, to represent the number of calories burned per minute, which results in decimal values.
-In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies between the hourly and minute tables because some users stopped tracking their data at different times in each table. This led to inconsistent total values between the minute and hourly tables.This is unusual, as the hourlyCalories table is supposedly built based on the minuteCalories data. To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves
-
+In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies between the hourly and minute tables because some users stopped tracking their data at different times in each table. This led to inconsistent total values between the minute and hourly tables.This is unusual, as the hourlyCalories table is supposedly built based on the minuteCalories data. To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves.
     05/28/2025
 
-
-
-
-
-
-
-    
-16. I ensured that minutes and hours tables were consistent between them in each dataset. They allegedlly were tracked during the same peiod of time and add up the same total for each id user.
 
 	
 17. I created a subquery in the `heartrate_seconds` table to convert the STRING values of the `"Time"` column to `TIMESTAMP` values using the `PARSE_TIMESTAMP()`function. 
