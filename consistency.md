@@ -781,8 +781,12 @@ As in the previous cases, there are some users that lack information about hear 
 
 ## Checking consistency in dailyActivity tables.
 
-Daily Activity is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. We have that the assumption that the minute and hourly tables are subsets from the daily activity table, so to confirm that, we will check firs off, if the daily activity tracked the data during the same time period as one of these tables. In this case we will use one of the minute tables to do the comparison since we already know that all minute tables are consistent between them.
+Daily Activity is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. We have that the assumption that the minute and hourly tables are subsets from the daily activity table, so to confirm that, we will check firs off, if the daily activity tracked the data during the same time period as one of these tables.
 
+### FitabaseData_20160312_20160411 dataset
+
+For this case we will use one of the hourly tables to do the comparison since we already know that all hourly tables are consistent with minute tables.
+ 
 **dailyActivity**
 
 
@@ -810,7 +814,57 @@ Daily Activity is a table in each dataset that contains daily totals for steps, 
         GROUP BY Id
         ORDER BY Id
 
-**After doing the comparison using SQL and Google Sheets, we can observed that the dates in the dailyActivity table don't match with the hourlySteps table in some users, it means that dailyActivity was tracked in a different period of time. Therefore, minute and hour tables are not subsets from dailyActivity table. Hence there is not consistency with the other tables, we decided to not use dailyActivity table for analysis.**
+
+
+![image](https://github.com/user-attachments/assets/93066465-395e-473f-9913-83b70fef9905)
+
+
+![image](https://github.com/user-attachments/assets/fac47b75-1063-454b-94bd-e055a0e7b06d)
+
+
+**After doing the comparison using SQL and Google Sheets, we can observed that the dates in the dailyActivity table don't match with the hourlySteps table in some users, it means that dailyActivity was tracked in a different period of time. We even identified that user `4388161847` exist in the dailyActivity table but not in the hourly tables. Therefore, minute and hour tables are not subsets from dailyActivity table. Hence, there is not consistency with the other tables, we decided to not use `dailyActivity` table for analysis.**
+
+---
+
+### FitabaseData_20160312_20160411 dataset
+
+In this case we will use one of the minute tables to do the comparison since we already know that all minute tables are consistent each other.
+
+
+**dailyActivity_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          MIN(ActivityDate) AS oldest_date,
+          MAX(ActivityDate) AS latest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.dailyActivity_secondPeriod` 
+        
+        GROUP BY Id 
+        ORDER BY Id
+        
+
+**minuteStepsNarrow_secondPeriod**
+
+        SELECT
+          DISTINCT Id,
+          DATE(MIN(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute))) AS oldest_date,
+          DATE(MAX(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute))) AS latest_date
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteStepsNarrow_secondPeriod` 
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+![image](https://github.com/user-attachments/assets/247fb3fd-e42c-4910-ac5f-a2aea9c01621)
+
+![image](https://github.com/user-attachments/assets/b2ffecae-3e56-4aa6-9405-085d0254d9de)
+
+**After comapring the **
+
+---
+
 ---
 ## Results.
 
