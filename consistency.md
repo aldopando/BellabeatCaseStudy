@@ -781,7 +781,7 @@ As in the previous cases, there are some users that lack information about hear 
 
 ## Checking consistency in dailyActivity tables.
 
-Daily Activity is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. We have that the assumption that 
+Daily Activity is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. We have that the assumption that the minute and hourly tables are subsets from the daily activity table, so to confirm that, we will check firs off, if the daily activity tracked the data during the same time period as one of these tables. In this case we will use one of the minute tables to do the comparison since we already know that all minute tables are consistent between them.
 
 **dailyActivity**
 
@@ -810,6 +810,7 @@ Daily Activity is a table in each dataset that contains daily totals for steps, 
         GROUP BY Id
         ORDER BY Id
 
+**After doing the comparison using SQL and Google Sheets, we can observed that the dates in the dailyActivity table don't match with the hourlySteps table in some users, it means that dailyActivity was tracked in a different period of time. Therefore, minute and hour tables are not subsets from dailyActivity table. Hence there is not consistency with the other tables, we decided to not use dailyActivity table for analysis.**
 ---
 ## Results.
 
