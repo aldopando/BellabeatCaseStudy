@@ -26,7 +26,7 @@ In order to merge both periods into a whole, we will check if users Id are consi
 
 
 
-***Whereas there are some users that are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information. However, for this analysis we will need the whole picture of the weight because we will merge the rest of tables such as calories, steps, etc. and see how weight changed compared with them***
+***Whereas there are some users are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information. However, for this analysis we will need the whole picture of the weight because we will merge the rest of tables such as calories, steps, etc. and see how weight changed compared with them***
 **Hence, we will use INNER JOIN statement in SQL to include only the users who have complete weight data, resulting in only 6 out of 13 particpants**
 
 ---
