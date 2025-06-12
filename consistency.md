@@ -826,7 +826,7 @@ For this case we will use one of the hourly tables to do the comparison since we
 
 ---
 
-### FitabaseData_20160312_20160411 dataset
+### FitabaseData_20160412_20160512 dataset
 
 In this case we will use one of the minute tables to do the comparison since we already know that all minute tables are consistent each other.
 
@@ -861,11 +861,50 @@ In this case we will use one of the minute tables to do the comparison since we 
 
 ![image](https://github.com/user-attachments/assets/b2ffecae-3e56-4aa6-9405-085d0254d9de)
 
-**After comapring the **
+
+After comparing the dates on which each user tracked their data, we found that although all users started tracking their data on the same date in both tables, some users had different end dates between the two tables. However, this difference is only about one day. We believe this may not reflect an actual full-day difference but rather that, these users stopped tracking at "23:59:00", right at the boundary between one day and the next.
+To verify this hypothesis, we added the full time value (TIMESTAMP) next to the date.
+
+
+![image](https://github.com/user-attachments/assets/08494cb8-e86f-47ae-abe2-d04c76b7557c)
+
+
+Although this hypothesis matched our expectations in some users, where the end date for certain users was indeed "23:59:00", there were other users whose end times did not align with this pattern. Therefore, we decided to check whether the total steps per user over the entire month were consistent across both tables.
+
+
+**minuteStepsNarrow_secondPeriod**
+
+        SELECT 
+          Id, 
+          SUM(Steps) AS total_steps_month
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteStepsNarrow_secondPeriod`
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+**dailyActivity_secondPeriod**
+
+        SELECT 
+          Id,
+          SUM(TotalSteps) AS total_steps_month
+          
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.dailyActivity_secondPeriod`
+        
+        GROUP BY Id
+        ORDER BY Id
+
+
+
+![image](https://github.com/user-attachments/assets/005dc022-7c2f-4609-8a6f-28f46f990ce6)
+
+
+**We discovered a considerable difference in the total steps for the entire month between the tables, even though the users have similar time periods. Therefore, we cannot confirm that these tables are consistent. As a result, we decided not to use the `dailyActivity_secondPeriod` table for our analysis, instead we are going to build the daily table based on the minute tables**.
+
 
 ---
 
----
 ## Results.
 
 After verifying the consistency between tables across the two datasets and ensuring they don't contain NULL values, the tables that are consistent between them or are the exception will be used for our analysis.
