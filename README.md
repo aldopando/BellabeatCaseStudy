@@ -285,7 +285,7 @@ In order to figure out the name, data type and description of each column I refe
 7.  Checking for NULL values in each table. In order to figure out how to address possible NULL values in the data, first I need to know if they exist at all and in what columns. I counted the null values for each column in each table of the project. [Here](checkingNulls.md) you can see the queries used and the results in each table. We discovered that only the table "weightLogInfo" in both datasets contain NULL values in the "Fat" column, which is the field for recording the body fat percentage. In the first dataset, 31 out of 33 rows contain NULL values and in the second one, 65 out of 67 rows. Even though some participants data was measured and synched automatically using a scale connected to the Fitbit account, it seems that the version of scale that they used wasn't able to measure and display any information about body fat percentage. The two participants whose body fat percentage was inputted, it was recorded manually. Unfortunely, almost all records in this column contain NULL values, so I decided to remove this column for analysis. Body fat percentage could have been very useful to provide valuable insights about overall health and help make informed decisions about fitness and nutrition goals. Nevertheless, we still have information about BMI metrics and weight for analysis.
    05/26/2025
 
-8. Before knowing what tables I'm going to use for the analysis, I decided to to go over some certain tables and determinate if they represent accurate and comnplete information for analysis and make sense with other tables. 
+8. Before deciding which tables to use for the analysis, I went over several of them to determine whether they provide accurate and complete information and are consistent with other tables. 
 
 9. Checking for consistency between minute tables in each dataset.  Allegedlly, each minute table contains a specific metric (calories, steps, METs, intensities, and sleep) that was tracked simultaniously at the same time and for the same users (Id) along with the other metrics. Therefore, I decided to compare and see if the tables contain the same users Id and during the same periods of time. For this task, I used SQL along with pivot tables in Google sheets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-between-calories-intensity-mets-steps-and-sleep-in-minute-tables) you will see the steps and results about the consistency between minute tables. The results shown that `minuteCalories`,`minuteIntensities`, `minuteMETs`, and `minuteSteps` are consistent between them in both datasets. The information of these tables was recorded simultaneously during the same period of time and with the same users. The `minuteSleep` table is not consistent with the rest of the minute tables, because the data of this table was logged only for some users out of the 33 participants. Hence, `minuteSleep` table is going to be analyze individually.
   05/27/2025    
@@ -301,5 +301,32 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 **The `dailyActivity` table is not consistent with the rest of minute and hour tables. Therefore, I decided not to use it for our analysis, instead I will build a daily table using the minutes and hourly data**
   05/29/2025
 
+13. After ensuring the data I'm going to use for analysis is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
+
+ ### FitabaseData_20160312_20160411 dataset 
+
+| Table  |
+| --- |
+| hearrate_seconds |
+| hourlyCalories |
+| hourlyIntensities |
+| hourlySteps |
+| minuteMETsNarrow |
+| minuteSleep |
+| weightLogInfo |
+
+
+
+### FitabaseData_20160412_20160512 dataset
+
+| Table |
+| --- |
+| heartrate_seconds_secondPeriod |
+| minuteCaloriesNarrow_secondPeriod
+| minuteIntensitiesNarrow_secondPeriod |
+| minuteMETsNarrow_secondPeriod |
+| minuteStepsNarrow_secondPeriod |
+| minuteSleep_secondPeriod |
+| weightLogInfo_secondPeriod |
 
 
