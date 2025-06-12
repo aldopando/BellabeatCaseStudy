@@ -298,7 +298,10 @@ Author: Aldair Pichon Aguila.
 In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies between the hourly and minute tables because some users stopped tracking their data at different times in each table. This led to inconsistent total values between the minute and hourly tables.This is unusual, as the hourlyCalories table is supposedly built based on the minuteCalories data. **To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves**.
     05/28/2025
 
-13. `dailyActivity` is a table in each dataset that contains daily totals for steps, intensity, distance, and calories. I have that the assumption that the minute and hourly tables are subsets from the daily activity table, If this table table represent the same data as minute and hour tables, I might use it for analysis in order to draw insights about daily activity and heatlh of users, rather than gropuing the data into days using the minute and hour tables.
+13.The `dailyActivity` table in each dataset contains daily totals for steps, intensity, distance, and calories. I assume that the minute and hourly tables are subsets of the `dailyActivity table`. If this table represents the same data as the minute and hourly tables, I might use it for analysis to draw insights about users’ daily activity and health, instead of grouping the data into days manually using the minute and hourly tables. After checkig wheter the `dailyActivity` table is consistent with minute and hour tables, we discovered it is not. Although the `dailyActivity` table covers a time period very similar to the minute and hourly tables, the differences are significant enough to confirm that they are not fully consistent. You can check the process and results [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-consistency-in-dailyactivity-tables).
+**The `dailyActivity` table is not consistent with the rest of minute and hour tables. Therefore, I decided not to use it for our analysis, instead I will build a daily table using the minutes and hourly data**
+
+14. 
 
 
 
