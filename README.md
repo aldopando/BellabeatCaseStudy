@@ -330,3 +330,7 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 | weightLogInfo_secondPeriod |
 
 
+14. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process.
+    
+    - weightLogInfo: in this table, only 6 out of 13 particpants are present in both datasets
+    - 
