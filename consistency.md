@@ -916,7 +916,7 @@ As in the previous cases, there are some users that lack information about hear 
 
 ## Results.
 
-After verifying the consistency between tables across the two datasets and ensuring they don't contain NULL values, the tables that are consistent between them or are the exception will be used for our analysis.
+After verifying the consistency between tables across the two datasets and ensuring they don't contain NULL values, the tables that are consistent or are the exception will be used for our analysis are:
 
 ### FitabaseData_20160312_20160411 dataset 
 
