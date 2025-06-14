@@ -26,9 +26,9 @@ In order to merge both periods into a whole, we will check if users Id are consi
 
 
 
-Whereas there are some users that are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information. 
+Whereas there are some users that are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are more than half users that lack information in one of the two datasets, resulting into incomplete information. 
 
-We will check if there is notable change in the average weight between the two months. 
+We will check if there is notable change in the average weight for users who tracked their weight data during the two-month period. 
 
 **weightLogInfo (average weight)**
 
@@ -58,7 +58,7 @@ We will check if there is notable change in the average weight between the two m
 ![image](https://github.com/user-attachments/assets/3d826a99-4f3f-4c17-b79d-6127b3f760ac)
 
 
-***We observed that users' weight did not show significant changes throughout the two-month period. Additionally, the data is incomplete. Participants did not track their weight every day and only recorded it sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.***
+***We observed that users' weight did not show significant changes throughout the two-month period. Additionally, the data is incomplete. Participants did not track their weight every day and only recorded it occasionally. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.***
 
 **Hence, we will use OUTER JOIN statement in SQL to include all the users' weight data**
 
@@ -87,13 +87,13 @@ We will check if there is notable change in the average weight between the two m
 
 
 
-***We observed that there are three participants who are present in either one of the two dataset but not in both. While these datasets sum 25 unique participants together, we need every user ID to be present in both datasets. Therefore, when merging the tables, we will exclude these three users by using the INNER JOIN statement in SQL, resulting in a final dataset with 22 participants.***
+***We observe that there are three participants who appear in only one of the two dataset, but not in both. Although the combined datasets contain 25 unique participants,, we need each user ID to be present in both datasets. Therefore, when merging the tables, we will exclude these three users by using the INNER JOIN statement in SQL, resulting in a final dataset with 22 participants.***
 
 ---
 
 **calories, intensities, METs and Steps**
 
-We already know that calories, intensities, METs, and steps are consistent between them in minute tables in both datasets. For that reason, we can select one table representing the set of these variables for each dataset. 
+Since we already know that calories, intensities, METs, and steps are consistent across the minute tables in both datasets, we can select one table from each dataset to represent these variables. 
 
         SELECT 
           DISTINCT Id 
@@ -115,7 +115,7 @@ We already know that calories, intensities, METs, and steps are consistent betwe
 
 ![image](https://github.com/user-attachments/assets/11b3cc39-cf1a-4987-8f13-e2713f3773c2)
 
-***We observed that there are three participants who are present in either one of the two dataset but not in both. While these datasets sum 35 unique participants together, we need every user ID to be present in both datasets. Therefore, when merging the tables, we will exclude these three users by using the INNER JOIN statement in SQL, resulting in a final dataset with 32 participants.***
+***We observed that there are three participants who are not present in one of the datasets. However, we need each user ID to be present in both datasets. Therefore, when merging the tables, we will exclude these three users by using the INNER JOIN statement in SQL, resulting in a final dataset with 32 participants.***
 
 
 ---
