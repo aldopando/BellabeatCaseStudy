@@ -330,7 +330,19 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 | weightLogInfo_secondPeriod |
 
 
-14. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process.
+14. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process. 05/30/2025
     
-    - weightLogInfo: in this table, only 6 out of 13 particpants are present in both datasets
-    - 
+    - weightLogInfo: more than half of the participants are missing weight data in one of the datasets, resulting in incomplete information. Additionally, I didn't observe any significant changes in users' weight during the two-month period. For the users who tracked their weight data, the data was recorded sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.  
+    - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
+    - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
+   
+15. We merged the next tables of the two datasets.
+    
+    | Table ||
+    | --- | --- |
+    | weightLogInfo | weightLogInfo_secondPeriod |
+    | minuteSleep | minuteSleep_secondPeriod |
+    | hourlyCalories | minuteCaloriesNarrow_secondPeriod |
+    | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod |
+    | hourlySteps | minuteMETsNarrow_secondPeriod |
+    | minuteMETsNarrow | minuteStepsNarrow_secondPeriod |
