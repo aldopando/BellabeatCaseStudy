@@ -338,9 +338,9 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
    
 15. We merged the next tables of the two datasets.
     
-    | Table ||
-    | --- | --- |
-    | weightLogInfo | weightLogInfo_secondPeriod |
+    | Table || Result |
+    | --- | --- | --- |
+    | weightLogInfo | weightLogInfo_secondPeriod | weight_data |
     | minuteSleep | minuteSleep_secondPeriod |
     | hourlyCalories | minuteCaloriesNarrow_secondPeriod |
     | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod |
