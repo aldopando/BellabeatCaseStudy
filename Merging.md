@@ -145,3 +145,36 @@ As in the previous cases, there are some users that lack information about hear 
 
 
 ---
+
+# Merging tables.
+
+## Creation of a new dataset to save the merged tables.
+
+We created a new dataset called `data_merged` in our project `analysisbellabeat246` to save the new tables merged.
+
+
+## weightLogInfo and weightLogInfo_secondPeriod.
+
+To merge the rows of the two tables from the datasets, we will perform a UNION ALL operation in our query and save the result as a new table called `weight_data` within our recently created dataset `data_merged`. However, in this new table, we will exclude the `Fat` column (as most of its values are NULL), as well as the `IsManualReport` and `LogId columns`, since they are not relevant to our analysis.
+
+Query.
+
+        SELECT 
+          Id,
+          DATE(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', Date)) AS Date,
+          WeightKg,
+          WeightPounds,
+          BMI
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.weightLogInfo` 
+        
+        UNION ALL
+        
+        SELECT 
+          Id,
+          DATE(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', Date)) AS Date,
+          WeightKg,
+          WeightPounds,
+          BMI
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.weightLogInfo_secondPeriod` 
