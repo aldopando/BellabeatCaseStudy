@@ -27,14 +27,40 @@ In order to merge both periods into a whole, we will check if users Id are consi
 
 
 Whereas there are some users that are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information. 
-Now
+
+We will check if there is notable change in the average weight between the two months. 
+
+**weightLogInfo (average weight)**
+
+        SELECT  
+          Id,
+          ROUND(AVG(WeightKg),0) AS average_weight
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.weightLogInfo` 
+        
+        GROUP BY Id
+        ORDER BY Id
+        
+----
+
+**weightLogInfo_secondPeriod (average weight)**
+
+        SELECT  
+          Id,
+          ROUND(AVG(WeightKg),0) AS average_weight
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.weightLogInfo_secondPeriod`  
+        
+        GROUP BY Id
+        ORDER BY Id
 
 
 ![image](https://github.com/user-attachments/assets/3d826a99-4f3f-4c17-b79d-6127b3f760ac)
 
 
+***We observed that users' weight did not show significant changes throughout the two-month period. Additionally, the data is incomplete. Participants did not track their weight every day and only recorded it sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.***
 
-**Hence, we will use OUTER JOIN statement in SQL to include all the users to  weight data, resulting in only 6 out of 13 particpants**
+**Hence, we will use OUTER JOIN statement in SQL to include all the users' weight data**
 
 ---
 
