@@ -26,7 +26,8 @@ In order to merge both periods into a whole, we will check if users Id are consi
 
 
 
-Whereas there are some users are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information
+Whereas there are some users that are present in both datasets (which it comes handy to see the whole picture of their weight evolution), there are other users that lack information in one of the two datasets, resulting into incomplete information. 
+Now
 
 
 ![image](https://github.com/user-attachments/assets/3d826a99-4f3f-4c17-b79d-6127b3f760ac)
