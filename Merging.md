@@ -182,3 +182,32 @@ Query.
 
 ## minuteSleep and minuteSleep_secondPeriod tables.
 
+To merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query and save the result as a new table called `minuteSleep_merged` within our  `data_merged` dataset.  Additionally, we will convert the `date` column from a string to a TIMESTAMP data type.
+
+Query.
+
+        SELECT  
+          Id,
+          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date) AS activityMinute,
+          value,
+          logId
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteSleep` 
+        
+        UNION ALL
+        
+        SELECT  
+          Id,
+          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', date) AS activityMinute,
+          value,
+          logId
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteSleep_secondPeriod`
+
+Rows.
+
+
+| minuteSleep | minuteSleep_secondPeriod | minuteSleep_merged |
+| --- |  --- |  --- |
+| 198,559 | 188,521 | 387,080 |
+
