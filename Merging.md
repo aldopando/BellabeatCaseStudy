@@ -153,9 +153,9 @@ As in the previous cases, there are some users that lack information about hear 
 We created a new dataset called `data_merged` in our project `analysisbellabeat246` to save the new tables merged.
 
 
-## weightLogInfo and weightLogInfo_secondPeriod.
+## weightLogInfo and weightLogInfo_secondPeriod tables.
 
-To merge the rows of the two tables from the datasets, we will perform a UNION ALL operation in our query and save the result as a new table called `weight_data` within our recently created dataset `data_merged`. However, in this new table, we will exclude the `Fat` column (as most of its values are NULL), as well as the `IsManualReport` and `LogId columns`, since they are not relevant to our analysis.
+To merge the rows of the two tables from the datasets, we will perform a UNION ALL operation in our query and save the result as a new table called `weight_data` within our recently created dataset `data_merged`. However, in this new table, we will exclude the `Fat` column (as most of its values are NULL), as well as the `IsManualReport` and `LogId columns`, since they are not relevant to our analysis. Additionally, we will convert the `Date` column from a string to a TIMESTAMP data type. Afterward, we will extract only the date portion from the TIMESTAMP values, as we only need the day the user tracked their weight as a reference point throughout the entire period. The time component is irrelevant for this analysis.
 
 Query.
 
@@ -178,3 +178,7 @@ Query.
           BMI
         
         FROM `analysisbellabeat246.FitabaseData_20160412_20160512.weightLogInfo_secondPeriod` 
+
+
+## minuteSleep and minuteSleep_secondPeriod tables.
+
