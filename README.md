@@ -336,13 +336,13 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
     - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
     - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
    
-15. We merged the next tables of the two datasets.
+15. I merged the next tables from the two datasets to get the new merged tables.
     
     | Table || Result |
     | --- | --- | --- |
     | weightLogInfo | weightLogInfo_secondPeriod | weight_data |
-    | minuteSleep | minuteSleep_secondPeriod |
-    | hourlyCalories | minuteCaloriesNarrow_secondPeriod |
-    | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod |
-    | hourlySteps | minuteMETsNarrow_secondPeriod |
-    | minuteMETsNarrow | minuteStepsNarrow_secondPeriod |
+    | minuteSleep | minuteSleep_secondPeriod | minuteSleep_merged |
+    | hourlyCalories | minuteCaloriesNarrow_secondPeriod | hourlyCalories_merged |
+    | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod | hourlyIntensities_merged |
+    | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
+    | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
