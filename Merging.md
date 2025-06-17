@@ -226,13 +226,14 @@ We can noticed how summing rows of both tables it should have given us a higher 
 
 ---
 
+**Verifying that we only include the users Id that were present in both tables**
+
         SELECT  
         
           COUNT(DISTINCT(Id)) AS total_users
         
         FROM `analysisbellabeat246.data_merged.minuteSleep_merged` 
 
-**Verifying that we only include the users Id that were present in both tables**
 
 | total_users |
 | --- |
@@ -256,7 +257,7 @@ Query.
         
         GROUP BY Id, ActivityHour
 
-Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyCalories_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type.
+Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyCalories_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type. We will also have to filter only the users who are present in both tables and exclude who do not.
 
 Query.
 
@@ -264,18 +265,22 @@ Query.
           Id,
           PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour) AS activityHour,
           Calories
-        
-        
+              
+                
         FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories` 
         
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyCalories_secondPeriod_cleaned`)
+                
         UNION ALL
-        
+                
         SELECT 
           Id,
           ActivityHour AS activityHour,
           Calories
-        
+                
         FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyCalories_secondPeriod_cleaned` 
+        
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyCalories`)
 
 
 Rows.
@@ -283,9 +288,25 @@ Rows.
 
 | hourlyCalories | hourlyCalories_secondPeriod_cleaned | hourlyCalories_merged |
 | --- |  --- |  --- |
-| 24,084 | 22,093 | 46,177 |
+| 24,084 | 22,093 |  44,755 |
 
-The sum of the rows from both tables is consistent with the total number of rows in the merged table.
+
+
+**Verifying that we only include the users Id that were present in both tables**
+
+        SELECT  
+        
+          COUNT(DISTINCT(Id)) AS total_users
+        
+        FROM `analysisbellabeat246.data_merged.hourlyCalories_merged`  
+
+
+| total_users |
+| --- |
+| 32 |
+
+
+---
 
 
 **hourlyIntensities and minuteIntensitiesNarrow_secondPeriod**
@@ -306,7 +327,7 @@ Query.
         GROUP BY Id, ActivityHour
 
 
-Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyIntensities_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type.
+Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyIntensities_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type. We will also have to filter only the users who are present in both tables and exclude who do not.
 
 Query.
 
@@ -315,18 +336,22 @@ Query.
           PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour) AS activityHour,
           TotalIntensity,
           AverageIntensity
-        
+                
         FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`
         
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_cleaned`)
+                
         UNION ALL
-        
+                
         SELECT 
           Id,
           ActivityHour AS activityHour,
           TotalIntensity,
           AverageIntensity
-        
+                
         FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_cleaned`
+        
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`)
 
 
 Rows.
@@ -334,7 +359,24 @@ Rows.
 
 | hourlyIntensities | hourlyIntensities_secondPeriod_cleaned | hourlyIntensities_merged |
 | --- |  --- |  --- |
-| 24,084 | 22,093 | 46,177 |
+| 24,084 | 22,093 | 44,755 |
+
+
+**Verifying that we only include the users Id that were present in both tables**
+
+        SELECT
+        
+          COUNT(DISTINCT(Id)) AS total_users
+        
+        FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged`   
+
+
+| total_users |
+| --- |
+| 32 |
+
+
+---
 
 
 **hourlySteps and minuteStepsNarrow_secondPeriod**
@@ -356,7 +398,7 @@ Query.
 
 
 
-Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not. We will save the result as a new table called `hourlySteps_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type.
+Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not. We will save the result as a new table called `hourlySteps_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type.  We will also have to filter only the users who are present in both tables and exclude who do not.
 
 
 Query.
@@ -366,19 +408,23 @@ Query.
           Id,
           PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour) AS activityHour,
           StepTotal
-        
-        
+                
+                
         FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
         
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod_cleaned`)
+                
         UNION ALL 
-        
+                
         SELECT 
-        
+                
           Id,
           ActivityHour AS activityHour,
           StepTotal
+                
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod_cleaned`
         
-          FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod_cleaned`
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps`)
 
 
 
@@ -387,4 +433,47 @@ Rows.
 
 | hourlySteps | hourlySteps_secondPeriod_cleaned | hourlySteps_merged |
 | --- |  --- |  --- |
-| 24,084 | 22,093 | 46,177 |
+| 24,084 | 22,093 | 44,755 |
+
+
+**Verifying that we only include the users Id that were present in both tables**
+
+        SELECT 
+        
+          COUNT(DISTINCT(Id)) AS total_users
+        
+        FROM `analysisbellabeat246.data_merged.hourlySteps_merged`  
+
+
+| total_users |
+| --- |
+| 32 |
+
+**minuteMETsNarrow and minuteMETsNarrow_secondPeriod**
+
+To merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `minuteMETs_merged` within our `data_merged` dataset.  Additionally, we will convert the `` column from a string to a TIMESTAMP data type.
+
+
+Query.
+
+        SELECT 
+          Id,
+          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute) AS activityMinute,
+          METs
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteMETsNarrow` 
+        
+        
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteMETsNarrow_secondPeriod`)
+        
+        UNION ALL 
+        
+        SELECT
+        
+          Id,
+          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute) AS activityMinute,
+          METs
+        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteMETsNarrow_secondPeriod` 
+        
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteMETsNarrow`)
