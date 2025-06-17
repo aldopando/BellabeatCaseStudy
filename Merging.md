@@ -222,7 +222,7 @@ Rows.
 | --- |  --- |  --- |
 | 198,559 | 188,521 | 377,133 |
 
-We can noticed how summing rows of both tables it should have given us a higher result. However we exclude the users' records who are not present in one of the two tables.
+We can noticed that the sum of the rows from both tables it should have been a higher result. However we exclude the users' records who are not present in one of the tables.
 
 ---
 
@@ -486,3 +486,30 @@ Query.
         FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteMETsNarrow_secondPeriod` 
         
         WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteMETsNarrow`)
+
+
+Rows.
+
+
+| minuteMETsNarrow | minuteMETsNarrow_secondPeriod | hourlySteps_merged |
+| --- |  --- |  --- |
+| 1,445,040 | 1,325,580 | 2,685,300 |
+
+
+We can noticed that the sum of the rows from both tables it should have been a higher result. However we exclude the users' records who are not present in one of the tables.
+
+---
+
+**Verifying that we only include the users Id that were present in both tables**
+
+
+        SELECT  
+        
+          COUNT(DISTINCT(Id)) AS total_users
+        
+        FROM `analysisbellabeat246.data_merged.minuteMETs_merged` 
+
+
+| total_users |
+| --- |
+| 32 |
