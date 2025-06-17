@@ -241,9 +241,11 @@ We can noticed how summing rows of both tables it should have given us a higher 
 
 
 
-**hourlyCalories and minuteCaloriesNarrow_secondPeriod tables**
+## hourlyCalories and minuteCaloriesNarrow_secondPeriod tables
+
 
 To merge these datasets, we will first aggregate the data of the `minuteCaloriesNarrow_secondPeriod` dataset from minutes to hours. We will also cast the variable `Calories` to an integer data type and save the results as a new table called `hourlyCalories_secondPeriod_cleaned` in the `FitabaseData_20160412_20160512 dataset` dataset.
+
 
 Query.
 
@@ -257,7 +259,9 @@ Query.
         
         GROUP BY Id, ActivityHour
 
+
 Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyCalories_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type. We will also have to filter only the users who are present in both tables and exclude who do not.
+
 
 Query.
 
@@ -306,10 +310,11 @@ Rows.
 | 32 |
 
 
----
 
 
-**hourlyIntensities and minuteIntensitiesNarrow_secondPeriod**
+
+## hourlyIntensities and minuteIntensitiesNarrow_secondPeriod
+
 
 To merge these datasets, we will first aggregate the data of the `minuteIntensitiesNarrow_secondPeriod` table from minutes to hours and save the results as a new table called `hourlyIntensities_secondPeriod_cleaned` in the `FitabaseData_20160412_20160512 dataset` dataset.
 
@@ -328,6 +333,7 @@ Query.
 
 
 Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyIntensities_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type. We will also have to filter only the users who are present in both tables and exclude who do not.
+
 
 Query.
 
@@ -376,10 +382,11 @@ Rows.
 | 32 |
 
 
----
 
 
-**hourlySteps and minuteStepsNarrow_secondPeriod**
+
+## hourlySteps and minuteStepsNarrow_secondPeriod
+
 
 To merge these datasets, we will first aggregate the data of the `minuteStepsNarrow_secondPeriod` table from minutes to hours and save the results as a new table called `hourlySteps_secondPeriod_cleaned` in the `FitabaseData_20160412_20160512 dataset` dataset.
 
@@ -449,7 +456,9 @@ Rows.
 | --- |
 | 32 |
 
-**minuteMETsNarrow and minuteMETsNarrow_secondPeriod**
+
+
+## minuteMETsNarrow and minuteMETsNarrow_secondPeriod
 
 To merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `minuteMETs_merged` within our `data_merged` dataset.  Additionally, we will convert the `` column from a string to a TIMESTAMP data type.
 
