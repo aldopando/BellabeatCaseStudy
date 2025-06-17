@@ -337,3 +337,54 @@ Rows.
 | 24,084 | 22,093 | 46,177 |
 
 
+**hourlySteps and minuteStepsNarrow_secondPeriod**
+
+To merge these datasets, we will first aggregate the data of the `minuteStepsNarrow_secondPeriod` table from minutes to hours and save the results as a new table called `hourlySteps_secondPeriod_cleaned` in the `FitabaseData_20160412_20160512 dataset` dataset.
+
+
+Query.
+
+
+        SELECT
+          Id,
+          TIMESTAMP_TRUNC(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute), HOUR) AS ActivityHour,
+          SUM(Steps) AS StepTotal,
+                
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteStepsNarrow_secondPeriod`
+                
+        GROUP BY Id, ActivityHour
+
+
+
+Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not. We will save the result as a new table called `hourlySteps_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type.
+
+
+Query.
+
+
+        SELECT  
+          Id,
+          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour) AS activityHour,
+          StepTotal
+        
+        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlySteps` 
+        
+        UNION ALL 
+        
+        SELECT 
+        
+          Id,
+          ActivityHour AS activityHour,
+          StepTotal
+        
+          FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlySteps_secondPeriod_cleaned`
+
+
+
+Rows.
+
+
+| hourlySteps | hourlySteps_secondPeriod_cleaned | hourlySteps_merged |
+| --- |  --- |  --- |
+| 24,084 | 22,093 | 46,177 |
