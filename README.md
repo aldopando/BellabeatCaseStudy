@@ -346,3 +346,5 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
     | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod | hourlyIntensities_merged |
     | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
     | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
+
+16. After merging the tables from the two datasets, now I will identify if there are extra spaces in data of each the merged tables.
