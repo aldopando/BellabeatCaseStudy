@@ -336,7 +336,7 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
     - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
     - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
    
-15. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 
+15. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
     
     | Table || Result |
     | --- | --- | --- |
@@ -347,4 +347,11 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
     | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
     | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
 
-16. After merging the tables from the two datasets, now I will identify if there are extra spaces in data of each the merged tables.
+16. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the analyzed columns**. 06/01/2025
+
+17. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data.
+	- hourlyCalories_merged: 
+  	- hourlyIntensities_merged:
+	- hourlySteps_merged:
+	- minuteMETs_merged:
+	- weight_data: 
