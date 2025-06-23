@@ -8,7 +8,6 @@ We know that each Id value should contain exactly 10 digits. Therefore, to ident
 
     WITH id_length AS (
       SELECT 
-        Id,
         LENGTH(CAST(Id AS STRING)) AS number_of_characters
       FROM `analysisbellabeat246.data_merged.hourlyCalories_merged`
     )
@@ -16,6 +15,8 @@ We know that each Id value should contain exactly 10 digits. Therefore, to ident
     FROM id_length
     WHERE number_of_characters != 10
 
+***we didn't find any extra space across the rows in the column `Id`, all records contain exactly 10 digitis***
+---
 
 **activityHour**
 
@@ -31,7 +32,179 @@ The `activityHour` column contains TIMESTAMP values, which are expected to have 
     FROM activityHour_length
     WHERE number_of_characters != 22;
 
+***We didn't find any extra space or character across the rows in the column `activityHour`, all records contain exactly 22 characters***
 
 
+
+### hourlyIntensities_merged
+
+**Id**
+
+    WITH id_length AS (
+      SELECT 
+        LENGTH(CAST(Id AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged` 
+    )
+        
+    SELECT *
+    FROM id_length
+    WHERE number_of_characters != 10
+
+***We didn't find any extra space or characters across the rows in the column `Id`***
+
+---
+
+**activityHour**
+
+    WITH activityHour_length AS (
+      SELECT 
+        LENGTH(CAST(activityHour AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged`
+    )
+        
+    SELECT *
+    FROM activityHour_length
+    WHERE number_of_characters != 22;
+        
+
+***We didn't find any extra space or character across the rows in the column `activityHour`***
+
+
+### hourlySteps_merged
+
+**Id**
+
+    WITH id_length AS (
+    SELECT 
+      LENGTH(CAST(Id AS STRING)) AS number_of_characters
+    FROM `analysisbellabeat246.data_merged.hourlySteps_merged` 
+    )
+            
+    SELECT *
+    FROM id_length
+    WHERE number_of_characters != 10
+
+***We didn't find any extra space or characters across the rows in the column `Id`***
+
+---
+
+**activityHour**
+
+    WITH activityHour_length AS (
+      SELECT 
+        LENGTH(CAST(activityHour AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.hourlySteps_merged` 
+    )
+        
+    SELECT *
+    FROM activityHour_length
+    WHERE number_of_characters != 22;
+
+***We didn't find any extra space or character across the rows in the column `activityHour`***
+
+
+### minuteMETs_merged
+
+**Id**
+
+    WITH id_length AS (
+      SELECT 
+        LENGTH(CAST(Id AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteMETs_merged`  
+    )
+            
+    SELECT *
+    FROM id_length
+    WHERE number_of_characters != 10
+
+***We didn't find any extra space or characters across the rows in the column `Id`***
+
+---
+
+**activityMinute**
+
+    WITH activityMinute_length AS (
+      SELECT 
+        LENGTH(CAST(activityMinute AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteMETs_merged` 
+    )
+            
+    SELECT *
+    FROM activityMinute_length
+    WHERE number_of_characters != 22;
+
+***We didn't find any extra space or character across the rows in the column `activityMinute`***
+
+
+### minuteSleep_merged
+
+**Id**
+
+    WITH id_length AS (
+      SELECT 
+        LENGTH(CAST(Id AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+    )
+            
+    SELECT *
+    FROM id_length
+    WHERE number_of_characters != 10
+    
+
+***We didn't find any extra space or characters across the rows in the column `Id`***
+
+---
+
+**activityMinute**
+
+    WITH activityMinute_length AS (
+      SELECT 
+        LENGTH(CAST(activityMinute AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+    )
+            
+    SELECT *
+    FROM activityMinute_length
+    WHERE number_of_characters != 22;
+
+***We didn't find any extra space or character across the rows in the column `activityMinute`***
+
+---
+
+**value**
+
+The `value` column contains rows with values indicating the sleep state. 1 = asleep, 2 = restless, 3 = awake. It means all rows across this column have to contain exactly 1 charater. To identify any rows with extra spaces or characters, we will count the number of characters in each cell and filter out the rows that do not contain exactly 1 character.
+
+
+    WITH value_length AS (
+      SELECT 
+        LENGTH(CAST(value AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+    )
+            
+    SELECT *
+    FROM value_length
+    WHERE number_of_characters != 1
+
+***We didn't find any extra space or characters across the rows in the column `value`***
+
+---
+
+**logId**
+
+The `logId` column contains rows with unique log id in Fitbit’s system for the sleep record. This unique log id contains exatly 11 digits. To identify any rows with extra spaces or characters, we will count the number of characters in each cell and filter out the rows that do not contain exactly 11 character.
+
+    WITH logId_length AS (
+      SELECT 
+        LENGTH(CAST(logId AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+    )
+            
+    SELECT *
+    FROM logId_length
+    WHERE number_of_characters != 11
+
+
+***We didn't find any extra space or characters across the rows in the column `logId`***
 
 
