@@ -255,3 +255,35 @@ The `activityHour` column contains DATE data type values, which are expected to 
 
 
 ## Duplicates in data.
+
+Before using the DISTINCT statement to remove any duplicate in the data, first we need to pinpoint if there are duplicates at all in the merged tables. In order to ensure a table doesn't have duplicates, a user cannot have more than one record with the same time.
+
+
+## hourlyCalories_merged
+
+We group the data by users and dates so that all the rows with the same combination of user `id` and `activityHour` are put together. Then we use `COUNT()` function to count and display in the column called `duplicate_count` all rows that each group contain. 
+
+Finallly, we use the `HAVING COUNT` statement to filter out the groups of data with the same `id` and `activityHour` that contain more than one row. In other words, duplicates.
+
+
+    SELECT 
+      Id, 
+      activityHour,
+      COUNT(*) AS duplicate_count
+    
+    FROM `analysisbellabeat246.data_merged.hourlyCalories_merged`
+    
+    GROUP BY Id, activityHour
+    
+    HAVING COUNT(*) > 1
+
+
+## hourlyIntensities_merged
+
+
+
+## hourlySteps_merged
+
+## minuteMETs_merged
+
+## weight_data
