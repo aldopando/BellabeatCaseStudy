@@ -3,6 +3,7 @@
 ### hourlyCalories_merged
 
 **Id**
+
 We know that each Id value should contain exactly 10 digits. Therefore, to identify rows with extra spaces or unexpected characters, we will detect all rows where the Id does not have exactly 10 characters. To do this, we will create a temporary table that includes a column showing the character count of each Id, after converting it from a numeric to a string data type. Finally, we will filter this temporary table to return only the rows where the character count is different from 10, allowing us to detect any anomalies such as extra spaces or characters.
 
 
