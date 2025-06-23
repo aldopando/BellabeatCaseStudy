@@ -251,7 +251,7 @@ The `activityHour` column contains DATE data type values, which are expected to 
 
 ---
 
-***We didn't check for extra spaces or characters in the `WeightKg`, `WeightPounds`, and `BMI` columns because these contain FLOAT values***
+***We didn't check for extra spaces or characters in the `WeightKg`, `WeightPounds`, and `BMI` columns because these contain FLOAT values***.
 
 
 ## Duplicates in data.
