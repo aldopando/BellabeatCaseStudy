@@ -22,7 +22,7 @@ We know that each Id value should contain exactly 10 digits. Therefore, to ident
 
 **activityHour**
 
-The `activityHour` column contains TIMESTAMP values, which are expected to have exactly 22 characters. To identify any rows with extra spaces or formatting issues, we will count the number of characters in each cell and filter out the rows that do not contain exactly 22 characters.
+The `activityHour` column contains TIMESTAMP values (YYYY-MM-DD HH:MM:SS UTC), which are expected to have exactly 22 characters. To identify any rows with extra spaces or formatting issues, we will count the number of characters in each cell and filter out the rows that do not contain exactly 22 characters.
 
     WITH activityHour_length AS (
       SELECT 
@@ -214,3 +214,44 @@ The `logId` column contains rows with unique log id in Fitbit’s system for the
 ***We didn't find any extra space or characters across the rows in the column `logId`***
 
 ---
+
+### weight_data
+
+**Id**
+
+    WITH id_length AS (
+      SELECT 
+        LENGTH(CAST(Id AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.weight_data`
+    )
+            
+    SELECT *
+    FROM id_length
+    WHERE number_of_characters != 10
+
+***We didn't find any extra space or characters across the rows in the column `Id`***
+
+---
+
+**Date**
+
+The `activityHour` column contains DATE data type values, which are expected to have exactly 10 characters (YYYY-MM-DD). To identify any rows with extra spaces or formatting issues, we will count the number of characters in each cell and filter out the rows that do not contain exactly 10 characters.
+
+    WITH date_length AS (
+      SELECT 
+        LENGTH(CAST(Date AS STRING)) AS number_of_characters
+      FROM `analysisbellabeat246.data_merged.weight_data`
+    )
+            
+    SELECT *
+    FROM date_length
+    WHERE number_of_characters != 10;
+    
+***We didn't find any extra space or characters across the rows in the column `Date`***
+
+---
+
+***We didn't check for extra spaces or characters in the `WeightKg`, `WeightPounds`, and `BMI` columns because these contain FLOAT values***
+
+
+## Duplicates in data.
