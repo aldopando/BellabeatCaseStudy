@@ -35,7 +35,7 @@ The `activityHour` column contains TIMESTAMP values, which are expected to have 
 
 ***We didn't find any extra space or character across the rows in the column `activityHour`, all records contain exactly 22 characters***
 
-
+---
 
 ### hourlyIntensities_merged
 
@@ -70,6 +70,7 @@ The `activityHour` column contains TIMESTAMP values, which are expected to have 
 
 ***We didn't find any extra space or character across the rows in the column `activityHour`***
 
+---
 
 ### hourlySteps_merged
 
@@ -103,6 +104,7 @@ The `activityHour` column contains TIMESTAMP values, which are expected to have 
 
 ***We didn't find any extra space or character across the rows in the column `activityHour`***
 
+---
 
 ### minuteMETs_merged
 
@@ -135,6 +137,8 @@ The `activityHour` column contains TIMESTAMP values, which are expected to have 
     WHERE number_of_characters != 22;
 
 ***We didn't find any extra space or character across the rows in the column `activityMinute`***
+
+---
 
 
 ### minuteSleep_merged
@@ -208,4 +212,4 @@ The `logId` column contains rows with unique log id in Fitbit’s system for the
 
 ***We didn't find any extra space or characters across the rows in the column `logId`***
 
-
+---
