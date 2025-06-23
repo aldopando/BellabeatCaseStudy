@@ -16,6 +16,7 @@ We know that each Id value should contain exactly 10 digits. Therefore, to ident
     WHERE number_of_characters != 10
 
 ***we didn't find any extra space across the rows in the column `Id`, all records contain exactly 10 digitis***
+
 ---
 
 **activityHour**
