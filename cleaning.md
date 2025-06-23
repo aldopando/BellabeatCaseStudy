@@ -258,6 +258,8 @@ The `activityHour` column contains DATE data type values, which are expected to 
 
 Before using the DISTINCT statement to remove any duplicate in the data, first we need to pinpoint if there are duplicates at all in the merged tables. In order to ensure a table doesn't have duplicates, a user cannot have more than one record with the same time.
 
+Since BigQuery doesn't allow in-place updates or deletions of individual rows in standard tables, we will create a dataset that will storage the cleaned version of the tables that contain only distinct rows. This dataset is named `clean_data`.
+
 
 ## hourlyCalories_merged
 
@@ -265,6 +267,7 @@ We group the data by users and dates so that all the rows with the same combinat
 
 Finallly, we use the `HAVING COUNT` statement to filter out the groups of data with the same `id` and `activityHour` that contain more than one row. In other words, duplicates.
 
+**Query**.
 
     SELECT 
       Id, 
@@ -278,8 +281,79 @@ Finallly, we use the `HAVING COUNT` statement to filter out the groups of data w
     HAVING COUNT(*) > 1
 
 
+**Preview of the results**.
+
+![image](https://github.com/user-attachments/assets/a0641d6b-8e9e-40bf-a369-76450fa9792c)
+
+***We found 175 records, each one with 2 duplicates***.
+
+---
+
+To remove these the duplicate rows, we will use the DISTINCT statement and create a new table named `hourlyCalories_cleaned` that it only contains the non-duplicate rows.
+
+Query.
+
+    CREATE TABLE clean_data.hourlyCalories_cleaned AS
+    
+    SELECT 
+      DISTINCT *
+    
+    FROM `analysisbellabeat246.data_merged.hourlyCalories_merged` 
+
+
+**Verification number of rows**.
+
+| hourlyCalories_merged | hourlyCalories_cleaned |
+| --- | --- |
+| 44,755 | 44,580 |
+
+
+***We removed the 175 duplicate rows***
+
+
+
 ## hourlyIntensities_merged
 
+
+**Query**.
+
+    SELECT 
+      Id, 
+      activityHour,
+      COUNT(*) AS duplicate_count
+    
+    FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged`
+    
+    GROUP BY Id, activityHour
+    
+    HAVING COUNT(*) > 1
+
+
+**Preview of the results**.
+
+
+![image](https://github.com/user-attachments/assets/431f03cd-3e63-41b5-9834-240186fafbf4)
+
+
+***We found 175 records, each one with 2 duplicates***.
+
+---
+
+To remove these the duplicate rows, we will use the DISTINCT statement and create a new table named `hourlyIntensities_cleaned` that it only contains the non-duplicate rows.
+
+Query.
+
+
+
+
+**Verification number of rows**.
+
+| hourlyCalories_merged | hourlyCalories_cleaned |
+| --- | --- |
+| 44,755 | 44,632 |
+
+
+***We removed the 175 duplicate rows***
 
 
 ## hourlySteps_merged
