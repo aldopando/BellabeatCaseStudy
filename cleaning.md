@@ -343,7 +343,12 @@ To remove these the duplicate rows, we will use the DISTINCT statement and creat
 
 Query.
 
-
+    CREATE TABLE clean_data.hourlyIntensities_cleaned AS
+    
+    SELECT 
+      DISTINCT *
+    
+    FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged` 
 
 
 **Verification number of rows**.
@@ -353,8 +358,39 @@ Query.
 | 44,755 | 44,632 |
 
 
-***We removed the 175 duplicate rows***
+***We expected a number of 44,580 rows in the new clean table as in the `hourlyCalories_cleaned` table since they are consistent between them. But this query didn't remove all duplicates because even tiny differences in the other columns (TotalIntensity, AverageIntensity) prevent rows from being considered duplicates. These columns contain FLOAT values so that may be the reason***.
 
+---
+
+The goal is to remove duplicates based on the `Ìd` and `activityHour` columns, but still including the other columns, even if they vary. 
+
+We created a temporary table where we grouped the data by `Id` and `activityHour` columns using `PARTITION BY`, then we used the `ROW_NUMBER()` window function to assign a number to each row within a group. Afterward, we filter out only the rows that whose conatined the number "1" as the first row in each group ` WHERE num_row = 1` , removing all duplicates. Then we replaced the table that we had previously created.
+
+Query.
+
+    CREATE OR REPLACE TABLE `clean_data.hourlyIntensities_cleaned` AS
+    WITH unique_combination AS (
+    
+      SELECT *,
+      ROW_NUMBER() OVER(PARTITION BY Id, activityHour)AS num_row
+      FROM `analysisbellabeat246.data_merged.hourlyIntensities_merged`
+    )
+    
+    SELECT 
+      Id,
+      activityHour,
+      TotalIntensity,
+      AverageIntensity
+    
+    FROM unique_combination
+    WHERE num_row = 1;
+
+
+**Verification number of rows**.
+
+| hourlyCalories_merged | hourlyCalories_cleaned |
+| --- | --- |
+| 44,755 | 44,580 |
 
 ## hourlySteps_merged
 
