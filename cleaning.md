@@ -499,3 +499,55 @@ Query.
 
 
 ## weight_data
+
+**Query**.
+
+
+    SELECT 
+      Id, 
+      Date,
+      COUNT(*) AS duplicate_count
+        
+    FROM `analysisbellabeat246.data_merged.weight_data`
+        
+    GROUP BY Id, Date
+    HAVING COUNT(*) > 1
+
+
+
+**Results**.
+
+
+![image](https://github.com/user-attachments/assets/4457f41c-15be-4857-b44d-1a8f8ad3eabe)
+
+
+
+***We found 2 records, each one with 2 duplicates***.
+
+
+---
+
+To remove these duplicate rows, we will use the DISTINCT statement and create a new table named `weight_data_cleaned` which it will only contain the non-duplicate rows.
+
+Query.
+
+
+    CREATE TABLE clean_data.weight_data_cleaned AS
+    
+    SELECT 
+      DISTINCT *
+    
+    FROM `analysisbellabeat246.data_merged.weight_data`
+
+
+**Verification number of rows**.
+
+| weight_data | weight_data_cleaned |
+| --- | --- |
+| 100 | 98 |
+
+
+***We removed the 2 duplicates***.
+
+
+
