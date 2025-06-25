@@ -349,9 +349,24 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 
 16. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the analyzed columns**. 06/01/2025
 
-17. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data.
-	- hourlyCalories_merged: 
-  	- hourlyIntensities_merged:
-	- hourlySteps_merged:
-	- minuteMETs_merged:
-	- weight_data: 
+17. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#duplicates-in-data) you will find the process and results for cleaning duplicates in the data. Since BigQuery doesn't allow updates or deletions of individual rows in standard tables, we will create a dataset that will storage the cleaned version of the tables that contain only distinct rows. This dataset is named `clean_data`. 06/02/2025
+    
+	- hourlyCalories_merged: 175 duplicate rows were removed.
+  	- hourlyIntensities_merged: 175 duplicate rows were removed.
+	- hourlySteps_merged:  175 duplicate rows were removed.
+	- minuteMETs_merged: 10,500 duplicate rows were removed.
+	- weight_data: 2 duplicate rows were removed.
+  	- minuteSleep_merged: 4,300 duplicate rows were removed.
+
+
+### Clean_data dataset
+
+| Table |
+| --- | 
+| hourlyCalories_cleaned |
+| hourlyIntensities_cleaned |
+| hourlySteps_cleaned |
+| minuteMETs_cleaned |
+| weight_data_cleaned |
+| minuteSleep_cleaned |
+
