@@ -353,7 +353,7 @@ To remove these duplicate rows, we will use the DISTINCT statement and create a 
 
 **Verification number of rows**.
 
-| hourlyCalories_merged | hourlyCalories_cleaned |
+| hourlyIntensities_merged | hourlyIntensities_cleaned |
 | --- | --- |
 | 44,755 | 44,632 |
 
@@ -388,7 +388,7 @@ We created a temporary table where we grouped the data by `Id` and `activityHour
 
 **Verification number of rows**.
 
-| hourlyCalories_merged | hourlyCalories_cleaned |
+| hourlyIntensities_merged | hourlyIntensities_cleaned |
 | --- | --- |
 | 44,755 | 44,580 |
 
