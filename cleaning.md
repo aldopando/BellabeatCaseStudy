@@ -339,9 +339,9 @@ Query.
 
 ---
 
-To remove these the duplicate rows, we will use the DISTINCT statement and create a new table named `hourlyIntensities_cleaned` that it only contains the non-duplicate rows.
+To remove these duplicate rows, we will use the DISTINCT statement and create a new table named `hourlyIntensities_cleaned` that it only contains the non-duplicate rows.
 
-Query.
+**Query**.
 
     CREATE TABLE clean_data.hourlyIntensities_cleaned AS
     
@@ -358,7 +358,7 @@ Query.
 | 44,755 | 44,632 |
 
 
-***We expected a number of 44,580 rows in the new clean table as in the `hourlyCalories_cleaned` table since they are consistent between them. But this query didn't remove all duplicates because even tiny differences in the other columns (TotalIntensity, AverageIntensity) prevent rows from being considered duplicates. These columns contain FLOAT values so that may be the reason***.
+***We expected to remove the 175 duplicate rows, but instead the query only removed 123 duplicates. We supposed that this query didn't remove all duplicates because even tiny differences in the other columns (TotalIntensity, AverageIntensity) prevent rows from being considered duplicates. These columns contain FLOAT values so that may be the reason***.
 
 ---
 
@@ -366,7 +366,7 @@ The goal is to remove duplicates based on the `Ìd` and `activityHour` columns, 
 
 We created a temporary table where we grouped the data by `Id` and `activityHour` columns using `PARTITION BY`, then we used the `ROW_NUMBER()` window function to assign a number to each row within a group. Afterward, we filter out only the rows that whose conatined the number "1" as the first row in each group ` WHERE num_row = 1` , removing all duplicates. Then we replaced the table that we had previously created.
 
-Query.
+**Query**.
 
     CREATE OR REPLACE TABLE `clean_data.hourlyIntensities_cleaned` AS
     WITH unique_combination AS (
@@ -392,7 +392,56 @@ Query.
 | --- | --- |
 | 44,755 | 44,580 |
 
+
+***We removed the 175 duplicate rows***
+
+
+
 ## hourlySteps_merged
+
+
+**Query**.
+
+    SELECT 
+      Id, 
+      activityHour,
+      COUNT(*) AS duplicate_count
+        
+    FROM `analysisbellabeat246.data_merged.hourlySteps_merged`
+        
+    GROUP BY Id, activityHour
+    HAVING COUNT(*) > 1
+
+
+**Preview of the results**.
+
+
+
+***We found 175 records, each one with 2 duplicates***.
+
+---
+
+To remove these duplicate rows, we will use the DISTINCT statement and create a new table named `hourlySteps_cleaned` which it will only contain the non-duplicate rows.
+
+Query.
+
+    CREATE TABLE clean_data.hourlySteps_cleaned AS
+    
+    SELECT 
+      DISTINCT *
+      
+    FROM `analysisbellabeat246.data_merged.hourlySteps_merged`
+
+
+**Verification number of rows**.
+
+| hourlySteps_merged | hourlySteps_cleaned |
+| --- | --- |
+| 44,755 | 44,580 |
+
+
+***We removed the 175 duplicate rows***
+
 
 ## minuteMETs_merged
 
