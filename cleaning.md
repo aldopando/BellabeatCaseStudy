@@ -550,4 +550,59 @@ Query.
 ***We removed the 2 duplicates***.
 
 
+## minuteSleep_merged
+
+
+**Query**.
+
+    SELECT 
+      Id,
+      activityMinute,
+      COUNT(*) AS duplicate_count
+    
+    FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+    
+    GROUP BY Id, activityMinute
+    HAVING COUNT(*) > 1
+
+
+
+***We found 4,300 records, each one with 2 duplicates***.
+
+---
+
+**Preview of the results**.
+
+
+![image](https://github.com/user-attachments/assets/dff3ecf3-18ee-4dcc-8165-54318602923b)
+
+
+
+To remove these duplicate rows, we will use the DISTINCT statement and create a new table named `minuteSleep_cleaned` which it will only contain the non-duplicate rows.
+
+**Query**.
+
+
+    CREATE TABLE clean_data.minuteSleep_cleaned AS
+    
+    SELECT 
+    
+      DISTINCT *
+    
+    FROM `analysisbellabeat246.data_merged.minuteSleep_merged`
+
+
+
+**Verification number of rows**.
+
+
+| minuteSleep | minuteSleep_cleaned |
+| --- | --- |
+| 377,133 | 372,833 |
+
+
+***We removed the 4300 duplicates***.
+
+
+
 
