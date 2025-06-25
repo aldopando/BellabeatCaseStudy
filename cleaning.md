@@ -415,6 +415,8 @@ We created a temporary table where we grouped the data by `Id` and `activityHour
 
 **Preview of the results**.
 
+![image](https://github.com/user-attachments/assets/6b37f77f-d70e-4e29-b18d-e3126c6bbd6c)
+
 
 
 ***We found 175 records, each one with 2 duplicates***.
@@ -443,6 +445,57 @@ Query.
 ***We removed the 175 duplicate rows***
 
 
+
 ## minuteMETs_merged
+
+
+**Query**.
+
+
+    SELECT 
+      Id, 
+      activityMinute,
+      COUNT(*) AS duplicate_count
+        
+    FROM `analysisbellabeat246.data_merged.minuteMETs_merged`
+        
+    GROUP BY Id, activityMinute
+    HAVING COUNT(*) > 1
+
+
+***We found 10,500 records, each one with 2 duplicates***.
+
+
+**Preview of the results**.
+
+
+![image](https://github.com/user-attachments/assets/8c1446d7-ec05-4145-85e6-c42ece1d7ddc)
+
+
+
+---
+
+To remove these duplicate rows, we will use the DISTINCT statement and create a new table named `minuteMETs_cleaned` which it will only contain the non-duplicate rows.
+
+Query.
+
+    CREATE TABLE clean_data.minuteMETs_cleaned AS
+    
+    SELECT 
+      DISTINCT *
+    
+    FROM `analysisbellabeat246.data_merged.minuteMETs_merged`
+
+
+**Verification number of rows**.
+
+| minuteMETs_merged | minuteMETs_cleaned |
+| --- | --- |
+| 2,685,300 | 2,674,800 |
+
+
+***We removed the 10,500 found duplicate rows***
+
+
 
 ## weight_data
