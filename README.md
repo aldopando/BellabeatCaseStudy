@@ -371,9 +371,9 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 | minuteSleep_cleaned |
 
 
-## Analyze 
+## Analysis
 
-### METS
+### Aggregating METs from minutes to hours
 
 For this analysis, we will aggregate the data in the `minuteMETs_cleaned` table from minutes to hours in order to merge it along with the other variables (calories, intensities and steps). We will save the results as a new table called `hourlyMETs_cleaned` in our `clean_data` dataset.
 
@@ -414,3 +414,24 @@ Currently, the [World Health Organization](https://www.who.int/publications/i/it
 This means that you need at least 450 MET minutes per week to meet these recommendations. Moreover, if we take into account the second recommendation to achieve extra health benefits, you should achieve at least 900 MET minutes per week.
 
 
+Query.
+
+
+	CREATE TABLE clean_data.hourlyMETs_cleaned AS
+	
+	SELECT 
+	
+	  Id,
+	  TIMESTAMP_TRUNC(activityMinute, HOUR) AS activityHour,
+	  ROUND(SUM(METs/10), 1) AS METs_minutes
+	
+	
+	FROM `analysisbellabeat246.clean_data.minuteMETs_cleaned` 
+	
+	GROUP BY Id, TIMESTAMP_TRUNC(activityMinute, HOUR)
+
+---
+
+
+ ### Merging hourly tables (calories, intensities, steps, and METs)
+ 
