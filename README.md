@@ -373,4 +373,39 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 
 ## Analyze 
 
+### METS
+
+For this analysis, we will aggregate the data in the `minuteMETs_cleaned` table from minutes to hours in order to merge it along with the other variables (calories, intensities and steps). We will save the results as a new table called `hourlyMETs_cleaned` in our `clean_data` dataset.
+
+To aggregate the variable METs, we will have to sum all MET minutes a person expends during an hour. 
+
+**What is a MET?**
+
+MET stands for Metabolic Equivalent of Task. It is a unit that measures how much energy an activity consumes compared to being at rest. Low-intensity exercises have a lower MET value while high-intensity physical activities have a high MET score.
+
+**Levels of MET**
+
+We can differentiate 3 categories of physical activity:
+
+Light-intensity activities – under 3 MET;
+Moderate–intensity activities – from 3 to 6 MET;
+Vigorous–intensity activities – over 6 MET.
+
+**What is a MET minute?**
+
+Met-Minutes are used to determine the amount of energy expended during a workout or activity. A MET minute is the amount of energy expended during a minute while at rest.  You can, however, burn more than one MET minute in a minute depending on the intensity of the activity.
+
+**MET minutes per week**
+
+The amount of MET minutes per week tells you how much energy you have expended while performing various activities throughout the whole week.
+
+how many MET minutes is enough?
+
+Currently, the [World Health Organization](https://www.who.int/publications/i/item/9789240015128) recommends adults to meet a minimum physical activity: 
+
+- Adults should aim for at least 150 minutes of moderate-intensity activity or 75 minutes of vigorous-intensity activity per week for minimal health benefits. 
+- For additional health benefits, adults should increase their moderate-intensity physical activity to 300 minutes per week or an equivalent
+
+This means that you need at least 450 MET minutes per week to meet these recommendations. Moreover, if we take into account the second recommendation to achieve extra health benefits, you should achieve at least 900 MET minutes per week.
+
 
