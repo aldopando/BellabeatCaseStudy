@@ -379,6 +379,11 @@ For this analysis, we will aggregate the data in the `minuteMETs_cleaned` table 
 
 To aggregate the variable METs, we will have to sum all MET minutes a person expends during an hour. 
 
+Important: All MET values exported from Fitabase are multiplied by 10. We will divide by 10 to get accurate MET values.
+
+Example: 10 = 1.0 METs; 38 = 3.8 METs
+
+
 **What is a MET?**
 
 MET stands for Metabolic Equivalent of Task. It is a unit that measures how much energy an activity consumes compared to being at rest. Low-intensity exercises have a lower MET value while high-intensity physical activities have a high MET score.
