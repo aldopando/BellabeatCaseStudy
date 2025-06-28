@@ -435,3 +435,29 @@ Query.
 
  ### Merging hourly tables (calories, intensities, steps, and METs)
  
+
+Query. 
+
+	SELECT  
+	  calories.Id,
+	  calories.activityHour,
+	  calories.Calories,
+	  intensities.TotalIntensity,
+	  METs.METs_minutes,
+	  steps.StepTotal
+	
+	FROM `analysisbellabeat246.clean_data.hourlyCalories_cleaned` AS calories
+	
+	LEFT JOIN `analysisbellabeat246.clean_data.hourlyIntensities_cleaned` AS intensities 
+	  ON calories.Id = intensities.Id 
+	  AND calories.activityHour = intensities.activityHour
+	
+	LEFT JOIN `analysisbellabeat246.clean_data.hourlyMETs_cleaned` AS METs 
+	  ON calories.Id = METs.Id 
+	  AND calories.activityHour = METs.activityHour
+	
+	LEFT JOIN `analysisbellabeat246.clean_data.hourlySteps_cleaned` AS steps
+	  ON calories.Id = steps.Id 
+	  AND calories.activityHour = steps.activityHour
+
+   
