@@ -542,8 +542,13 @@ Query.
 	  AND calories.activityHour = steps.activityHour
 
 
+
+***We saved the results as a new table called `hourlyActivity` in our `clean_data` dataset***
+
+
 **Verifying number of rows**
 
 | hourlyCalories_cleaned | hourlyIntensities_cleaned | hourlyMETs_cleaned | hourlySteps_cleaned | hourlyActivity  |
 | --- | --- | --- | --- | --- |
 | 44,580 | 44,580 | 44,580 | 44,580 | 44,580 |
+
