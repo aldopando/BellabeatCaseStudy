@@ -510,7 +510,10 @@ Query.
 ---
 
 
- ### Merging hourly tables (calories, intensities, steps, and METs)
+### We created a new dataset called `analysis` to save all the results after performing calculations and aggregating the data.
+
+
+### Merging hourly tables (calories, intensities, steps, and METs) + Sorting the data.
  
 
 Query. 
@@ -540,10 +543,12 @@ Query.
 	LEFT JOIN `analysisbellabeat246.clean_data.hourlySteps_cleaned` AS steps
 	  ON calories.Id = steps.Id 
 	  AND calories.activityHour = steps.activityHour
+	
+	ORDER BY Id, activityHour
 
 
 
-***We saved the results as a new table called `hourlyActivity` in our `clean_data` dataset***
+***We saved the results as a new table called `hourlyActivity` in our `analysis` dataset***
 
 
 **Verifying number of rows**
@@ -554,25 +559,30 @@ Query.
 
 
 
-### Aggregating the data in `hourlyActivity` from hours to days
+
+### Aggregating the data in the `hourlyActivity` table from hours to days + Sorting the data.
 
 
 	SELECT  
-	    Id,
-	    DATE(TIMESTAMP_TRUNC(activityHour, DAY)) AS activityDate,
-	    SUM(Calories) AS calories,
-	    SUM(TotalIntensity) AS totalIntensity,
-	    SUM(SedentaryMinutes) AS sedentaryMinutes,
-	    SUM(LightlyActiveMinutes) AS lightlyActiveMinutes,
-	    SUM(FairlyActiveMinutes) AS fairlyActiveMinutes,
-	    SUM(VeryActiveMinutes)AS veryActiveMinutes,
-	    CAST(SUM(METs_minutes) AS INT64) AS METs_minutes,
-	    SUM(StepTotal) AS totalSteps
-	
-	
-	FROM `analysisbellabeat246.clean_data.hourlyActivity` 
-	
+		Id,
+		DATE(TIMESTAMP_TRUNC(activityHour, DAY)) AS activityDate,
+		SUM(Calories) AS calories,
+		SUM(TotalIntensity) AS totalIntensity,
+		SUM(SedentaryMinutes) AS sedentaryMinutes,
+		SUM(LightlyActiveMinutes) AS lightlyActiveMinutes,
+		SUM(FairlyActiveMinutes) AS fairlyActiveMinutes,
+		SUM(VeryActiveMinutes)AS veryActiveMinutes,
+		CAST(SUM(METs_minutes) AS INT64) AS METs_minutes,
+		SUM(StepTotal) AS totalSteps
+		
+		
+	FROM `analysisbellabeat246.analysis.hourlyActivity` 
+		
 	GROUP BY Id, activityDate
+	ORDER BY Id, activityDate
 
 
-***We saved the results as a new table called `dailyActivity` in our `clean_data` dataset***
+***We saved the results as a new table called `dailyActivity` in our `analysis` dataset***
+
+
+### Weekly MET-minutes 
