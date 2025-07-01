@@ -306,14 +306,18 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 Intensity value for the given minute.
 
 0 = Sedentary
+
 1 = Light
+
 2 = Moderate
+
 3 = Very Active
 
 
-These colunmns are important for our analysis, therefore, we are gonna use the "minuteIntensities" tables from both datasets to calculate the values of these columns and add them in new "hourlyIntensities" tables. In other words, we a won't use the "hourlyIntensities" tables already present in the datasets. We will use the "minuteIntensities" tables four our analysis  to create the hourly and daily tables by ourselves.
+These colunmns are important for our analysis, therefore, we are gonna use the "minuteIntensities" tables from both datasets to calculate the values of these columns and add them in new "hourlyIntensities" tables. In other words, we a won't use the "hourlyIntensities" tables already present in the datasets. We will use the "minuteIntensities" tables four our analysis  to create the hourly and daily tables by ourselves. 05/29/2025
 
-16. After ensuring the data is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
+14. After ensuring the data is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
+
 
  ### FitabaseData_20160312_20160411 dataset 
 
@@ -342,12 +346,32 @@ These colunmns are important for our analysis, therefore, we are gonna use the "
 | weightLogInfo_secondPeriod |
 
 
-14. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process. 05/30/2025
+15. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process. 05/30/2025
     
     - weightLogInfo: more than half of the participants are missing weight data in one of the datasets, resulting in incomplete information. Additionally, I didn't observe any significant changes in users' weight during the two-month period. For the users who tracked their weight data, the data was recorded sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.  
     - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
     - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
-   
+
+
+16. Before merging the tables from both datasets, I will create the new "hourlyIntensities" tables based on the "minuteIntensitiesNarrow" tables.
+
+**FitabaseData_20160312_20160411 dataset**
+
+Query.
+
+
+
+
+
+I saved the results as a new table called `hourlyIntensities_complete` in this dataset.
+
+**FitabaseData_20160412_20160512 dataset**
+
+Query.
+
+
+
+
 15. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
     
     | Table || Result |
