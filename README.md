@@ -586,3 +586,23 @@ Query.
 
 
 ### Weekly MET-minutes 
+
+**Oldest and latest date**
+
+
+	SELECT  
+	  MIN(activityDate) AS oldest_date,
+	  MAX(activityDate) AS latest_date
+	  
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+
+
+| oldest_date | latest_date |
+| --- | --- |
+| 2016-03-12 | 2016-05-12 |
+
+
+**Grouping data by week**
+
+
