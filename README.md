@@ -359,17 +359,58 @@ These colunmns are important for our analysis, therefore, we are gonna use the "
 
 Query.
 
-
-
+	SELECT
+	  Id,
+	  TIMESTAMP_TRUNC(activityMinute, HOUR) AS activityHour,
+	  SUM(Intensity) AS TotalIntensity,
+	  ROUND(AVG(Intensity), 1) AS AverageIntensity,
+	  COUNTIF(Intensity = 0) AS SedentaryMinutes,
+	  COUNTIF(Intensity = 1) AS LightlyActiveMinutes,
+	  COUNTIF(Intensity = 2) AS FairlyActiveMinutes,
+	  COUNTIF(Intensity = 3) AS VeryActiveMinutes 
+	
+	FROM ( 
+	  SELECT 
+	    Id,
+	    PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute) AS activityMinute,
+	    Intensity
+	
+	  FROM `analysisbellabeat246.FitabaseData_20160312_20160411.minuteIntensitiesNarrow`
+	)
+	
+	GROUP BY Id, activityHour
 
 
 I saved the results as a new table called `hourlyIntensities_complete` in this dataset.
+
 
 **FitabaseData_20160412_20160512 dataset**
 
 Query.
 
+	SELECT
+	  Id,
+	  TIMESTAMP_TRUNC(activityMinute, HOUR) AS activityHour,
+	  SUM(Intensity) AS TotalIntensity,
+	  ROUND(AVG(Intensity), 1) AS AverageIntensity,
+	  COUNTIF(Intensity = 0) AS SedentaryMinutes,
+	  COUNTIF(Intensity = 1) AS LightlyActiveMinutes,
+	  COUNTIF(Intensity = 2) AS FairlyActiveMinutes,
+	  COUNTIF(Intensity = 3) AS VeryActiveMinutes 
+	
+	FROM ( 
+	  SELECT 
+	    Id,
+	    PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute) AS activityMinute,
+	    Intensity
+	
+	  FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteIntensitiesNarrow_secondPeriod` 
+	)
+	
+	GROUP BY Id, activityHour
 
+
+I saved the results as a new table called `hourlyIntensities_secondPeriod_complete` in this dataset.
 
 
 15. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
@@ -379,7 +420,7 @@ Query.
     | weightLogInfo | weightLogInfo_secondPeriod | weight_data |
     | minuteSleep | minuteSleep_secondPeriod | minuteSleep_merged |
     | hourlyCalories | minuteCaloriesNarrow_secondPeriod | hourlyCalories_merged |
-    | hourlyIntensities | minuteIntensitiesNarrow_secondPeriod | hourlyIntensities_merged |
+    | hourlyIntensities_complete | hourlyIntensities_secondPeriod_complete | hourlyIntensities_merged |
     | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
     | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
 
