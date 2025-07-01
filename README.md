@@ -552,3 +552,27 @@ Query.
 | --- | --- | --- | --- | --- |
 | 44,580 | 44,580 | 44,580 | 44,580 | 44,580 |
 
+
+
+### Aggregating the data in `hourlyActivity` from hours to days
+
+
+	SELECT  
+	    Id,
+	    DATE(TIMESTAMP_TRUNC(activityHour, DAY)) AS activityDate,
+	    SUM(Calories) AS calories,
+	    SUM(TotalIntensity) AS totalIntensity,
+	    SUM(SedentaryMinutes) AS sedentaryMinutes,
+	    SUM(LightlyActiveMinutes) AS lightlyActiveMinutes,
+	    SUM(FairlyActiveMinutes) AS fairlyActiveMinutes,
+	    SUM(VeryActiveMinutes)AS veryActiveMinutes,
+	    CAST(SUM(METs_minutes) AS INT64) AS METs_minutes,
+	    SUM(StepTotal) AS totalSteps
+	
+	
+	FROM `analysisbellabeat246.clean_data.hourlyActivity` 
+	
+	GROUP BY Id, activityDate
+
+
+***We saved the results as a new table called `dailyActivity` in our `clean_data` dataset***
