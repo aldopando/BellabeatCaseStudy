@@ -325,7 +325,7 @@ These colunmns are important for our analysis, therefore, we are gonna use the "
 | --- |
 | hearrate_seconds |
 | hourlyCalories |
-| minuteMETsNarrow |
+| minuteIntensitiesNarrow |
 | hourlySteps |
 | minuteMETsNarrow |
 | minuteSleep |
