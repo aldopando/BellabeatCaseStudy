@@ -520,6 +520,10 @@ Query.
 	  calories.activityHour,
 	  calories.Calories,
 	  intensities.TotalIntensity,
+	  intensities.SedentaryMinutes,
+	  intensities.LightlyActiveMinutes,
+	  intensities.FairlyActiveMinutes,
+	  intensities.VeryActiveMinutes,
 	  METs.METs_minutes,
 	  steps.StepTotal
 	
@@ -537,4 +541,9 @@ Query.
 	  ON calories.Id = steps.Id 
 	  AND calories.activityHour = steps.activityHour
 
-   
+
+**Verifying number of rows**
+
+| hourlyCalories_cleaned | hourlyIntensities_cleaned | hourlyMETs_cleaned | hourlySteps_cleaned | hourlyActivity  |
+| --- | --- | --- | --- | --- |
+| 44,580 | 44,580 | 44,580 | 44,580 | 44,580 |
