@@ -301,7 +301,19 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 **The `dailyActivity` table is not consistent with the rest of minute and hour tables. Therefore, I decided not to use it for our analysis, instead I will build a daily table using the minutes and hourly data**
   05/29/2025
 
-13. After ensuring the data I'm going to use for analysis is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
+13. However, `hourlyintensities` tables don't contain the `SedentaryMinutes`, `LightlyActiveMinutes`, `FairlyActiveMinutes`, and `VeryActiveMinutes ` columns  to represent the time spent in one of four intensity categories:
+
+Intensity value for the given minute.
+
+0 = Sedentary
+1 = Light
+2 = Moderate
+3 = Very Active
+
+
+These colunmns are important for our analysis, therefore, we are gonna use the "minuteIntensities" tables from both datasets to calculate the values of these columns and add them in new "hourlyIntensities" tables. In other words, we a won't use the "hourlyIntensities" tables already present in the datasets. We will use the "minuteIntensities" tables four our analysis  to create the hourly and daily tables by ourselves.
+
+16. After ensuring the data is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
 
  ### FitabaseData_20160312_20160411 dataset 
 
@@ -309,7 +321,7 @@ In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies betwee
 | --- |
 | hearrate_seconds |
 | hourlyCalories |
-| hourlyIntensities |
+| minuteMETsNarrow |
 | hourlySteps |
 | minuteMETsNarrow |
 | minuteSleep |
