@@ -313,57 +313,52 @@ Rows.
 
 
 
-## hourlyIntensities and minuteIntensitiesNarrow_secondPeriod
+## hourlyIntensities_complete and hourlyIntensities_secondPeriod_complete
 
 
-To merge these datasets, we will first aggregate the data of the `minuteIntensitiesNarrow_secondPeriod` table from minutes to hours and save the results as a new table called `hourlyIntensities_secondPeriod_cleaned` in the `FitabaseData_20160412_20160512 dataset` dataset.
-
-
-Query.
-
-        SELECT
-          Id,
-          TIMESTAMP_TRUNC(PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityMinute), HOUR) AS ActivityHour,
-          SUM(Intensity) AS TotalIntensity,
-          ROUND(AVG(Intensity), 1) AS AverageIntensity
-        
-        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.minuteIntensitiesNarrow_secondPeriod`
-        
-        GROUP BY Id, ActivityHour
-
-
-Afterward, we will merge the rows of the these tables from the two datasets, we will perform a UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyIntensities_merged` within our `data_merged` dataset.  Additionally, we will convert the `ActivityHour` column from a string to a TIMESTAMP data type. We will also have to filter only the users who are present in both tables and exclude who do not.
+We will merge the rows of the these tables by performing the UNION ALL operation in our query, however we will have to filter only the users who are present in both tables and exclude who do not, and save the result as a new table called `hourlyIntensities_merged` within our `data_merged` dataset. Additionally, we will filter only the users who are present in both tables and exclude who do not.
 
 
 Query.
+
 
         SELECT  
           Id,
-          PARSE_TIMESTAMP('%m/%d/%Y%I:%M:%S %p', ActivityHour) AS activityHour,
+          activityHour,
           TotalIntensity,
-          AverageIntensity
-                
-        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`
+          AverageIntensity,
+          SedentaryMinutes,
+          LightlyActiveMinutes,
+          FairlyActiveMinutes,
+          VeryActiveMinutes
         
-        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_cleaned`)
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities_complete`
                 
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_complete`)
+                        
         UNION ALL
-                
+                        
         SELECT 
           Id,
-          ActivityHour AS activityHour,
+          activityHour,
           TotalIntensity,
-          AverageIntensity
-                
-        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_cleaned`
+          AverageIntensity,
+          SedentaryMinutes,
+          LightlyActiveMinutes,
+          FairlyActiveMinutes,
+          VeryActiveMinutes
         
-        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities`)
+                        
+        FROM `analysisbellabeat246.FitabaseData_20160412_20160512.hourlyIntensities_secondPeriod_complete`
+                
+        WHERE Id IN (SELECT Id FROM `analysisbellabeat246.FitabaseData_20160312_20160411.hourlyIntensities_complete`)
 
 
 Rows.
 
 
-| hourlyIntensities | hourlyIntensities_secondPeriod_cleaned | hourlyIntensities_merged |
+| hourlyIntensities_complete | hourlyIntensities_secondPeriod_complete | hourlyIntensities_merged |
 | --- |  --- |  --- |
 | 24,084 | 22,093 | 44,755 |
 
