@@ -481,14 +481,28 @@ Met-Minutes are used to determine the amount of energy expended during a workout
 
 The amount of MET minutes per week tells you how much energy you have expended while performing various activities throughout the whole week.
 
-how many MET minutes is enough?
+
+**World Health Organization guidelines on physical activity and sedentary behaviour**
 
 Currently, the [World Health Organization](https://www.who.int/publications/i/item/9789240015128) recommends adults to meet a minimum physical activity: 
 
 - Adults should aim for at least 150 minutes of moderate-intensity activity or 75 minutes of vigorous-intensity activity per week for minimal health benefits. 
 - For additional health benefits, adults should increase their moderate-intensity physical activity to 300 minutes per week or an equivalent
 
+According to [the Skeptical Cardiologist](https://theskepticalcardiologist.com/2021/01/17/the-compendium-of-physical-activities-mets-for-all/) article:
+Moderate-intensive activities are ones that cause you to consume at least three times but no more than six times as much energy per minute as you do at rest. Thus moderate intensity exercises or activities are those which require 3-6 METS like walking at 3-4 MPH.
+
+Vigorous activities such as running at >6 MPH burn > 6 METS.
+
+**how many MET minutes is enough?**
+
+Accordig to [omni calculator](https://www.omnicalculator.com/sports/met-minutes-per-week?utm_source=chatgpt.com) website:
+
+MET-minutes/week is a measure used to quantify intentional physical activity, not basic physiological processes like sleeping or resting. Only activities over 3 MET can be considered when counting active minutes per week.
+
 This means that you need at least 450 MET minutes per week to meet these recommendations. Moreover, if we take into account the second recommendation to achieve extra health benefits, you should achieve at least 900 MET minutes per week.
+
+***Therefore, to calculate the MET-minutes for each user in this case study, we will only count the values equal or greater than 3 METs for a more accurate approach to physical activity.*** 
 
 
 Query.
@@ -500,8 +514,7 @@ Query.
 	
 	  Id,
 	  TIMESTAMP_TRUNC(activityMinute, HOUR) AS activityHour,
-	  ROUND(SUM(METs/10), 1) AS METs_minutes
-	
+	  SUM(CASE WHEN METs/10 > 3 THEN METs ELSE 0 END)/10 AS MET_minutes
 	
 	FROM `analysisbellabeat246.clean_data.minuteMETs_cleaned` 
 	
@@ -527,7 +540,7 @@ Query.
 	  intensities.LightlyActiveMinutes,
 	  intensities.FairlyActiveMinutes,
 	  intensities.VeryActiveMinutes,
-	  METs.METs_minutes,
+	  METs.MET_minutes,
 	  steps.StepTotal
 	
 	FROM `analysisbellabeat246.clean_data.hourlyCalories_cleaned` AS calories
@@ -536,7 +549,7 @@ Query.
 	  ON calories.Id = intensities.Id 
 	  AND calories.activityHour = intensities.activityHour
 	
-	LEFT JOIN `analysisbellabeat246.clean_data.hourlyMETs_cleaned` AS METs 
+	LEFT JOIN `analysisbellabeat246.clean_data.hourlyMETminutes_cleaned` AS METs 
 	  ON calories.Id = METs.Id 
 	  AND calories.activityHour = METs.activityHour
 	
@@ -572,7 +585,7 @@ Query.
 		SUM(LightlyActiveMinutes) AS lightlyActiveMinutes,
 		SUM(FairlyActiveMinutes) AS fairlyActiveMinutes,
 		SUM(VeryActiveMinutes)AS veryActiveMinutes,
-		CAST(SUM(METs_minutes) AS INT64) AS METs_minutes,
+		CAST(SUM(MET_minutes) AS INT64) AS MET_minutes,
 		SUM(StepTotal) AS totalSteps
 		
 		
