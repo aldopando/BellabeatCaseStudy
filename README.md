@@ -693,3 +693,45 @@ Preview Results:
 | 1624580081 | Week 1 | Low-active | 1075 |
 
 ***We saved the results as a new table called `METminutes_weekly` in our `analysis` dataset***
+
+Query.
+
+	WITH weekly_METminutes AS (
+	  SELECT
+	    Id,
+	    CASE 
+	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
+	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+	    ELSE 'Highly-active' 
+	    END AS physical_activity, 
+	    CASE 
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+	    ELSE 'Week 9'    
+	    END AS week,
+	    SUM(MET_minutes) AS METs_minutes 
+	    
+	    
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id, week
+	)
+	
+	SELECT
+	
+	  week,
+	  COUNT(Id) AS number_of_users,
+	  physical_activity
+	
+	
+	FROM weekly_METminutes
+	
+	GROUP BY week, physical_activity
+	ORDER BY week, physical_activity
