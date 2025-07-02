@@ -735,3 +735,10 @@ Query.
 	
 	GROUP BY week, physical_activity
 	ORDER BY week, physical_activity
+
+
+
+
+ ---
+
+ ![Image](https://github.com/user-attachments/assets/aba4dd97-9c93-499e-b20a-8085d277d77a)
