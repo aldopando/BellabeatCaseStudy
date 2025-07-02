@@ -618,4 +618,76 @@ Query.
 
 **Grouping data by week**
 
+To categorize the physical activity of users for this analysis, we will follow the MET-minutes/week categories created by this [study](https://www.healthdata.org/sites/default/files/methods_appendices/2021/lojustin_activity_writeup_gbd2020_AC_updated0131.pdf)
 
+Physical activity level is categorised by total MET-minutes per week using four categories based on rounded values closest to the quartiles of the global distribution of total MET-minutes/week. The physical activity categories are defined in terms of weekly MET-mins as below:
+
+• Level 0: <600 MET-min/week (inactive).
+
+• Level 1: 600–3999 MET-min/week (low-active).
+
+• Level 2: 4000–7,999 MET-min/week (moderately active).
+
+• Level 3: ≥8,000 MET-min/week (highly active).
+
+
+Query.
+
+
+	WITH weekly_METminutes AS (
+	  SELECT
+	    Id,
+	    CASE 
+	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
+	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+	    ELSE 'Highly-active' 
+	    END AS physical_activity, 
+	    CASE 
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+	    ELSE 'Week 9'    
+	    END AS week,
+	    SUM(MET_minutes) AS METs_minutes 
+	    
+	    
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id, week
+	)
+	
+	SELECT
+	
+	  Id,
+	  week,
+	  physical_activity,
+	  METs_minutes
+	
+	
+	FROM weekly_METminutes
+	
+	ORDER BY Id, week
+
+
+---
+
+Preview Results:
+
+| Id | week | physical_activity | METs_minutes |
+| --- | --- | --- | --- |
+| 1503960366 | Week 1 | Moderately-active | 6433 |
+| 1503960366 | Week 2 | Moderately-active | 6777 |
+| 1503960366 | Week 3 | Moderately-active | 5163 |
+| 1503960366 | Week 4 | Moderately-active | 5202 |
+| 1503960366 | Week 5 | Moderately-active | 4754 |
+| 1503960366 | Week 6 | Moderately-active | 5301 |
+| 1503960366 | Week 7 | Moderately-active | 5940 |
+| 1503960366 | Week 8 | Moderately-active | 5527 |
+| 1503960366 | Week 9 | Low-active | 2756 |
+| 1624580081 | Week 1 | Low-active | 1075 |
