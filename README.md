@@ -691,3 +691,5 @@ Preview Results:
 | 1503960366 | Week 8 | Moderately-active | 5527 |
 | 1503960366 | Week 9 | Low-active | 2756 |
 | 1624580081 | Week 1 | Low-active | 1075 |
+
+***We saved the results as a new table called `METminutes_weekly` in our `analysis` dataset***
