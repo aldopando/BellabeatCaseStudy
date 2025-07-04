@@ -616,7 +616,84 @@ Query.
 | 2016-03-12 | 2016-05-12 |
 
 
-**Grouping data by week**
+### Number of users that weekly tracked their data throughout the period time (March 12 to May 12).
+
+Query.
+
+	SELECT 
+	   CASE 
+		    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+		    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+		    WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+		    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+		    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+		    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+		    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+		    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+		    ELSE 'Week 9'    
+		    END AS week,
+	    COUNT(DISTINCT(Id)) AS active_users
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	GROUP BY week
+	ORDER BY week
+
+---
+
+![image](https://github.com/user-attachments/assets/30f1905c-a3b4-41d6-aefb-c7c6d626345f)
+
+
+- ***We can observe a considerable decline of users that were consistently tracking their data in the end of the period (week 7 to week 9)***.
+- ***Week 9 contains only 5 days and does not represent a full week. Therefore, we will exclude it to ensure an accurate comparison of changes in users’ activity across the other weeks***.
+
+
+
+**Enough Activity for overall good health**
+
+- Users under 600 METminutes per week are not enough active to keep healthy lifestyle. They are not getting health benefits.
+- Users over 600 METminutes per week are meeting the METminutes necessary for a good overall health. Besides maintaining a good health, the more METminutes accomplish during the week, the more health benefits.
+
+
+Query.
+
+	WITH weekly_METminutes AS (
+		SELECT
+	    Id, 
+		  CASE 
+		  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+		  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+		  WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+		  WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+		  WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+		  WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+		  WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+		  WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+		  ELSE 'Week 9'    
+		  END AS week,
+		  SUM(MET_minutes) AS METs_minutes 
+		      
+		FROM `analysisbellabeat246.analysis.dailyActivity` 
+		
+		GROUP BY Id, week
+	)
+		
+	SELECT
+	  week,
+	  COUNTIF(weekly_METminutes.METs_minutes < 600) AS no_healthBenefits,
+	  COUNTIF(weekly_METminutes.METs_minutes >= 600) AS getting_healthBenefits
+	
+	FROM weekly_METminutes
+		
+	GROUP BY week
+	ORDER BY week
+
+
+
+
+
+
+**Grouping data by week and physical activity**
 
 To categorize the physical activity of users for this analysis, we will follow the MET-minutes/week categories created by this [study](https://www.healthdata.org/sites/default/files/methods_appendices/2021/lojustin_activity_writeup_gbd2020_AC_updated0131.pdf)
 
@@ -633,46 +710,32 @@ Physical activity level is categorised by total MET-minutes per week using four 
 
 Query.
 
-
-	WITH weekly_METminutes AS (
-	  SELECT
-	    Id,
-	    CASE 
-	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
-	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
-	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
-	    ELSE 'Highly-active' 
-	    END AS physical_activity, 
-	    CASE 
-	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
-	    WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
-	    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
-	    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
-	    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
-	    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
-	    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
-	    ELSE 'Week 9'    
-	    END AS week,
-	    SUM(MET_minutes) AS METs_minutes 
-	    
-	    
-	  FROM `analysisbellabeat246.analysis.dailyActivity` 
-	
-	  GROUP BY Id, week
-	)
-	
 	SELECT
-	
-	  Id,
-	  week,
-	  physical_activity,
-	  METs_minutes
-	
-	
-	FROM weekly_METminutes
-	
+		Id, 
+		CASE 
+		WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+		WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+		WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+		WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+		WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+		WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+		WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+		WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+		ELSE 'Week 9'    
+		END AS week,
+		CASE 
+		WHEN SUM(MET_minutes)<600 THEN 'Inactive'
+		WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+		WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+		ELSE 'Highly-active' 
+		END AS physical_activity,
+		SUM(MET_minutes) AS METs_minutes 
+		    
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+		
+	GROUP BY Id, week
 	ORDER BY Id, week
+		
 
 
 ---
@@ -686,13 +749,15 @@ Preview Results:
 | 1503960366 | Week 3 | Moderately-active | 5163 |
 | 1503960366 | Week 4 | Moderately-active | 5202 |
 | 1503960366 | Week 5 | Moderately-active | 4754 |
-| 1503960366 | Week 6 | Moderately-active | 5301 |
-| 1503960366 | Week 7 | Moderately-active | 5940 |
-| 1503960366 | Week 8 | Moderately-active | 5527 |
-| 1503960366 | Week 9 | Low-active | 2756 |
-| 1624580081 | Week 1 | Low-active | 1075 |
 
-***We saved the results as a new table called `METminutes_weekly` in our `analysis` dataset***
+
+---
+
+
+
+
+
+
 
 Query.
 
@@ -741,7 +806,6 @@ Query.
 
  ---
 
- ![Image](https://github.com/user-attachments/assets/aba4dd97-9c93-499e-b20a-8085d277d77a)
 
 
 
