@@ -776,7 +776,7 @@ Total Daily Energy Expenditure (TDEE) is an estimation of how many calories a pe
 This involves multiplying a person’s basal metabolic rate (BMR) by their average daily activity level.
 
 
-**What is BMR?**
+***What is BMR?***
 
 BMR stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This includes basic functions such as:
 
@@ -786,13 +786,14 @@ BMR stands for basal metabolic rate. It is the number of calories a person needs
 - cell function, growth, and repair
 
 
-Harris-Benedict Equation Based Formula
+Harris-Benedict Equation Based Formula.
 
 For Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years).
 
 For Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years).
 
 
+***Activity Factor***.
 
 Activity factors range from sedentary (1.2) to extra active (1.9)
 
@@ -803,10 +804,55 @@ Very Active (intense short-term and chronic interval training or active sports):
 Extra Active (physically demanding jobs or elite-level athletes): BMR x 1.9
 
 
+![Image](https://github.com/user-attachments/assets/fbbfbc5f-b521-4367-bba7-618ae7eed67d)
+
+
+
+---
+
+Due to lack of overall information about users' physical characteristics such as age, sex, height, and weight for this analysis, we cannot accurately determine whether the calories burnt by each user is aligned with their personal needs and goals. 
+However, we can estimate the amounts of calories needed to maintain calorie balance for various age and sex groups at three different levels of physical activity, using reference heights (average) and reference weights (healthy) for each age-sex group.
+According to the [American Psychological Association](https://www.apa.org/obesity-guideline/estimated-calorie-needs.pdf), they estimate range from 1,600 to 2,400 calories per day for adult women and 2,000 to 3,000 calories per day for adult men. Within each age and sex category, the low end of the range is for sedentary individuals; the high end of the range is for active individuals.
+
+
+**Estimated Calorie Needs per Day, by Age, Sex, and Physical Activity Level**
+
+
+***Males*** 
+
+| Age | Sendetary | Moderately Active | Active |
+| --- | --- | --- | --- |
+| 21-25 | 2,400 | 2,800 | 3,000 |  
+| 26-30 | 2,400 | 2,600 | 3,000 |
+| 31-35 | 2,400 | 2,600 | 3,000 |
+
+
+***Females*** 
+
+| Age | Sendetary | Moderately Active | Active |
+| --- | --- | --- | --- |
+| 21-25 | 2,000 | 2,200 | 2,400 |  
+| 26-30 | 1,800 | 2,000 | 2,400 | 
+| 31-35 | 1,800 | 2,000 | 2,200 | 
+
+---
+
+Due to we lack users' information such as sex and age, I personally calculated the calories needed for an average person regardless of their gender based on the above tables. However, these values might not be accurate for the real specific physical charateristics of each user.
+
+
+***Average Adult*** 
+
+| Age | Sendetary | Moderately Active | Active |
+| --- | --- | --- | --- |
+| 21-35 | 2,100 | 2,400 | 2,600 |  
+
+
+
 https://www.healthline.com/health/how-to-calculate-your-basal-metabolic-rate
 https://tdeecalculator.net/
 https://www.calculator.net/tdee-calculator.html
 https://learn.athleanx.com/calculators/tdee-calculator
+https://mitchcalvert.com/golden-ticket-fat-loss/
 
 ### Weekly Activity
 
