@@ -811,48 +811,30 @@ Extra Active (physically demanding jobs or elite-level athletes): BMR x 1.9
 ---
 
 Due to lack of overall information about users' physical characteristics such as age, sex, height, and weight for this analysis, we cannot accurately determine whether the calories burnt by each user is aligned with their personal needs and goals. 
-However, we can estimate the amounts of calories needed to maintain calorie balance for various age and sex groups at three different levels of physical activity, using reference heights (average) and reference weights (healthy) for each age-sex group.
-According to the [American Psychological Association](https://www.apa.org/obesity-guideline/estimated-calorie-needs.pdf), they estimate range from 1,600 to 2,400 calories per day for adult women and 2,000 to 3,000 calories per day for adult men. Within each age and sex category, the low end of the range is for sedentary individuals; the high end of the range is for active individuals.
+However, I used an overall reference point about total daily energy expenditure for average adults based on [ATHLEAN‑X TDEE Calculator](https://learn.athleanx.com/calculators/tdee-calculator?utm_source=chatgpt.com) website.
+
+***Nevertheless, these values don't reflect the real total daily energy expenditure for each user in this analysis. It is only an approach to understand the calories burnt by each user  in the data***
 
 
-**Estimated Calorie Needs per Day, by Age, Sex, and Physical Activity Level**
+Total Daily Energy Expenditure by activity level.
 
-
-***Males*** 
-
-| Age | Sendetary | Moderately Active | Active |
-| --- | --- | --- | --- |
-| 21-25 | 2,400 | 2,800 | 3,000 |  
-| 26-30 | 2,400 | 2,600 | 3,000 |
-| 31-35 | 2,400 | 2,600 | 3,000 |
-
-
-***Females*** 
-
-| Age | Sendetary | Moderately Active | Active |
-| --- | --- | --- | --- |
-| 21-25 | 2,000 | 2,200 | 2,400 |  
-| 26-30 | 1,800 | 2,000 | 2,400 | 
-| 31-35 | 1,800 | 2,000 | 2,200 | 
+| **Sedentary** | **Lightly Active** | Moderately Active | Very Active | Extremely Active |
+| --- | --- | --- | --- | --- |
+| 2,053 calories | 2,321 calories | 2,679 calories | 3,036 calories | 3,393 calories |
 
 ---
 
-Due to we lack users' information such as sex and age, I personally calculated the calories needed for an average person regardless of their gender based on the above tables. However, these values might not be accurate for the real specific physical charateristics of each user.
-
-
-***Average Adult*** 
-
-| Age | Sendetary | Moderately Active | Active |
-| --- | --- | --- | --- |
-| 21-35 | 2,100 | 2,400 | 2,600 |  
-
-
-
 https://www.healthline.com/health/how-to-calculate-your-basal-metabolic-rate
+
 https://tdeecalculator.net/
+
 https://www.calculator.net/tdee-calculator.html
+
 https://learn.athleanx.com/calculators/tdee-calculator
+
 https://mitchcalvert.com/golden-ticket-fat-loss/
+
+
 
 ### Weekly Activity
 
