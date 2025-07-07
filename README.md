@@ -760,3 +760,33 @@ Query.
 
 
 
+### Weekly Activity
+
+	Query.
+	
+	SELECT  
+	  Id,
+	  CASE 
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+	  ELSE 'Week 9'    
+	  END AS week,
+	  SUM(calories) AS calories,
+	  SUM(totalIntensity) AS totalIntensity,
+	  SUM(sedentaryMinutes) AS sedentaryMinutes,
+	  SUM(lightlyActiveMinutes) AS lightlyActiveMinutes,
+	  SUM(fairlyActiveMinutes) AS fairlyActiveMinutes,
+	  SUM(veryActiveMinutes) AS veryActiveMinutes,
+	  SUM(MET_minutes) AS MET_minutes,
+	  SUM(totalSteps) As totalSteps  
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	GROUP BY Id, week
+	ORDER BY Id, week
