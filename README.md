@@ -759,6 +759,54 @@ Query.
  ![Image](https://github.com/user-attachments/assets/8ada3331-1af5-4bb6-a5f0-a2404098dc36)
 
 
+### Calories
+
+The number of calories a person burn in a day depends on several factors such as:
+
+- age
+- sex
+- height
+- weight
+- physical activity
+
+
+**TDEE**
+
+Total Daily Energy Expenditure (TDEE) is an estimation of how many calories a person burn per day when exercise is taken into account.
+This involves multiplying a person’s basal metabolic rate (BMR) by their average daily activity level.
+
+
+**What is BMR?**
+
+BMR stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This includes basic functions such as:
+
+- breathing
+- heart rate and blood flow
+- metabolism (digestion and nutrient absorption)
+- cell function, growth, and repair
+
+
+Harris-Benedict Equation Based Formula
+
+For Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years).
+
+For Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years).
+
+
+
+Activity factors range from sedentary (1.2) to extra active (1.9)
+
+Sedentary (little to no daily exercise): BMR x 1.2
+Lightly Active (light movement or 1-2 days per week of training): BMR x 1.375
+Moderately Active (3-5 days per week of daily exercise): BMR x 1.55
+Very Active (intense short-term and chronic interval training or active sports): BMR x 1.725
+Extra Active (physically demanding jobs or elite-level athletes): BMR x 1.9
+
+
+https://www.healthline.com/health/how-to-calculate-your-basal-metabolic-rate
+https://tdeecalculator.net/
+https://www.calculator.net/tdee-calculator.html
+https://learn.athleanx.com/calculators/tdee-calculator
 
 ### Weekly Activity
 
