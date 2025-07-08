@@ -835,6 +835,35 @@ https://learn.athleanx.com/calculators/tdee-calculator
 https://mitchcalvert.com/golden-ticket-fat-loss/
 
 
+Query.
+
+	SELECT  
+	  Id, 
+	  activityDate,
+	  CASE 
+	  WHEN calories < 2000 THEN 'Sedentary'
+	  WHEN calories BETWEEN 2000 AND 2300 THEN 'Lightly Active'
+	  WHEN calories BETWEEN 2301 AND 2600 THEN 'Moderately Actvie'
+	  WHEN calories BETWEEN 2601 AND 3000 THEN 'Very Active'
+	  ELSE 'Extremely Active'
+	  END AS total_daily_energy_expenditure,
+	  CASE
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	  ELSE 'Week 9'
+	  END AS week,
+	  
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	ORDER BY Id, activityDate
+
+
 
 ### Weekly Activity
 
