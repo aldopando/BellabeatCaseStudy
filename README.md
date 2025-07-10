@@ -600,51 +600,142 @@ Query.
 
 ### Oldest and latest date
 
+**Oldest date**
+
+
+Query.
 
 	SELECT  
-	  MIN(activityDate) AS oldest_date,
+	  Id,
+	  MIN(activityHour) AS oldest_date
+	
+	FROM `analysisbellabeat246.analysis.hourlyActivity` 
+	
+	GROUP BY Id
+
+
+Results.
+
+| Id | oldest_date | 
+| --- | --- |
+| 1503960366 |	2016-03-12 00:00:00.000000 UTC |
+| 1624580081 |	2016-03-12 00:00:00.000000 UTC |
+| 1644430081 |	2016-03-12 00:00:00.000000 UTC |
+| 1844505072 |	2016-03-12 00:00:00.000000 UTC |
+| 1927972279 |	2016-03-12 00:00:00.000000 UTC |
+| 2022484408 |	2016-03-12 00:00:00.000000 UTC |
+| 2026352035 |	2016-03-12 00:00:00.000000 UTC |
+| 2320127002 |	2016-03-12 00:00:00.000000 UTC |
+| 2347167796 |	2016-03-12 00:00:00.000000 UTC |
+| 2873212765 |	2016-03-12 00:00:00.000000 UTC |
+| 3372868164 |	2016-03-12 00:00:00.000000 UTC |
+| 3977333714 |	2016-03-12 00:00:00.000000 UTC |
+| 4020332650 |	2016-03-12 00:00:00.000000 UTC |
+| 4057192912 |	2016-03-12 00:00:00.000000 UTC |
+| 4319703577 |	2016-03-12 00:00:00.000000 UTC |
+| 4445114986 |	2016-03-12 00:00:00.000000 UTC |
+| 4558609924 |	2016-03-12 00:00:00.000000 UTC |
+| 4702921684 |	2016-03-12 00:00:00.000000 UTC | 
+| 5553957443 |	2016-03-12 00:00:00.000000 UTC |
+| 5577150313 |	2016-03-12 00:00:00.000000 UTC |
+| 6117666160 |	2016-03-12 00:00:00.000000 UTC |
+| 6290855005 |	2016-03-12 00:00:00.000000 UTC |
+| 6775888955 |	2016-03-12 00:00:00.000000 UTC |
+| 6962181067 |	2016-03-12 00:00:00.000000 UTC |
+| 7007744171 |	2016-03-12 00:00:00.000000 UTC |
+| 7086361926 |	2016-03-12 00:00:00.000000 UTC |
+| 8053475328 |	2016-03-12 00:00:00.000000 UTC |
+| 8253242879 |	2016-03-12 00:00:00.000000 UTC |
+| 8378563200 |	2016-03-12 00:00:00.000000 UTC |
+| 8583815059 |	2016-03-12 00:00:00.000000 UTC |
+| 8792009665 |	2016-03-12 00:00:00.000000 UTC |
+| 8877689391 |	2016-03-12 00:00:00.000000 UTC |
+
+---
+
+**Latest date**
+
+First, we found the latest date when the data was tracked across all users.
+
+Query.
+
+	SELECT  
 	  MAX(activityDate) AS latest_date
-	  
 	
 	FROM `analysisbellabeat246.analysis.dailyActivity` 
+ 
+
+ Results.
+
+| latest_date |
+| --- |
+| 2016-05-12 |
 
 
-| oldest_date | latest_date |
-| --- | --- |
-| 2016-03-12 | 2016-05-12 |
+We counted how many users finished to track their data in the date 2016-05-12.
+
+
+Query. 
+
+	SELECT 
+	  COUNTIF(latest_date = '2016-05-12') AS latest_date_2016_05_12
+	
+	FROM (
+	  SELECT  
+	    Id,
+	    MAX(activityDate) AS latest_date
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id
+	)
+
+
+Results.
+
+| latest_date_2016_05_12 |
+| --- |
+| 18 |
+
+
+***Only 18 participants finished to track their data in 2016-05-12***
 
 
 ### Number of users that weekly tracked their data throughout the period time (March 12 to May 12).
 
+
+We grouped the days and assinged them into a corresponding week. The first week started since 2016-03-12. Every week contains 7 days, except the week 9 which contains only 6 days.
+
 Query.
 
 	SELECT 
-	   CASE 
-	   WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-           WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
-	   WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
-	   WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
-	   WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
-	   WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
-	   WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
-	   WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
-	   ELSE 'Week 9'    
-	   END AS week,
-	   COUNT(DISTINCT(Id)) AS active_users
-	
+	  CASE 
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	  ELSE 'Week 9'   
+	  END AS week,
+	  COUNT(DISTINCT(Id)) AS active_users
+		
 	FROM `analysisbellabeat246.analysis.dailyActivity` 
-	
+		
 	GROUP BY week
 	ORDER BY week
 
 ---
 
-![image](https://github.com/user-attachments/assets/30f1905c-a3b4-41d6-aefb-c7c6d626345f)
+![image](https://github.com/user-attachments/assets/472a1897-b50e-4115-9d8c-69163e2759e3)
 
 
 - ***We can observe a considerable decline of users that were consistently tracking their data in the end of the period (week 7 to week 9)***.
-- ***Week 9 contains only 5 days and does not represent a full week. Therefore, we will exclude it to ensure an accurate comparison of changes in users’ activity across the other weeks***.
 
+
+---
 
 
 ### Users Meeting the 600 MET-Minutes Recommendation
@@ -660,13 +751,13 @@ Query.
 	    Id, 
 	    CASE 
 	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
-        WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
-	    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
-	    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
-	    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
-	    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
-	    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
 	    ELSE 'Week 9'    
 	    END AS week,
 	    SUM(MET_minutes) AS METs_minutes 
@@ -688,7 +779,7 @@ Query.
 
 
 
-![image](https://github.com/user-attachments/assets/c9d83fc7-5f01-4c93-8a9f-5dc802389a97)
+![image](https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61)
 
 
 
