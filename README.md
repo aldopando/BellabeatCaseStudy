@@ -879,6 +879,29 @@ Observations.
 ---
 
 ### Steps
+
+	WITH activity_steps AS(
+	
+	  SELECT 
+	    Id, 
+	    activityDate,
+	    CASE
+	    WHEN totalSteps > 0 THEN 'Active'
+	    ELSE 'Not Active'
+	    END AS activitySteps
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	)
+	
+	SELECT 
+	  activityDate,
+	  COUNTIF(activitySteps = 'Active') AS active_users,
+	  COUNTIF(activitySteps = 'Not Active') AS not_active_users
+	
+	FROM activity_steps
+	
+	GROUP BY activityDate
+
   
 ### Calories
 
