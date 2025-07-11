@@ -855,9 +855,27 @@ Query.
  ---
 
 
-![image](https://github.com/user-attachments/assets/6fc361ad-6e7c-4f71-b2dd-92ce67d26363)
+![image](https://github.com/user-attachments/assets/e38b7685-082a-4234-8f33-254ead14faec)
 
 
+Observations.
+
+-***We filtered out the week 9 because we are grouping users by how many MET-minutes per week they achieved, meaning we have to use complete weeks and week 9 only contains 6 days***.
+- ***We can observe that more than 15 participants were involve in low-active physical activities throughout the two months***.
+- ***The peak of users reaching moderately-active physical activity was during week 4 (the last week of the first month), afterward we can see a drop in users starting the second month and a great increase of low-active users***.
+
+
+---
+
+![image](https://github.com/user-attachments/assets/8453df89-aca1-40c3-955c-746d9a229886)
+
+
+Observations.
+
+- ***There was a consistent decrement of low-active users as the first month went by and an important increment of moderately-active users as well a noticeable increment of highly-active users****.
+- ***However, when the sencond month started off, we can see a drastic increase of low-active users and a considerable drop of users moderately-active and highly-active. Throughout the first three weeks of the second month, we can observe the same pattern as the first month, where low-active users started to take up more moderately-highly physical activities***
+- ***We can see that during the last week of the second month, users started to become more low-active again***.
+  
 ### Calories
 
 The number of calories a person burn in a day depends on several factors such as:
