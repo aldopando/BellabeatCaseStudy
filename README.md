@@ -698,6 +698,8 @@ Results.
 | 18 |
 
 
+Observations.
+
 ***Only 18 participants finished to track their data in 2016-05-12***
 
 
@@ -731,6 +733,8 @@ Query.
 
 ![image](https://github.com/user-attachments/assets/472a1897-b50e-4115-9d8c-69163e2759e3)
 
+
+Observations.
 
 - ***We can observe a considerable decline of users that were consistently tracking their data in the end of the period (week 7 to week 9)***.
 
@@ -782,6 +786,12 @@ Query.
 ![image](https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61)
 
 
+Observations.
+
+- ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals.***
+- ***We can observe since week 2 to week 5 (a month) there is a consistent increase on participants who were achieving their MET-minutes/week recommendation. This means that each week more users were increasing their weekly physical activity. However, after week 5 we can observe a consistent drop in users who were tracking their data***.
+- ***During the week 9, there was a drastic drop in users who were achieveing their MET-minutes/week recommendation. Nevertheless, we are only counting 6 days in this week. It doesn't represent a full week, therefore we cannot draw conclusions from this week***.
+
 
 
 ### Physical Activity by Week
@@ -807,25 +817,23 @@ Query.
 	  SELECT
 	    Id,
 	    CASE 
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	    ELSE 'Week 9'    
+	    END AS week,
+	    CASE 
 	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
 	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
 	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
 	    ELSE 'Highly-active' 
-	    END AS physical_activity, 
-	    CASE 
-	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
-	    WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
-	    WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
-	    WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
-	    WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
-	    WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
-	    WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
-	    ELSE 'Week 9'    
-	    END AS week,
-	    SUM(MET_minutes) AS METs_minutes 
-	    
-	    
+	    END AS physical_activity
+	      
 	  FROM `analysisbellabeat246.analysis.dailyActivity` 
 	
 	  GROUP BY Id, week
@@ -847,7 +855,7 @@ Query.
  ---
 
 
- ![Image](https://github.com/user-attachments/assets/8ada3331-1af5-4bb6-a5f0-a2404098dc36)
+![image](https://github.com/user-attachments/assets/6fc361ad-6e7c-4f71-b2dd-92ce67d26363)
 
 
 ### Calories
