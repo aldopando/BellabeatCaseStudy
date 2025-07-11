@@ -875,6 +875,10 @@ Observations.
 - ***There was a consistent decrement of low-active users as the first month went by and an important increment of moderately-active users as well a noticeable increment of highly-active users****.
 - ***However, when the sencond month started off, we can see a drastic increase of low-active users and a considerable drop of users moderately-active and highly-active. Throughout the first three weeks of the second month, we can observe the same pattern as the first month, where low-active users started to take up more moderately-highly physical activities***
 - ***We can see that during the last week of the second month, users started to become more low-active again***.
+
+---
+
+### Steps
   
 ### Calories
 
