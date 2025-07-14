@@ -1,7 +1,6 @@
 # BellabeatCaseStudy
-Bellabeat Case Study 
 
-# Phases of data analysis process about Bellabeat Ivy 
+## Phases of data analysis process about Bellabeat Ivy 
 
 
 ## Ask 
