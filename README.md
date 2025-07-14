@@ -908,33 +908,10 @@ Query.
 
 
 
+![image](https://github.com/user-attachments/assets/5d2d36ec-7a34-4904-86b0-6931a7cbd7de)
 
 
 
-
-
-
-	WITH activity_steps AS(
-	
-	  SELECT 
-	    Id, 
-	    activityDate,
-	    CASE
-	    WHEN totalSteps > 0 THEN 'Active'
-	    ELSE 'Not Active'
-	    END AS activitySteps
-	
-	  FROM `analysisbellabeat246.analysis.dailyActivity` 
-	)
-	
-	SELECT 
-	  activityDate,
-	  COUNTIF(activitySteps = 'Active') AS active_users,
-	  COUNTIF(activitySteps = 'Not Active') AS not_active_users
-	
-	FROM activity_steps
-	
-	GROUP BY activityDate
 
   
 ### Calories
