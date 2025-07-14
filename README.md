@@ -911,6 +911,43 @@ Query.
 ![image](https://github.com/user-attachments/assets/5d2d36ec-7a34-4904-86b0-6931a7cbd7de)
 
 
+Query.
+
+	SELECT 
+	  week,
+	  COUNTIF(totalDays_notStepsTracked = 7) AS seven_days,
+	  COUNTIF(totalDays_notStepsTracked = 6) AS six_days,
+	  COUNTIF(totalDays_notStepsTracked = 5) AS five_days,
+	  COUNTIF(totalDays_notStepsTracked = 4) AS four_days,
+	  COUNTIF(totalDays_notStepsTracked = 3) AS three_days,
+	  COUNTIF(totalDays_notStepsTracked = 2) AS two_days,
+	  COUNTIF(totalDays_notStepsTracked = 1) AS one_day,
+	
+	FROM (
+	  SELECT 
+	    Id,
+	    CASE
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	    ELSE 'Week 9'
+	    END AS week,
+	    COUNTIF(TotalSteps = 0) AS totalDays_notStepsTracked
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id, week
+	  HAVING COUNTIF(TotalSteps = 0) > 0
+	  ORDER BY Id, week
+	)
+	
+	GROUP BY week
+	ORDER BY week
 
 
   
