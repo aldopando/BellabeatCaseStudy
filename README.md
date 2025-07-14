@@ -949,7 +949,9 @@ Query.
 	ORDER BY week
 
 
-  
+![image](https://github.com/user-attachments/assets/821f8760-ffe1-4ffa-b208-f26bbf6807f2)
+
+
 ### Calories
 
 The number of calories a person burn in a day depends on several factors such as:
