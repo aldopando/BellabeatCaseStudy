@@ -880,6 +880,40 @@ Observations.
 
 ### Steps
 
+First off, we will create a table that contains the users who tracked 0 steps in any day throughout the two months period. Moreover, we will count how many days each user happen to have 0 steps during each week.
+
+Query.
+
+	SELECT 
+	  Id,
+	  CASE
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	  ELSE 'Week 9'
+	  END AS week,
+	  COUNTIF(TotalSteps = 0) AS totalDays_notStepsTracked
+	
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	GROUP BY Id, week
+	HAVING COUNTIF(TotalSteps = 0) > 0
+	ORDER BY Id, week
+
+
+
+
+
+
+
+
+
 	WITH activity_steps AS(
 	
 	  SELECT 
