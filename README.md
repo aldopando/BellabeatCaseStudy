@@ -975,8 +975,65 @@ Observations.
 - ***During the week 5, there were less inactive users, meaning the users were using their wearable more frequently compared to other weeks***.
 
 
-**Weekly activity levels based on steps taken**.
+**Average daily steps by user**
 
+According to [10000 Steps](https://www.10000steps.org.au/learn-and-discover/counting-steps/#:~:text=Sedentary%20is%20less%20than%205%2C000,is%20approximately%203%2C000%20%2D%204%2C000%20steps.) 10,000 steps is the recommended daily step target for healthy adults.
+However, a general guideline for daily physical activity based on step count is:
+
+- Sedentary is less than 5,000 steps per day. 
+- Low active is 5,000 to 7,499 steps per day.
+- Somewhat active is 7,500 to 9,999 steps per day.
+- Active is more than 10,000 steps per day.
+- Highly active is more than 12,500  steps per day.
+
+  
+
+Query.
+
+	SELECT  
+	
+	  Id,
+	  ROUND(AVG(TotalSteps), 0) AS average_TotalSteps
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	GROUP BY Id
+	ORDER BY Id
+
+
+![image](https://github.com/user-attachments/assets/c39dc609-0462-4ce9-a05d-1ee33e3e3b2f)
+
+ 
+Observations.
+
+- ***We can observe that on average 7 participants reached the daily goal of 10,000 steps for a good overall health, representing the 16% of the total sample.***.
+
+---
+
+Query.
+
+	SELECT 
+	  CASE
+	  WHEN average_TotalSteps < 5000 THEN 'Sedentary'
+	  WHEN average_TotalSteps BETWEEN 5000 AND 7499 THEN 'Low active'
+	  WHEN average_TotalSteps BETWEEN 7500 AND 9999 THEN 'Somewhat active'
+	  WHEN average_TotalSteps BETWEEN 10000 AND 12499 THEN 'Active'
+	  ELSE 'Highly active'
+	  END AS physical_activity,
+	  COUNT(Id) AS number_of_users
+	
+	FROM(
+	  SELECT  
+	    Id,
+	    ROUND(AVG(TotalSteps), 0) AS average_TotalSteps
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id
+	  ORDER BY Id
+	)
+	GROUP BY physical_activity
+	ORDER BY number_of_users DESC
 
 
 
