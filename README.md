@@ -1036,6 +1036,15 @@ Query.
 	ORDER BY number_of_users DESC
 
 
+![image](https://github.com/user-attachments/assets/f0a7b416-a2dd-4218-bd5b-8f4c6e62dfaa)
+
+
+Observations.
+
+- ***We can observe that a third part of the participants are involved in sendentary lifestyle based on their daily average steps***.
+- ***25% of participants are somewhat active users***.
+- ***Over the half of users are sedentary and low active***.
+- ***7 users have an average daily activity between active and highly active***.
 
 
 ### Calories
