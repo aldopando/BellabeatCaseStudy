@@ -879,6 +879,11 @@ Observations.
 
 ### Steps
 
+**Weekly inactivity patterns: days with 0 steps**
+
+We know that all Fitbit devices track **steps** taken. When a person is using their wearable, it automatically starts to tracked their steps. We can assumme that a person can accomplish a minimum amount of steps during a day that is different from zero, even for a sedentary person. If the value of steps taken is zero, it means the user is not using their wearable. Therefore, we can pinpoint the users who didn't wear their devices in specifc days by identifying if they got zero steps taken.
+
+
 First off, we will create a table that contains the users who tracked 0 steps in any day throughout the two months period. Moreover, we will count how many days each user happen to have 0 steps during each week.
 
 Query.
@@ -909,6 +914,17 @@ Query.
 
 ![image](https://github.com/user-attachments/assets/5d2d36ec-7a34-4904-86b0-6931a7cbd7de)
 
+
+---
+
+Observations
+- ***We can observe that 6 users got zero steps taken for a whole week, this means that 6 users didn't use their wearables during taht week***.
+- ***We can also see that 20 participants stopped using their devices at some point of the period time***.
+- ***4 users tracked zero steps for two whole weeks. In other words, four participants didn't use their wearable at all for two weeks***.
+
+---
+
+Now we will group our users who didn't give any step based on how many days they were inactive, and we will count the total users in each group by week.
 
 Query.
 
@@ -950,6 +966,19 @@ Query.
 
 
 ![image](https://github.com/user-attachments/assets/821f8760-ffe1-4ffa-b208-f26bbf6807f2)
+
+
+Observations.
+
+- ***We can observe a peak of 5 users who didn't give any steps during 7 days (an entire week) in the week 2***.
+- ***The week with most inactive users was the second***.
+- ***During the week 5, there were less inactive users, meaning the users were using their wearable more frequently compared to other weeks***.
+
+
+**Weekly activity levels based on steps taken**.
+
+
+
 
 
 ### Calories
