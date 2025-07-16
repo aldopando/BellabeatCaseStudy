@@ -792,7 +792,7 @@ Query.
 
 
 - ***We found 220 rows of non-activity (days when users weren't using their wearables)***.
-- ***We can still see values in the `calories` column because this variable represents the BMR which stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This value is calculated automatically by the system based on information logged about users' physical characteristics such as age, sex, height, and weight***.
+- ***We can still see values in the `calories` column because this variable represents the BMR which stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This value is calculated automatically by the system (even though the user isn't using the wearable) based on information logged about users' physical characteristics such as age, sex, height, and weight***.
 - ***We can still see values in the `sedentaryMinutes` column because sedentary minutes are added up when the intensity is equal to zero. And it makes sense, because 1440 minutes represents 24 hours, meaning 24 hours of 0 intensity.***.
   
 
