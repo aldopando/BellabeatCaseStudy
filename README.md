@@ -810,48 +810,6 @@ Physical activity level is categorised by total MET-minutes per week using four 
 • Level 3: ≥8,000 MET-min/week (highly active).
 
 
-Query.
-
-	WITH weekly_METminutes AS(
-	  SELECT
-	  Id,
-	  CASE 
-	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
-	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
-	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
-	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
-	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
-	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
-	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
-	  END AS week, 
-	  SUM(MET_minutes) AS METminutes
-	      
-	  FROM `analysisbellabeat246.analysis.dailyActivity`
-	
-	  WHERE activityDate BETWEEN '2016-03-12' AND '2016-05-06'
-	
-	  GROUP BY Id, week
-	  ORDER BY Id, week
-	)
-	
-	SELECT 
-	  Id,
-	  CASE 
-	  WHEN AVG(METminutes)<600 THEN 'Inactive'
-	  WHEN AVG(METminutes) BETWEEN 600 AND 3999 THEN 'Low-active'
-	  WHEN AVG(METminutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
-	  ELSE 'Highly-active' 
-	  END AS physical_activity,
-	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes
-	
-	FROM weekly_METminutes
-	
-	GROUP BY Id
-	ORDER BY Id
-
-
-
 
 Query.
 
@@ -919,6 +877,64 @@ Observations.
 - ***We can see that during the last week of the second month, users started to become more low-active again***.
 
 ---
+
+**Physical Activity by Average MET-minutes/week**
+
+Query.
+
+	WITH weekly_METminutes AS(
+	  SELECT
+	  Id,
+	  CASE 
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
+	  END AS week, 
+	  SUM(MET_minutes) AS METminutes
+	      
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE activityDate BETWEEN '2016-03-12' AND '2016-05-06'
+	
+	  GROUP BY Id, week
+	  ORDER BY Id, week
+	)
+	
+	SELECT 
+	  Id,
+	  CASE 
+	  WHEN AVG(METminutes)<600 THEN 'Inactive'
+	  WHEN AVG(METminutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+	  WHEN AVG(METminutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+	  ELSE 'Highly-active' 
+	  END AS physical_activity,
+	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes
+	
+	FROM weekly_METminutes
+	
+	GROUP BY Id
+	ORDER BY Id
+
+
+
+![image](https://github.com/user-attachments/assets/d9eabb1b-21a1-4e24-8f1b-e8ddac62541d)
+
+---
+
+![image](https://github.com/user-attachments/assets/5cec954c-fda1-44c4-887c-87eefdf7a3dd)
+
+
+
+
+
+
+
+
 
 ### Steps
 
