@@ -796,63 +796,13 @@ Query.
 - ***We can still see values in the `sedentaryMinutes` column because sedentary minutes are added up when the intensity is equal to zero. And it makes sense, because 1440 minutes represents 24 hours, meaning 24 hours of 0 intensity.***.
   
 
-### Users Meeting the 600 MET-Minutes Recommendation
-
-- Users under 600 METminutes per week are not enough active to keep healthy lifestyle. They are not getting health benefits.
-- Users over 600 METminutes per week are meeting the METminutes necessary for a good overall health. Besides maintaining a good health, the more METminutes accomplish during the week, the more health benefits.
-
-
-Query.
-
-	WITH weekly_METminutes AS (
-	  SELECT
-	    Id, 
-	    CASE 
-	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
-	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
-	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
-	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
-	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
-	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
-	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
-	    ELSE 'Week 9'    
-	    END AS week,
-	    SUM(MET_minutes) AS METs_minutes 
-		      
-	  FROM `analysisbellabeat246.analysis.dailyActivity` 
-		
-	  GROUP BY Id, week
-	)
-		
-	SELECT
-	  week,
-	  COUNTIF(weekly_METminutes.METs_minutes < 600) AS no_healthBenefits,
-	  COUNTIF(weekly_METminutes.METs_minutes >= 600) AS getting_healthBenefits
-	
-	FROM weekly_METminutes
-		
-	GROUP BY week
-	ORDER BY week
-
-
-
-![image](https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61)
-
-
-Observations.
-
-- ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals.***
-- ***We can observe since week 2 to week 5 (a month) there is a consistent increase on participants who were achieving their MET-minutes/week recommendation. This means that each week more users were increasing their weekly physical activity. However, after week 5 we can observe a consistent drop in users who were tracking their data***.
-- ***During the week 9, there was a drastic drop in users who were achieveing their MET-minutes/week recommendation. Nevertheless, we are only counting 6 days in this week. It doesn't represent a full week, therefore we cannot draw conclusions from this week***.
-
 ---
 
 **To fairly draw insights from the data, we need to only take into account the days when the participants were using their devices**.
 
 ---
 
-## Inactivity weekdays.
+## Inactivity by day of the week.
 
 We are going to figure out what days there were more inactivity levels (when participants didn't use their wearables). 
 
@@ -863,7 +813,7 @@ Query.
 	  SELECT 
 	    Id,
 	    activityDate,
-	    FORMAT_DATE('%A', activityDate) AS weekday
+	    FORMAT_DATE('%A', activityDate) AS day_of_the_week
 	
 	  FROM `analysisbellabeat246.analysis.dailyActivity`
 	
@@ -873,153 +823,22 @@ Query.
 	)
 	
 	SELECT 
-	  weekday,
+	  day_of_the_week,
 	  COUNT(Id) AS inactive_users
 	
 	FROM inactivity_days
 	
-	GROUP BY weekday
+	GROUP BY day_of_the_week
 	ORDER BY inactive_users
 
-### Physical Activity by Week
-
-**Grouping data by week and physical activity**
-
-To categorize the physical activity of users for this analysis, we will follow the MET-minutes/week categories created by this [study](https://www.healthdata.org/sites/default/files/methods_appendices/2021/lojustin_activity_writeup_gbd2020_AC_updated0131.pdf)
-
-Physical activity level is categorised by total MET-minutes per week using four categories based on rounded values closest to the quartiles of the global distribution of total MET-minutes/week. The physical activity categories are defined in terms of weekly MET-mins as below:
-
-• Level 0: <600 MET-min/week (inactive).
-
-• Level 1: 600–3999 MET-min/week (low-active).
-
-• Level 2: 4000–7,999 MET-min/week (moderately active).
-
-• Level 3: ≥8,000 MET-min/week (highly active).
+ ![image](https://github.com/user-attachments/assets/a4a9a00f-9191-40f4-9ea7-a93d7dd73b8d)
 
 
+ **Observations**.
 
-Query.
-
-	WITH weekly_METminutes AS (
-	  SELECT
-	    Id,
-	    CASE 
-	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
-	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
-	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
-	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
-	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
-	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
-	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
-	    ELSE 'Week 9'    
-	    END AS week,
-	    CASE 
-	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
-	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
-	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
-	    ELSE 'Highly-active' 
-	    END AS physical_activity
-	      
-	  FROM `analysisbellabeat246.analysis.dailyActivity` 
-	
-	  GROUP BY Id, week
-	)
-	
-	SELECT
-	
-	  week,
-	  COUNT(Id) AS number_of_users,
-	  physical_activity
-	
-	
-	FROM weekly_METminutes
-	
-	GROUP BY week, physical_activity
-	ORDER BY week, physical_activity
-
-
- ---
-
-
-![image](https://github.com/user-attachments/assets/e38b7685-082a-4234-8f33-254ead14faec)
-
-
-Observations.
-
--***We filtered out the week 9 because we are grouping users by how many MET-minutes per week they achieved, meaning we have to use complete weeks and week 9 only contains 6 days***.
-- ***We can observe that more than 15 participants were involve in low-active physical activities throughout the two months***.
-- ***The peak of users reaching moderately-active physical activity was during week 4 (the last week of the first month), afterward we can see a drop in users starting the second month and a great increase of low-active users***.
-
-
----
-
-![image](https://github.com/user-attachments/assets/8453df89-aca1-40c3-955c-746d9a229886)
-
-
-Observations.
-
-- ***There was a consistent decrement of low-active users as the first month went by and an important increment of moderately-active users as well a noticeable increment of highly-active users****.
-- ***However, when the sencond month started off, we can see a drastic increase of low-active users and a considerable drop of users moderately-active and highly-active. Throughout the first three weeks of the second month, we can observe the same pattern as the first month, where low-active users started to take up more moderately-highly physical activities***
-- ***We can see that during the last week of the second month, users started to become more low-active again***.
-
----
-
-**Physical Activity by Average MET-minutes/week**
-
-Query.
-
-	WITH weekly_METminutes AS(
-	  SELECT
-	  Id,
-	  CASE 
-	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
-	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
-	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
-	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
-	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
-	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
-	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
-	  END AS week, 
-	  SUM(MET_minutes) AS METminutes
-	      
-	  FROM `analysisbellabeat246.analysis.dailyActivity`
-	
-	  WHERE activityDate BETWEEN '2016-03-12' AND '2016-05-06'
-	
-	  GROUP BY Id, week
-	  ORDER BY Id, week
-	)
-	
-	SELECT 
-	  Id,
-	  CASE 
-	  WHEN AVG(METminutes)<600 THEN 'Inactive'
-	  WHEN AVG(METminutes) BETWEEN 600 AND 3999 THEN 'Low-active'
-	  WHEN AVG(METminutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
-	  ELSE 'Highly-active' 
-	  END AS physical_activity,
-	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes
-	
-	FROM weekly_METminutes
-	
-	GROUP BY Id
-	ORDER BY Id
-
-
-
-![image](https://github.com/user-attachments/assets/d9eabb1b-21a1-4e24-8f1b-e8ddac62541d)
-
----
-
-![image](https://github.com/user-attachments/assets/5cec954c-fda1-44c4-887c-87eefdf7a3dd)
-
-
-
-
-
+ - ***The days with more inactivity (when users didn't use their device at all) were Saturday and Sunday***.
+ - ***Monday and Tuesday are days with high levels of inactivity as well***.
+ - ***Friday is the day when users were using their devices more consistenly*** .
 
 
 
@@ -1192,6 +1011,203 @@ Observations.
 - ***25% of participants are somewhat active users***.
 - ***Over the half of users are sedentary and low active***.
 - ***7 users have an average daily activity between active and highly active***.
+  
+
+
+
+
+
+ ### Users Meeting the 600 MET-Minutes Recommendation
+
+- Users under 600 METminutes per week are not enough active to keep healthy lifestyle. They are not getting health benefits.
+- Users over 600 METminutes per week are meeting the METminutes necessary for a good overall health. Besides maintaining a good health, the more METminutes accomplish during the week, the more health benefits.
+
+
+Query.
+
+	WITH weekly_METminutes AS (
+	  SELECT
+	    Id, 
+	    CASE 
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	    ELSE 'Week 9'    
+	    END AS week,
+	    SUM(MET_minutes) AS METs_minutes 
+		      
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+		
+	  GROUP BY Id, week
+	)
+		
+	SELECT
+	  week,
+	  COUNTIF(weekly_METminutes.METs_minutes < 600) AS no_healthBenefits,
+	  COUNTIF(weekly_METminutes.METs_minutes >= 600) AS getting_healthBenefits
+	
+	FROM weekly_METminutes
+		
+	GROUP BY week
+	ORDER BY week
+
+
+
+![image](https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61)
+
+
+Observations.
+
+- ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals.***
+- ***We can observe since week 2 to week 5 (a month) there is a consistent increase on participants who were achieving their MET-minutes/week recommendation. This means that each week more users were increasing their weekly physical activity. However, after week 5 we can observe a consistent drop in users who were tracking their data***.
+- ***During the week 9, there was a drastic drop in users who were achieveing their MET-minutes/week recommendation. Nevertheless, we are only counting 6 days in this week. It doesn't represent a full week, therefore we cannot draw conclusions from this week***.
+  
+
+### Physical Activity by Week
+
+**Grouping data by week and physical activity**
+
+To categorize the physical activity of users for this analysis, we will follow the MET-minutes/week categories created by this [study](https://www.healthdata.org/sites/default/files/methods_appendices/2021/lojustin_activity_writeup_gbd2020_AC_updated0131.pdf)
+
+Physical activity level is categorised by total MET-minutes per week using four categories based on rounded values closest to the quartiles of the global distribution of total MET-minutes/week. The physical activity categories are defined in terms of weekly MET-mins as below:
+
+• Level 0: <600 MET-min/week (inactive).
+
+• Level 1: 600–3999 MET-min/week (low-active).
+
+• Level 2: 4000–7,999 MET-min/week (moderately active).
+
+• Level 3: ≥8,000 MET-min/week (highly active).
+
+
+
+Query.
+
+	WITH weekly_METminutes AS (
+	  SELECT
+	    Id,
+	    CASE 
+	    WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	    WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	    WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	    WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	    WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	    WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	    WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
+	    ELSE 'Week 9'    
+	    END AS week,
+	    CASE 
+	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
+	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+	    WHEN SUM(MET_minutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+	    ELSE 'Highly-active' 
+	    END AS physical_activity
+	      
+	  FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	  GROUP BY Id, week
+	)
+	
+	SELECT
+	
+	  week,
+	  COUNT(Id) AS number_of_users,
+	  physical_activity
+	
+	
+	FROM weekly_METminutes
+	
+	GROUP BY week, physical_activity
+	ORDER BY week, physical_activity
+
+
+ ---
+
+
+![image](https://github.com/user-attachments/assets/e38b7685-082a-4234-8f33-254ead14faec)
+
+
+Observations.
+
+-***We filtered out the week 9 because we are grouping users by how many MET-minutes per week they achieved, meaning we have to use complete weeks and week 9 only contains 6 days***.
+- ***We can observe that more than 15 participants were involve in low-active physical activities throughout the two months***.
+- ***The peak of users reaching moderately-active physical activity was during week 4 (the last week of the first month), afterward we can see a drop in users starting the second month and a great increase of low-active users***.
+
+
+---
+
+![image](https://github.com/user-attachments/assets/8453df89-aca1-40c3-955c-746d9a229886)
+
+
+Observations.
+
+- ***There was a consistent decrement of low-active users as the first month went by and an important increment of moderately-active users as well a noticeable increment of highly-active users****.
+- ***However, when the sencond month started off, we can see a drastic increase of low-active users and a considerable drop of users moderately-active and highly-active. Throughout the first three weeks of the second month, we can observe the same pattern as the first month, where low-active users started to take up more moderately-highly physical activities***
+- ***We can see that during the last week of the second month, users started to become more low-active again***.
+
+---
+
+**Physical Activity by Average MET-minutes/week**
+
+Query.
+
+	WITH weekly_METminutes AS(
+	  SELECT
+	  Id,
+	  CASE 
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
+	  END AS week, 
+	  SUM(MET_minutes) AS METminutes
+	      
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE activityDate BETWEEN '2016-03-12' AND '2016-05-06'
+	
+	  GROUP BY Id, week
+	  ORDER BY Id, week
+	)
+	
+	SELECT 
+	  Id,
+	  CASE 
+	  WHEN AVG(METminutes)<600 THEN 'Inactive'
+	  WHEN AVG(METminutes) BETWEEN 600 AND 3999 THEN 'Low-active'
+	  WHEN AVG(METminutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
+	  ELSE 'Highly-active' 
+	  END AS physical_activity,
+	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes
+	
+	FROM weekly_METminutes
+	
+	GROUP BY Id
+	ORDER BY Id
+
+
+
+![image](https://github.com/user-attachments/assets/d9eabb1b-21a1-4e24-8f1b-e8ddac62541d)
+
+---
+
+![image](https://github.com/user-attachments/assets/5cec954c-fda1-44c4-887c-87eefdf7a3dd)
+
+
+
+
+
+
 
 
 ### Calories
