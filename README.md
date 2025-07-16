@@ -740,6 +740,61 @@ Observations.
 
 ---
 
+## Identifying inactivity patterns.
+
+**First approach**.
+
+We know that all Fitbit devices track **steps** taken. When a person is using their wearable, it automatically starts to tracked their steps. We can assumme that a person can accomplish a minimum amount of steps during a day that is different from zero, even for a sedentary person. If the value of steps taken is zero, it means the user is not using their wearable. Therefore, we can pinpoint the users who didn't wear their devices in specifc days by identifying if they got zero steps taken.
+
+Therefore, we will filter out all the rows where total steps are zero in our `dailyActivity` table and observe what values were tracked in the other variables when this happened. 
+
+Query. 
+
+	SELECT *
+
+	FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	WHERE totalSteps = 0
+	
+	ORDER BY MET_minutes DESC
+
+
+
+We sorted the data by MET-minutes to identify any outlier because our hypothesis is that if a user got zero steps during a day, it means they wasn't using their wearable, Therefore, their devices couldn't have tracked any intensity (physical activity) either.
+
+
+<img width="1740" height="644" alt="image" src="https://github.com/user-attachments/assets/369b3947-d8b9-44b7-8bc9-7488a2818e36" />
+
+---
+
+- ***We found two users whose devices tracked high intensity levels and MET-minutes even though they got zero steps in that day. We can infer that they only used their wearables to tracked a non-step activity such as weight lifting. We know that the devices that can tracked heart rate data are particularly useful for activities that are not easily tracked by steps alone, such as weightlifting, yoga, swimming, or rowing.***
+
+  
+**Second approach**
+
+We cannot only base on steps taken variable to identify users who weren't using their wearables, because there were users who were involved in non-step activities. Therefore, to fairly identify users totally inactive (they weren't using their wearables in certain days at all) we need to filter out:
+
+The users who got 0 steps taken AND 0 total intensity AND 0 MET-minutes in a day.
+
+Query.
+
+	SELECT *
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	WHERE totalSteps = 0 AND totalIntensity = 0 AND MET_minutes = 0
+	
+	ORDER BY MET_minutes DESC
+
+
+
+<img width="1808" height="328" alt="image" src="https://github.com/user-attachments/assets/a5a66c25-9f1f-4a0b-92dd-ee3e6431e613" />
+
+
+- ***We found 220 rows of non-activity (days when users weren't using their wearables)***.
+- ***We can still see values in the `calories` column because this variable represents the BMR which stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This value is calculated automatically by the system based on information logged about users' physical characteristics such as age, sex, height, and weight***.
+- ***We can still see values in the `sedentaryMinutes` column because sedentary minutes are added up when the intensity is equal to zero. And it makes sense, because 1440 minutes represents 24 hours, meaning 24 hours of 0 intensity.***.
+  
 
 ### Users Meeting the 600 MET-Minutes Recommendation
 
