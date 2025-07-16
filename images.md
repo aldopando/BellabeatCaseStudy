@@ -1,5 +1,7 @@
 <img width="743" height="565" alt="Sheet 1 (5)" src="https://github.com/user-attachments/assets/472a1897-b50e-4115-9d8c-69163e2759e3" />
 
+<img width="962" height="446" alt="Sheet 1 (18)" src="https://github.com/user-attachments/assets/a4a9a00f-9191-40f4-9ea7-a93d7dd73b8d" />
+
 <img width="945" height="446" alt="Sheet 1 (6)" src="https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61" />
 
 <img width="945" height="446" alt="Sheet 1 (8)" src="https://github.com/user-attachments/assets/e38b7685-082a-4234-8f33-254ead14faec" />
