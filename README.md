@@ -846,7 +846,40 @@ Observations.
 - ***We can observe since week 2 to week 5 (a month) there is a consistent increase on participants who were achieving their MET-minutes/week recommendation. This means that each week more users were increasing their weekly physical activity. However, after week 5 we can observe a consistent drop in users who were tracking their data***.
 - ***During the week 9, there was a drastic drop in users who were achieveing their MET-minutes/week recommendation. Nevertheless, we are only counting 6 days in this week. It doesn't represent a full week, therefore we cannot draw conclusions from this week***.
 
+---
 
+**To fairly draw insights from the data, we need to only take into account the days when the participants were using their devices**.
+
+---
+
+## Inactivity weekdays.
+
+We are going to figure out what days there were more inactivity levels (when participants didn't use their wearables). 
+
+Query.
+
+	WITH inactivity_days AS (
+	
+	  SELECT 
+	    Id,
+	    activityDate,
+	    FORMAT_DATE('%A', activityDate) AS weekday
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE totalSteps = 0 AND totalIntensity = 0 AND MET_minutes = 0
+	
+	  ORDER BY Id, activityDate
+	)
+	
+	SELECT 
+	  weekday,
+	  COUNT(Id) AS inactive_users
+	
+	FROM inactivity_days
+	
+	GROUP BY weekday
+	ORDER BY inactive_users
 
 ### Physical Activity by Week
 
