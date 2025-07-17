@@ -1067,8 +1067,8 @@ Observations.
 
  ### Users Meeting the 600 MET-Minutes Recommendation
 
-- Users under 600 METminutes per week are not enough active to keep healthy lifestyle. They are not getting health benefits.
-- Users over 600 METminutes per week are meeting the METminutes necessary for a good overall health. Besides maintaining a good health, the more METminutes accomplish during the week, the more health benefits.
+- Users under 600 MET-minutes per week are not enough active to keep healthy lifestyle. They are not getting health benefits.
+- Users over 600 MET-minutes per week are meeting the MET-minutes necessary for a good overall health. Besides maintaining a good health, the more MET-minutes accomplish during the week, the more health benefits.
 
 
 Query.
