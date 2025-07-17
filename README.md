@@ -1266,11 +1266,12 @@ Query.
 	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
 	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
 	  END AS week, 
+	  COUNT(DISTINCT activityDate) AS active_days,
 	  SUM(MET_minutes) AS METminutes
 	      
 	  FROM `analysisbellabeat246.analysis.dailyActivity`
 	
-	  WHERE activityDate BETWEEN '2016-03-12' AND '2016-05-06'
+	  WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
 	
 	  GROUP BY Id, week
 	  ORDER BY Id, week
@@ -1284,24 +1285,26 @@ Query.
 	  WHEN AVG(METminutes) BETWEEN 4000 AND 7999 THEN 'Moderately-active'
 	  ELSE 'Highly-active' 
 	  END AS physical_activity,
-	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes
+	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes,
 	
 	FROM weekly_METminutes
+	
+	WHERE active_days = 7
 	
 	GROUP BY Id
 	ORDER BY Id
 
 
 
-![image](https://github.com/user-attachments/assets/d9eabb1b-21a1-4e24-8f1b-e8ddac62541d)
+![image](https://github.com/user-attachments/assets/8aebdee7-960c-4842-a1e0-d6c0cd4827ca)
 
 ---
 
-![image](https://github.com/user-attachments/assets/5cec954c-fda1-44c4-887c-87eefdf7a3dd)
+![image](https://github.com/user-attachments/assets/69c5735f-f715-403a-8706-79cac16cc59e)
 
 
 
-
+---
 
 
 
