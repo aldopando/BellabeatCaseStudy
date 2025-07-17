@@ -943,7 +943,8 @@ Observations.
 
 **Average daily steps by user**
 
-According to [10000 Steps](https://www.10000steps.org.au/learn-and-discover/counting-steps/#:~:text=Sedentary%20is%20less%20than%205%2C000,is%20approximately%203%2C000%20%2D%204%2C000%20steps.) 10,000 steps is the recommended daily step target for healthy adults.
+According to [10000 Steps](https://www.10000steps.org.au/learn-and-discover/counting-steps/#:~:text=Sedentary%20is%20less%20than%205%2C000,is%20approximately%203%2C000%20%2D%204%2C000%20steps.), studies using the 10,000 steps per day goal have shown weight loss, improved glucose tolerance, and reduced blood pressure from increased physical activity toward achieving this goal. 
+
 However, a general guideline for daily physical activity based on step count is:
 
 - Sedentary is less than 5,000 steps per day. 
@@ -952,27 +953,31 @@ However, a general guideline for daily physical activity based on step count is:
 - Active is more than 10,000 steps per day.
 - Highly active is more than 12,500  steps per day.
 
-  
+
+To fairly draw insights from the analysis we will filter out only the values tracked when the participants were using their wearables, meaning when they didn't get 0 steps, 0 MET-minutes and 0 total intensity.
+
 
 Query.
 
 	SELECT  
-	
 	  Id,
 	  ROUND(AVG(TotalSteps), 0) AS average_TotalSteps
 	
 	FROM `analysisbellabeat246.analysis.dailyActivity` 
 	
+	WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
 	GROUP BY Id
 	ORDER BY Id
 
 
-![image](https://github.com/user-attachments/assets/c39dc609-0462-4ce9-a05d-1ee33e3e3b2f)
+![image](https://github.com/user-attachments/assets/314cb4bc-af77-46fb-8ef0-b34ccaa0b143)
 
  
 Observations.
 
-- ***We can observe that on average 7 participants reached the daily goal of 10,000 steps for a good overall health, representing the 16% of the total sample.***.
+- ***We can observe that on average 8 participants reached the daily goal of 10,000 steps for a good overall health, representing the 25% of the total sample.***.
+- ***It means that 75% are under the daily goal of 10,000 steps. However, this goal is not universally appropriate across all ages and physical function. Besides that, we are not taking into account non-step activities***
 
 ---
 
