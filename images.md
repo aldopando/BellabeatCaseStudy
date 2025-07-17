@@ -18,16 +18,9 @@
 
 <img width="944" height="446" alt="Sheet 2 (2)" src="https://github.com/user-attachments/assets/308b24ea-75ba-4136-abdd-fdf47e21d259" />
 
+<img width="945" height="446" alt="Sheet 1 (24)" src="https://github.com/user-attachments/assets/8aebdee7-960c-4842-a1e0-d6c0cd4827ca" />
 
+<img width="944" height="446" alt="Sheet 2 (3)" src="https://github.com/user-attachments/assets/69c5735f-f715-403a-8706-79cac16cc59e" />
 
-
-
-
-
-
-
-<img width="944" height="446" alt="Sheet 2 (1)" src="https://github.com/user-attachments/assets/5cec954c-fda1-44c4-887c-87eefdf7a3dd" />
-
-<img width="945" height="446" alt="Sheet 1 (15)" src="https://github.com/user-attachments/assets/d9eabb1b-21a1-4e24-8f1b-e8ddac62541d" />
 
 
