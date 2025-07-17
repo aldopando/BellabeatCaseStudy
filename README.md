@@ -1167,6 +1167,7 @@ Query.
 	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
 	    ELSE 'Week 9'    
 	    END AS week,
+	    COUNT(DISTINCT activityDate) AS active_days, -- count days user was active in week
 	    CASE 
 	    WHEN SUM(MET_minutes)<600 THEN 'Inactive'
 	    WHEN SUM(MET_minutes) BETWEEN 600 AND 3999 THEN 'Low-active'
@@ -1176,7 +1177,10 @@ Query.
 	      
 	  FROM `analysisbellabeat246.analysis.dailyActivity` 
 	
+	  WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
 	  GROUP BY Id, week
+	  ORDER BY Id, week
 	)
 	
 	SELECT
@@ -1188,6 +1192,8 @@ Query.
 	
 	FROM weekly_METminutes
 	
+	WHERE active_days = 7 --keep only users with 7 active days in the week
+	
 	GROUP BY week, physical_activity
 	ORDER BY week, physical_activity
 
@@ -1195,7 +1201,7 @@ Query.
  ---
 
 
-![image](https://github.com/user-attachments/assets/e38b7685-082a-4234-8f33-254ead14faec)
+![image](https://github.com/user-attachments/assets/64160dd0-469d-4efe-8cae-89b18a146eb3)
 
 
 Observations.
@@ -1207,7 +1213,7 @@ Observations.
 
 ---
 
-![image](https://github.com/user-attachments/assets/8453df89-aca1-40c3-955c-746d9a229886)
+![image](https://github.com/user-attachments/assets/308b24ea-75ba-4136-abdd-fdf47e21d259)
 
 
 Observations.
