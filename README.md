@@ -1206,9 +1206,9 @@ Query.
 
 Observations.
 
--***We filtered out the week 9 because we are grouping users by how many MET-minutes per week they achieved, meaning we have to use complete weeks and week 9 only contains 6 days***.
-- ***We can observe that more than 15 participants were involve in low-active physical activities throughout the two months***.
-- ***The peak of users reaching moderately-active physical activity was during week 4 (the last week of the first month), afterward we can see a drop in users starting the second month and a great increase of low-active users***.
+-***We can observe a peak of 14 low-active users during the first week of the first month***.
+- ***The weeks with more highly-active users were the week 1 and 4***.
+- ***We can see a gradual increment of moderately-active users from week 1 to week 3, aftwerward the number of people moderately-active remains the same until the week 7 when there is peak of 10 moderately-active users, then this number drops in the week 8***.
 
 
 ---
@@ -1218,9 +1218,34 @@ Observations.
 
 Observations.
 
-- ***There was a consistent decrement of low-active users as the first month went by and an important increment of moderately-active users as well a noticeable increment of highly-active users****.
-- ***However, when the sencond month started off, we can see a drastic increase of low-active users and a considerable drop of users moderately-active and highly-active. Throughout the first three weeks of the second month, we can observe the same pattern as the first month, where low-active users started to take up more moderately-highly physical activities***
-- ***We can see that during the last week of the second month, users started to become more low-active again***.
+1. Low-active users (red):
+
+- It starts high at 14 users in Week 1.
+- Sharp drop to 10 users in Week 2.
+- Then fluctuates slightly between 10–12 users until Week 5.
+- Gradual decline again to 10 users in weeks 6–8.
+
+***There’s a clear downward trend, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active***.
+
+2. Moderately-active users (yellow).
+
+- There is a steady increment of users in weeks 1-3.
+- The number of users remain the same during weeks 3-6.
+- There is a peak of 10 users in week 7.
+- Sharp drop to 8 users in Week 8.
+
+***There is a strong upward trend during weeks 1-7, reaching the peak of users moderately-active in week 7. This group is growing over time, especially during the first half. This indicates a positive trend where users are increasing their activity levels.***
+
+
+3. Highly-active users (green).
+
+- It starts at 4 users and fluctuates slightly during the first month (weeks 1-4) finishing with the same number of users as in the beginning.
+- There is a drop to 2 users when starting off the second month (week 5).
+- Then it fluctuates slightly again between 3–2 users until Week 8.
+
+***There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time***.
+
+
 
 ---
 
