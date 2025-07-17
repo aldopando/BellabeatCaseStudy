@@ -1071,6 +1071,9 @@ Observations.
 - Users over 600 MET-minutes per week are meeting the MET-minutes necessary for a good overall health. Besides maintaining a good health, the more MET-minutes accomplish during the week, the more health benefits.
 
 
+Due to we are calculating MET-minutes per week, we need to fairly calculate this value through using full weeks. Therefore, we will filter out the data to include only the users who logged activity for all 7 days in each week. This is important because some of these weeks might have less than 7 active days for certain users.
+
+
 Query.
 
 	WITH weekly_METminutes AS (
@@ -1087,33 +1090,47 @@ Query.
 	    WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
 	    ELSE 'Week 9'    
 	    END AS week,
-	    SUM(MET_minutes) AS METs_minutes 
-		      
-	  FROM `analysisbellabeat246.analysis.dailyActivity` 
-		
+	    COUNT(DISTINCT activityDate) AS active_days, -- count days user was active in week
+	    SUM(MET_minutes) AS METs_minutes
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	  
 	  GROUP BY Id, week
+	),
+	
+	filtered_weeks AS (
+	  SELECT
+	    Id,
+	    week,
+	    METs_minutes
+	    
+	  FROM weekly_METminutes
+	
+	  WHERE active_days = 7 -- keep only users with 7 active days in the week
 	)
-		
 	SELECT
 	  week,
-	  COUNTIF(weekly_METminutes.METs_minutes < 600) AS no_healthBenefits,
-	  COUNTIF(weekly_METminutes.METs_minutes >= 600) AS getting_healthBenefits
+	  COUNTIF(METs_minutes < 600) AS goal_notAchieved,
+	  COUNTIF(METs_minutes >= 600) AS goal_achieved
 	
-	FROM weekly_METminutes
-		
+	FROM filtered_weeks
+	
 	GROUP BY week
 	ORDER BY week
 
 
 
-![image](https://github.com/user-attachments/assets/74c3d273-921e-429b-bfa6-941281942b61)
+![image](https://github.com/user-attachments/assets/9a707c3c-1f13-4992-b86d-986aa11cca0d)
 
 
 Observations.
 
 - ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals.***
-- ***We can observe since week 2 to week 5 (a month) there is a consistent increase on participants who were achieving their MET-minutes/week recommendation. This means that each week more users were increasing their weekly physical activity. However, after week 5 we can observe a consistent drop in users who were tracking their data***.
-- ***During the week 9, there was a drastic drop in users who were achieveing their MET-minutes/week recommendation. Nevertheless, we are only counting 6 days in this week. It doesn't represent a full week, therefore we cannot draw conclusions from this week***.
+- ***We can notice that between 19 to 24 participants tracked their data consistenly completing full weeks using their wearables***.
+- ***Week 9 doesn't appeared in the results this week only contains 6 days. It doesn't represent a full week, therefore we cannot draw fair MET-minutes/week results.***.
+- ***The last week of the first month (week 4) was not only of the weeks with more users reaching their goal of 600 MET-minutes per week, but also the it was the week with more users wearing their devices more consistenly***.
   
 
 ### Physical Activity by Week
