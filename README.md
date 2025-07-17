@@ -1018,9 +1018,50 @@ Observations.
 - ***28% of participants are somewhat active users***.
 - ***47% (almost the half) of users are sedentary and low active***.
 - ***25% of users have an average daily activity between active and highly active***.
-  
+
+---
+
+**Average steps by day of the week**
+
+Query.
+
+	WITH inactivity_days AS (
+
+	  SELECT 
+	    Id,
+	    activityDate,
+	    FORMAT_DATE('%A', activityDate) AS day_of_the_week,
+	    totalSteps
+	
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
+	  ORDER BY Id, activityDate
+	)
+	
+	SELECT 
+	  day_of_the_week,
+	  CAST(AVG(totalSteps) AS INT64) AS average_steps
+	
+	FROM inactivity_days
+	
+	GROUP BY day_of_the_week
+	ORDER BY average_steps
 
 
+![image](https://github.com/user-attachments/assets/17944b1f-e86b-4d6a-85ea-da255c9a272a)
+
+
+Observations.
+
+- ***Saturday was the day when users gave more steps throughout the week on average followed by Tuesday***.
+- ***Sunday and Friday were the days when the users gave less steps on average***.
+- ***We can notice a consistent increment of steps taken from Sunday to Tuesday, reaching the peak on Tuesday***.
+- ***From Tuesday to Friday we can observe a consistent decrement in steps taken***.
+
+
+---
 
 
 
