@@ -1345,13 +1345,10 @@ Observations.
 - ***More than a third part of the total users are moderately-active***.
 - ***A very small percentage of users are highly-active, representing only 6% of the whole***.
 
-
 ---
 
 
-
-
-### Calories
+### Calories vs Steps
 
 The number of calories a person burn in a day depends on several factors such as:
 
@@ -1360,12 +1357,6 @@ The number of calories a person burn in a day depends on several factors such as
 - height
 - weight
 - physical activity
-
-
-**TDEE**
-
-Total Daily Energy Expenditure (TDEE) is an estimation of how many calories a person burn per day when exercise is taken into account.
-This involves multiplying a person’s basal metabolic rate (BMR) by their average daily activity level.
 
 
 ***What is BMR?***
@@ -1378,112 +1369,13 @@ BMR stands for basal metabolic rate. It is the number of calories a person needs
 - cell function, growth, and repair
 
 
-Harris-Benedict Equation Based Formula.
-
-For Men: BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in years).
-
-For Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years).
-
-
-***Activity Factor***.
-
-Activity factors range from sedentary (1.2) to extra active (1.9)
-
-Sedentary (little to no daily exercise): BMR x 1.2
-Lightly Active (light movement or 1-2 days per week of training): BMR x 1.375
-Moderately Active (3-5 days per week of daily exercise): BMR x 1.55
-Very Active (intense short-term and chronic interval training or active sports): BMR x 1.725
-Extra Active (physically demanding jobs or elite-level athletes): BMR x 1.9
-
-
-![Image](https://github.com/user-attachments/assets/fbbfbc5f-b521-4367-bba7-618ae7eed67d)
-
-
-
 ---
 
 Due to lack of overall information about users' physical characteristics such as age, sex, height, and weight for this analysis, we cannot accurately determine whether the calories burnt by each user is aligned with their personal needs and goals. 
-However, I used an overall reference point about total daily energy expenditure for average adults based on [ATHLEAN‑X TDEE Calculator](https://learn.athleanx.com/calculators/tdee-calculator?utm_source=chatgpt.com) website.
-
-***Nevertheless, these values don't reflect the real total daily energy expenditure for each user in this analysis. It is only an approach to understand the calories burnt by each user  in the data***
-
-
-Total Daily Energy Expenditure by activity level.
-
-| **Sedentary** | **Lightly Active** | Moderately Active | Very Active | Extremely Active |
-| --- | --- | --- | --- | --- |
-| 2,053 calories | 2,321 calories | 2,679 calories | 3,036 calories | 3,393 calories |
 
 ---
 
-https://www.healthline.com/health/how-to-calculate-your-basal-metabolic-rate
 
-https://tdeecalculator.net/
-
-https://www.calculator.net/tdee-calculator.html
-
-https://learn.athleanx.com/calculators/tdee-calculator
-
-https://mitchcalvert.com/golden-ticket-fat-loss/
+Query. 
 
 
-Query.
-
-	SELECT  
-	  Id, 
-	  activityDate,
-	  CASE 
-	  WHEN calories < 2000 THEN 'Sedentary'
-	  WHEN calories BETWEEN 2000 AND 2300 THEN 'Lightly Active'
-	  WHEN calories BETWEEN 2301 AND 2600 THEN 'Moderately Actvie'
-	  WHEN calories BETWEEN 2601 AND 3000 THEN 'Very Active'
-	  ELSE 'Extremely Active'
-	  END AS total_daily_energy_expenditure,
-	  CASE
-	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
-	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
-	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
-	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
-	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
-	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
-	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8'
-	  ELSE 'Week 9'
-	  END AS week,
-	  
-	FROM `analysisbellabeat246.analysis.dailyActivity` 
-	
-	ORDER BY Id, activityDate
-
-
-
-### Weekly Activity
-
-	Query.
-	
-	SELECT  
-	  Id,
-	  CASE 
-	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
-	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-26' THEN 'Week 2'
-	  WHEN activityDate BETWEEN '2016-03-27' AND '2016-04-02' THEN 'Week 3'
-	  WHEN activityDate BETWEEN '2016-04-03' AND '2016-04-09' THEN 'Week 4'
-	  WHEN activityDate BETWEEN '2016-04-10' AND '2016-04-16' THEN 'Week 5'
-	  WHEN activityDate BETWEEN '2016-04-17' AND '2016-04-23' THEN 'Week 6'
-	  WHEN activityDate BETWEEN '2016-04-24' AND '2016-04-30' THEN 'Week 7'
-	  WHEN activityDate BETWEEN '2016-05-01' AND '2016-05-07' THEN 'Week 8'
-	  ELSE 'Week 9'    
-	  END AS week,
-	  SUM(calories) AS calories,
-	  SUM(totalIntensity) AS totalIntensity,
-	  SUM(sedentaryMinutes) AS sedentaryMinutes,
-	  SUM(lightlyActiveMinutes) AS lightlyActiveMinutes,
-	  SUM(fairlyActiveMinutes) AS fairlyActiveMinutes,
-	  SUM(veryActiveMinutes) AS veryActiveMinutes,
-	  SUM(MET_minutes) AS MET_minutes,
-	  SUM(totalSteps) As totalSteps  
-	
-	FROM `analysisbellabeat246.analysis.dailyActivity` 
-	
-	GROUP BY Id, week
-	ORDER BY Id, week
