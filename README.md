@@ -1378,4 +1378,16 @@ Due to lack of overall information about users' physical characteristics such as
 
 Query. 
 
+	SELECT  
+	  Id,
+	  activityDate,
+	  calories,
+	  totalSteps,
+	  totalIntensity
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
+	ORDER BY Id, activityDate
 
