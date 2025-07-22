@@ -1450,10 +1450,20 @@ Observations:
 - This is a moderately strong relationship between these two variables.
 - The remaining 39% of variation could be due to other factors (e.g., body composition, metabolism, age, diet).
 - The p-value < 0.0001 indicates the relationship is statistically significant. This means there is strong evidence that total intensity and total calories burned are positively related and the trendline is not random.
--  Most participants follow the trend, higher total intensity → higher calories burned.
 
 Outliers.
 
 - Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet,  inefficient movement, etc.
 - Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc.
+
+  
+
+## Daily average sleep hours.
+
+
+
+
+
+## Average Sleep hours by day of the week.
+
 
