@@ -1348,7 +1348,7 @@ Observations.
 ---
 
 
-### Calories vs Steps
+### Calories
 
 The number of calories a person burn in a day depends on several factors such as:
 
@@ -1376,6 +1376,27 @@ Due to lack of overall information about users' physical characteristics such as
 ---
 
 
+## Correlation between the variables Calories vs Steps / Calories vs Intensity
+
+A correlation is a statistical measure that indicates a relationship between two variables, meaning they change together.
+
+Using a scatterplot, we can generally assess the relationship between the variables and determine whether they are correlated or not.
+
+The correlation coefficient is a value that indicates the strength of the relationship between variables. The coefficient can take any values from -1 to 1. The interpretations of the values are:
+
+- -1: Perfect negative correlation. The variables tend to move in opposite directions (i.e., when one variable increases, the other variable decreases).
+- 0: No correlation. The variables do not have a relationship with each other.
+- 1: Perfect positive correlation. The variables tend to move in the same direction (i.e., when one variable increases, the other variable also increases).
+
+***The closer 𝑟 is to +1, the stronger the positive linear relationship between the two variables.*** However, just because 𝑟 is high doesn’t mean one variable causes the other. 
+
+**Correlation and Causation**
+Correlation must not be confused with causality. The famous expression “correlation does not mean causation” is crucial to the understanding of the two statistical concepts.
+
+If two variables are correlated, it does not imply that one variable causes the changes in another variable. Correlation only assesses relationships between variables, and there may be different factors that lead to the relationships. Causation may be a reason for the correlation, but it is not the only possible explanation.
+
+
+
 Query. 
 
 	SELECT  
@@ -1390,4 +1411,49 @@ Query.
 	WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
 	
 	ORDER BY Id, activityDate
+
+
+**Calories vs Steps**
+
+
+![image](https://github.com/user-attachments/assets/3c36840e-e313-4bb2-9f07-ec12cca4b1e7)
+
+---
+
+Observations:
+
+**Moderate positive relationship (R² = 0.508)**.
+
+- The R-squared of 0.508 means about 50.8% of the variation in total calories burned is explained by total steps.
+- This is a strength relationship lower than relationship between total calories and total intensity (R² = 0.61).
+- It suggests steps alone are not as strong predictor of calories burned compared to total intensity, likely because steps don’t capture activity intensity (for example, walking vs running) or because some participants were more involved in non-step activities like weight lifting or yoga that may not be well-represented by steps alone.
+- The p-value < 0.0001 means the positive relationship between steps and calories burned is statistically significant.
+- The trendline is unlikely to be due to chance.
+  
+Outliers:
+
+- Some users burned fewer calories than expected for their step counts (below the trendline), perhaps walking at low intensity.
+- Others burned more calories than expected (above the trendline), possibly due to higher intensity activities or greater body mass.
+
+
+**Calories vs Intensity**
+
+![imagw](https://github.com/user-attachments/assets/810b3b85-f3f7-4ea7-87fa-d70e6c9f32d7)
+
+---
+
+Observations:
+
+**Strong positive relationship (R² = 0.61)**.
+
+- The trend line has an R-squared value of 0.613, which means about 61% of the variation in total calories burned can be explained by total intensity levels.
+- This is a moderately strong relationship between these two variables.
+- The remaining 39% of variation could be due to other factors (e.g., body composition, metabolism, age, diet).
+- The p-value < 0.0001 indicates the relationship is statistically significant. This means there is strong evidence that total intensity and total calories burned are positively related and the trendline is not random.
+-  Most participants follow the trend, higher total intensity → higher calories burned.
+
+Outliers.
+
+- Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet,  inefficient movement, etc.
+- Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc.
 
