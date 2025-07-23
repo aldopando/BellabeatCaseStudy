@@ -1594,4 +1594,54 @@ Observations.
 **Addressing Outliers**
 
 
- 
+Query.
+
+	SELECT  
+	  Id, 
+	  EXTRACT(DATE FROM activityMinute) AS day,
+	  MIN(activityMinute) AS time_sleepRecord_started,
+	  logId,
+	  COUNT(*) AS total_minutes,
+	  ROUND(COUNT(*)/60, 1) AS total_hours,
+	  COUNTIF(value = 1) AS total_minutesAsleep,
+	  COUNTIF(value = 2) AS total_minutesRestless,
+	  COUNTIF(value = 3) AS total_minutesAwake
+	
+	FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	WHERE Id = 4558609924 OR Id = 7007744171
+	
+	GROUP BY Id, day, logId
+	ORDER BY Id, day, logId
+
+
+
+![image](https://github.com/user-attachments/assets/3c1b0f4c-8167-47b8-b063-f178a8f77456)
+
+
+---
+
+Observations.
+
+- ***We can notice both users having inconsistency tracking their sleep througout the two monts, they missed several days:***
+  ***User 4558609924 only tracked 12 das***.
+  ***User 7007744171 only tracked 10 days***.
+- ***User 4558609924 tracked an average daily sleep time of 1.88 hours***.
+- ***User 7007744171 tracked an average daily sleep time of 1.18 hours***.
+
+It's most likely these users were using their devices to only tracked their naps but only in some certain days of the whole two months. Therefore, we will exclude them from the analysis.
+
+---
+
+**Average Total Daily Sleep Time (including naps and segmented sleep) and without outliers**.
+
+![image](https://github.com/user-attachments/assets/39342d0a-68c9-48a0-a7a4-e51f24db6cfb)
+
+
+---
+
+Observations.
+
+- ***The average total daily sleep time across the participants in this case study is 7 hours. Which means, the average participants are achieving the daily goal of 7 hours of sleep  for deeper physical and mental recovery***.
+
+---
