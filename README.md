@@ -1458,12 +1458,88 @@ Outliers.
 
   
 
-## Daily average sleep hours.
+## Sleep
+
+Sleep is a vital natural process that allows the body and mind to rest and recover. Sleep is regulated by your circadian rhythm, and its importance extends to cognitive, emotional, and physical health.
+
+The sleep cycle consists of distinct stages, including NREM and REM sleep, each with a specific role in maintaining your health.
 
 
 
+**What Are Sleep Cycles?**
+
+During a night of sleep, your body cycles through four stages of sleep. The first three stages are called non-rapid eye movement (NREM) sleep and the final stage is called rapid eye movement (REM) sleep. Each stage is associated with a different depth of sleep as well as specific patterns in brain waves and muscle activity in the body.
+
+Your body cycles through all of the stages of sleep four to six times each night, going through one about once every ***90 to 120 minutes***. The patterns in how you progress through these sleep cycles are affected by a variety of factors, including age, sex, and recent sleep habits.
+
+https://sleepdoctor.com/pages/health/what-is-sleep
+
+---
+
+**What is a nap?**
+
+A nap is a short period of sleep, typically taken during the day. Naps can be classified in several ways, such as by how long they last and what function they serve.
+
+***Short naps that typically last about 15 to 30 minutes and longer naps of about 90 minutes*** can both be effective at promoting wakefulness, though experts most often recommend shorter naps. Research has found that a short nap consisting of light sleep can immediately reduce drowsiness after waking.
+
+***Naps longer*** than 30 minutes may cause grogginess or disorientation after waking, known as sleep inertia. This may be because the longer a person sleeps, the deeper the sleep becomes, and the more difficult it can be to wake up. But longer naps may be helpful in more specific situations, such as for people who work long hours.
+
+https://sleepdoctor.com/pages/health/types-of-naps
+
+---
+
+**Does Napping Count as Sleep?**
+
+While napping can contribute to your overall rest, it does not provide the same  benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. However, they are not a substitute for the comprehensive benefits of nighttime sleep, which is crucial for deeper physical and mental recovery. So, it’s not a great idea to take naps instead of sleeping and to turn napping into a habit to replace regular sleep.
+
+https://sleepdoctor.com/pages/health/napping
+
+---
+
+**Segmented Sleep Patterns**
+
+Segmented sleep is a pattern in which nightly sleep is broken down into two or more segments, with times of wakefulness in between. It’s also known as biphasic or polyphasic sleep. 
+
+Segmented sleep patterns are often more practical in cultures where work, social activities, and religious schedules are cyclical or change according to the seasons.
+
+***Although most people in the United States are monophasic sleepers, some people choose to adopt a biphasic sleep pattern.***
+
+***Biphasic sleep vs. monophasic sleep:*** Many people today maintain a monophasic sleep schedule and get all of their rest in one long block of nighttime sleep. In a biphasic sleep pattern, the individual divides their total daily sleep time into two segments. They may sleep for a shorter period at night and take a long daytime nap, spend most of the night sleeping and take a brief nap during the day, or split nighttime sleep into two separate periods.
+***Biphasic sleep vs. polyphasic sleep:*** While biphasic patterns divide sleep into two parts, polyphasic sleep involves numerous short blocks of sleep across a 24-hour period. A polyphasic pattern reduces nighttime sleep and involves multiple daytime naps. Some polyphasic sleep plans seek to reduce the total number of hours an individual sleeps each day, while others develop as a result of work or religious obligations.
+
+https://sleepdoctor.com/pages/health/biphasic-sleep
+
+---
+
+**Is Biphasic Sleep Good For You?**
+
+There is no definitive evidence that biphasic sleep is better or worse than monophasic sleep. Some research suggests that biphasic patterns are natural adaptations to environmental changes.
+Many historical cultures are believed to have adopted biphasic sleep patterns in response to seasonal shifts in weather, daylight, and food availability. However, biphasic sleep practices are also common among people who live near the equator that do not experience many seasonal changes. While this may indicate that biphasic sleep comes more naturally than monophasic sleep in some situations, more research is needed to determine which sleep patterns, if any, are better than others.
+
+***Whether sleep is monophasic or biphasic, it is important to get enough hours of total sleep each day. For most adults, experts recommend sleeping seven to nine hours per night in order to promote physical and mental health***.
+
+https://sleepdoctor.com/pages/health/biphasic-sleep
+
+---
+
+**Can a segmented sleep count into the total daily sleep?**
+
+Based on this [study](https://www.nature.com/articles/s41598-021-84625-8?utm_source=chatgpt.com), 112 adolescents who underwent two simulated school weeks containing 8 or 6.5 h sleep opportunities each day. Sleep episodes were nocturnal or split between nocturnal sleep and a 90-min afternoon nap, creating four experimental groups: 8 h-continuous, 8 h-split, 6.5 h-continuous and 6.5 h-split. Declarative memory was assessed with picture encoding and an educationally realistic factual knowledge task. Splitting sleep significantly enhanced afternoon picture encoding and factual knowledge under both 6.5 h and 8 h durations. Splitting sleep also significantly reduced slow-wave energy during nocturnal sleep, suggesting lower homeostatic sleep pressure during the day. There was no negative impact of the split sleep schedule on morning performance, despite a reduction in nocturnal sleep. 
+
+***These findings suggest that naps could be incorporated into a daily sleep schedule that provides sufficient sleep and benefits learning***.
+
+However, ***Sleep Health*** reports that there are significant concerns with segmented sleep, especially that it reduces the total number of sleep hours. Specifically, after reviewing 22 studies, researchers found that those following the segmented sleep schedule reported lower sleep quality, took longer to fall asleep, woke up more often, spent more time in lighter stages of sleep, and had less REM sleep. This may prevent them from getting the benefits of sleep.
+
+---
+
+***Based on the researching, napping can contribute to your overall rest, altohugh it does not provide the same benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. Meanwhile, whether sleep is monophasic or biphasic, it is important to get enough hours of total sleep each day***
+
+---
+
+***Can a segmented sleep and naps count into the total daily sleep?***
+
+Yes, both segmented sleep (multiple sleep periods in a 24-hour period) and naps can be counted towards your total daily sleep. However, the quality and impact of segmented sleep can vary, and it's generally recommended to aim for a consolidated block of sleep for optimal health benefits. 
 
 
-## Average Sleep hours by day of the week.
-
+## Total Average Daily Sleep (including naps and segmented sleep).
 
