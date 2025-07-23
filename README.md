@@ -1541,5 +1541,57 @@ However, ***Sleep Health*** reports that there are significant concerns with seg
 Yes, both segmented sleep (multiple sleep periods in a 24-hour period) and naps can be counted towards your total daily sleep. However, the quality and impact of segmented sleep can vary, and it's generally recommended to aim for a consolidated block of sleep for optimal health benefits. 
 
 
-## Total Average Daily Sleep (including naps and segmented sleep).
+## Average Total Daily Sleep Time (including naps and segmented sleep).
 
+
+Query.
+
+	SELECT 
+	  Id,
+	  ROUND(AVG(total_minutes), 1) AS average_daily_minutes,
+	  ROUND(AVG(total_minutes)/60, 1) AS average_daily_hours,
+	
+	FROM (
+	  SELECT  
+	  Id,
+	  EXTRACT(DATE FROM activityMinute) AS day,
+	  COUNT(DISTINCT logId) AS total_Sleep_Records,
+	  COUNT(*) AS total_minutes,
+	
+	  FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	  GROUP BY Id, day
+	  ORDER BY Id, day
+	)
+	
+	GROUP BY Id
+	ORDER BY average_daily_hours DESC
+
+
+---
+
+Experts agree that, throughout adulthood, most people should sleep for at least seven hours per day. The amount of sleep needed varies from person to person and changes over a lifetime. 
+
+Most adults need at least 7 hours of sleep per night. The many benefits of sleep should encourage anyone to make sleep a priority, even if it means adjusting your sleep schedule. Sufficient sleep during adulthood promotes the abilities to learn, remember, and can help stave off cognitive decline that sometimes causes trouble as people age.
+
+During the adult years, people often have multiple academic, occupational, family-related, and other demands on their time. This can make it hard for them to carve out enough room in their schedule for adequate sleep. In the United States, almost 30% of adults report getting six hours or less of sleep each night.
+
+Sleep patterns change as a person ages. Older adults commonly have trouble getting enough sleep as their sleep-wake cycle becomes weaker. Both daytime sleepiness and daytime naps become more common in later adulthood.
+
+https://sleepdoctor.com/pages/health/how-much-sleep-do-you-need
+
+---
+
+![image](https://github.com/user-attachments/assets/765b1ecd-726e-4401-9ea5-a973953d5a29)
+ 
+
+Observations.
+
+- ***We can observe two outliers. Two users getting 1.2 and 1.9 hours of daily average daily sleep***.
+
+---
+
+**Addressing Outliers**
+
+
+ 
