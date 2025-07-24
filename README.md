@@ -1674,7 +1674,8 @@ Query.
 	SELECT
 	  Id,
 	  ROUND(AVG(daily_total_minutes), 1) AS average_daily_minutes,
-	  ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours,
+	  ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours
+	  
 	FROM (
 	  SELECT
 	    Id,
@@ -1682,33 +1683,26 @@ Query.
 	    SUM(total_minutes) daily_total_minutes
 	
 	  FROM (
-	    SELECT
+	    SELECT  
 	      Id,
-	      EXTRACT(DATE
-	      FROM
-	        activityMinute) AS day,
-	      EXTRACT(TIME
-	      FROM
-	        MIN(activityMinute)) AS start_sleepRecord,
-	      COUNT(DISTINCT logId) AS total_Sleep_Records,
+	      EXTRACT(DATE FROM activityMinute) AS day,
+	      EXTRACT(TIME FROM MIN(activityMinute)) AS start_sleepRecord,
+	      logId,
 	      COUNT(*) AS total_minutes
 	
-	    FROM
-	      `analysisbellabeat246.clean_data.minuteSleep_cleaned`
+	    FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
 	
-	    GROUP BY
-	    Id,
-	    day,
-	    logId
+	    GROUP BY Id, day, logId
 	
 	    HAVING
-	      total_minutes > 120
-	      AND ( start_sleepRecord > TIME '20:59:00'
-	        OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
-	
-	    ORDER BY
-	    Id,
-	    day )
+	    (start_sleepRecord BETWEEN '22:29:00' AND '23:59:00')
+	    OR
+	    (total_minutes > 90
+	    AND ( start_sleepRecord > TIME '19:59:00'
+	    OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
+	    )
+	    ORDER BY Id, day
+	  )
 	
 	  GROUP BY
 	  Id,
