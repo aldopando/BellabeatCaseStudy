@@ -1663,8 +1663,11 @@ Therefore, we will estimate the average total daily sleep without counting the n
 Daytime tipically is described as the period between the time when the sun rises and the time it goes down. It is the time when people usually go to work, school, or play outside. 
 However, we also know that people may sleep in especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. 
 
-To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:00 pm.
+To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:59 pm.
 
+- sleep that starts after 20:59:00 (8:59 PM) until 23:59:59 (11:59 PM)
+
+- and sleep that starts after 00:00:00 (midnight) until 11:59:00 AM
 
 Query.
 
@@ -1701,7 +1704,7 @@ Query.
 	    HAVING
 	      total_minutes > 120
 	      AND ( start_sleepRecord > TIME '20:59:00'
-	        OR start_sleepRecord <= TIME '11:59:00' )
+	        OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
 	
 	    ORDER BY
 	    Id,
