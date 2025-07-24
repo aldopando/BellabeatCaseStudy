@@ -1490,7 +1490,7 @@ https://sleepdoctor.com/pages/health/types-of-naps
 
 **Does Napping Count as Sleep?**
 
-While napping can contribute to your overall rest, it does not provide the same  benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. However, they are not a substitute for the comprehensive benefits of nighttime sleep, which is crucial for deeper physical and mental recovery. So, it’s not a great idea to take naps instead of sleeping and to turn napping into a habit to replace regular sleep.
+While napping can contribute to your overall rest, it does not provide the same benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. However, they are not a substitute for the comprehensive benefits of nighttime sleep, which is crucial for deeper physical and mental recovery. So, it’s not a great idea to take naps instead of sleeping and to turn napping into a habit to replace regular sleep.
 
 https://sleepdoctor.com/pages/health/napping
 
@@ -1642,6 +1642,27 @@ It's most likely these users were using their devices to only tracked their naps
 
 Observations.
 
-- ***The average total daily sleep time across the participants in this case study is 7 hours. Which means, the average participants are achieving the daily goal of 7 hours of sleep  for deeper physical and mental recovery***.
+- ***The average total daily sleep time across the participants in this case study is 7 hours. Which means, the average participants are achieving the daily goal of 7 hours of sleep  for maintaining optimal mental health, physical health, and overall well-being. However, we are including naps and sleep segmented in this result. This doesn't tell us the real average  daily sleep time that users get during the night and then offset with naps***.
 
 ---
+
+## Average Total Daily Sleep Time (full cycles of sleep).
+
+While napping can contribute to your overall rest, it does not provide the same benefits as a complete sleep cycle.  Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. However, they are not a substitute for the comprehensive benefits of nighttime sleep, which is crucial for deeper physical and mental recovery.
+
+During a night of sleep, your body cycles through four stages of sleep. The first three stages are called non-rapid eye movement (NREM) sleep and the final stage is called rapid eye movement (REM) sleep. Each stage is associated with a different depth of sleep as well as specific patterns in brain waves and muscle activity in the body.
+
+Your body cycles through all of the stages of sleep four to six times each night, going through one about once every 90 to 120 minutes.
+
+***A single sleep cycle, which includes both REM and non-REM (NREM) stages, typically lasts about 90 to 120 minutes***.
+
+---
+
+Therefore, we will estimate the average total daily sleep without counting the naps (<120 minutes) during daytime and including full cycles of sleep (>120 minutes).
+
+Daytime tipically is described as the period between the time when the sun rises and the time it goes down. It is the time when people usually go to work, school, or play outside. 
+However, we also know that people may sleep in especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. 
+
+To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:00 pm.
+
+
