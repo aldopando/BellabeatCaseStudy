@@ -1661,9 +1661,9 @@ Your body cycles through all of the stages of sleep four to six times each night
 Therefore, we will estimate the average total daily sleep without counting the naps (<120 minutes) during daytime and including full cycles of sleep (>120 minutes).
 
 Daytime tipically is described as the period between the time when the sun rises and the time it goes down. It is the time when people usually go to work, school, or play outside. 
-However, we also know that people may *sleep in* especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. 
+However, we also know that people may *sleep in* especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. To cover this common situation, we will redefine the daytime period to capture effectively the naps that users used to have. We will filter out naps between 12:00 pm to 8:59 pm.
 
-To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:59 pm.
+This means that will take into account the the sleep records that happend to be from 9:00 pm to 11:59 am (next day). However, to filter by a TIME range that crosses midnight, we need to redefine our time range:
 
 - sleep that starts after 20:59:00 (8:59 PM) until 23:59:59 (11:59 PM)
 
