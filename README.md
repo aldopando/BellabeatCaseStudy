@@ -1666,3 +1666,57 @@ However, we also know that people may sleep in especially during the days off, w
 To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:00 pm.
 
 
+Query.
+
+	SELECT
+	  Id,
+	  ROUND(AVG(daily_total_minutes), 1) AS average_daily_minutes,
+	  ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours,
+	FROM (
+	  SELECT
+	    Id,
+	    day,
+	    SUM(total_minutes) daily_total_minutes
+	
+	  FROM (
+	    SELECT
+	      Id,
+	      EXTRACT(DATE
+	      FROM
+	        activityMinute) AS day,
+	      EXTRACT(TIME
+	      FROM
+	        MIN(activityMinute)) AS start_sleepRecord,
+	      COUNT(DISTINCT logId) AS total_Sleep_Records,
+	      COUNT(*) AS total_minutes
+	
+	    FROM
+	      `analysisbellabeat246.clean_data.minuteSleep_cleaned`
+	
+	    GROUP BY
+	    Id,
+	    day,
+	    logId
+	
+	    HAVING
+	      total_minutes > 120
+	      AND ( start_sleepRecord > TIME '20:59:00'
+	        OR start_sleepRecord <= TIME '11:59:00' )
+	
+	    ORDER BY
+	    Id,
+	    day )
+	
+	  GROUP BY
+	  Id,
+	  day 
+	  
+	  ORDER BY 
+	  Id,
+	  day)
+	
+	GROUP BY
+	Id
+	
+	ORDER BY
+	average_daily_hours DESC
