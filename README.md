@@ -1661,13 +1661,20 @@ Your body cycles through all of the stages of sleep four to six times each night
 Therefore, we will estimate the average total daily sleep without counting the naps (<120 minutes) during daytime and including full cycles of sleep (>120 minutes).
 
 Daytime tipically is described as the period between the time when the sun rises and the time it goes down. It is the time when people usually go to work, school, or play outside. 
-However, we also know that people may sleep in especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. 
+However, we also know that people may *sleep in* especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. 
 
 To cover this common situation, we will redefine the daytime period to capture effectively the naps that users use to have. We will filter out naps between 12:00 pm to 8:59 pm.
 
 - sleep that starts after 20:59:00 (8:59 PM) until 23:59:59 (11:59 PM)
 
 - and sleep that starts after 00:00:00 (midnight) until 11:59:00 AM
+  
+
+---
+
+To calculate the total daily sleep (in a 24-hour period), we are only takning into account full cycles of sleep (>120 minutes). However, there is a dilema because participants could have started tracking their sleep record (logId) at 11:20 pm and finished at 2:00 am (next day) right? This makes the sleep record (logId) split in to two parts; 40 minutes of this sleep record goes to one day and the rest goes to the next day. It will lead to removing this 40 minutes from the day without knowing that they were part of longer sleep record that crosses the midnight. To avoid removing minutes that were part of a longer sleep record, we will allow all sleep records that started between 10:29 pm and 11:59 pm appear in the results, meaning it doesn't matter these records lasted less than 120 minutes, since it's most likely that they were part of longer sleep record.
+
+
 
 Query.
 
