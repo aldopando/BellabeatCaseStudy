@@ -1724,3 +1724,42 @@ Query.
 	
 	ORDER BY
 	average_daily_hours DESC
+
+
+
+
+![image](https://github.com/user-attachments/assets/1d3fc4ee-4292-475b-a3ca-3ed5b7f744d4)
+
+
+---
+
+Observations.
+
+- ***The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours. This is weird because we expected a result lower due to we are removing the naps from the calculation and we only took into account full cycles of slee (>120 minutes)***. 
+
+---
+
+Diving deep into this anomaly, we figured out if there were days when the users only tracked their naps (<120 minutes) in the calculation of the daily average that includes naps and sleep segmeneted.
+
+
+Query.
+
+	SELECT  
+	  Id,
+	  EXTRACT(DATE FROM activityMinute) AS day,
+	  COUNT(DISTINCT logId) AS total_Sleep_Records,
+	  COUNT(*) AS total_minutes,
+	
+	FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	GROUP BY Id, day
+	
+	HAVING total_minutes < 120
+	
+	ORDER BY Id, day
+
+
+![image](https://github.com/user-attachments/assets/73b79a76-1b11-42d7-a753-aebcea171510)
+
+
+ 
