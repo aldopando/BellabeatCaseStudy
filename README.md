@@ -1739,7 +1739,7 @@ Observations.
 
 ---
 
-Diving deep into this anomaly, we figured out if there were days when the users only tracked their naps (<120 minutes) in the calculation of the daily average that includes naps and sleep segmeneted.
+Diving deep into this anomaly, we figured out if there were days when the users only tracked their naps or unusual sleep records (<120 minutes) in the calculation of the daily average that includes naps and sleep segmeneted.
 
 
 Query.
@@ -1762,4 +1762,15 @@ Query.
 ![image](https://github.com/user-attachments/assets/73b79a76-1b11-42d7-a753-aebcea171510)
 
 
- 
+Observations.
+
+- ***We can observe that the vast majority of users tracked several days when they got less than 120 minutes of sleep per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep)***.
+- Fitbit devices automatically detect sleep when a user wear their device to bed. When user's body is completely at rest and they haven’t moved for about an hour, the device records that the user is asleep. Moreover, Fitbit device detects and records naps that are at least an hour long and users can edit or delete a sleep log in the Fitbit app. ***This means that users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system***.
+
+---
+
+***Therefore, we can claim that calculating the average total daily sleep time using full cycles of sleep and without counting the daytime naps is a more accurate result than using all sleep records (outliers and naps)***.
+***The average total daily sleep time of the total sample in this data is 7.215 hours. However, this means that there are users sleep less than the average and there are other users that sleep more***.
+
+---
+
