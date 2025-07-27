@@ -1774,3 +1774,78 @@ Observations.
 
 ---
 
+
+## Proportion 
+
+Query.
+
+	WITH average_daily_sleep AS (
+	  SELECT
+	  Id,
+	    ROUND(AVG(daily_total_minutes), 1) AS average_daily_minutes,
+	    ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours
+	    
+	  FROM (
+	    SELECT
+	      Id,
+	      day,
+	      SUM(total_minutes) daily_total_minutes
+	
+	    FROM (
+	      SELECT  
+	        Id,
+	        EXTRACT(DATE FROM activityMinute) AS day,
+	        EXTRACT(TIME FROM MIN(activityMinute)) AS start_sleepRecord,
+	        logId,
+	        COUNT(*) AS total_minutes
+	
+	      FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	      GROUP BY Id, day, logId
+	
+	      HAVING
+	      (start_sleepRecord BETWEEN '22:29:00' AND '23:59:00')
+	      OR
+	      (total_minutes > 90
+	      AND ( start_sleepRecord > TIME '19:59:00'
+	      OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
+	      )
+	      ORDER BY Id, day
+	    )
+	
+	    GROUP BY
+	    Id,
+	    day 
+	    
+	    ORDER BY 
+	    Id,
+	    day)
+	
+	  GROUP BY
+	  Id
+	
+	  ORDER BY
+	  average_daily_hours DESC
+	)
+	
+	SELECT 
+	  daily_amount_sleep,
+	  COUNT(*) AS number_of_users
+	
+	FROM(
+	  SELECT 
+	  Id,
+	  average_daily_hours,
+	  IF(average_daily_hours > 7, 'Enough Sleep', 'Poor Sleep') AS daily_amount_sleep
+	
+	  FROM average_daily_sleep
+	
+	  WHERE Id != 4558609924 #Filter out the outliers 
+	)
+	
+	GROUP BY daily_amount_sleep
+
+
+
+
+![image](https://github.com/user-attachments/assets/98c29c88-b09e-405c-9122-2eafa724c6b3)
