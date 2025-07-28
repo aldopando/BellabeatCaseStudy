@@ -1775,7 +1775,34 @@ Observations.
 ---
 
 
-## Proportion 
+## Distribution of users by daily sleep quality (more than 7 hours).
+
+- Experts recommend adults get at least 7 hours of sleep per night for better health.
+- Getting less than 7 hours of sleep can negatively affect your physical and mental health.
+
+
+People’s sleep needs change as they age. Babies typically need 12 or more hours of sleep a day, including naps, for healthy development. As they grow, toddlers and children require fewer naps, but they still typically need 10 or more hours of sleep each day.
+
+
+| Age Group | Age Range | Recommended Hours of Sleep |
+| --- | --- | --- |
+| Infant | 4-12 months old | 12-16 hours (including naps) |
+| Toddler | 1-2 years old | 11-14 hours (including naps) |
+| Preschool | 3-5 years old | 10-13 hours (including naps) |
+| School-age | 6-12 years old | 9-12 hours |
+| Teen | 13-18 years old | 8-10 hours |
+| Adult | 18 years old and older | 7 or more hours |
+
+
+While these recommendations outline how much sleep most people in each age group need, individuals’ sleep needs will vary. Seven hours may not be enough sleep for some adults to feel refreshed. In addition, people who are sleep deprived or who have fragmented sleep may need extra rest to make up for lost sleep.
+
+On the other hand, some people are naturally short sleepers who feel alert and healthy with less than six hours of sleep per night. For short sleepers, seven hours may be excessive.
+
+
+https://www.sleepfoundation.org/sleep-faqs/is-7-hours-of-sleep-enough
+
+---
+
 
 Query.
 
@@ -1849,3 +1876,16 @@ Query.
 
 
 ![image](https://github.com/user-attachments/assets/98c29c88-b09e-405c-9122-2eafa724c6b3)
+
+
+---
+
+Observations.
+
+- For this calculation. we filtered out the outliers (the two users who tracked less than two hours in average daily sleep time). Sampling was reduced from 22 to 20 users.
+- ***65% of the sample (13 users) are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health***.
+- ***35% of the sample (7 users) are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes***.
+
+---
+
+
