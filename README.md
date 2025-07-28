@@ -1888,4 +1888,41 @@ Observations.
 
 ---
 
+## Sleep Efficiency
+
+LogId is the unique log id in Fitbit’s system for a sleep record. This sleep record tracks sleep pattern which includes user's time spent awake, restless, and asleep. Restless sleep indicates that the user move in their sleep, like if they toss and turn. If user's device detects excessive movement, enough that restful sleep won't be possible, the device records time spent awake.
+
+
+The definition of sleep efficiency is the percentage of time we spend asleep while in bed. Time spent in bed not trying to sleep—while reading, for example, doesn’t count. You can calculate your sleep efficiency by dividing the time you’re asleep by the total time in bed. So, if you sleep for six out of eight hours in bed, your sleep efficiency is 75%. What’s a good score? Anything 85% or higher is considered “normal.”
+
+But, when it comes to putting a quantifiable number on slumber, it’s complicated. A high score doesn’t necessarily indicate a good night’s sleep and vice versa. You might have a high sleep efficiency calculation because you only slept for three hours. Or you could wake up feeling well rested after 10 hours in bed and still have a low efficiency score.
+
+
+https://sleepcycle.com/sleep-talk/what-determines-sleep-efficiency
+
+---
+
+**Different Sleep Efficiency Rates**
+
+Sleep efficiency rates have a tendency to vary from person to person. As a result, sleep efficiency rates are categorized to determine what a healthy rate is and what can be improved upon.
+
+- 90% or higher = very good sleep efficiency.
+- 85%-90% = normal sleep efficiency.
+-  < 85% = poor sleep efficiency.
+- < 75% = sleeping disorders may arise.
+
+
+https://biostrap.com/academy/sleep-efficiency/
+
+---
+
+To accurately calculate the sleep efficiency value for each user in the sample, we will follow the same frame of full cycles of sleep as before as well as omiting some outliers to prevent any skewed result.
+
+Query.
+
+
+
+
+
+
 
