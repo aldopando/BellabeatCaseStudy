@@ -1624,7 +1624,7 @@ Query.
 Observations.
 
 - ***We can notice both users having inconsistency tracking their sleep througout the two monts, they missed several days:***
-  ***User 4558609924 only tracked 12 das***.
+  ***User 4558609924 only tracked 12 days***.
   ***User 7007744171 only tracked 10 days***.
 - ***User 4558609924 tracked an average daily sleep time of 1.88 hours***.
 - ***User 7007744171 tracked an average daily sleep time of 1.18 hours***.
@@ -1775,7 +1775,7 @@ Observations.
 ---
 
 
-## Distribution of users by daily sleep quality (more than 7 hours).
+## Distribution of users by daily sleep quality.
 
 - Experts recommend adults get at least 7 hours of sleep per night for better health.
 - Getting less than 7 hours of sleep can negatively affect your physical and mental health.
@@ -1895,6 +1895,10 @@ LogId is the unique log id in Fitbit’s system for a sleep record. This sleep r
 
 The definition of sleep efficiency is the percentage of time we spend asleep while in bed. Time spent in bed not trying to sleep—while reading, for example, doesn’t count. You can calculate your sleep efficiency by dividing the time you’re asleep by the total time in bed. So, if you sleep for six out of eight hours in bed, your sleep efficiency is 75%. What’s a good score? Anything 85% or higher is considered “normal.”
 
+It is calculated by dividing the amount of time spent asleep (in minutes) by the total amount of time in bed (in minutes).
+
+Sleep Efficiency = (Total Sleep Time / Time in Bed) * 100 
+
 But, when it comes to putting a quantifiable number on slumber, it’s complicated. A high score doesn’t necessarily indicate a good night’s sleep and vice versa. You might have a high sleep efficiency calculation because you only slept for three hours. Or you could wake up feeling well rested after 10 hours in bed and still have a low efficiency score.
 
 
@@ -1918,7 +1922,64 @@ https://biostrap.com/academy/sleep-efficiency/
 
 To accurately calculate the sleep efficiency value for each user in the sample, we will follow the same frame of full cycles of sleep as before as well as omiting some outliers to prevent any skewed result.
 
+Value indicating the sleep state.
+
+1 = asleep, 2 = restless, 3 = awake
+
+
 Query.
+
+	WITH daily_hours AS (
+	  SELECT
+	  Id,
+	  ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours,
+	  ROUND(AVG(daily_total_minutes_asleep)/60, 1) AS average_daily_hours_asleep
+	    
+	  FROM (
+	    SELECT
+	      Id,
+	      day,
+	      SUM(total_minutes) AS daily_total_minutes,
+	      SUM(total_minutes_asleep) AS daily_total_minutes_asleep 
+	
+	    FROM(
+	      SELECT  
+	        Id,
+	        EXTRACT(DATE FROM activityMinute) AS day,
+	        EXTRACT(TIME FROM MIN(activityMinute)) AS start_sleepRecord,
+	        logId,
+	        COUNT(*) AS total_minutes,
+	        COUNTIF(value = 1) AS total_minutes_asleep,
+	        COUNTIF(value = 2) AS total_minutes_restless,
+	        COUNTIF(value = 3) AS total_minutes_awake
+	
+	      FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	      WHERE Id NOT IN (4558609924, 7007744171) #Filter out the outliers 
+	
+	      GROUP BY Id, day, logId
+	
+	      HAVING (start_sleepRecord BETWEEN '22:29:00' AND '23:59:00')
+	        OR
+	        (total_minutes > 90
+	        AND ( start_sleepRecord > TIME '19:59:00'
+	        OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
+	        )
+	      ORDER BY Id, day
+	    )
+	
+	    GROUP BY Id, day 
+	      
+	    ORDER BY Id, day
+	  )
+	
+	  GROUP BY  Id
+	)
+	
+	SELECT
+	  ROUND((average_daily_hours_asleep/average_daily_hours)*100, 2) AS sleep_efficiency
+	
+	FROM daily_hours
 
 
 
