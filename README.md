@@ -1775,7 +1775,7 @@ Observations.
 ---
 
 
-## Distribution of users by daily sleep quality.
+## Distribution of users by daily sleep quantity.
 
 - Experts recommend adults get at least 7 hours of sleep per night for better health.
 - Getting less than 7 hours of sleep can negatively affect your physical and mental health.
@@ -1875,7 +1875,7 @@ Query.
 
 
 
-![image](https://github.com/user-attachments/assets/98c29c88-b09e-405c-9122-2eafa724c6b3)
+![image](https://github.com/user-attachments/assets/e48e82af-5e92-41df-a01a-4653c729eefb)
 
 
 ---
@@ -1977,11 +1977,32 @@ Query.
 	)
 	
 	SELECT
-	  ROUND((average_daily_hours_asleep/average_daily_hours)*100, 2) AS sleep_efficiency
+	  Id,
+	  sleep_efficiency,
+	  CASE
+	  WHEN sleep_efficiency < 0.75 THEN 'Sleeping Disorders'
+	  WHEN sleep_efficiency BETWEEN 0.75 AND 0.84  THEN 'Poor Sleep'
+	  WHEN sleep_efficiency BETWEEN 0.85 AND 0.90 THEN 'Normal Sleep'
+	  ELSE 'Very Good Sleep'
+	  END AS sleep_efficiency_rate
 	
-	FROM daily_hours
+	FROM(
+	
+	  SELECT
+	    Id,
+	    ROUND((average_daily_hours_asleep/average_daily_hours), 4) AS sleep_efficiency,
+	
+	  FROM daily_hours
+	)
+	
+	ORDER BY sleep_efficiency
 
 
+---
+
+![image](https://github.com/user-attachments/assets/abae1405-397e-4536-9096-7926f695e05c)
+
+![image](https://github.com/user-attachments/assets/409783b1-02f4-4906-a1dc-2ce3b039b76f)
 
 
 
