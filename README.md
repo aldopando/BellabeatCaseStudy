@@ -2012,4 +2012,72 @@ Observations.
 - ***One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders***.
 - ***Two users got poor sleep. They represent the 10% of the total sample***.
 - ***We can notice that there weren't users with a normal sleep efficiency, which it's interesting because we expected the vast majority of users would be between 'normal sleep efficiency' and 'poor sleep efficiency'***.
-- ***However, a high score doesn’t necessarily indicate a good night’s sleep and vice versa. Users might have a high sleep efficiency calculation but a poor sleep quantity (time sleeping)***
+- ***However, a high score doesn’t necessarily indicate a good night’s sleep and vice versa. Users might have a high sleep efficiency calculation but a poor sleep quantity (time sleeping)***.
+
+
+
+## Sleep Quantity vs Sleep Efficiency (Quality).
+
+The amount of time you sleep as well as the quality of your sleep are both important. Both sleep quantity and sleep quality are fundamental components of sleep. Therefore, we will compare the these metrics to accurately assess the sleep performance of users in this study.
+
+We saved the results of both previous queries in BigQuery, one that returns the results of daily average sleep time and the other that returns the daily average sleep efficiency. We saved these results as BigQuery tables in our `analysis` dataset.
+
+- daily average sleep time -> `average_sleep_quantity`
+- daily average sleep efficiency -> `average_sleep_efficiency`
+  
+
+Now, we performed a new query to join the rows of both tables.
+
+
+Query.
+
+	SELECT 
+	  quantity.Id,
+	  average_daily_hours,
+	  daily_amount_sleep,
+	  quality.sleep_efficiency,
+	  quality.sleep_efficiency_rate
+	
+	FROM `analysisbellabeat246.analysis.average_sleep_quantity` AS quantity
+	
+	INNER JOIN `analysisbellabeat246.analysis.average_sleep_efficiency` AS quality
+	ON quantity.Id = quality.Id
+
+
+
+
+---
+
+![image](https://github.com/user-attachments/assets/84128f18-b0cd-47f1-9d41-7259b5f8b7be)
+
+![image](https://github.com/user-attachments/assets/96482632-e1d3-454c-aeda-303166a5c37f)
+
+
+Observations.
+
+We classified the users in different groups based on their daily average sleep time and their daily average sleep efficiency.
+
+- ***Even though the vast majority of the sample (17 users) are getting a very good sleep efficiency, 7 of them are sleeping less than 7 hours a day, representing an insufficient sleep time (less than 7 hours). This represents a short but efficient sleep***.
+- ***10 users not only achieved enough sleep (more than 7 hours), but they also are got a very good sleep efficiency rate (more than 90%)***.
+- ***The two users who sleep the most (8.7 and 8.5 hours) are actually having poor sleep efficiency, meaning even though they sleep for more hours per day, they struggle with resltless sleep or wake up troughout the night***.
+- ***The person with sleep disorders (sleep efficiency < 75%) is actually sleeping more than 7 hours per day. This represents a long sleep but inefficient.***.
+
+
+IF [Average Daily Sleep Hours] >= 7 AND [Sleep Efficiency] >= 0.85 THEN "Good Sleep"
+ELSEIF [Average Daily Sleep Hours] < 7 AND [Sleep Efficiency] >= 0.85 THEN "Short but Efficient"
+ELSEIF [Average Daily Sleep Hours] >= 7 AND [Sleep Efficiency] < 0.85 THEN "Long but Inefficient"
+ELSE "Poor Sleep"
+END
+
+
+Customize color palette:
+
+“Good Sleep” = Green
+
+“Short but Efficient” = Yellow
+
+“Long but Inefficient” = Orange
+
+“Poor Sleep” = Red
+
+This lets one color reflect both dimensions, so you can quickly identify the best and worst combinations.
