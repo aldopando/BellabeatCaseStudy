@@ -2048,7 +2048,7 @@ Query.
 
 ---
 
-![image](https://github.com/user-attachments/assets/84128f18-b0cd-47f1-9d41-7259b5f8b7be)
+![image](https://github.com/user-attachments/assets/79e2e4dc-99b2-4978-9fbf-d4daddae9558)
 
 ![image](https://github.com/user-attachments/assets/96482632-e1d3-454c-aeda-303166a5c37f)
 
@@ -2063,21 +2063,66 @@ We classified the users in different groups based on their daily average sleep t
 - ***The person with sleep disorders (sleep efficiency < 75%) is actually sleeping more than 7 hours per day. This represents a long sleep but inefficient.***.
 
 
-IF [Average Daily Sleep Hours] >= 7 AND [Sleep Efficiency] >= 0.85 THEN "Good Sleep"
-ELSEIF [Average Daily Sleep Hours] < 7 AND [Sleep Efficiency] >= 0.85 THEN "Short but Efficient"
-ELSEIF [Average Daily Sleep Hours] >= 7 AND [Sleep Efficiency] < 0.85 THEN "Long but Inefficient"
-ELSE "Poor Sleep"
-END
+
+
+## Classification sleep performance (quantity vs quality)
+
+
+We classified our users based on their average sleep time and the efficency of this. The categories are:
+
+- *high-performance sleep*: average daily hours > 7 and sleep efficiency > 0.90 
+- *short but highly efficient sleep*: average daily hours < 7 and sleep efficiency > 0.90 
+- *normal-efficient sleep*: average daily hours > 7 and 0.85 ≤ sleep efficiency ≤ 0.90
+- *short but efficient sleep*: average daily hours < 7 and 0.85 ≤ sleep efficiency ≤ 0.90
+- *long but inefficient sleep*: average daily hours > 7 and 0.75 ≤ sleep efficiency ≤ 0.84
+- *poor-inefficient sleep*: average daily hours < 7 and 0.75 ≤ sleep efficiency ≤ 0.84
+- *restless sleep*: average daily hours > 7 and sleep efficiency < 0.75
+- *sleep deprivation*: average daily hours < 7 and sleep efficiency < 0.75
+
+
+Query.
+
+	WITH sleep_quality_quantity AS(
+	  SELECT 
+	    quantity.Id,
+	    quantity.average_daily_hours,
+	    quantity.daily_amount_sleep,
+	    quality.sleep_efficiency,
+	    quality.sleep_efficiency_rate
+	  
+	
+	  FROM `analysisbellabeat246.analysis.average_sleep_quantity` AS quantity
+	
+	  INNER JOIN `analysisbellabeat246.analysis.average_sleep_efficiency` AS quality
+	  ON quantity.Id = quality.Id
+	)
+	
+	SELECT 
+	  Id,
+	  average_daily_hours,
+	  sleep_efficiency,
+	  CASE
+	  WHEN average_daily_hours > 7 AND sleep_efficiency > 0.90 THEN 'high-performance sleep'
+	  WHEN average_daily_hours < 7 AND sleep_efficiency > 0.90 THEN 'short but highly efficient sleep'
+	  WHEN average_daily_hours > 7 AND sleep_efficiency BETWEEN 0.85 AND 0.90 THEN 'normal-efficient sleep'
+	  WHEN average_daily_hours < 7 AND sleep_efficiency BETWEEN 0.85 AND 0.90 THEN 'short but efficient sleep'
+	  WHEN average_daily_hours > 7 AND sleep_efficiency BETWEEN 0.75 AND 0.84 THEN 'long but inefficient sleep'
+	  WHEN average_daily_hours < 7 AND sleep_efficiency BETWEEN 0.75 AND 0.84 THEN 'poor-inefficient sleep'
+	  WHEN average_daily_hours > 7 AND sleep_efficiency < 0.75 THEN 'restless sleep'
+	  WHEN average_daily_hours < 7 AND sleep_efficiency < 0.75 THEN 'sleep deprivation'
+	  END AS sleep_performance
+	
+	FROM sleep_quality_quantity
 
 
 Customize color palette:
 
-“Good Sleep” = Green
+- high-performance sleep: Green.
+- short but efficient sleep: Yellow.
+- long but inefficient sleep: Orange.
+- restless sleep: Red.
 
-“Short but Efficient” = Yellow
 
-“Long but Inefficient” = Orange
+![image](https://github.com/user-attachments/assets/850aa1a9-b434-4439-9fa3-bedbc1bee28d)
 
-“Poor Sleep” = Red
 
-This lets one color reflect both dimensions, so you can quickly identify the best and worst combinations.
