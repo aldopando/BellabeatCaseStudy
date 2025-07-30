@@ -2006,5 +2006,10 @@ Query.
 
 
 
+Observations.
 
-
+- ***We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed***.
+- ***One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders***.
+- ***Two users got poor sleep. They represent the 10% of the total sample***.
+- ***We can notice that there weren't users with a normal sleep efficiency, which it's interesting because we expected the vast majority of users would be between 'normal sleep efficiency' and 'poor sleep efficiency'***.
+- ***However, a high score doesn’t necessarily indicate a good night’s sleep and vice versa. Users might have a high sleep efficiency calculation but a poor sleep quantity (time sleeping)***
