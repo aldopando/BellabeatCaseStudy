@@ -2195,5 +2195,14 @@ Query.
  Observations.
 
  - ***The days when the users happen to sleep more are during the weekend, Sunday and Saturday. They sleep on average between 7.7 to 8 hours. This pattern might be due to users trying to offset the inssuficient sleep that they accumulate during the weekdays in their days off. In the USA, the weekend is generally observed as days off from work. However many professions, such as those in retail, restaurants, healthcare, transportation, and emergency services, require weekend work due to the nature of their services***.
-- ***Friday is the day when participants slept the less, achieving 6.6 hours on average. Remember that we are talking about the night time between Thursday to Friday and the hours of sleep before midnight during Friday. This value can be due to people have to work on Friday, meaning they have to wake up early. Also, Friday is considered the beginning of the weekend, so many people use this day for social interactions after work until midnight***.
+- ***Friday is the day when participants slept the less, achieving 6.6 hours on average. Remember that we are talking about the night time between Thursday to Friday and the hours of sleep before midnight during Friday. This value can be due to people have to work on Friday, meaning they have to wake up early. Also, Friday is considered the beginning of the weekend, so many people use this day for social interactions or late-night activities after work until midnight***.
+- ***We can also observe a small rebound in sleep on Wednesday during the weekdays. This recovery might have been due to users trying to offset the stress and fatigue accumulated during the first weekdays. This day can be interpreted as the cope mechanism to the total workload of the week***.
+- ***Actually we can observe how the daily average sleep time decreases as the weekdays go by, from Monday to Tuesday and from Wednesday to Friday. Wednesday acts as day to reset this steady decrement***.
+
  
+
+## Correlation between the variables Sleep vs Steps / Sleep vs Intensity
+
+
+
+
