@@ -2215,7 +2215,7 @@ Query.
 	  Id,
 	  day,
 	  daily_total_minutes AS daily_sleep_minutes,
-	  ROUND(daily_total_minutes_asleep/daily_total_minutes, 1) AS daily_sleep_efficiency
+	  ROUND(daily_total_minutes_asleep/daily_total_minutes, 4) AS daily_sleep_efficiency
 	
 	
 	FROM(
@@ -2288,6 +2288,7 @@ We save the results as a BigQuery table called `steps_intensity_to_merge` in our
 
 **Merging both tables**
 
+
 Query.
 
 	SELECT
@@ -2303,3 +2304,5 @@ Query.
 	  ON sleep.Id = steps_intensity.Id
 	  AND sleep.day = steps_intensity.activityDate
  
+
+
