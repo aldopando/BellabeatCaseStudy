@@ -2126,3 +2126,14 @@ Customize color palette:
 ![image](https://github.com/user-attachments/assets/850aa1a9-b434-4439-9fa3-bedbc1bee28d)
 
 
+---
+
+Observations.
+
+- ***Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost***.
+- ***35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness***.
+- ***10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications***.
+- ***Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person***.
+
+
+---
