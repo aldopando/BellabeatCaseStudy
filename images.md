@@ -48,6 +48,8 @@
 
 <img width="1008" height="446" alt="Sheet 1 (41)" src="https://github.com/user-attachments/assets/850aa1a9-b434-4439-9fa3-bedbc1bee28d" />
 
+<img width="944" height="446" alt="Sheet 1 (42)" src="https://github.com/user-attachments/assets/467f51a5-769e-4d33-ae69-d8f9c1ad9852" />
+
 
 
 
