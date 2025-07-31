@@ -2286,5 +2286,20 @@ We save the results as a BigQuery table called `steps_intensity_to_merge` in our
 
 
 
+**Merging both tables**
 
+Query.
+
+	SELECT
+	  sleep.Id,
+	  sleep.day,
+	  sleep.daily_sleep_minutes,
+	  sleep.daily_sleep_efficiency,
+	  steps_intensity.totalIntensity,
+	  steps_intensity.totalSteps
+	
+	FROM `analysisbellabeat246.analysis.sleep_to_merge` AS sleep
+	INNER JOIN `analysisbellabeat246.analysis.steps_intensity_to_merge` AS steps_intensity
+	  ON sleep.Id = steps_intensity.Id
+	  AND sleep.day = steps_intensity.activityDate
  
