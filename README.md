@@ -2199,10 +2199,92 @@ Query.
 - ***We can also observe a small rebound in sleep on Wednesday during the weekdays. This recovery might have been due to users trying to offset the stress and fatigue accumulated during the first weekdays. This day can be interpreted as the cope mechanism to the total workload of the week***.
 - ***Actually we can observe how the daily average sleep time decreases as the weekdays go by, from Monday to Tuesday and from Wednesday to Friday. Wednesday acts as day to reset this steady decrement***.
 
- 
+---
 
 ## Correlation between the variables Sleep vs Steps / Sleep vs Intensity
 
+In order to merge the data, first we need to aggregate and create the tables with the relevant information for this analysis.
+
+
+**Sleep**.
+
+
+Query.
+
+	SELECT 
+	  Id,
+	  day,
+	  daily_total_minutes AS daily_sleep_minutes,
+	  ROUND(daily_total_minutes_asleep/daily_total_minutes, 1) AS daily_sleep_efficiency
+	
+	
+	FROM(
+	  SELECT
+	    Id,
+	    day,
+	    SUM(total_minutes) AS daily_total_minutes,
+	    SUM(total_minutes_asleep) AS daily_total_minutes_asleep 
+	
+	  FROM (
+	    SELECT  
+	      Id,
+	      EXTRACT(DATE FROM activityMinute) AS day,
+	      EXTRACT(TIME FROM MIN(activityMinute)) AS start_sleepRecord,
+	      logId,
+	      COUNT(*) AS total_minutes,
+	      COUNTIF(value = 1) AS total_minutes_asleep,
+	
+	    FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	    WHERE Id NOT IN (4558609924, 7007744171) #Filter out the outliers 
+	
+	    GROUP BY Id, day, logId
+	
+	    HAVING (start_sleepRecord BETWEEN '22:29:00' AND '23:59:00')
+	      OR
+	      (total_minutes > 90
+	      AND ( start_sleepRecord > TIME '19:59:00'
+	      OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
+	      )
+	
+	    ORDER BY Id, day
+	  )
+	
+	  GROUP BY Id, day
+	)
+	
+	WHERE daily_total_minutes_asleep/daily_total_minutes != 0
+	
+	ORDER BY Id, day
+
+
+---
+
+We save the results as a BigQuery table called `sleep_to_merge` in our `analysis` dataset.
+
+
+**Steps and Intensity**
+
+Query.
+
+	SELECT  
+	  Id,
+	  activityDate,
+	  totalSteps,
+	  totalIntensity
+	
+	FROM `analysisbellabeat246.analysis.dailyActivity` 
+	
+	WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
+	ORDER BY Id, activityDate
+
+
+---
+
+We save the results as a BigQuery table called `steps_intensity_to_merge` in our `analysis` dataset.
 
 
 
+
+ 
