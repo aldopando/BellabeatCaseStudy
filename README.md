@@ -2137,3 +2137,63 @@ Observations.
 
 
 ---
+
+## Average sleep by day of the week.
+
+Query.
+
+	SELECT
+	
+	  FORMAT_DATE('%A', day) AS day_of_the_week,
+	  ROUND(AVG(daily_total_minutes)/60, 1) AS average_daily_hours
+	    
+	FROM (
+	  SELECT
+	    Id,
+	    day,
+	    SUM(total_minutes) AS daily_total_minutes, 
+	
+	  FROM(
+	    SELECT  
+	      Id,
+	      EXTRACT(DATE FROM activityMinute) AS day,
+	      EXTRACT(TIME FROM MIN(activityMinute)) AS start_sleepRecord,
+	      logId,
+	      COUNT(*) AS total_minutes,
+	
+	    FROM `analysisbellabeat246.clean_data.minuteSleep_cleaned` 
+	
+	    WHERE Id NOT IN (4558609924, 7007744171) #Filter out the outliers 
+	
+	    GROUP BY Id, day, logId
+	
+	    HAVING (start_sleepRecord BETWEEN '22:29:00' AND '23:59:00')
+	        OR
+	        (total_minutes > 90
+	        AND ( start_sleepRecord > TIME '19:59:00'
+	        OR start_sleepRecord <= TIME '11:59:00' ) #TIME range that crosses midnight
+	        )
+	      ORDER BY Id, day
+	    )
+	
+	  GROUP BY Id, day 
+	      
+	  ORDER BY Id, day
+	)
+	
+	GROUP BY day_of_the_week
+	ORDER BY average_daily_hours
+
+
+
+
+ ![image](https://github.com/user-attachments/assets/467f51a5-769e-4d33-ae69-d8f9c1ad9852)
+
+
+ ---
+
+ Observations.
+
+ - ***The days when the users happen to sleep more are during the weekend, Sunday and Saturday. They sleep on average between 7.7 to 8 hours. This pattern might be due to users trying to offset the inssuficient sleep that they accumulate during the weekdays in their days off. In the USA, the weekend is generally observed as days off from work. However many professions, such as those in retail, restaurants, healthcare, transportation, and emergency services, require weekend work due to the nature of their services***.
+- ***Friday is the day when participants slept the less, achieving 6.6 hours on average. Remember that we are talking about the night time between Thursday to Friday and the hours of sleep before midnight during Friday. This value can be due to people have to work on Friday, meaning they have to wake up early. Also, Friday is considered the beginning of the weekend, so many people use this day for social interactions after work until midnight***.
+ 
