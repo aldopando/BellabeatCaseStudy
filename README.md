@@ -2387,9 +2387,17 @@ Observations.
 
 ---
 
-● What is your final conclusion based on your analysis?
-● How could your team and business apply your insights?
-● What next steps would you or your stakeholders take based on your findings?
-● Is there additional data you could use to expand on your findings?
+
+## Recommendations.
+
+*High Levels of Inactivity during the weekends*.
+
+*People with zero steps taken for a whole weeks*.
+
+*25% of people reach the daily goal of 10,000 steps for a good overall health*.
+
+*75% of people are under the daily goal of 10,000 steps*.
+
+*Saturday and Tuesday are the days when people give more steps*
 
 
