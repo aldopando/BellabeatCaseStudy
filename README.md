@@ -2194,7 +2194,7 @@ Query.
 
  Observations.
 
- - ***The days when the users happen to sleep more are during the weekend, Sunday and Saturday. They sleep on average between 7.7 to 8 hours. This pattern might be due to users trying to offset the inssuficient sleep that they accumulate during the weekdays in their days off. In the USA, the weekend is generally observed as days off from work. However many professions, such as those in retail, restaurants, healthcare, transportation, and emergency services, require weekend work due to the nature of their services***.
+ - ***The days when the users happen to sleep the most are during the weekend, Sunday and Saturday. They sleep on average between 7.7 to 8 hours. This pattern might be due to users trying to offset the inssuficient sleep that they accumulate during the weekdays in their days off. In the USA, the weekend is generally observed as days off from work. However many professions, such as those in retail, restaurants, healthcare, transportation, and emergency services, require weekend work due to the nature of their services***.
 - ***Friday is the day when participants slept the less, achieving 6.6 hours on average. Remember that we are talking about the night time between Thursday to Friday and the hours of sleep before midnight during Friday. This value can be due to people have to work on Friday, meaning they have to wake up early. Also, Friday is considered the beginning of the weekend, so many people use this day for social interactions or late-night activities after work until midnight***.
 - ***We can also observe a small rebound in sleep on Wednesday during the weekdays. This recovery might have been due to users trying to offset the stress and fatigue accumulated during the first weekdays. This day can be interpreted as the cope mechanism to the total workload of the week***.
 - ***Actually we can observe how the daily average sleep time decreases as the weekdays go by, from Monday to Tuesday and from Wednesday to Friday. Wednesday acts as day to reset this steady decrement***.
@@ -2305,4 +2305,78 @@ Query.
 	  AND sleep.day = steps_intensity.activityDate
  
 
+
+
+![image](https://github.com/user-attachments/assets/628fd61d-16a5-4f3e-804d-1e1c444a9771)
+
+
+---
+
+Trend Line:
+
+R-Squared: 0.0178235 -> 1.78%
+p-value (significance):	0.574709
+
+Observations.
+
+- ***We can notice a pretty flat trend line and slightly going downwards. R-Squared value is pretty close to zero (0.017) indicating very weak or no correlation between average total steps and average daily sleep time, these variables do not have a relationship with each other. The trend line is not meaningful in a predictive or explanatory way***.
+- ***The model explains very little of the variation in sleep based on steps***.
+
+- ***p-value is equal to 0.57. This value is higher than the common threshold (p > 0.05), this means that the pattern is not statistically significant, so the relationship is likely due to chance**.
+
+---
+
+![image](https://github.com/user-attachments/assets/3cc6589a-bb73-4dcb-8093-e2cfd3d59df4)
+
+---
+
+Trend Line:
+
+R-Squared: 0.0298655 -> 2.29%
+p-value (significance):	0.466244
+
+Observations.
+
+- ***We can notice a pretty flat trend line that slightly goes down. R-Squared value is pretty close to zero (0.029) indicating very weak or no correlation between average total steps and average daily sleep time, these variables do not have a relationship with each other. The trend line is not meaningful in a predictive or explanatory way***.
+- ***The model explains very little of the variation in sleep based on intensity***.
+- ***p-value is equal to 0.46. This value is higher than the common threshold (p > 0.05), this means that the pattern is not statistically significant, so the relationship is likely due to chance**.
+
+---
+
+![image](https://github.com/user-attachments/assets/38b1f5a2-ddf3-472b-a66b-10e30b95d4e8)
+
+---
+
+Trend Line:
+
+R-Squared: 0.0050913 -> 0.5%
+p-value (significance):	0.764988
+
+Observations.
+
+- ***We can notice a pretty flat trend line slightly going upwards. R-Squared value is pretty close to zero (0.005) indicating very weak or no correlation between average total steps and average daily sleep time, these variables do not have a relationship with each other. The trend line is not meaningful in a predictive or explanatory way***.
+- ***The model explains very little of the variation in sleep based on intensity***.
+- ***p-value is equal to 0.76. This value is higher than the common threshold (p > 0.05), this means that the pattern is not statistically significant, so the relationship is likely due to chance**.
+
+---
+
+![image](https://github.com/user-attachments/assets/11996b3b-9c94-4218-b470-afbe8a058568)
+
+---
+
+Trend Line:
+
+R-Squared: 0.0143453 -> 0.14%
+p-value (significance):	0.61499
+
+
+Observations.
+
+- ***We can notice a pretty flat trend line that slightly goes up. R-Squared value is pretty close to zero (0.014) indicating very weak or no correlation between average total steps and average daily sleep time, these variables do not have a relationship with each other. The trend line is not meaningful in a predictive or explanatory way***.
+- ***The model explains very little of the variation in sleep based on intensity***.
+- ***p-value is equal to 0.61. This value is higher than the common threshold (p > 0.05), this means that the pattern is not statistically significant, so the relationship is likely due to chance**.
+
+---
+
+**Takeaways**.
 
