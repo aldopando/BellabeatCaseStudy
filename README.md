@@ -2378,5 +2378,9 @@ Observations.
 
 ---
 
-**Takeaways**.
+● What is your final conclusion based on your analysis?
+● How could your team and business apply your insights?
+● What next steps would you or your stakeholders take based on your findings?
+● Is there additional data you could use to expand on your findings?
+
 
