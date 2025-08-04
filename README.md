@@ -2389,57 +2389,6 @@ Observations.
 
 
 
-**Based on Calories**
-
-Calories vs Steps
-
-*steps alone are not as strong predictor of calories burned compared to total intensity, likely because steps don’t capture activity intensity (for example, walking vs running) or because some participants were more involved in non-step activities like weight lifting or yoga that may not be well-represented by steps alone.*
-
-Outliers:
-
-*Some users burned fewer calories than expected for their step counts (below the trendline), perhaps walking at low intensity*.
-*Others burned more calories than expected (above the trendline), possibly due to higher intensity activities or greater body mass*.
-
-
-Calories vs Intensity
-
-*There is a slightly stronger relationship between calories with intensity than steps*.
-
-*Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet, inefficient movement, etc*.
-*Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc*.
-
-
-*Sleep*
-
-*The average total daily sleep time across the participants is 7 hours including naps and sleep segmented in this result*
-
-*The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours when filtering out naps, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep).*
-
-*Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system*.
-
-Sleep Time.
-
-*65% of users are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health*.
-
-*35% of users are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes*.
-
-Sleep Efficiency.
-
-*We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed*.
-*One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders*.
-
-Sleep Performance.
-
-*Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
-
-*35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
-
-*10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
-
-*Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
-
-
-
 ## Recommendations and conclusions.
 
 Inactivity. 
@@ -2450,7 +2399,7 @@ Inactivity.
 - *High Levels of Inactivity during the weekends*.
 
 
-**Promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
+**Bellabeat should promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
 
 **Use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking the sleep**.
 
@@ -2481,7 +2430,7 @@ For example:
 
 **Send suggestions through the app on Sundays and (Saturdays at night) about how the user can engage in more quite step-activities during Sunday, for example going for a relaxing walk during the morning or visiting a new place along with family. Sundays are more commonly used for resting or hanging out with family and friends**.  
 
-**Create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions about how users can achieve their daily steps taken**. 
+**Bellabeat should create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions about how users can achieve their daily steps taken**. 
 
 
 ---
@@ -2489,7 +2438,7 @@ For example:
 METs.
 
 - *The last week of the first month (week 4) was not only the week with more users reaching their goal of 600 MET-minutes per week, but also it was the week with more users wearing their devices more consistenly*.
-- *There’s a clear downward trend with the number of low-active users, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
+- *There is a clear downward trend with the number of low-active users, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
 - *There is a strong upward trend with the number of moderately-active users during weeks 1-7, reaching the peak of users moderately-active in week 7. This group is growing over time, especially during the first half. This indicates a positive trend where users are increasing their activity levels.*
 - *There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
 - *More than half participants of the whole sample are low-active users, representing the 58%. Although, they were involved in low-active levels of activities and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits.*
@@ -2498,6 +2447,71 @@ METs.
 - There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group.
 
 
-****
+**Bellabeat should aim towards user's monthly health/fitness goals. Taking advantage of the inertia of more users using wearables more consistenly at the end of the first month, the company can provide a thorough summary about the metrics achieved in the end of each month to motivate users keep using their wearables with consistency.**
+
+**Bellabeat should promote a customized plan that helps low-active users move up to more moderately physical activities through promoting how moderately physical activities can aid them gain sustantial health benefits, and how scientific reasearch has demonstrated that they can achieve the largest gains in disease prevention**.
+
+**Bellabeat should send more often reminders to moderately-active and highly-active users about how well they are performing their physical activity levels. They should use friendly and encouraging messages that hold accountable users**.
+
+
+
+---
+
+
+Calories.
+
+Calories vs Steps
+
+*steps alone are not as strong predictor of calories burned compared to total intensity, likely because steps don’t capture activity intensity (for example, walking vs running) or because some participants were more involved in non-step activities like weight lifting or yoga that may not be well-represented by steps alone.*
+
+Outliers:
+
+*Some users burned fewer calories than expected for their step counts (below the trendline), perhaps walking at low intensity*.
+*Others burned more calories than expected (above the trendline), possibly due to higher intensity activities or greater body mass*.
+
+
+Calories vs Intensity
+
+*There is a slightly stronger relationship between calories with intensity than steps*.
+
+*Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet, inefficient movement, etc*.
+*Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc*.
   
 
+
+---
+
+
+Sleep.
+
+*The average total daily sleep time across the participants is 7 hours including naps and sleep segmented in this result*
+
+*The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours when filtering out naps, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep).*
+
+*Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system*.
+
+Sleep Time.
+
+*65% of users are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health*.
+
+*35% of users are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes*.
+
+Sleep Efficiency.
+
+*We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed*.
+*One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders*.
+
+Sleep Performance.
+
+*Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
+
+*35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
+
+*10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
+
+*Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
+
+
+**Bellabeat should promote a plan that provides information about user's sleep performance by comparing sleep efficiency and sleep time. This plan can also offers customized insisghts and tips about how users can improve their sleep quality**
+
+**
