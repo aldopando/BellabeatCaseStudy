@@ -2388,16 +2388,114 @@ Observations.
 ---
 
 
-## Recommendations.
 
-*High Levels of Inactivity during the weekends*.
-
-*People with zero steps taken for a whole weeks*.
+**Based on steps**
 
 *25% of people reach the daily goal of 10,000 steps for a good overall health*.
 
-*75% of people are under the daily goal of 10,000 steps*.
 
-*Saturday and Tuesday are the days when people give more steps*
+
+---
+**Based on METs**
+
+*We can notice that between 19 to 24 out of 32 participants tracked their data consistenly completing full weeks using their wearables*.
+
+*The last week of the first month (week 4) was not only of the weeks with more users reaching their goal of 600 MET-minutes per week, but also the it was the week with more users wearing their devices more consistenly*.
+
+*Almost all participants that complete full weeks using their wearables wearables achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health*.
+
+*There’s a clear downward trend, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
+
+*There’s a clear downward trend, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
+
+*There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
+
+*More than half participants of the whole sample are low-active users, representing the 58%*.
+
+*More than a third part of the total users are moderately-active*.
+
+*A very small percentage of users are highly-active, representing only 6% of the whole*.
+
+---
+
+**Based on Calories**
+
+Calories vs Steps
+
+*steps alone are not as strong predictor of calories burned compared to total intensity, likely because steps don’t capture activity intensity (for example, walking vs running) or because some participants were more involved in non-step activities like weight lifting or yoga that may not be well-represented by steps alone.*
+
+Outliers:
+
+*Some users burned fewer calories than expected for their step counts (below the trendline), perhaps walking at low intensity*.
+*Others burned more calories than expected (above the trendline), possibly due to higher intensity activities or greater body mass*.
+
+
+Calories vs Intensity
+
+*There is a slightly stronger relationship between calories with intensity than steps*.
+
+*Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet, inefficient movement, etc*.
+*Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc*.
+
+
+*Sleep*
+
+*The average total daily sleep time across the participants is 7 hours including naps and sleep segmented in this result*
+
+*The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours when filtering out naps, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep).*
+
+*Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system*.
+
+Sleep Time.
+
+*65% of users are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health*.
+
+*35% of users are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes*.
+
+Sleep Efficiency.
+
+*We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed*.
+*One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders*.
+
+Sleep Performance.
+
+*Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
+
+*35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
+
+*10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
+
+*Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
+
+
+
+## Recommendations and conclusions.
+
+Inactivity. 
+
+- *18.75% inactive users for at at least one full week*.
+- *12.75% inactive users for at least two full weeks*.
+- *High levels of inactivity during the first three weeks, reaching the peak of inactive users during week 2 (zero steps, intensity, and METs)*
+- *High Levels of Inactivity during the weekends*.
+
+
+**Promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
+
+**Use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking the sleep**.
+
+**Provide a detailed explanation about the different metrics, their interpretation, benefits, and recommendations throughout the first week (one day explaining steps, another day explaining METs)**. 
+
+**Send reminders through the app when the system doesn't receive data about user metrics during two consecutive days**.
+
+
+---
+
+Steps.
+
+- *75% of people are under the daily goal of 10,000 steps*.
+- *47% (almost the half) of users are sedentary and low active*.
+- *28% of participants are somewhat active users*.
+- *Saturday and Tuesday are the days when people give more steps*
+- *Sunday and Friday were the days when the users gave less steps on average*.
 
 
