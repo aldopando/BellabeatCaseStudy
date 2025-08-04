@@ -2499,3 +2499,13 @@ Steps.
 - *Sunday and Friday were the days when the users gave less steps on average*.
 
 
+**10,000 steps per day is an overall goal for maintaining a good health. However, steps counting by itself doesn't encompasses intensity levels for accurate determine the daily physical activity and calories burnt. An user might give less than 10,000 steps but with high levels of intensity, for example running for 20 minutes. Rather than using total steps as a goal, a holistic approach would be using MET/minutes or Intensity Levels calculated from the type of step taken (walking, jogging, running)**.
+
+
+**Send notifications throughout the day about different ways how the user can accomplish their physical activty based on step-activities to achieve their fitness/health goals**.
+For example:
+- Leverage the most of the afternoon by running for 20 minutes or walk for 45 minutes in your favorite park to achieve your daily goal, you are almost done! 
+
+**Send suggestions through the app on Sundays and (Saturdays at night) about how the user can engage in more quite step-activities during Sunday, for example going for a relaxing walk during the morning or visiting a new place along with family. Sundays are more commonly used for resting or hanging out with family and friends**.  
+
+**Create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions, notifications** 
