@@ -2389,35 +2389,6 @@ Observations.
 
 
 
-**Based on steps**
-
-*25% of people reach the daily goal of 10,000 steps for a good overall health*.
-
-
-
----
-**Based on METs**
-
-*We can notice that between 19 to 24 out of 32 participants tracked their data consistenly completing full weeks using their wearables*.
-
-*The last week of the first month (week 4) was not only of the weeks with more users reaching their goal of 600 MET-minutes per week, but also the it was the week with more users wearing their devices more consistenly*.
-
-*Almost all participants that complete full weeks using their wearables wearables achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health*.
-
-*There’s a clear downward trend, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
-
-*There’s a clear downward trend, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
-
-*There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
-
-*More than half participants of the whole sample are low-active users, representing the 58%*.
-
-*More than a third part of the total users are moderately-active*.
-
-*A very small percentage of users are highly-active, representing only 6% of the whole*.
-
----
-
 **Based on Calories**
 
 Calories vs Steps
@@ -2503,9 +2474,30 @@ Steps.
 
 
 **Send notifications throughout the day about different ways how the user can accomplish their physical activty based on step-activities to achieve their fitness/health goals**.
+
 For example:
+
 - Leverage the most of the afternoon by running for 20 minutes or walk for 45 minutes in your favorite park to achieve your daily goal, you are almost done! 
 
 **Send suggestions through the app on Sundays and (Saturdays at night) about how the user can engage in more quite step-activities during Sunday, for example going for a relaxing walk during the morning or visiting a new place along with family. Sundays are more commonly used for resting or hanging out with family and friends**.  
 
-**Create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions, notifications** 
+**Create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions about how users can achieve their daily steps taken**. 
+
+
+---
+
+METs.
+
+- *The last week of the first month (week 4) was not only the week with more users reaching their goal of 600 MET-minutes per week, but also it was the week with more users wearing their devices more consistenly*.
+- *There’s a clear downward trend with the number of low-active users, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
+- *There is a strong upward trend with the number of moderately-active users during weeks 1-7, reaching the peak of users moderately-active in week 7. This group is growing over time, especially during the first half. This indicates a positive trend where users are increasing their activity levels.*
+- *There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
+- *More than half participants of the whole sample are low-active users, representing the 58%. Although, they were involved in low-active levels of activities and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits.*
+- *More than a third part of the total users are moderately-active. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention*.
+- *A very small percentage of users are highly-active, representing only 6% of the whole. However, research suggests that health gains above 8,000 MET-min/week are smaller.*.
+- There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group.
+
+
+****
+  
+
