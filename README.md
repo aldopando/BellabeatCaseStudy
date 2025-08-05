@@ -2529,7 +2529,7 @@ Sleep Performance.
 
 **Analysis shows how a third part of population using wearables are getting short but efficient sleep. Bellabeat should promote personalized plans that can help user optimize and better manage their daily routine to allow them have more time to sleep**.
 
-**Bellabeat should hire sleep experts or somnologists to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep has in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance**.
+**Bellabeat should hire sleep experts or somnologists to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep has in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance. This approach can lead to getting new customers who are interested on sleep**.
 
 **Research in depth why users tend to sleep less on Friday. Bellabeat can address this issue by scheduling meditations and yoga practices on Thursday to release stress levels acumulated throughout the weekday. The company should also provide and schedule workout routines with high intensity levels to increase fatigue in users in order they go to sleep earlier and getting a deeper sleep**. 
 
