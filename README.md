@@ -2401,7 +2401,7 @@ Inactivity.
 
 **Bellabeat should promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
 
-**Use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking the sleep**.
+**Bellabeat should use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking the sleep**.
 
 **Provide a detailed explanation about the different metrics, their interpretation, benefits, and recommendations throughout the first week (one day explaining steps, another day explaining METs)**. 
 
@@ -2441,7 +2441,7 @@ METs.
 - *There is a clear downward trend with the number of low-active users, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
 - *There is a strong upward trend with the number of moderately-active users during weeks 1-7, reaching the peak of users moderately-active in week 7. This group is growing over time, especially during the first half. This indicates a positive trend where users are increasing their activity levels.*
 - *There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
-- *More than half participants of the whole sample are low-active users, representing the 58%. Although, they were involved in low-active levels of activities and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits.*
+- *More than half participants of the whole sample are low-active users, representing the 58%. Although, they were involved in low-active levels and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits.*
 - *More than a third part of the total users are moderately-active. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention*.
 - *A very small percentage of users are highly-active, representing only 6% of the whole. However, research suggests that health gains above 8,000 MET-min/week are smaller.*.
 - There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group.
@@ -2451,8 +2451,11 @@ METs.
 
 **Bellabeat should promote a customized plan that helps low-active users move up to more moderately physical activities through promoting how moderately physical activities can aid them gain sustantial health benefits, and how scientific reasearch has demonstrated that they can achieve the largest gains in disease prevention**.
 
-**Bellabeat should send more often reminders to moderately-active and highly-active users about how well they are performing their physical activity levels. They should use friendly and encouraging messages that hold accountable users**.
+**Bellabeat should more often send reminders to moderately-active and highly-active users about how well they are performing their physical activity levels. They should use friendly and encouraging messages that keep them accountable**.
 
+**Investigate in depth what factors made highly-active users reduce their physical activity over the time, specially after the first month. Is it a seasonal factor? Is it a motivational fator? Is it an external event?**
+
+**Bellabeat should target moderately-active users to help them streamline and optimize their routines, specially because data suggests how there is a strong upward trend of moderately-active users over the time. The company should promote coach and medical experts to these users, as well as promoting other products such as the "Spring" smart bottle water**.
 
 
 ---
@@ -2469,14 +2472,22 @@ Outliers:
 *Some users burned fewer calories than expected for their step counts (below the trendline), perhaps walking at low intensity*.
 *Others burned more calories than expected (above the trendline), possibly due to higher intensity activities or greater body mass*.
 
+**Investigate and identify which factors are making users burnt more calories than expected based on steps counting. Also, figure out the correlation between users' body mass and their capacity to easily burnt calories**.
+
+**Research more in depth if there is any correlation between diet/hydration and user's ease to burn calories with the same level of physical activity**.
+
 
 Calories vs Intensity
 
 *There is a slightly stronger relationship between calories with intensity than steps*.
 
-*Some users burned more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet, inefficient movement, etc*.
+*Some users burnt more calories than expected for their intensity (above the trendline). This can possibly be due to body composition, metabolism, age, diet, inefficient movement, etc*.
 *Others burned fewer calories than expected (below the trendline). Perhaps due to body composition, metabolism, age, diet, more efficient movement, etc*.
-  
+
+
+**Bellabeat should promote more non-step activities and personalized routines with high levels of intensity to users who specially want to lose weight such as strenght workouts, weight lifting, swimming, etc. The data shows a stronger posivite correlation between calories burnt and levels of intensity than calories burnt and steps taken**. 
+
+**Research more in depth if there is any correlation between user's demographic data such as age, body composition, metabolism, etc. and user's ease to burn calories with the same level of physical activity**.
 
 
 ---
