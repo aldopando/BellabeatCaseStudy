@@ -2495,32 +2495,27 @@ Calories vs Intensity
 
 Sleep.
 
-*The average total daily sleep time across the participants is 7 hours including naps and sleep segmented in this result*
+- *The average total daily sleep time across the participants is 7.214 hours without including naps and sleep segmented in this result*.
+- *The average total daily sleep time across users interestingly decreased from 7.214 to 7.085 hours when including naps during daytime, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time*.
+- *Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes for a sleep record were due to certain anomalies with the Fitbit device. This is because Fitbit devices automatically detect sleep when a user wear their device to bed, and it detects and records naps that are at least an hour long. It's likely users didn't wear their device for automatically tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system or users only used their wearables to manually track their naps in certain days*.
 
-*The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours when filtering out naps, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep).*
-
-*Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system*.
 
 Sleep Time.
 
-*65% of users are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health*.
-
-*35% of users are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes*.
+- *65% of users are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health*.
+- *35% of users are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes*.
 
 Sleep Efficiency.
 
-*We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed*.
-*One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders*.
+- *We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed*.
+- *One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders*.
 
 Sleep Performance.
 
-*Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
-
-*35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
-
-*10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
-
-*Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
+- *Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
+- *35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
+- *10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
+- *Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
 
 
 **Bellabeat should promote a plan that provides information about user's sleep performance by comparing sleep efficiency and sleep time. This plan can also offers customized insisghts and tips about how users can improve their sleep quality**
