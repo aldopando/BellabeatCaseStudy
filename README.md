@@ -2389,7 +2389,7 @@ Observations.
 
 
 
-## Recommendations and conclusions.
+## Recommendations and insights.
 
 Inactivity. 
 
@@ -2532,3 +2532,14 @@ Sleep Performance.
 **Bellabeat should hire sleep experts or somnologists to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep has in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance**.
 
 **Research in depth why users tend to sleep less on Friday. Bellabeat can address this issue by scheduling meditations and yoga practices on Thursday to release stress levels acumulated throughout the weekday. The company should also provide and schedule workout routines with high intensity levels to increase fatigue in users in order they go to sleep earlier and getting a deeper sleep**. 
+
+
+## Next steps and further exploration.
+
+
+- Focus on a sample entirely made up by women since Bellabeat products are oriented to this gender.
+- Use a bigger sample size that can fairly represent the outreach market of wearables.
+- Include demographic data such as age will allow to accurately categorize the groups in the data and better make sense of the trends.
+- Include another factors such as diet, metabolism and body composition in the data to observe how they influence physical performance and calories burnt.
+- Use a sample that covers a longer period time to identify holistic patterns in habits and lifestyle.
+
