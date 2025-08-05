@@ -2498,6 +2498,7 @@ Sleep.
 - *The average total daily sleep time across the participants is 7.214 hours without including naps and sleep segmented in this result*.
 - *The average total daily sleep time across users interestingly decreased from 7.214 to 7.085 hours when including naps during daytime, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time*.
 - *Users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes for a sleep record were due to certain anomalies with the Fitbit device. This is because Fitbit devices automatically detect sleep when a user wear their device to bed, and it detects and records naps that are at least an hour long. It's likely users didn't wear their device for automatically tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system or users only used their wearables to manually track their naps in certain days*.
+- *Friday is the day when participants sleep the less, achieving 6.6 hours on average*.
 
 
 Sleep Time.
@@ -2518,9 +2519,9 @@ Sleep Performance.
 - *Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
 
 
-**Bellabeat should promote a plan that provides information about user's sleep performance by comparing sleep efficiency and sleep time. This plan can also offers customized insisghts and tips about how users can improve their sleep quality**
+**Bellabeat should promote a plan that provides information about user's sleep performance by comparing sleep efficiency and sleep time. This plan can also offers customized insisghts and tips about how users can improve their sleep quality**.
 
-**Based on sleep quality and duration of previous night, Bellabeat should send notifications to users about if it is necessary they need take a nap to offset the consequences of getting poor sleep. The company can promote how and when taking a nap based on sleep patterns**.
+**Based on sleep quality and sleep duration of previous night, Bellabeat should send notifications to users about if it is necessary they need take a nap to offset the consequences of getting poor sleep. The company can promote how and when taking a nap based on sleep patterns**.
 
 **Bellabeat should focus on users who are getting poor sleep to help them improve their sleep efficiency and sleep time, providing them a customized plan about how they can imporve their sleep environment, also suggesting meditation practices to manage stress and promoting naps to restore mental and physical vigor during the day**. 
 
@@ -2528,4 +2529,6 @@ Sleep Performance.
 
 **Analysis shows how a third part of population using wearables are getting short but efficient sleep. Bellabeat should promote personalized plans that can help user optimize and better manage their daily routine to allow them have more time to sleep**.
 
-**Bellabeat should hire sleep experts or somnologist to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance**.
+**Bellabeat should hire sleep experts or somnologists to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep has in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance**.
+
+**Research in depth why users tend to sleep less on Friday. Bellabeat can address this issue by scheduling meditations and yoga practices on Thursday to release stress levels acumulated throughout the weekday. The company should also provide and schedule workout routines with high intensity levels to increase fatigue in users in order they go to sleep earlier and getting a deeper sleep**. 
