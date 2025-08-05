@@ -2513,11 +2513,19 @@ Sleep Efficiency.
 Sleep Performance.
 
 - *Half of the participants got a high-performance sleep, meaning they not only slept more than 7 hours (experts recommendation) but also they achieved great sleep efficiency (they spend of the time asleep and with minimum disruptions or restless periods). This promotes a deep sleep that will provide physical and energy restoration, memory consolidation, hormone regulation, and immune system boost*.
-- *35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiecny in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
+- *35% of the sample got a short but efficient sleep. This means that even though these participants slept less than 7 hours in daily average, they got a high efficiency in their sleep, meaning they spent the most of the time asleep with minimun disruptions or restless periods. Research has suggested that inherited genes might enable some people to sleep six hours or less per night without showing signs of sleep deprivation. Although rare, some people can get by on less than six hours of sleep without symptoms like fatigue or daytime sleepiness*.
 - *10% of participants got a long but inefficient sleep. In other words, these users are sleeping more than seven hours on average per day, but with many restless periods or disruptions when they were in bed, this provoke a poor sleep quality. It doesn't matter if they are in bed more than 7 hours per day, they are actually asleep less than 7 hours. The possible causes may be stress and anxiety, poor sleep environment, irregular sleep schedule, too much screen time, lack of physical cctivity, medical conditions or medications*.
 - *Only one person which represent the 5% of the sample got resteless sleep. Although this person was sleeping more than 7 hours per day, this person might have been suffering insomnia, which can lead to sleep deprivation. These effects are really detrimental to the overall health and performance of this person*.
 
 
 **Bellabeat should promote a plan that provides information about user's sleep performance by comparing sleep efficiency and sleep time. This plan can also offers customized insisghts and tips about how users can improve their sleep quality**
 
-**
+**Based on sleep quality and duration of previous night, Bellabeat should send notifications to users about if it is necessary they need take a nap to offset the consequences of getting poor sleep. The company can promote how and when taking a nap based on sleep patterns**.
+
+**Bellabeat should focus on users who are getting poor sleep to help them improve their sleep efficiency and sleep time, providing them a customized plan about how they can imporve their sleep environment, also suggesting meditation practices to manage stress and promoting naps to restore mental and physical vigor during the day**. 
+
+**Bellabeat should send suggestions to users about when they should charge their devices to prevent users doing it when they go to sleep. Based on user's activity and sleep schedule, Bellabeat system can determie what is the best time to a user charge their devices without disrupting to track important data such as sleep**. 
+
+**Analysis shows how a third part of population using wearables are getting short but efficient sleep. Bellabeat should promote personalized plans that can help user optimize and better manage their daily routine to allow them have more time to sleep**.
+
+**Bellabeat should hire sleep experts or somnologist to include them in their plans to help users not only improve their sleep but also inform them about the importance sleep in their physical and mental performance. Sleep doctors can potentially help users with sleep disorders and directly have a positive impact in their daily physical activity performance**.
