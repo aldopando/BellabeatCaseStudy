@@ -1,12 +1,12 @@
-# Bellabeat CaseStudy
+# Bellabeat Case Study
 
 
 ## Summary
 
 
-Bellabeat is a wellness company founded by Urška Sršen and Sandro Mur in 2014. Bellabeat is a company that developed one of the first wearables specifically designed for women.
+Bellabeat is a wellness company founded by Urška Sršen and Sandro Mur in 2014. This company manufactures wellness tracking devices designed to empower women to track and improve their health. Bellabeat stands out by focusing specifically on women's wellness, offering products and features tailored to their unique needs and life stages. 
 
-The company is a manufacturer of wellness tracking devices designed to empower women to track and improve their health. The company's product offers sleep, activity, and reproductive health monitoring throughout different stages of life, enabling users to cope with stress, improve their lives, and prevent irrevocable consequences.
+Unlike many general fitness trackers, Bellabeat devices track menstrual cycles, fertility, and menopause symptoms, while also monitoring sleep, activity, and heart rate.
 
 Focusing on creating innovative health and wellness products for women, their mission is to empower women to take control of their health by providing them with technology-driven solutions that blend design and function. 
 
@@ -14,11 +14,11 @@ Focusing on creating innovative health and wellness products for women, their mi
 **About the company products**.
 
 - **Bellabeat app**: The Bellabeat app provides users with health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. The Bellabeat app connects to their line of smart wellness products.
-- **IVY+**: A new generation of wellness and health trackers designed specifically for women. Besides tracking steps, sleep, distance, calories, and menstrual cycle logging, IVY+ has advanced sensors such as optical heart‑rate monitor measuring heart rate, heart‑rate variability (HRV), respiratory rate, and cardiac coherence. Also a sensor that tracks minute-by-minute skin temperatureon the wrist to support fertility and menstrual insights.
+- **IVY+**: A new generation of wellness and health trackers. Besides tracking steps, sleep, distance, calories, and menstrual cycle logging, IVY+ has advanced sensors to measure  heart rate, heart‑rate variability (HRV), respiratory rate, and cardiac coherence. It also has a sensor that tracks minute-by-minute skin temperature on the wrist to support fertility and menstrual insights.
 - **Leaf**: Bellabeat’s classic wellness tracker can be worn as a bracelet, necklace, or clip. The Leaf tracker connects to the Bellabeat app to track activity, sleep, and stress.
 - **Time**: This wellness watch combines the timeless look of a classic timepiece with smart technology to track user activity, sleep, and stress. The Time watch connects to the Bellabeat app to provide you with insights into your daily wellness.
 - **Spring**: This is a water bottle that tracks daily water intake using smart technology to ensure that you are appropriately hydrated throughout the day. The Spring bottle connects to the Bellabeat app to track your hydration levels.
-- **Bellabeat membership**: Bellabeat also offers a subscription-based membership program for users. Membership gives users 24/7 access to fully personalized guidance on nutrition, activity, sleep, health and beauty, and mindfulness based on their lifestyle and goals
+- **Bellabeat membership**: Bellabeat also offers a subscription-based membership program for users. Membership gives users 24/7 access to fully personalized guidance on nutrition, activity, sleep, health and beauty, and mindfulness based on their lifestyle and goals.
 
 
 **Stakeholders**.
@@ -31,14 +31,17 @@ Focusing on creating innovative health and wellness products for women, their mi
 
 ## Ask   
 
-**Business Task**
+**Business Task**.
 
-*Draw meaningful insights and trends into how consumers use non-Bellabeat smart devices and how this information can provide high-level recommendations for how these trends can inform Bellabeat marketing strategy*. 
+*Draw meaningful insights and trends into how consumers use non-Bellabeat smart devices and how this information can provide high-level recommendations for Bellabeat marketing strategy*. 
 
 
-**What is the problem you are trying to solve?** 
+---
 
-Identify trends and patterns from overall smart devices usage data in order to draw insights and how they may apply in a Bellabeat products.  	
+**What is the problem you are trying to solve?**
+
+Identify trends and patterns from overall smart devices usage data in order to draw insights and how they may apply in a Bellabeat products. 
+
  
 **How can your insights drive business decisions?**
 
@@ -48,106 +51,116 @@ My insights can influence on how to address the new Bellabeat marketing strategy
 
 ## Prepare
 
-**About the data**
+**About the data**.
 
-These datasets were generated by respondents to a distributed survey via Amazon Mechanical Turk between 03.12.2016-05.12.2016. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring.
+These datasets were generated by respondents to a distributed survey via Amazon Mechanical Turk between 03/12/2016-05/12/2016. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring.
 
-Prepare Guiding questions
+---
  
- - Where is your data stored?   
- **Data is stored in a collection of datasets on Kaggle**
- **This collection contains several tables across different metrics of personal tracker data**
- **This collection is broken down into two folders,  both with same metrics but each folder contains data in different periods of time**
-
- - How is the data organized? Is it in long
-   or wide format?  
-   **The data is organized in two folders, each folder representing a different period of time:**
+**Where is the data stored?**
    
-	 - First Folder (11 tables) **2016/03/11 - 2016/04/11** 
-		 - `dailyActivity_merged.csv` 
-			 - The dataset is in **wide format**.
+Data is stored in a collection of datasets on Kaggle. This collection contains several tables across different metrics of personal tracker data.
 
-				-   Each data subject `id` has a row of a combination of multiple attributes such as `TotalSteps, TotalDistance, TrackerDistance, etc`.
-				    
-				-   Variables are spread across the columns. Columns represent different metrics like steps, distance, active minutes, etc.
-				- Each variable has its own column.
+This collection is broken down into two folders, both with same metrics but each folder contains data in different periods of time.
 
-		 - `heartrate_seconds_merged.csv`  
-			 - The dataset is in **long format**.
 
-				-   Each row is a single observation of the variable `heart rate value`   by a specific user `id` at a specific time `Time`.
-				    
-				-  The subject user `id` is repeated across multiple rows to represent the value `heart rate`  at different points of time `Time`
-				
-		- `hourlyCalories_merged.csv`
-			- The dataset is in **long format**.
-				-  Each row is a single observation of the variable `number of calories burnt`   by a specific user `id` at a specific time `ActivityHour`.
-				    
-				-  The subject user `id` is repeated across multiple rows to represent a value of `Calories`  at different hours `ActivityHour`.
-		
-		- `hourlyIntensities_merged.csv`
-			- The dataset is in **long format**. It has more than column apparently representing more than one variable. In reality, the second column represents an aggregate function to calculate the **average** of intensity state exhibited during a specific hour by the user. In other words, the column `AverageIntensity` is the statistical summary of the variable `TotalIntensity`.  Therefore, this dataset only contains one variable where each row represents one observation of this variable at a specific time.
+---
 
-		- `hourlySteps_merged.csv` - The dataset is in **long format**.
+**How is the data organized? Is it in long or wide format?** 
+
+The data is organized in two folders, each folder representing a different period of time:
+   
+- First Folder (11 tables): **Fitabase Data 2016/03/11 - 2016/04/11**
   
-		- `minuteCaloriesNarrow_merged.csv` - The dataset is in **long format**.
-     
-		- `minuteIntensitiesNarrow_merged.csv` - The dataset is in **long format**.
-     			
-		- `minuteMETsNarrow_merged.csv` - The dataset is in **long format**.
-			
-		- `minuteSleep_merged.csv`
-			- The dataset is in **wide format**.  Each row represents a unique combination of identifiers (user **id**, **date** and **logId**).
-			
-		- `minuteStepsNarrow_merged.csv` - The dataset is in **long format**
-		
-		- `weightLogInfo_merged.csv`
-			- The dataset is in **wide format**. Each data subject `id` has a row of a combination of multiple attributes such as `WeightKg, WeightPounds, Fat, BMI, IsManualReport, LogId`
+	- `dailyActivity_merged.csv`
+	  	- The table is in **wide format**.
+    	  
+	   		- Each data subject `id` has a row of a combination of multiple attributes such as `TotalSteps, TotalDistance, TrackerDistance, etc`.
+	   	 	- Variables are spread across the columns.
+	   	  	- Columns represent different metrics like steps, distance, active minutes, etc.
+	   	  	- Each variable has its own column.
 
-	- Second Folder  (18 tables) **2016/04/11 - 2016/05/11** 
-		 - `dailyActivity_merged.csv*` - The dataset is in **wide format**.
-			
-		 - `dailyCalories_merged.csv` - The dataset is in **long format**.
+	- `heartrate_seconds_merged.csv`  
+		- The table is in **long format**.
+
+			- Each row is a single observation of the variable `heart rate value`   by a specific user `id` at a specific time `Time`.	    
+			- The subject user `id` is repeated across multiple rows to represent the value `heart rate`  at different points of time `Time`.
+				
+	- `hourlyCalories_merged.csv`
+		- The table is in **long format**.
+
+			- Each row is a single observation of the variable `number of calories burnt`   by a specific user `id` at a specific time `ActivityHour`.	    
+			- The subject user `id` is repeated across multiple rows to represent a value of `Calories`  at different hours `ActivityHour`.
 		
-		- `dailyIntensities_merged.csv`
-			- The dataset is in **wide format**. In this dataset there is a combination of multiple columns representing attributes for each row. Each column has its own variable.  A single row has atributes such as `SedentaryMinutes, LightlyActiveMinutes, VeryActiveMinutes, ModeratelyActiveDistance, etc.`
+	- `hourlyIntensities_merged.csv`
+		- The table is in **long format**.
+   
+			- It has more than column apparently representing more than one variable. In reality, the second column represents an aggregate function to calculate the **average** of intensity state exhibited during a specific hour by the user. In other words, the column `AverageIntensity` is the statistical summary of the variable `TotalIntensity`.  Therefore, this dataset only contains one variable where each row represents one observation of this variable at a specific time.
+
+	- `hourlySteps_merged.csv` - The table is in **long format**.
+  
+	- `minuteCaloriesNarrow_merged.csv` - The table is in **long format**.
+     
+	- `minuteIntensitiesNarrow_merged.csv` - The table is in **long format**.
+     			
+	- `minuteMETsNarrow_merged.csv` - The table is in **long format**.
+			
+	- `minuteSleep_merged.csv`
+			- The table is in **wide format**.  Each row represents a unique combination of identifiers (user **id**, **date** and **logId**).
+			
+	- `minuteStepsNarrow_merged.csv` - The table is in **long format**
 		
-		- `dailySteps_merged.csv` - The dataset is in **long format**.
+	- `weightLogInfo_merged.csv`
+			- The table is in **wide format**. Each data subject `id` has a row of a combination of multiple attributes such as `WeightKg, WeightPounds, Fat, BMI, IsManualReport, LogId`.
+
+
+---
+
+
+- Second Folder  (18 tables): **Fitabase Data 2016/04/11 - 2016/05/11** 
+	- `dailyActivity_merged.csv*` - The table is in **wide format**.
 			
-		- `heartrate_seconds_merged.csv` - The dataset is in **long format**.
+	- `dailyCalories_merged.csv` - The table is in **long format**.
+		
+	- `dailyIntensities_merged.csv`
+		- The table is in **wide format**. In this dataset there is a combination of multiple columns representing attributes for each row. Each column has its own variable.  A single row has atributes such as `SedentaryMinutes, LightlyActiveMinutes, VeryActiveMinutes, ModeratelyActiveDistance, etc.`
+		
+	- `dailySteps_merged.csv` - The table is in **long format**.
 			
-		- `hourlyCalories_merged.csv` - The dataset is in **long format**.
+	- `heartrate_seconds_merged.csv` - The table is in **long format**.
 			
-		- `hourlyIntensities_merged.csv` - The dataset is in **long format**.
+	- `hourlyCalories_merged.csv` - The table is in **long format**.
 			
-		- `hourlySteps_merged.csv` - The dataset is in **long format**.
+	- `hourlyIntensities_merged.csv` - The table is in **long format**.
 			
-		- `minuteCaloriesNarrow_merged.csv` - The dataset is in **long format**.
+	- `hourlySteps_merged.csv` - The table is in **long format**.
 			
-		- `minuteCaloriesWide_merged.csv`
-			- The dataset is in **wide format**.  *It has multiple columns that contain the same type of data for different time points.*  For example, columns for `"Calories00", "Calories01", "Calories02"... "Calories59"`  
-			E.g.
+	- `minuteCaloriesNarrow_merged.csv` - The table is in **long format**.
+			
+	- `minuteCaloriesWide_merged.csv`
+		- The table is in **wide format**.  *It has multiple columns that contain the same type of data for different time points.*  For example, columns for `"Calories00", "Calories01", "Calories02"... "Calories59"`  
+		E.g.
 			***Calories05 = calories burned in fifth minute of the hour.***
 			
-		- `minuteIntensitiesNarrow_merged.csv`
-			- The dataset is in **long format**. The same data as "minuteCaloriesWide_merged.csv" but in long format. **The time points (minutes) are spread out through the rows.**
+	- `minuteIntensitiesNarrow_merged.csv`
+		- The dataset is in **long format**. It is same data as `minuteCaloriesWide_merged.csv` but in long format. *The time points (minutes) are spread out through the rows*.
 			
-		- `minuteIntensitiesWide_merged.csv` - The dataset is in **wide format**.
+	- `minuteIntensitiesWide_merged.csv` - The table is in **wide format**.
 			
-		- `minuteMETsNarrow_merged.csv` - The dataset is in **long format**.
+	- `minuteMETsNarrow_merged.csv` - The table is in **long format**.
 			
-		- `minuteSleep_merged.csv` - The dataset is in **wide format**.
+	- `minuteSleep_merged.csv` - The table is in **wide format**.
 			
-		- `minuteStepsNarrow_merged.csv` - The dataset is in **long format**.
+	- `minuteStepsNarrow_merged.csv` - The table is in **long format**.
 			
-		- `minuteStepsWide_merged.csv` - The dataset is in **wide format**.
+	- `minuteStepsWide_merged.csv` - The table is in **wide format**.
 			
-		- `sleepDay_merged.csv`
-			- The dataset is in **wide format**. The number of rows in this dataset can initially suggest a "long" format, especially when it can be observed many repeated IDs or timestamps. But **the format (wide vs. long) is not defined by the number of rows**. it’s defined by **how the variables are organized**
+	- `sleepDay_merged.csv`
+		- The table is in **wide format**. The number of rows in this dataset can initially suggest a "long" format, especially when it can be observed many repeated IDs or timestamps. But **the format (wide vs. long) is not defined by the number of rows**. it’s defined by **how the variables are organized**
 Each row of this dataset is a summary of many variables (`TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed `) for a specific time `SleepDay`
 
 			
-		- `weightLogInfo_merged.csv` - The dataset is in **wide format**.
+	- `weightLogInfo_merged.csv` - The table is in **wide format**.
 
 ****
  - Are there issues with bias or credibility in this data? Does your
