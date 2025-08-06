@@ -259,15 +259,15 @@ The collected data is cited and comes from an original and reliable source. The 
  
 Problems and limitations with the data:
 
-- **Small sample size:**  This dataset has a sample size of 30 users. The market of people using wearable devices is huge (80 million just in USA) and growing each year. This can be a limitation to get an accurate result of the sample that fairly represents the entire population.  
+- **Small sample size:**  This dataset has a sample size of 30 users. The market of people using wearable devices is huge (80 million just in USA) and growing each year. This can be a limitation to get an reliable result of the sample that fairly represents the entire population.  
 - **Out of date**: The data was generated since 2016, making it more irrelevant due to  the analysis is being conducted in 2025.
 - **Limited period of time:** This period of time might be a limitation to track any change in user's routine, which is essential to identify outliers and have a more complete representation of patterns and tends people have in their wellness and daily activity.
 - **Possible biased sample:** The sample may not be a fair representation of the population. We don't have accessibility to details about how participants were eligible to the survey. 
-- **Lack of demographic data**: Age and gender are not specified, this is essential information because Bellabeat products are targeted to women. 
+- **Lack of demographic data**: Age and gender are not specified. This is essential information because Bellabeat products are targeted to women and because demographic data can help us to accurately categorize groups during the analysis. 
 - **Lack of reproductive health data**: Bellabeat tracks reproductive data such as menstrual cycle, pregnancy and fertility. Nevertheless, this dataset doesn't contain any information about these type of metrics.
 
 
-Possible missing data or inconsistencies: Must be checked during processing.
+Possible incomplete data or inconsistencies: Must be checked during processing.
 
 
 ## Process 
