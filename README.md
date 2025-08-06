@@ -1,24 +1,49 @@
 # BellabeatCaseStudy
 
-## Phases of data analysis process about Bellabeat Ivy 
+
+## Summary
 
 
-## Ask 
+Bellabeat is a wellness company founded by Urška Sršen and Sandro Mur in 2014. Bellabeat is a company that developed one of the first wearables specifically designed for women.
+
+The company is a manufacturer of wellness tracking devices designed to empower women to track and improve their health. The company's product offers sleep, activity, and reproductive health monitoring throughout different stages of life, enabling users to cope with stress, improve their lives, and prevent irrevocable consequences.
+
+Focusing on creating innovative health and wellness products for women, their mission is to empower women to take control of their health by providing them with technology-driven solutions that blend design and function. 
 
 
-**What is the problem you are trying to solve?**  
+**About the company products**.
 
-Identify trends and patterns from overall smart devices usage data in order to draw insights and how they may apply in a Bellabeat product.  	
- 
-**How can your insights drive business decisions?**
+- **Bellabeat app**: The Bellabeat app provides users with health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. The Bellabeat app connects to their line of smart wellness products.
+- **IVY+**: A new generation of wellness and health trackers designed specifically for women. Besides tracking steps, sleep, distance, calories, and menstrual cycle logging, IVY+ has advanced sensors such as optical heart‑rate monitor measuring heart rate, heart‑rate variability (HRV), respiratory rate, and cardiac coherence. Also a sensor that tracks minute-by-minute skin temperatureon the wrist to support fertility and menstrual insights.
+- **Leaf**: Bellabeat’s classic wellness tracker can be worn as a bracelet, necklace, or clip. The Leaf tracker connects to the Bellabeat app to track activity, sleep, and stress.
+- **Time**: This wellness watch combines the timeless look of a classic timepiece with smart technology to track user activity, sleep, and stress. The Time watch connects to the Bellabeat app to provide you with insights into your daily wellness.
+- **Spring**: This is a water bottle that tracks daily water intake using smart technology to ensure that you are appropriately hydrated throughout the day. The Spring bottle connects to the Bellabeat app to track your hydration levels.
+- **Bellabeat membership**: Bellabeat also offers a subscription-based membership program for users. Membership gives users 24/7 access to fully personalized guidance on nutrition, activity, sleep, health and beauty, and mindfulness based on their lifestyle and goals
 
-My insights can influence in how to address the new Bellabeat marketing strategy.
 
-  
+**Stakeholders**.
+
+- Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer.
+- Sando Mur: Mathematician and Bellabeat’s cofounder; key member of the Bellabeat executive team.
+- Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy.
+
+
+
+## Ask   
 
 **Business Task**
 
-*Draw meaningful insights from smart device usage trends and how they can impact on Bellabeat marketing strategy*.
+*Draw meaningful insights and trends into how consumers use non-Bellabeat smart devices and how this information can provide high-level recommendations for how these trends can inform Bellabeat marketing strategy*. 
+
+
+**What is the problem you are trying to solve?** 
+
+Identify trends and patterns from overall smart devices usage data in order to draw insights and how they may apply in a Bellabeat products.  	
+ 
+**How can your insights drive business decisions?**
+
+My insights can influence on how to address the new Bellabeat marketing strategy.
+
 
 
 ## Prepare
