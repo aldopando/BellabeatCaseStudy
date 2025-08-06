@@ -75,15 +75,15 @@ The data is organized in two folders, each folder representing a different perio
 	- `dailyActivity_merged.csv`
 	  	- The table is in **wide format**.
     	  
-	   		- Each data subject `id` has a row of a combination of multiple attributes such as `TotalSteps, TotalDistance, TrackerDistance, etc`.
+	   		- Each has a row has multiple attributes such as `TotalSteps, TotalDistance, TrackerDistance, etc`.
 	   	 	- Variables are spread across the columns.
-	   	  	- Columns represent different metrics like steps, distance, active minutes, etc.
+	   	  	- Columns represent different metrics like steps, distance, calories, etc.
 	   	  	- Each variable has its own column.
 
 	- `heartrate_seconds_merged.csv`  
 		- The table is in **long format**.
 
-			- Each row is a single observation of the variable `heart rate value`   by a specific user `id` at a specific time `Time`.	    
+			- Each row is a single observation of the variable `heart rate value`   of each user `id` at a specific time `Time`.	    
 			- The subject user `id` is repeated across multiple rows to represent the value `heart rate`  at different points of time `Time`.
 				
 	- `hourlyCalories_merged.csv`
@@ -95,7 +95,7 @@ The data is organized in two folders, each folder representing a different perio
 	- `hourlyIntensities_merged.csv`
 		- The table is in **long format**.
    
-			- It has more than column apparently representing more than one variable. In reality, the second column represents an aggregate function to calculate the **average** of intensity state exhibited during a specific hour by the user. In other words, the column `AverageIntensity` is the statistical summary of the variable `TotalIntensity`.  Therefore, this dataset only contains one variable where each row represents one observation of this variable at a specific time.
+			- It has more than column apparently representing more than one variable. In reality, the second column represents an aggregated function that calculates the **average** of intensity level exhibited during a specific hour by the user. In other words, the column `AverageIntensity` is the statistical summary of the variable `TotalIntensity`.  Therefore, this dataset only contains one variable where each row represents one observation of this variable at a specific time.
 
 	- `hourlySteps_merged.csv` - The table is in **long format**.
   
@@ -123,7 +123,7 @@ The data is organized in two folders, each folder representing a different perio
 	- `dailyCalories_merged.csv` - The table is in **long format**.
 		
 	- `dailyIntensities_merged.csv`
-		- The table is in **wide format**. In this dataset there is a combination of multiple columns representing attributes for each row. Each column has its own variable.  A single row has atributes such as `SedentaryMinutes, LightlyActiveMinutes, VeryActiveMinutes, ModeratelyActiveDistance, etc.`
+		- The table is in **wide format**. In this table there is a combination of multiple columns representing attributes for each row. Each column has its own variable.  A single row has atributes such as `SedentaryMinutes, LightlyActiveMinutes, VeryActiveMinutes, ModeratelyActiveDistance, etc.`
 		
 	- `dailySteps_merged.csv` - The table is in **long format**.
 			
@@ -138,7 +138,7 @@ The data is organized in two folders, each folder representing a different perio
 	- `minuteCaloriesNarrow_merged.csv` - The table is in **long format**.
 			
 	- `minuteCaloriesWide_merged.csv`
-		- The table is in **wide format**.  *It has multiple columns that contain the same type of data for different time points.*  For example, columns for `"Calories00", "Calories01", "Calories02"... "Calories59"`  
+		- The table is in **wide format**. *It has multiple columns that contain the same type of data for different time points.*  For example, columns for `"Calories00", "Calories01", "Calories02"... "Calories59"`  
 		E.g.
 			***Calories05 = calories burned in fifth minute of the hour.***
 			
@@ -156,66 +156,66 @@ The data is organized in two folders, each folder representing a different perio
 	- `minuteStepsWide_merged.csv` - The table is in **wide format**.
 			
 	- `sleepDay_merged.csv`
-		- The table is in **wide format**. The number of rows in this dataset can initially suggest a "long" format, especially when it can be observed many repeated IDs or timestamps. But **the format (wide vs. long) is not defined by the number of rows**. it’s defined by **how the variables are organized**
+		- The table is in **wide format**. The number of rows in this dataset can initially suggest a "long" format, especially when it can be observed many repeated IDs with different timestamps. But **the format (wide vs. long) is not defined by the number of rows**. it’s defined by **how the variables are organized**
 Each row of this dataset is a summary of many variables (`TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed `) for a specific time `SleepDay`
 
 			
 	- `weightLogInfo_merged.csv` - The table is in **wide format**.
 
 ****
- - Are there issues with bias or credibility in this data? Does your
-   data ROCCC?
+Are there issues with bias or credibility in this data? Does your data ROCCC?
    
-    **Reliability**
+**Reliability**
 	   
-	 - ***Uncertainty about bias in the data***: The authors of this dataset doesn't share any information about how participants were chosen for the sample. Therefore, we cannot make sure if the data was collected using random sampling to fairly have a good representation of the population. 
-	 - **Small sample**:  This dataset has a sample size of 30 users. Even though it has been statistically proven that 30 is the smallest sample size where an average result of a sample starts to represent the average result of a population, this dataset is at borderline of this minimum number. A larger sample size would have been better to get more accurate and reliable results from analysis,specially in very large market. According to [statista](https://www.statista.com/forecasts/1425172/fitness-tracker-users-by-segment-us), In 2024, there were around 62 million fitness tracker users in the United States (35% women). In the near future, the number of fitness tracker users is forecast to steadily increase, jumping to over 92 million by 2029. 
+- ***Uncertainty about bias in the data***: The authors of this dataset doesn't share any information about how participants were chosen for the sample. Therefore, we cannot make sure if the data was collected using random sampling to fairly have a good representation of the population. 
+- **Small sample**:  This dataset has a sample size of 30 users. Even though it has been statistically proven that 30 is the smallest sample size where an average result of the sample starts to represent the average result of a population, this dataset is at borderline of this minimum number. A larger sample size would have been better to get more accurate and reliable results from analysis, specially in a very large market. According to [statista](https://www.statista.com/forecasts/1425172/fitness-tracker-users-by-segment-us), in 2024, there were around 62 million fitness tracker users in the United States (35% women). In the near future, the number of fitness tracker users is forecast to steadily increase, jumping from 62 to over 92 million by 2029. 
 
 
+**Original**
 
-    **Original**
-   
-    The dataset is ***third-party data*** , shared by the user *Möbius* on Kaggle. 
-    Möbius has attached the link of the original source which it comes from an **open data source**, under a **Creative Commons Attribution 4.0 International license**. meaning anyone can copy, distribute, remix, and build upon the material for any purpose, even commercially, as long as you give credit for the original creators. 
-     In other words, you can have accessibility to the **original data source** under a permissive license to give credit to the **original authors** who collect and generate this dataset.
+The dataset is ***third-party data*** , shared by the user *Möbius* on Kaggle. 
+
+Möbius has attached the link of the original source which it comes from an **open data source**, under a **Creative Commons Attribution 4.0 International license**. Meaning anyone can copy, distribute, remix, and build upon the material for any purpose, even commercially, as long as you give credit for the original creators. 
+
+In other words, you can have accessibility to the **original data source** under a permissive license to give credit to the **original authors** who collect and generate this dataset.
   
-    **Comprehensive**
+**Comprehensive**
   
-    ***Critical Information needed to solve the business task***
-   
-    The Bellabeat app provides users with health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. The Bellabeat app connects to their line of smart wellness products
+***Critical Information needed to solve the business task***.
+
+The Bellabeat app provides users health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. 
     
-    ***Data contained in FitBit Fitness Tracker  datasets***
+***Data contained in FitBit Fitness Tracker  datasets***
    
-    FitBit Fitness Tracker Data contains user's information about their heart rate, sleep monitoring, daily activity by tracking totals for steps, intensity, distance, calories, and logged activities.
-    We can make sure that the datasets utilized for this analysis cover most of the important metrics that Bellabeat uses to provide insights about its user's health and wellness.
-    We are lacking of specific information about reproductive health data for women, but this is an exclusive feature that Bellabeat offers compared to other brands. 
+FitBit Fitness Tracker Data contains user's information about their heart rate, sleep monitoring, daily activity by tracking totals for steps, intensity, distance, calories, and logged activities.
+We can make sure that the datasets utilized for this analysis cover most of the important metrics that Bellabeat uses to provide insights about its user's health and wellness.
+We are lacking of specific information about reproductive health data for women, but this is an exclusive feature that Bellabeat offers compared to other brands. 
   
-    ***Completeness***
+***Completeness***
     
-     - **Small sample size**: The sample size fall short, using only *thirty people* as sample size of a huge population that every year is growing more and more. 
-     - **Short period of time**: The data collection was released during two months 2016/03/12 - 2016/05/12. This period of time might be a limitation to track noticeable changes in user's routine. According to [James Clear](https://jamesclear.com/new-habit#:~:text=On%20average%2C%20it%20takes%20more,to%20form%20a%20new%20habit.), "***On average, it takes more than 2 months before a new behavior becomes automatic — 66 days to be exact.** And how long it takes a new habit to form can vary widely depending on the behavior, the person, and the circumstances. In Lally’s study, it took anywhere from 18 days to 254 days for people to form a new habit.*"
+- **Small sample size**: The sample size fall short, using only *thirty people* as sample size of a huge population that every year is growing more and more. 
+- **Short period of time**: The data collection was released during two months 2016/03/12 - 2016/05/12. This period of time might be a limitation to track noticeable changes in user's routine. According to [James Clear](https://jamesclear.com/new-habit#:~:text=On%20average%2C%20it%20takes%20more,to%20form%20a%20new%20habit.), "***On average, it takes more than 2 months before a new behavior becomes automatic — 66 days to be exact.** And how long it takes a new habit to form can vary widely depending on the behavior, the person, and the circumstances. In Lally’s study, it took anywhere from 18 days to 254 days for people to form a new habit.*"
   
   
   
-    **Current**
+**Current**
    
-    Checking the dataset *FitBit Fitness Tracker Data* in its original source, we notice that the last time updated was May 31, 2016. This data is out of date, which it means that the data is less relevant to the current time this analysis is being performed.
+Checking the dataset *FitBit Fitness Tracker Data* in its original source, we notice that the last time updated was May 31, 2016. This data is out of date, which it means that the data is less relevant to the current time this analysis is being performed.
     
-    **Cited**
+**Cited**
   
-    These datasets were created by *Robert, Brinton Furberg, Julia Brinton, Michael Keating and Alexa Ortiz*, published and hosted via Zenodo website, a reliable open repository. 
-    The data was collected by a distributed survey via Amazon Mechanical Turk between 03/12/2016-05/12/2016. 
+These datasets were created by *Robert, Brinton Furberg, Julia Brinton, Michael Keating and Alexa Ortiz*, published and hosted via Zenodo website, a reliable open repository. The data was collected by a distributed survey via Amazon Mechanical Turk between 03/12/2016-05/12/2016. 
   
-     *Citation*
+*Citation*
    
-    Furberg, R., Brinton, J., Keating, M., & Ortiz, A. (2016). Crowd-sourced Fitbit datasets 03.12.2016-05.12.2016 [Data set]. Zenodo.
-    [https://doi.org/10.5281/zenodo.53894](https://doi.org/10.5281/zenodo.53894)
-****
- - How are you addressing licensing, privacy, security, and
-   accessibility?
+Furberg, R., Brinton, J., Keating, M., & Ortiz, A. (2016). 
+Crowd-sourced Fitbit datasets 03.12.2016-05.12.2016 [Data set]. Zenodo.[https://doi.org/10.5281/zenodo.53894](https://doi.org/10.5281/zenodo.53894)
+
+---
+
+How are you addressing licensing, privacy, security, and accessibility?
   
- ### Authors
+### Authors
  
  Furberg, Robert.
  
@@ -225,26 +225,26 @@ Each row of this dataset is a summary of many variables (`TotalSleepRecords, Tot
  
  Ortiz, Alexa.
  
- ### Citation
+### Citation
    
    Furberg, R., Brinton, J., Keating, M., & Ortiz, A. (2016). Crowd-sourced Fitbit datasets 03.12.2016-05.12.2016 [Data set]. Zenodo.
   
-  ### Rights
+### Rights
 
 **License**
 
- ![cc-by-4.0 icon](https://zenodo.org/static/icons/licenses/cc-by-icon.svg)  
+![cc-by-4.0 icon](https://zenodo.org/static/icons/licenses/cc-by-icon.svg)  
+
 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
-   
-   ****
-  
- - How does it help you answer your question?     
+
+
+---
+
+How does it help you answer your question?     
  
 *FitBit Fitness Tracker Data* contain all critical information (such as heart rate, sleep monitoring, and daily activity) to draw insights, identify patterns and trends into how people are using wearable devices. It is cited as well and comes from an original and reliable source. The dataset is structured and organized to start cleaning the data and performing analysis.
 
-
-****
- -  Are there any problems with the data?
+Are there any problems with the data?
  
 **Problems and limitations with the data**:
 
