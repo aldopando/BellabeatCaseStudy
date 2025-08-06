@@ -1,4 +1,4 @@
-# BellabeatCaseStudy
+# Bellabeat CaseStudy
 
 
 ## Summary
