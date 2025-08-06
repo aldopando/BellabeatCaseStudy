@@ -162,58 +162,66 @@ Each row of this dataset is a summary of many variables (`TotalSleepRecords, Tot
 			
 	- `weightLogInfo_merged.csv` - The table is in **wide format**.
 
-****
-Are there issues with bias or credibility in this data? Does your data ROCCC?
+---
+
+**Are there issues with bias or credibility in this data? Does your data ROCCC?**
+
    
-**Reliability**
+**Reliability**.
 	   
 - ***Uncertainty about bias in the data***: The authors of this dataset doesn't share any information about how participants were chosen for the sample. Therefore, we cannot make sure if the data was collected using random sampling to fairly have a good representation of the population. 
 - **Small sample**:  This dataset has a sample size of 30 users. Even though it has been statistically proven that 30 is the smallest sample size where an average result of the sample starts to represent the average result of a population, this dataset is at borderline of this minimum number. A larger sample size would have been better to get more accurate and reliable results from analysis, specially in a very large market. According to [statista](https://www.statista.com/forecasts/1425172/fitness-tracker-users-by-segment-us), in 2024, there were around 62 million fitness tracker users in the United States (35% women). In the near future, the number of fitness tracker users is forecast to steadily increase, jumping from 62 to over 92 million by 2029. 
 
 
-**Original**
+**Original**.
 
 The dataset is ***third-party data*** , shared by the user *Möbius* on Kaggle. 
 
 Möbius has attached the link of the original source which it comes from an **open data source**, under a **Creative Commons Attribution 4.0 International license**. Meaning anyone can copy, distribute, remix, and build upon the material for any purpose, even commercially, as long as you give credit for the original creators. 
 
 In other words, you can have accessibility to the **original data source** under a permissive license to give credit to the **original authors** who collect and generate this dataset.
-  
-**Comprehensive**
-  
-***Critical Information needed to solve the business task***.
 
-The Bellabeat app provides users health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. 
-    
-***Data contained in FitBit Fitness Tracker  datasets***
-   
-FitBit Fitness Tracker Data contains user's information about their heart rate, sleep monitoring, daily activity by tracking totals for steps, intensity, distance, calories, and logged activities.
-We can make sure that the datasets utilized for this analysis cover most of the important metrics that Bellabeat uses to provide insights about its user's health and wellness.
-We are lacking of specific information about reproductive health data for women, but this is an exclusive feature that Bellabeat offers compared to other brands. 
   
-***Completeness***
+**Comprehensive**.
+  
+Critical Information needed to solve the business task:
+
+*The Bellabeat app provides users health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions*. 
+    
+Data contained in FitBit Fitness Tracker  datasets:
+   
+*FitBit Fitness Tracker Data contains user's information about their heart rate, sleep monitoring, daily activity by tracking totals for steps, intensity, distance, calories, and logged activities*.
+
+*Therefore, we can make sure that the datasets utilized for this analysis cover most of the important metrics that Bellabeat uses to provide insights about its user's health and wellness. However, we are lacking of specific information about reproductive health data for women. This is an exclusive feature that Bellabeat offers compared to other brands*. 
+
+  
+**Completeness**.
     
 - **Small sample size**: The sample size fall short, using only *thirty people* as sample size of a huge population that every year is growing more and more. 
-- **Short period of time**: The data collection was released during two months 2016/03/12 - 2016/05/12. This period of time might be a limitation to track noticeable changes in user's routine. According to [James Clear](https://jamesclear.com/new-habit#:~:text=On%20average%2C%20it%20takes%20more,to%20form%20a%20new%20habit.), "***On average, it takes more than 2 months before a new behavior becomes automatic — 66 days to be exact.** And how long it takes a new habit to form can vary widely depending on the behavior, the person, and the circumstances. In Lally’s study, it took anywhere from 18 days to 254 days for people to form a new habit.*"
+- **Short period of time**: The data collection was carried out throughout a two-month period; 2016/03/12 - 2016/05/12. This time period might be a limitation to uncover noticeable changes in user's routine. According to [James Clear](https://jamesclear.com/new-habit#:~:text=On%20average%2C%20it%20takes%20more,to%20form%20a%20new%20habit.), "*On average, it takes more than 2 months before a new behavior becomes automatic — 66 days to be exact. And how long it takes a new habit to form can vary widely depending on the behavior, the person, and the circumstances. In Lally’s study, it took anywhere from 18 days to 254 days for people to form a new habit".*
   
   
   
 **Current**
    
-Checking the dataset *FitBit Fitness Tracker Data* in its original source, we notice that the last time updated was May 31, 2016. This data is out of date, which it means that the data is less relevant to the current time this analysis is being performed.
+Checking the dataset *FitBit Fitness Tracker Data* in its original source, we notice that the last update was May 31, 2016. This data is out of date, which means this data is less relevant to the current time when this analysis is being performed.
+
     
 **Cited**
   
-These datasets were created by *Robert, Brinton Furberg, Julia Brinton, Michael Keating and Alexa Ortiz*, published and hosted via Zenodo website, a reliable open repository. The data was collected by a distributed survey via Amazon Mechanical Turk between 03/12/2016-05/12/2016. 
+These datasets were created by *Robert, Brinton Furberg, Julia Brinton, Michael Keating and Alexa Ortiz*, published and hosted via Zenodo website, a reliable open repository. 
+
+The data was collected by a distributed survey via Amazon Mechanical Turk between 03/12/2016-05/12/2016. 
+
   
 *Citation*
    
-Furberg, R., Brinton, J., Keating, M., & Ortiz, A. (2016). 
-Crowd-sourced Fitbit datasets 03.12.2016-05.12.2016 [Data set]. Zenodo.[https://doi.org/10.5281/zenodo.53894](https://doi.org/10.5281/zenodo.53894)
+Furberg, R., Brinton, J., Keating, M., & Ortiz, A. (2016). Crowd-sourced Fitbit datasets 03.12.2016-05.12.2016 [Data set]. Zenodo.[https://doi.org/10.5281/zenodo.53894](https://doi.org/10.5281/zenodo.53894)
+
 
 ---
 
-How are you addressing licensing, privacy, security, and accessibility?
+**How are you addressing licensing, privacy, security, and accessibility?**
   
 ### Authors
  
@@ -240,43 +248,33 @@ How are you addressing licensing, privacy, security, and accessibility?
 
 ---
 
-How does it help you answer your question?     
+**How does it help you answer your question?**   
  
-*FitBit Fitness Tracker Data* contain all critical information (such as heart rate, sleep monitoring, and daily activity) to draw insights, identify patterns and trends into how people are using wearable devices. It is cited as well and comes from an original and reliable source. The dataset is structured and organized to start cleaning the data and performing analysis.
+*FitBit Fitness Tracker Data* contain all critical information (such as heart rate, sleep monitoring, and daily activity) to draw insights, identify patterns, and trends about how people are using wearable devices. 
 
-Are there any problems with the data?
+The collected data is cited and comes from an original and reliable source. The dataset is structured and organized to start cleaning the data and performing analysis.
+
+
+**Are there any problems with the data?**
  
-**Problems and limitations with the data**:
+Problems and limitations with the data:
 
--   **Small sample size:**  This dataset has a sample size of 30 users. The market of people using wearable devices is huge (80 million just in USA) and growing each year. This can be a limitation to get an accurate result of the sample that fairly represents the entire population.  
--   **Out of date**: The data was generated since 2016, making it more irrelevant due to  the analysis is being conducted in 2025.
--   **Limited period of time:** This period of time might be a limitation to track any change in user's routine, which is essential to identify outliers and have a more complete representation of patterns and tends people have in their wellness and daily activity.
--   **Possible biased sample:** The sample may not be a fair representation of the population. We don't have accessibility to details about how participants were eligible to the survey. 
--   **Lack of demographic data**: Age and gender are not specified, this is essential information because Bellabeat products are targeted to women. 
+- **Small sample size:**  This dataset has a sample size of 30 users. The market of people using wearable devices is huge (80 million just in USA) and growing each year. This can be a limitation to get an accurate result of the sample that fairly represents the entire population.  
+- **Out of date**: The data was generated since 2016, making it more irrelevant due to  the analysis is being conducted in 2025.
+- **Limited period of time:** This period of time might be a limitation to track any change in user's routine, which is essential to identify outliers and have a more complete representation of patterns and tends people have in their wellness and daily activity.
+- **Possible biased sample:** The sample may not be a fair representation of the population. We don't have accessibility to details about how participants were eligible to the survey. 
+- **Lack of demographic data**: Age and gender are not specified, this is essential information because Bellabeat products are targeted to women. 
 - **Lack of reproductive health data**: Bellabeat tracks reproductive data such as menstrual cycle, pregnancy and fertility. Nevertheless, this dataset doesn't contain any information about these type of metrics.
 
 
- **Possible missing data or inconsistencies: Must be checked during processing.**
-
-Key tasks 
-1. Download data and store it appropriately. 
-2. Identify how it’s organized. 
-3. Sort and filter the data. 
-4. Determine the credibility of the data. 
-
-**Deliverable.**
- A description of all data sources used
+Possible missing data or inconsistencies: Must be checked during processing.
 
 
 ## Process 
 
-Process Guiding questions 
-- What tools are you choosing and why? 
-**Cleaning data**.
-I decided to process and clean the data using SQL because SQL 
-- Have you ensured your data’s integrity? 
 
-**Changelog**
+**Changelog**.
+
 Author: Aldair Pichon Aguila.
  
 1. I downloaded the datasets from Kaggle in my local machine. 05/20/2025
