@@ -278,13 +278,14 @@ Possible incomplete data or inconsistencies: Must be checked during processing.
 Author: Aldair Pichon Aguila.
  
 1. I downloaded the datasets from Kaggle in my local machine. 05/20/2025
-2. I renamed the two main folders that contain the datasets to ensure better clarity, consistency and organization of the data following guidelines of naming conventions:
+2. I renamed the two main folders that contain the datasets to ensure better clarity, consistency and organization of the data. I followed guidelines of naming conventions 05/20/2025:
+
 	Fitabase Data 3.12.16-4.11.16  ->   FitabaseData_20160312-20160411
+
 	Fitabase Data 4.12.16-5.12.16  ->  FitabaseData_20160412-20160512
-  05/20/2025
-  
-3. I created a new project in BigQuery named `analysisbellabeat246` and two datasets for each of the two folders. 05/20/2025
-4. When uploading the table `heartrate_seconds_merged.csv` and checking the auto-detect box to automatically set the schema for this table, BigQuery tried to parse the column `"Time"` as TIMESTAMP data type. Due to the original format of `"Time"`  is one that BigQuery cannot recognized as TIMESTAMP, it returns an error.  To fix this problem, rather than BigQuery auto detecting the schema of the table, I manually specified the schema in JSON format and defining the column `"Time"` as STRING instead of TIMESTAMP.
+
+3. I created a new project in BigQuery named `analysisbellabeat246` and a dataset for each folder. 05/20/2025
+4. When uploading the table `heartrate_seconds_merged.csv` and checking the auto-detect box to automatically set the schema for this table, BigQuery tried to parse the `"Time"` column as TIMESTAMP data type. Due to the original format of `"Time"` column  is one that BigQuery cannot recognized as TIMESTAMP, it returns an error.  To fix this problem, rather than BigQuery auto detecting the schema of the table, I manually specified the schema in JSON format and defining the `"Time"` column as STRING data type instead of TIMESTAMP.
 In order to figure out the name, data type and description of each column I referred to the document [Fitbit Data Dictionary](https://www.fitabase.com/media/2088/fitabase-fitbit-data-dictionary-as-of-4524.pdf). 05/20/2025
  
  
@@ -309,43 +310,42 @@ In order to figure out the name, data type and description of each column I refe
 			}  
 		]
 
-5. I uploaded the rest of tables through manually writing the schema in JSON format for the datasets `FitabaseData_20160312-20160411` and `FitabaseData_20160412-20160512`.
+5. I uploaded the rest of tables through manually writing the schema in JSON format for the two datasets `FitabaseData_20160312-20160411` and `FitabaseData_20160412-20160512`.
     [Here](SchemaTables.md) you can find the code in JSON format that define the schema of the tables uploaded in BigQuery. Except for the tables `dailyCalories`,  `dailyIntensities`, and `dailySteps`. Their schema was created automatically by BigQuery due to it didn't have problems to parse them.
     05/21/2025
  
-6. When uploading the tables into the dataset `FitabaseData_20160412-20160512`, I decided to add `_secondPeriod` at the end of each table's name to distinguish these tables from the tables of the `FitabaseData_20160312-20160411` dataset . It will avoid any confusion in the future when merging the tables. This is important because after downloading the datasets from Kaggle I noticed that some table's name repeat across the two folders representing the same information but in different periods of time. 05/21/2025
+6. When uploading the tables into the dataset `FitabaseData_20160412-20160512`, I decided to add `_secondPeriod` at the end of each table's name to distinguish these tables from the tables of the `FitabaseData_20160312-20160411` dataset . It will avoid any confusion in the future when merging the tables. This is important because after downloading the datasets from Kaggle, I noticed that some table's name repeat across the two folders representing the same information but in different periods of time. 05/21/2025
    
     E.g.
+
+   Original table names:
     
     	 `FitabaseData_20160312-20160411 -> heartrate_seconds_merged.csv`
     	 `FitabaseData_20160412-20160512 -> heartrate_seconds_merged.csv`
     	 
-    Renamed tables after uploading in BigQuery 
+    Renamed tables after uploading in BigQuery: 
     
     	 `FitabaseData_20160312-20160411 -> heartrate_seconds.csv`
     	 `FitabaseData_20160412-20160512 -> heartrate_seconds_secondPeriod.csv`
 
 
-7.  Checking for NULL values in each table. In order to figure out how to address possible NULL values in the data, first I need to know if they exist at all and in what columns. I counted the null values for each column in each table of the project. [Here](checkingNulls.md) you can see the queries used and the results in each table. We discovered that only the table "weightLogInfo" in both datasets contain NULL values in the "Fat" column, which is the field for recording the body fat percentage. In the first dataset, 31 out of 33 rows contain NULL values and in the second one, 65 out of 67 rows. Even though some participants data was measured and synched automatically using a scale connected to the Fitbit account, it seems that the version of scale that they used wasn't able to measure and display any information about body fat percentage. The two participants whose body fat percentage was inputted, it was recorded manually. Unfortunely, almost all records in this column contain NULL values, so I decided to remove this column for analysis. Body fat percentage could have been very useful to provide valuable insights about overall health and help make informed decisions about fitness and nutrition goals. Nevertheless, we still have information about BMI metrics and weight for analysis.
-   05/26/2025
+7. **Checking for NULL values in each table**. In order to figure out how to address possible NULL values in the data, first I need to know if they exist at all and in what columns. I counted the null values for each column in each table of the project. [Here](checkingNulls.md) you can see the queries used and the results in each table. We discovered that only the table "weightLogInfo" in both datasets contain NULL values in the "Fat" column, which is the field for recording the body fat percentage. In the first dataset, 31 out of 33 rows contain NULL values and in the second one, 65 out of 67 rows. Even though some participants data was measured and synched automatically using a scale connected to the Fitbit account, it seems that the version of scale that they used wasn't able to measure and display any information about body fat percentage. Only two participants manually logged their body fat percentage through the system. Unfortunely, almost all records in this column contain NULL values, so I decided to remove this column for analysis. Body fat percentage could have been very useful to provide valuable insights about overall health and help make informed decisions about fitness and nutrition goals. Nevertheless, we still have information about BMI metrics and weight for analysis. 05/26/2025
+   
 
-8. Before deciding which tables to use for the analysis, I went over several of them to determine whether they provide accurate and complete information and are consistent with other tables. 
+**Before deciding which tables I will use for the analysis, I went over them to ensure data integrity, whether they provide accurate and complete information and are consistent with other tables**. 
 
-9. Checking for consistency between minute tables in each dataset.  Allegedlly, each minute table contains a specific metric (calories, steps, METs, intensities, and sleep) that was tracked simultaniously at the same time and for the same users (Id) along with the other metrics. Therefore, I decided to compare and see if the tables contain the same users Id and during the same periods of time. For this task, I used SQL along with pivot tables in Google sheets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-between-calories-intensity-mets-steps-and-sleep-in-minute-tables) you will see the steps and results about the consistency between minute tables. The results shown that `minuteCalories`,`minuteIntensities`, `minuteMETs`, and `minuteSteps` are consistent between them in both datasets. The information of these tables was recorded simultaneously during the same period of time and with the same users. The `minuteSleep` table is not consistent with the rest of the minute tables, because the data of this table was logged only for some users out of the 33 participants. Hence, `minuteSleep` table is going to be analyze individually.
-  05/27/2025    
 
-10. After ensuring the consistency within the minute tables, we proceeded to check the consistency within the hourly tables. By doing this, we can streamline the process by selecting just one minute table and one hourly table for the comparison. **I want to figure out if hourly tables were generated by agreggating the data from minutes to hours**. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-in-hour-tables-calories-intensity-and-steps) you can find the process and results done for checking consistency within hourly tables. We discovered that all hourly tables are consistent each other in both datasets.
-    05/27/2025
+8. **Checking for consistency between minute tables in each dataset**. Allegedlly, each minute table contains a specific metric (calories, steps, METs, intensities, and sleep). All these metrics were tracked simultaniously at the same time and for the same users (Id). Therefore, I decided to compare and see if the tables contain the same users Id and during the same time periods. For this task, I used SQL along with pivot tables in Google sheets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-between-calories-intensity-mets-steps-and-sleep-in-minute-tables) you will see the steps and results about the consistency between minute tables. The results shown that `minuteCalories`,`minuteIntensities`, `minuteMETs`, and `minuteSteps` are consistent between them in both datasets. These tables was contain the same time period and the same users. However, `minuteSleep` table is not consistent with the rest of minute tables, because only 22 out of the 33 participants logged sleep data. Hence, `minuteSleep` table will be analyze individually. 05/27/2025    
 
-11. Afterward, I compared the minute and hourly tables to verify whether they represent the same data, aggregated using different time measures. You can find the method and results for this comparison [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-minutes-vs-hourly-tables).We found that the minute and hourly tables within the `FitabaseData_20160312_20160411` dataset are consistent, meaning they represent the same data. Although we observed differences in the total values between the `minuteCalories` and `hourlyCalories` tables for each user, this inconsistency is due to the data types: `minuteCalories` contains float values (with decimals), while `hourlyCalories` contains integer values. This is because the `minuteCalories` table was created by dividing the calories per hour values by 60, to represent the number of calories burned per minute, which results in decimal values. **Now that we know that minute and hourly tables tables are consistent, I decided to only use the hourly tables for analysis**
-In the `FitabaseData_20160412_20160512` dataset, we found inconsistencies between the hourly and minute tables because some users stopped tracking their data at different times in each table. This led to inconsistent total values between the minute and hourly tables.This is unusual, as the hourlyCalories table is supposedly built based on the minuteCalories data. **To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves**.
-    05/28/2025
+9. After ensuring the consistency within the minute tables, I proceeded to check the consistency within the hourly tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-in-hour-tables-calories-intensity-and-steps) you can find the process and results done for checking consistency within hourly tables. We discovered that all hourly tables are consistent between them in both datasets. 05/27/2025
 
-12. The `dailyActivity` table in each dataset contains daily totals for steps, intensity, distance, and calories. I assume that the minute and hourly tables are subsets of the `dailyActivity table`. If this table represents the same data as the minute and hourly tables, I might use it for analysis to draw insights about users’ daily activity and health, instead of grouping the data into days manually using the minute and hourly tables. After checkig wheter the `dailyActivity` table is consistent with minute and hour tables, we discovered it is not. Although the `dailyActivity` table covers a time period very similar to the minute and hourly tables, the differences are significant enough to confirm that they are not fully consistent. You can check the process and results [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-consistency-in-dailyactivity-tables).
-**The `dailyActivity` table is not consistent with the rest of minute and hour tables. Therefore, I decided not to use it for our analysis, instead I will build a daily table using the minutes and hourly data**
-  05/29/2025
+10. Afterward, I compared the minute and hourly tables to verify whether they represent the same data, but with different aggregated time measures. To do this, we can streamline the process by selecting just one minute table and one hourly table for the comparison. **I want to figure out if hourly tables were generated by agreggating the data from minutes to hours**. You can find the method and results for this comparison [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-for-consistency-minutes-vs-hourly-tables). We found that minute and hourly tables within the `FitabaseData_20160312_20160411` dataset are consistent, meaning they represent the same data. Although we observed differences in the total values between the `minuteCalories` and `hourlyCalories` tables for each user, this inconsistency is due to the data types: `minuteCalories` contains float values (with decimals), while `hourlyCalories` contains integer values. This is because the `minuteCalories` table was created by dividing the calories per hour values by 60, to represent the number of calories burned per minute, which results in decimal values. **Now that we know that minute and hourly tables tables are consistent, I decided to only use the hourly tables for analysis**
+However, in the `FitabaseData_20160412_20160512` dataset, we found inconsistencies with the time period between the hourly and minute calories tables because some users stopped tracking their data at different dates. This led to inconsistent total values between the minute and hourly tables. This is unusual, since the hourlyCalories table was supposedly built on the minuteCalories data. **To address this inconsistency, we decided to not use the hourly tables from the second dataset, instead we will stick with the minute tables and based on them building the hourly tables by ourselves**. 05/28/2025
 
-13. However, `hourlyintensities` tables don't contain the `SedentaryMinutes`, `LightlyActiveMinutes`, `FairlyActiveMinutes`, and `VeryActiveMinutes ` columns  to represent the time spent in one of four intensity categories:
+11. The `dailyActivity` table in each dataset contains daily totals for steps, intensity, distance, and calories. I assume that the minute and hourly tables are subsets of this table. If this table represents the same data as the minute and hourly tables, I might use it for analysis to draw insights about users’ daily activity, instead of grouping the data into days by manually using the minute and hourly tables. After checkig whether the `dailyActivity` table is consistent with minute and hourly tables, we discovered it is not. Although the `dailyActivity` table covers a time period very similar to the minute and hourly tables, the differences are significant enough to confirm that they are not fully consistent. You can check the process and results [here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/consistency.md#checking-consistency-in-dailyactivity-tables).
+**The `dailyActivity` table is not consistent with the rest of minute and hourly tables. Therefore, I decided not to use it for our analysis, instead I will build a daily table using the minutes and hourly tables**. 05/29/2025
+
+12. However, `hourlyintensities` tables don't contain the `SedentaryMinutes`, `LightlyActiveMinutes`, `FairlyActiveMinutes`, and `VeryActiveMinutes ` columns  to represent the time spent in one of four intensity categories:
 
 Intensity value for the given minute.
 
@@ -358,16 +358,15 @@ Intensity value for the given minute.
 3 = Very Active
 
 
-These colunmns are important for our analysis, therefore, we are gonna use the "minuteIntensities" tables from both datasets to calculate the values of these columns and add them in new "hourlyIntensities" tables. In other words, we a won't use the "hourlyIntensities" tables already present in the datasets. We will use the "minuteIntensities" tables four our analysis  to create the hourly and daily tables by ourselves. 05/29/2025
+These colunmns are important for our analysis. Therefore, we will use the "minuteIntensities" tables from both datasets to calculate the values of these columns and add them in new "hourlyIntensities" tables. In other words, we a won't use the "hourlyIntensities" tables already present in the datasets. We will use the "minuteIntensities" tables for our analysis  to create the hourly and daily tables by ourselves. 05/29/2025
 
-14. After ensuring the data is consistent across the tables in each dataset and contains no NULL values, the following tables have been selected for analysis:
+13. After ensuring the data is consistent across the tables in each dataset and they don't contain NULL values, the following tables will be used for the analysis:
 
 
  ### FitabaseData_20160312_20160411 dataset 
 
 | Table  |
 | --- |
-| hearrate_seconds |
 | hourlyCalories |
 | minuteIntensitiesNarrow |
 | hourlySteps |
@@ -381,7 +380,6 @@ These colunmns are important for our analysis, therefore, we are gonna use the "
 
 | Table |
 | --- |
-| heartrate_seconds_secondPeriod |
 | minuteCaloriesNarrow_secondPeriod
 | minuteIntensitiesNarrow_secondPeriod |
 | minuteMETsNarrow_secondPeriod |
@@ -390,14 +388,14 @@ These colunmns are important for our analysis, therefore, we are gonna use the "
 | weightLogInfo_secondPeriod |
 
 
-15. For this analysis, it is important to draw insights and identify patterns that emerged throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process. 05/30/2025
+14. For this analysis, it is important to draw insights and identify patterns throughout the entire survey period. Therefore, having a complete view of the data is essential. This means I need to merge the tables from the first dataset with those from the second. To do this, I will use the foreign key (user_id) contained in the tables. However, before merging, I need to verify whether the tables contain the same users across both datasets. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#checking-user-consistency-across-datasets-before-merging-tables) you will find the queries and results used for this cleaning process. 05/30/2025
     
     - weightLogInfo: more than half of the participants are missing weight data in one of the datasets, resulting in incomplete information. Additionally, I didn't observe any significant changes in users' weight during the two-month period. For the users who tracked their weight data, the data was recorded sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.  
     - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
     - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
 
 
-16. Before merging the tables from both datasets, I will create the new "hourlyIntensities" tables based on the "minuteIntensitiesNarrow" tables.
+15. Before merging the tables from both datasets, I will create the new "hourlyIntensities" tables based on the "minuteIntensitiesNarrow" tables.
 
 **FitabaseData_20160312_20160411 dataset**
 
@@ -457,7 +455,7 @@ Query.
 I saved the results as a new table called `hourlyIntensities_secondPeriod_complete` in this dataset.
 
 
-15. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
+16. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
     
     | Table || Result |
     | --- | --- | --- |
@@ -468,9 +466,9 @@ I saved the results as a new table called `hourlyIntensities_secondPeriod_comple
     | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
     | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
 
-16. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the analyzed columns**. 06/01/2025
+17. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the analyzed columns**. 06/01/2025
 
-17. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#duplicates-in-data) you will find the process and results for cleaning duplicates in the data. Since BigQuery doesn't allow updates or deletions of individual rows in standard tables, we will create a dataset that will storage the cleaned version of the tables that contain only distinct rows. This dataset is named `clean_data`. 06/02/2025
+18. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#duplicates-in-data) you will find the process and results for cleaning duplicates in the data. Since BigQuery doesn't allow updates or deletions of individual rows in standard tables, we will create a dataset that will storage the cleaned version of the tables that contain only distinct rows. This dataset is named `clean_data`. 06/02/2025
     
 	- hourlyCalories_merged: 175 duplicate rows were removed.
   	- hourlyIntensities_merged: 175 duplicate rows were removed.
