@@ -1169,8 +1169,8 @@ Observations.
 
 - ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals***.
 - ***We can notice that between 19 to 24 participants tracked their data consistenly completing full weeks using their wearables***.
-- ***Week 9 doesn't appeared in the results this week only contains 6 days. It doesn't represent a full week, therefore we cannot draw fair MET-minutes/week results***.
-- ***The last week of the first month (week 4) was not only of the weeks with more users reaching their goal of 600 MET-minutes per week, but also the it was the week with more users wearing their devices more consistenly***.
+- ***Week 9 doesn't appear in the results because this week only contains 6 days. It doesn't represent a full week, therefore we cannot draw fair MET-minutes/week results***.
+- ***The last week of the first month (week 4) was not only the week with more users reaching their goal of 600 MET-minutes per week, but it also was the week with more users wearing their devices more consistenly***.
   
 
 ### Physical Activity by Week
@@ -1246,7 +1246,7 @@ Query.
 
 Observations.
 
--***We can observe a peak of 14 low-active users during the first week of the first month***.
+- ***We can observe a peak of 14 low-active users during the first week of the first month***.
 - ***The weeks with more highly-active users were the week 1 and 4***.
 - ***We can see a gradual increment of moderately-active users from week 1 to week 3, aftwerward the number of people moderately-active remains the same until the week 7 when there is peak of 10 moderately-active users, then this number drops in the week 8***.
 
@@ -1289,7 +1289,7 @@ Observations.
 
 ---
 
-**Physical Activity by Weekly Average MET-minutes**
+**Physical Activity by Average MET-minutes/week**
 
 Query.
 
@@ -1339,7 +1339,7 @@ Query.
 ![image](https://github.com/user-attachments/assets/8aebdee7-960c-4842-a1e0-d6c0cd4827ca)
 
 
-According to [Medscape](https://www.medscape.com/viewarticle/867293), the data from a total 174 studies comprising 149,184,285 total person-years of follow-up, suggest that the more total regular daily physical activity one engages in — including recreation, transportation, occupational activity, and/or daily chores — the lower the risks for breast cancer, colon cancer, diabetes, ischemic heart disease, and ischemic stroke. However, significant reductions in those conditions were seen only with total activity levels considerably higher than the minimum 600 metabolic equivalent (MET) minutes per week recommended by the World Health Organization for health benefits. That 600 METs equates to about 150 minutes/week of brisk walking or 75 minutes/week of running. 
+According to [Medscape](https://www.medscape.com/viewarticle/867293), the more total regular daily physical activity one engages in — including recreation, transportation, occupational activity, and/or daily chores — the lower the risks for breast cancer, colon cancer, diabetes, ischemic heart disease, and ischemic stroke. However, significant reductions in those conditions were seen only with total activity levels considerably higher than the minimum 600 metabolic equivalent (MET) minutes per week recommended by the World Health Organization. That 600 METs equates to about 150 minutes/week of brisk walking or 75 minutes/week of running. 
 
 With the development of diabetes, for example, compared with no physical activity, those with 600 MET minutes per week (the minimum recommended level of activity) had a 2% lower risk. That risk reduction jumped by an additional 19% with an increase from 600 to 3600 METs/week. Gains were smaller above that, with the increase of total activity from 9000 to 12,000 MET minutes/week yielding only an additional 0.6% diabetes reduction.
 
@@ -1355,13 +1355,13 @@ Observations:
 
 1. 600–3999 MET-min/week (low-active users).
    
-- ***This is the largest group in the data with 18 users. Although, they were involved in low-active levels of activities and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits***.
-- ***12 users are achieving in average 600-3000 MET-minutes/week***.
-- ***6 users are achieving in average 3000-4000 MET-minutes/week***.
+- ***This is the largest group in the data with 18 users. Although they were involved in low physical activities, they not only achieved the minimum WHO recommendation, but they also were still gaining sustantial health benefits***.
+- ***12 users achieved in average 600-3000 MET-minutes/week***.
+- ***6 users achieved in average 3000-4000 MET-minutes/week***.
 
 2. 4000–7,999 MET-min/week (moderately active users).
 
-- ***A smaller but still substantial number of users are in the moderately-active with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
+- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
 - ***8 users are achieving in average 4000-6000 MET-minutes/week***.
 - ***3 users are achieving in average 6000-8000 MET-minutes/week***.
 
