@@ -1286,13 +1286,14 @@ Observations.
 ***There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time***.
 
 
-
 ---
 
-**Physical Activity by Average MET-minutes/week**
+
+## Proportion of users by physical activity 
+
 
 Query.
-
+	
 	WITH weekly_METminutes AS(
 	  SELECT
 	  Id,
@@ -1335,47 +1336,6 @@ Query.
 	ORDER BY Id
 
 
-
-![image](https://github.com/user-attachments/assets/8aebdee7-960c-4842-a1e0-d6c0cd4827ca)
-
-
-According to [Medscape](https://www.medscape.com/viewarticle/867293), the more total regular daily physical activity one engages in — including recreation, transportation, occupational activity, and/or daily chores — the lower the risks for breast cancer, colon cancer, diabetes, ischemic heart disease, and ischemic stroke. However, significant reductions in those conditions were seen only with total activity levels considerably higher than the minimum 600 metabolic equivalent (MET) minutes per week recommended by the World Health Organization. That 600 METs equates to about 150 minutes/week of brisk walking or 75 minutes/week of running. 
-
-With the development of diabetes, for example, compared with no physical activity, those with 600 MET minutes per week (the minimum recommended level of activity) had a 2% lower risk. That risk reduction jumped by an additional 19% with an increase from 600 to 3600 METs/week. Gains were smaller above that, with the increase of total activity from 9000 to 12,000 MET minutes/week yielding only an additional 0.6% diabetes reduction.
-
-Overall, compared with insufficiently active individuals (total activity < 600 MET minutes/week), the risk reduction for those in the highly active category (≥ 8000 MET minutes/week) was 14% for breast cancer; 21% for colon cancer; 28% for diabetes; 25% for ischemic heart disease; and 26% for ischemic stroke. 
-Risks of the five conditions dropped significantly with an increase in MET minutes per week from 600 to 3000 to 4000, with less additive benefit seen above that level.
-
-
-<img width="300" height="192" alt="image" src="https://github.com/user-attachments/assets/f5ce2bd4-ce39-4f35-ae55-cb48e1557f6a" />
-
-
-
-Observations:
-
-1. 600–3999 MET-min/week (low-active users).
-   
-- ***This is the largest group in the data with 18 users. Although they were involved in low physical activities, they not only achieved the minimum WHO recommendation, but they also were still gaining sustantial health benefits***.
-- ***12 users achieved in average 600-3000 MET-minutes/week***.
-- ***6 users achieved in average 3000-4000 MET-minutes/week***.
-
-2. 4000–7,999 MET-min/week (moderately active users).
-
-- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
-- ***8 users are achieving in average 4000-6000 MET-minutes/week***.
-- ***3 users are achieving in average 6000-8000 MET-minutes/week***.
-
-4. ≥8,000 MET-min/week (highly active users).
-
-- ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
-- ***The two users are not only achieving 8000 MET-minutes/week, but they are even reaching range between 9000-10000 MET-minutes/week***.
-- ***Research suggests that health gains above 8,000 MET-min/week are smaller. For example, the diabetes risk drops only slightly (0.6%) when increasing from 9,000 to 12,000 MET-min/week***.
-
-
-
-  
----
-
 ![image](https://github.com/user-attachments/assets/69c5735f-f715-403a-8706-79cac16cc59e)
 
 
@@ -1384,6 +1344,124 @@ Observations.
 - ***More than half participants of the whole sample are low-active users, representing the 58%***.
 - ***More than a third part of the total users are moderately-active***.
 - ***A very small percentage of users are highly-active, representing only 6% of the whole***.
+
+
+---
+
+## Physical Activity (Average MET-minutes/week) to prevent diseases
+
+
+According to a study published in the British Medical Journal (BMJ), the more total regular daily physical activity one engages in — including recreation, transportation, occupational activity, and/or daily chores — the lower the risks for breast cancer, colon cancer, diabetes, ischemic heart disease, and ischemic stroke. However, significant reductions in those conditions were seen only with total activity levels considerably higher than the minimum 600 metabolic equivalent (MET) minutes per week recommended by the World Health Organization. That 600 METs equates to about 150 minutes/week of brisk walking or 75 minutes/week of running. For example:
+
+1. When compared to those who are insufficiently physically active (<600 MET minutes/ week), those with 600 MET minutes/ week had a 2% lower risk of diabetes.
+
+2. Compared to those with <600 MET minutes/ week, those with 3000-4000 MET minutes/ week had an additional 19% lower risk.
+   
+3. Gains were smaller at higher levels of activity, an increase of total activity from 9000 to 12000 MET minutes/week reduced the risk of diabetes by only 0.6%.
+
+Compared with insufficiently active individuals (total activity <600 MET minutes/week), the risk reduction for those in the highly active category (≥8000 MET minutes/ week) was
+
+- 14% (relative risk 0.863, 95% uncertainty interval 0.829 to 0.900) for breast cancer.
+- 21% (0.789, 0.735 to 0.850) for colon cancer.
+- 28% (0.722, 0.678 to 0.768) for diabetes.
+- 25% (0.754, 0.704 to 0.809) for ischemic heart disease. 
+- 26% (0.736, 0.659 to 0.811) for ischemic stroke.
+
+
+<img width="300" height="192" alt="image" src="https://github.com/user-attachments/assets/f5ce2bd4-ce39-4f35-ae55-cb48e1557f6a" />
+
+
+In essence, the study suggests that while any physical activity is better than none, there's an optimal range (3000-4000 MET-minutes/week) where the most significant health benefits are realized.
+
+[Source](https://communitymedicine4asses.wordpress.com/2016/08/11/new-study-in-bmj-shows-dose-response-effect-between-physical-activity-and-5-diseases/#:~:text=Conclusion:,minutes%20of%20climbing%20stairs%2C%20etc.).
+
+
+---
+
+**New classification**.
+
+We will group the users by how their physical activity (average MET-minutes/week) has impact to reduce risk of the diseases above.
+
+
+- **Below 600 MET-minutes/week (Very Low)**: these levels are unlikely to yield substantial reductions in the risk of the five mentioned conditions. 
+- **600-3000 MET-minutes/week (Low)**: some risk reduction is observed, but it's less pronounced compared to higher activity levels.
+- **3000-4000 MET-minutes/week (Significant)**: this range demonstrates the most significant risk reduction for the five conditions, according to a study published in BMJ.
+- **Above 4000 MET-minutes/week (High)**: while still beneficial, the risk reduction diminishes at very high activity levels. 
+
+
+Query.
+
+
+	WITH weekly_METminutes AS(
+	  SELECT
+	  Id,
+	  CASE 
+	  WHEN activityDate BETWEEN '2016-03-12' AND '2016-03-18' THEN 'Week 1'
+	  WHEN activityDate BETWEEN '2016-03-19' AND '2016-03-25' THEN 'Week 2'
+	  WHEN activityDate BETWEEN '2016-03-26' AND '2016-04-01' THEN 'Week 3'
+	  WHEN activityDate BETWEEN '2016-04-02' AND '2016-04-08' THEN 'Week 4'
+	  WHEN activityDate BETWEEN '2016-04-09' AND '2016-04-15' THEN 'Week 5'
+	  WHEN activityDate BETWEEN '2016-04-16' AND '2016-04-22' THEN 'Week 6'
+	  WHEN activityDate BETWEEN '2016-04-23' AND '2016-04-29' THEN 'Week 7'
+	  WHEN activityDate BETWEEN '2016-04-30' AND '2016-05-06' THEN 'Week 8' 
+	  END AS week, 
+	  COUNT(DISTINCT activityDate) AS active_days,
+	  SUM(MET_minutes) AS METminutes
+	      
+	  FROM `analysisbellabeat246.analysis.dailyActivity`
+	
+	  WHERE totalSteps != 0 AND totalIntensity != 0 AND MET_minutes != 0
+	
+	  GROUP BY Id, week
+	  ORDER BY Id, week
+	)
+	
+	SELECT 
+	  Id,
+	  CASE 
+	  WHEN AVG(METminutes)<600 THEN 'Very Low'
+	  WHEN AVG(METminutes) BETWEEN 600 AND 2999 THEN 'Low'
+	  WHEN AVG(METminutes) BETWEEN 3000 AND 4000 THEN 'Significant'
+	  ELSE 'High' 
+	  END AS risk_disease_reduction,
+	  CAST(AVG(METminutes) AS INT64) AS weekly_average_METminutes,
+	
+	FROM weekly_METminutes
+	
+	WHERE active_days = 7
+	
+	GROUP BY Id
+	ORDER BY Id
+
+
+
+![image](https://github.com/user-attachments/assets/574ab955-ff81-457d-a55a-838864e957f6)
+
+
+
+
+Observations:
+
+1. 600–2999 MET-min/week (Low Risk Disease Reduction).
+   
+- ***This is the largest group in the data with 18 users. Although they were involved in low physical activities, they not only achieved the minimum WHO recommendation, but they also were still gaining sustantial health benefits***.
+- ***12 users achieved in average 600-3000 MET-minutes/week***.
+- ***6 users achieved in average 3000-4000 MET-minutes/week***.
+
+2. 3000–4,000 MET-min/week (Significant Risk Disease Reduction).
+
+- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
+- ***8 users are achieving in average 4000-6000 MET-minutes/week***.
+- ***3 users are achieving in average 6000-8000 MET-minutes/week***.
+
+4. ≥4,000 MET-min/week (High Risk Disease Reduction).
+
+- ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
+- ***The two users are not only achieving 8000 MET-minutes/week, but they are even reaching range between 9000-10000 MET-minutes/week***.
+- ***Research suggests that health gains above 8,000 MET-min/week are smaller. For example, the diabetes risk drops only slightly (0.6%) when increasing from 9,000 to 12,000 MET-min/week***.
+
+
+  
 
 ---
 
