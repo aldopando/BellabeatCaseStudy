@@ -392,7 +392,7 @@ These colunmns are important for our analysis. Therefore, we will use the "minut
     
     - weightLogInfo: more than half of the participants are missing weight data in one of the datasets, resulting in incomplete information. Additionally, I didn't observe any significant changes in users' weight during the two-month period. For the users who tracked their weight data, the data was recorded sporadically. Therefore, we decided to include all available weight data from both datasets, regardless of whether some users are missing weight information in one of them. Our goal is to use the weight data as an overall indicator of the participants' health status during the survey.  
     - minuteSleep: there are 3 out of 25 participants that are missing sleep data in one of the two datasets. However, this represents a small portion of the overall available sample (although the sample size itself is smaller than what is statistically recommended to fairly represent a population), we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 22 participants.
-    - calories, intensities, METs and Steps: there are 3 out of 25 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
+    - calories, intensities, METs and Steps: there are 3 out of 35 participants who are missing data across these tables in one of the two datasets. Nevertheless, this does not represent a major issue in terms of completeness within the available sample. Therefore, we will merge the datasets to include only the users who are present in both datasets, resulting in a final sample of 32 participants.
 
 
 15. Before merging the tables from both datasets, I will create the new "hourlyIntensities" tables based on the "minuteIntensitiesNarrow" tables.
@@ -455,7 +455,7 @@ Query.
 I saved the results as a new table called `hourlyIntensities_secondPeriod_complete` in this dataset.
 
 
-16. I merged the next tables from the two datasets to get the new merged tables. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
+16. I merged the following tables from the two datasets to get the new merged tables for the analysis. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/Merging.md#merging-tables) you will find the file with the queries performed to merge the tables. 05/31/2025
     
     | Table || Result |
     | --- | --- | --- |
@@ -466,7 +466,7 @@ I saved the results as a new table called `hourlyIntensities_secondPeriod_comple
     | hourlySteps | minuteStepsNarrow_secondPeriod | hourlySteps_merged |
     | minuteMETsNarrow | minuteMETsNarrow_secondPeriod | minuteMETs_merged |
 
-17. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the analyzed columns**. 06/01/2025
+17. After merging the tables from the two datasets, I checked for extra spaces or characters across the records of each merged table. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#extra-spaces-in-data) you can find all the queries and steps performed to check for extra spaces in the merged tables. **We didn't find any extra spaces or characters in the columns**. 06/01/2025
 
 18. Finally, I checked for duplicates in the merged tables to finish the cleaning process of this data. [Here](https://github.com/aldopando/BellabeatCaseStudy/blob/main/cleaning.md#duplicates-in-data) you will find the process and results for cleaning duplicates in the data. Since BigQuery doesn't allow updates or deletions of individual rows in standard tables, we will create a dataset that will storage the cleaned version of the tables that contain only distinct rows. This dataset is named `clean_data`. 06/02/2025
     
@@ -498,7 +498,7 @@ For this analysis, we will aggregate the data in the `minuteMETs_cleaned` table 
 
 To aggregate the variable METs, we will have to sum all MET minutes a person expends during an hour. 
 
-Important: All MET values exported from Fitabase are multiplied by 10. We will divide by 10 to get accurate MET values.
+Important: All MET values exported from Fitabase are multiplied by 10. Therefore, we will divide by 10 to get accurate MET values.
 
 Example: 10 = 1.0 METs; 38 = 3.8 METs
 
@@ -511,9 +511,9 @@ MET stands for Metabolic Equivalent of Task. It is a unit that measures how much
 
 We can differentiate 3 categories of physical activity:
 
-Light-intensity activities – under 3 MET;
-Moderate–intensity activities – from 3 to 6 MET;
-Vigorous–intensity activities – over 6 MET.
+- Light-intensity activities – under 3 MET.
+- Moderate–intensity activities – from 3 to 6 MET.
+- Vigorous–intensity activities – over 6 MET.
 
 **What is a MET minute?**
 
@@ -565,11 +565,11 @@ Query.
 ---
 
 
-### We created a new dataset called `analysis` to save all the results after performing calculations and aggregating the data.
-
 
 ### Merging hourly tables (calories, intensities, steps, and METs) + Sorting the data.
- 
+
+**We created a new dataset called `analysis` to save all the results after performing calculations and aggregating the data**.
+
 
 Query. 
 
@@ -640,64 +640,61 @@ Query.
 ***We saved the results as a new table called `dailyActivity` in our `analysis` dataset***
 
 
-### Oldest and latest date
+
+
+### Patterns in period time across all users.
+
 
 **Oldest date**
 
 
 Query.
-
+	
 	SELECT  
-	  Id,
+	
 	  MIN(activityHour) AS oldest_date
 	
 	FROM `analysisbellabeat246.analysis.hourlyActivity` 
-	
-	GROUP BY Id
 
 
 Results.
 
-| Id | oldest_date | 
-| --- | --- |
-| 1503960366 |	2016-03-12 00:00:00.000000 UTC |
-| 1624580081 |	2016-03-12 00:00:00.000000 UTC |
-| 1644430081 |	2016-03-12 00:00:00.000000 UTC |
-| 1844505072 |	2016-03-12 00:00:00.000000 UTC |
-| 1927972279 |	2016-03-12 00:00:00.000000 UTC |
-| 2022484408 |	2016-03-12 00:00:00.000000 UTC |
-| 2026352035 |	2016-03-12 00:00:00.000000 UTC |
-| 2320127002 |	2016-03-12 00:00:00.000000 UTC |
-| 2347167796 |	2016-03-12 00:00:00.000000 UTC |
-| 2873212765 |	2016-03-12 00:00:00.000000 UTC |
-| 3372868164 |	2016-03-12 00:00:00.000000 UTC |
-| 3977333714 |	2016-03-12 00:00:00.000000 UTC |
-| 4020332650 |	2016-03-12 00:00:00.000000 UTC |
-| 4057192912 |	2016-03-12 00:00:00.000000 UTC |
-| 4319703577 |	2016-03-12 00:00:00.000000 UTC |
-| 4445114986 |	2016-03-12 00:00:00.000000 UTC |
-| 4558609924 |	2016-03-12 00:00:00.000000 UTC |
-| 4702921684 |	2016-03-12 00:00:00.000000 UTC | 
-| 5553957443 |	2016-03-12 00:00:00.000000 UTC |
-| 5577150313 |	2016-03-12 00:00:00.000000 UTC |
-| 6117666160 |	2016-03-12 00:00:00.000000 UTC |
-| 6290855005 |	2016-03-12 00:00:00.000000 UTC |
-| 6775888955 |	2016-03-12 00:00:00.000000 UTC |
-| 6962181067 |	2016-03-12 00:00:00.000000 UTC |
-| 7007744171 |	2016-03-12 00:00:00.000000 UTC |
-| 7086361926 |	2016-03-12 00:00:00.000000 UTC |
-| 8053475328 |	2016-03-12 00:00:00.000000 UTC |
-| 8253242879 |	2016-03-12 00:00:00.000000 UTC |
-| 8378563200 |	2016-03-12 00:00:00.000000 UTC |
-| 8583815059 |	2016-03-12 00:00:00.000000 UTC |
-| 8792009665 |	2016-03-12 00:00:00.000000 UTC |
-| 8877689391 |	2016-03-12 00:00:00.000000 UTC |
+| oldest_date | 
+| --- | 
+| 2016-03-12 00:00:00.000000 UTC |
 
+
+We counted how many users started to track their data in the date 2016-03-12.
+
+Query.
+
+	SELECT 
+		COUNTIF(oldest_date = '2016-03-12') AS oldest_date_2016_03_12
+		
+	FROM (
+		SELECT  
+		  Id,
+		  MIN(activityDate) AS oldest_date
+		
+		FROM `analysisbellabeat246.analysis.dailyActivity` 
+		
+		GROUP BY Id
+	)
+
+
+Results.
+
+| oldest_date_2016_03_12 | 
+| --- |
+| 32 |
+
+**All participants started to track their data in the same date**.
+ 
 ---
 
 **Latest date**
 
-First, we found the latest date when the data was tracked across all users.
+First, we found the latest date in the table indicating the maximum date a user finished tacking their data.
 
 Query.
 
@@ -742,7 +739,7 @@ Results.
 
 Observations.
 
-***Only 18 participants finished to track their data in 2016-05-12***
+***Only 18 out of 32 participants finished to track their data until 2016-05-12. This means that some users finished to track their data earlier than expected***.
 
 
 ### Number of users that weekly tracked their data throughout the period time (March 12 to May 12).
@@ -778,18 +775,21 @@ Query.
 
 Observations.
 
-- ***We can observe a considerable decline of users that were consistently tracking their data in the end of the period (week 7 to week 9)***.
+- ***We can observe a considerable decline of users that were consistently tracking their data in the end of the second month (week 7 to week 9)***.
 
 
 ---
 
-## Identifying inactivity patterns.
+## Inactivity patterns.
+
 
 **First approach**.
 
-We know that all Fitbit devices track **steps** taken. When a person is using their wearable, it automatically starts to tracked their steps. We can assumme that a person can accomplish a minimum amount of steps during a day that is different from zero, even for a sedentary person. If the value of steps taken is zero, it means the user is not using their wearable. Therefore, we can pinpoint the users who didn't wear their devices in specifc days by identifying if they got zero steps taken.
+We know that all Fitbit devices track **steps** taken. When a person is using their wearable, it automatically starts to tracked their steps. 
 
-Therefore, we will filter out all the rows where total steps are zero in our `dailyActivity` table and observe what values were tracked in the other variables when this happened. 
+We can assumme that a person using their wearable can accomplish a minimum amount of steps during a day that is different from zero, even for a sedentary person. If the value of steps taken is zero, it means the user is not using their wearable at all. Therefore, we can pinpoint the users who didn't wear their devices in specifc days by identifying if they got zero steps taken.
+
+Therefore, we will filter all the rows where total steps were zero in our `dailyActivity` table and observe what values were tracked in the other variables when this happened. 
 
 Query. 
 
@@ -803,7 +803,7 @@ Query.
 
 
 
-We sorted the data by MET-minutes to identify any outlier because our hypothesis is that if a user got zero steps during a day, it means they wasn't using their wearable, Therefore, their devices couldn't have tracked any intensity (physical activity) either.
+We sorted the data by MET-minutes to identify any outlier because our hypothesis is that if a user got zero steps during a day, it means they weren't using their wearable, Therefore, their devices couldn't have tracked any intensity (physical activity) either.
 
 
 <img width="1740" height="644" alt="image" src="https://github.com/user-attachments/assets/369b3947-d8b9-44b7-8bc9-7488a2818e36" />
@@ -815,9 +815,9 @@ We sorted the data by MET-minutes to identify any outlier because our hypothesis
   
 **Second approach**
 
-We cannot only base on steps taken variable to identify users who weren't using their wearables, because there were users who were involved in non-step activities. Therefore, to fairly identify users totally inactive (they weren't using their wearables in certain days at all) we need to filter out:
+We cannot only base on steps taken variable to identify inactivity patterns, because there were users who were involved in non-step activities. Therefore, to fairly identify users totally inactive (they weren't using their wearables in certain days at all) we need to filter:
 
-The users who got 0 steps taken AND 0 total intensity AND 0 MET-minutes in a day.
+Users who got 0 steps taken AND 0 total intensity AND 0 MET-minutes in a day.
 
 Query.
 
@@ -835,8 +835,8 @@ Query.
 
 
 - ***We found 220 rows of non-activity (days when users weren't using their wearables)***.
-- ***We can still see values in the `calories` column because this variable represents the BMR which stands for basal metabolic rate. It is the number of calories a person needs to stay alive. This value is calculated automatically by the system (even though the user isn't using the wearable) based on information logged about users' physical characteristics such as age, sex, height, and weight***.
-- ***We can still see values in the `sedentaryMinutes` column because sedentary minutes are added up when the intensity is equal to zero. And it makes sense, because 1440 minutes represents 24 hours, meaning 24 hours of 0 intensity.***.
+- ***We can still see values in the `calories` column because these are representing the BMR value which stands for basal metabolic rate. This is the number of calories a person's body naturally spends to stay alive. This value is calculated automatically by the system (even though the user isn't using the wearable) based on information logged about users' physical characteristics such as age, sex, height, and weight***.
+- ***We can still see values in the `sedentaryMinutes` column because sedentary minutes column sum all intensity values that are equal to zero. And it makes sense, because 1440 minutes represents 24 hours, meaning 24 hours of 0 intensity.***.
   
 
 ---
@@ -880,7 +880,7 @@ Query.
  **Observations**.
 
  - ***The days with more inactivity (when users didn't use their device at all) were Saturday and Sunday***.
- - ***Monday and Tuesday are days with high levels of inactivity as well***.
+ - ***Monday and Tuesday were the days with high levels of inactivity as well***.
  - ***Friday is the day when users were using their devices more consistenly*** .
 
 
@@ -888,10 +888,7 @@ Query.
 
 ### Steps
 
-**Weekly inactivity patterns: days with 0 steps**
-
-We know that all Fitbit devices track **steps** taken. When a person is using their wearable, it automatically starts to tracked their steps. We can assumme that a person can accomplish a minimum amount of steps during a day that is different from zero, even for a sedentary person. If the value of steps taken is zero, it means the user is not using their wearable. Therefore, we can pinpoint the users who didn't wear their devices in specifc days by identifying if they got zero steps taken.
-
+**Weekly inactivity patterns: days with 0 steps**.
 
 First off, we will create a table that contains the users who tracked 0 steps in any day throughout the two months period. Moreover, we will count how many days each user happen to have 0 steps during each week.
 
@@ -927,7 +924,7 @@ Query.
 ---
 
 Observations
-- ***We can observe that 6 users got zero steps taken for a whole week, this means that 6 users didn't use their wearables during taht week***.
+- ***We can observe that 6 users got zero steps taken for a whole week, this means that 6 users didn't use their wearables during that week***.
 - ***We can also see that 20 participants stopped using their devices at some point of the period time***.
 - ***4 users tracked zero steps for two whole weeks. In other words, four participants didn't use their wearable at all for two weeks***.
 
@@ -1019,8 +1016,8 @@ Query.
  
 Observations.
 
-- ***We can observe that on average 8 participants reached the daily goal of 10,000 steps for a good overall health, representing the 25% of the total sample.***.
-- ***It means that 75% are under the daily goal of 10,000 steps. However, this goal is not universally appropriate across all ages and physical function. Besides that, we are not taking into account non-step activities***
+- ***We can observe that on average 8 participants reached the daily goal of 10,000 steps for a good overall health, representing the 25% of the total sample***.
+- ***It means that 75% are under the daily goal of 10,000 steps. However, this goal is not universally appropriate across all ages and physical function. Besides that, we are not taking into account non-step activities***.
 
 ---
 
@@ -1114,7 +1111,7 @@ Observations.
 - Users over 600 MET-minutes per week are meeting the MET-minutes necessary for a good overall health. Besides maintaining a good health, the more MET-minutes accomplish during the week, the more health benefits.
 
 
-Due to we are calculating MET-minutes per week, we need to fairly calculate this value through using full weeks. Therefore, we will filter out the data to include only the users who logged activity for all 7 days in each week. This is important because some of these weeks might have less than 7 active days for certain users.
+Due to we are calculating MET-minutes per week, we need to fairly calculate this value through using full weeks. Therefore, we will filter only the users who logged physical activity for all 7 days in each week. This is important to fairly compare users who were consistent tracking their data throughout the full week.
 
 
 Query.
@@ -1170,9 +1167,9 @@ Query.
 
 Observations.
 
-- ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals.***
+- ***We can observe that the vast majority of participants achieved their MET-minutes/week recommendation for minimun physical activity to maintain their overall health. However, this doesn't tell us that these participants are involved in consistent high levels of physical activity or they are even getting extra health benefits like loosing weight or achieving their fitness goals***.
 - ***We can notice that between 19 to 24 participants tracked their data consistenly completing full weeks using their wearables***.
-- ***Week 9 doesn't appeared in the results this week only contains 6 days. It doesn't represent a full week, therefore we cannot draw fair MET-minutes/week results.***.
+- ***Week 9 doesn't appeared in the results this week only contains 6 days. It doesn't represent a full week, therefore we cannot draw fair MET-minutes/week results***.
 - ***The last week of the first month (week 4) was not only of the weeks with more users reaching their goal of 600 MET-minutes per week, but also the it was the week with more users wearing their devices more consistenly***.
   
 
