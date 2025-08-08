@@ -1362,6 +1362,8 @@ Observations:
 - ***The two users not only achieved 8000 MET-minutes/week, but they even reached a range between 9000-10000 MET-minutes/week***.
 
 
+---
+
 
 ![image](https://github.com/user-attachments/assets/69c5735f-f715-403a-8706-79cac16cc59e)
 
@@ -1480,7 +1482,8 @@ Observations:
 
 3. ≥4,000 MET-min/week (High Risk Disease Reduction).
 
-- ***This is the largest group in the data with 13 users. Although this group gained a significant risk disease reduction, when the threshold of 4,000 MET-min/week is exceeded, the gradual risk reduction diminishes. This group represents the 41.94% of the sample.
+- ***This is the largest group in the data with 13 users. Although this group gained a significant risk disease reduction, when the threshold of 4,000 MET-min/week is exceeded, the gradual risk reduction diminishes. This group represents the 41.94% of the sample***.
+
 
 
 ***Approximately 61.29% of the sample got the largest gains in disease prevention***.
@@ -2535,9 +2538,12 @@ Inactivity.
 
 - *18.75% inactive users for at at least one full week*.
 - *12.75% inactive users for at least two full weeks*.
-- *High levels of inactivity during the first three weeks, reaching the peak of inactive users during week 2 (zero steps, intensity, and METs)*
+- *High levels of inactivity during the first three weeks, reaching the peak of inactive users during week 2 (zero steps, intensity, and METs)*.
 - *High Levels of Inactivity during the weekends*.
 
+
+
+**Bellabeat should carry out a survey about customer satisfaction oriented to user experience with the wereable and the app. This will help the company to identify the reasons why people 
 
 **Bellabeat should promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
 
