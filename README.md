@@ -1438,6 +1438,7 @@ Query.
 ![image](https://github.com/user-attachments/assets/574ab955-ff81-457d-a55a-838864e957f6)
 
 
+![image](https://github.com/user-attachments/assets/6678ea2d-4e18-4250-93be-06b99d9e398c)
 
 
 Observations:
