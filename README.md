@@ -1337,7 +1337,12 @@ Query.
 
 
 
- Observations:
+![image](https://github.com/user-attachments/assets/e78b3e55-1c92-43a8-aebe-f2780ab3ce19)
+
+
+
+
+Observations:
 
 1. 600–3999 MET-min/week (Low-active).
 
@@ -1347,15 +1352,14 @@ Query.
 
 2. 4000–7,999 MET-min/week (Moderately-active).
 
-- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
-- ***8 users are achieving in average 4000-6000 MET-minutes/week***.
-- ***3 users are achieving in average 6000-8000 MET-minutes/week***.
+- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group gained sustantial health benefits***.
+- ***8 users achieved in average 4000-6000 MET-minutes/week***.
+- ***3 users are achieved in average 6000-8000 MET-minutes/week***.
   
 3. ≥8,000 MET-min/week (Highly-active).
 
 - ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
-- ***The two users are not only achieving 8000 MET-minutes/week, but they are even reaching range between 9000-10000 MET-minutes/week***.
-- ***Research suggests that health gains above 8,000 MET-min/week are smaller. For example, the diabetes risk drops only slightly (0.6%) when increasing from 9,000 to 12,000 MET-min/week**.
+- ***The two users not only achieved 8000 MET-minutes/week, but they even reached a range between 9000-10000 MET-minutes/week***.
 
 
 
