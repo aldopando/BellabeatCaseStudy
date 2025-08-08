@@ -1857,11 +1857,11 @@ Query.
 
 Observations.
 
-- ***The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours. This is weird because we expected a result lower due to we are removing the naps from the calculation and we only took into account full cycles of slee (>120 minutes)***. 
+- ***The average total daily sleep across all users have interestingly increased from 7.085 to 7.214 hours. This is unexpected because we expected a lower result since we removed the naps from the calculation and we only took into account full cycles of sleep (>120 minutes)***. 
 
 ---
 
-Diving deep into this anomaly, we figured out if there were days when the users only tracked their naps or unusual sleep records (<120 minutes) in the calculation of the daily average that includes naps and sleep segmeneted.
+Diving deep into this anomaly, we figured out if there were days when the users only tracked their naps or unusual sleep records (<120 minutes) that might have affected the calculation of the daily average sleep time that includes naps and sleep segmeneted.
 
 
 Query.
@@ -1886,13 +1886,18 @@ Query.
 
 Observations.
 
-- ***We can observe that the vast majority of users tracked several days when they got less than 120 minutes of sleep per day. These days with low minutes of sleep direclty decrease the average total daily sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep)***.
-- Fitbit devices automatically detect sleep when a user wear their device to bed. When user's body is completely at rest and they haven’t moved for about an hour, the device records that the user is asleep. Moreover, Fitbit device detects and records naps that are at least an hour long and users can edit or delete a sleep log in the Fitbit app. ***This means that users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system***.
+- ***We can observe that the vast majority of users had several days when they tracked less than 120 minutes of total sleep per day. These days directly decrease the daily average sleep time when we consider all sleep records happen to be in a day (including naps and segmented sleep)***.
+- Fitbit devices automatically detect sleep when a user wear their device to bed. When user's body is completely at rest and they haven’t moved for about an hour, the device records that the user is asleep. Besides that, Fitbit device detects and records naps that are at least an hour long and users can edit or delete a sleep log in the Fitbit app.
+
+***This means that users' sleep records that were greater than 60 minutes but less than 120 minutes are most likely due to nap records. However, the days when the users got less than 60 minutes of total sleep a day are due to certain anomalies with the Fitbit device. It's likely users didn't wear their device for tracking their sleep at all in certain days but the device still tracked a sleep record due to either a glitch in the device or an error in the system***.
+
+**It also can suggest that users manualy edited and logged their sleep records to only track their naps that lasted less than 60 minutes**.
 
 ---
 
 ***Therefore, we can claim that calculating the average total daily sleep time using full cycles of sleep and without counting the daytime naps is a more accurate result than using all sleep records (outliers and naps)***.
-***The average total daily sleep time of the total sample in this data is 7.215 hours. However, this means that there are users sleep less than the average and there are other users that sleep more***.
+
+***The average total daily sleep time of the sample is 7.215 hours. However, this means that there are users sleeping less than the average and there are other users that sleep more***.
 
 ---
 
@@ -2004,7 +2009,7 @@ Query.
 
 Observations.
 
-- For this calculation. we filtered out the outliers (the two users who tracked less than two hours in average daily sleep time). Sampling was reduced from 22 to 20 users.
+- For this calculation, we filtered out the outliers (the two users who tracked less than two hours in average daily sleep time). The sample was reduced from 22 to 20 users. We also filtered out sleep records that lasted less than 120 minutes.
 - ***65% of the sample (13 users) are getting more than 7 hours a day in average. More than half users are sleeping more than 7 hours which is generally considered beneficial for health***.
 - ***35% of the sample (7 users) are not getting enough sleep time in average. While some individuals may function well with less sleep, regularly sleeping less than 7 hours can be associated with adverse health outcomes***.
 
@@ -2012,10 +2017,10 @@ Observations.
 
 ## Sleep Efficiency
 
-LogId is the unique log id in Fitbit’s system for a sleep record. This sleep record tracks sleep pattern which includes user's time spent awake, restless, and asleep. Restless sleep indicates that the user move in their sleep, like if they toss and turn. If user's device detects excessive movement, enough that restful sleep won't be possible, the device records time spent awake.
+LogId is a unique log in Fitbit’s system for a sleep record. This sleep record tracks sleep pattern which includes user's time spent awake, restless, and asleep. Restless sleep indicates that the user moves in their sleep, like if they toss and turn. If user's device detects excessive movement, enough that restful sleep won't be possible, the device records time spent awake.
 
 
-The definition of sleep efficiency is the percentage of time we spend asleep while in bed. Time spent in bed not trying to sleep—while reading, for example, doesn’t count. You can calculate your sleep efficiency by dividing the time you’re asleep by the total time in bed. So, if you sleep for six out of eight hours in bed, your sleep efficiency is 75%. What’s a good score? Anything 85% or higher is considered “normal.”
+The definition of sleep efficiency is the percentage of time we spend asleep while in bed. You can calculate your sleep efficiency by dividing the time you’re asleep by the total time in bed. So, if you sleep for six out of eight hours in bed, your sleep efficiency is 75%. What’s a good score? Anything 85% or higher is considered “normal.”
 
 It is calculated by dividing the amount of time spent asleep (in minutes) by the total amount of time in bed (in minutes).
 
@@ -2131,7 +2136,7 @@ Query.
 Observations.
 
 - ***We can observe that the vast majority (85%) of users are having a very good sleep efficiency, meaning they are actually spending most of the time asleep when they go to bed***.
-- ***One user got 64.38% of sleep efficiency. This perecentage is under 75% metric which might indicate possible sleeping disorders***.
+- ***One user got 64.38% of sleep efficiency. This perecentage is under 75% which might indicate possible sleep disorders***.
 - ***Two users got poor sleep. They represent the 10% of the total sample***.
 - ***We can notice that there weren't users with a normal sleep efficiency, which it's interesting because we expected the vast majority of users would be between 'normal sleep efficiency' and 'poor sleep efficiency'***.
 - ***However, a high score doesn’t necessarily indicate a good night’s sleep and vice versa. Users might have a high sleep efficiency calculation but a poor sleep quantity (time sleeping)***.
@@ -2140,9 +2145,9 @@ Observations.
 
 ## Sleep Quantity vs Sleep Efficiency (Quality).
 
-The amount of time you sleep as well as the quality of your sleep are both important. Both sleep quantity and sleep quality are fundamental components of sleep. Therefore, we will compare the these metrics to accurately assess the sleep performance of users in this study.
+The amount of time you sleep as well as the quality of your sleep are both important. Both sleep quantity and sleep quality are fundamental components of sleep. Therefore, we will compare these metrics to accurately assess the sleep performance of users in this study.
 
-We saved the results of both previous queries in BigQuery, one that returns the results of daily average sleep time and the other that returns the daily average sleep efficiency. We saved these results as BigQuery tables in our `analysis` dataset.
+We saved the results of both previous queries in BigQuery, one that returns the results of daily average sleep time and the other returns the daily average sleep efficiency. We saved these results as BigQuery tables in our `analysis` dataset.
 
 - daily average sleep time -> `average_sleep_quantity`
 - daily average sleep efficiency -> `average_sleep_efficiency`
@@ -2179,10 +2184,10 @@ Observations.
 
 We classified the users in different groups based on their daily average sleep time and their daily average sleep efficiency.
 
-- ***Even though the vast majority of the sample (17 users) are getting a very good sleep efficiency, 7 of them are sleeping less than 7 hours a day, representing an insufficient sleep time (less than 7 hours). This represents a short but efficient sleep***.
-- ***10 users not only achieved enough sleep (more than 7 hours), but they also are got a very good sleep efficiency rate (more than 90%)***.
-- ***The two users who sleep the most (8.7 and 8.5 hours) are actually having poor sleep efficiency, meaning even though they sleep for more hours per day, they struggle with resltless sleep or wake up troughout the night***.
-- ***The person with sleep disorders (sleep efficiency < 75%) is actually sleeping more than 7 hours per day. This represents a long sleep but inefficient.***.
+- ***Even though the vast majority of the sample (17 users) got a very good sleep efficiency, 7 of them slept less than 7 hours a day, representing an insufficient sleep time. This represents a short but efficient sleep***.
+- ***10 users not only achieved enough sleep time (more than 7 hours), but they also got a very good sleep efficiency rate (more than 90%)***.
+- ***The two users who slept the most (8.7 and 8.5 hours) were actually having a poor sleep efficiency, meaning even though they slept for more hours per day, they struggled with resltless sleep or woke up troughout the night***.
+- ***The person with sleep disorders (sleep efficiency < 75%) was actually sleeping more than 7 hours per day. This represents a long sleep but inefficient.***.
 
 
 
@@ -2190,7 +2195,7 @@ We classified the users in different groups based on their daily average sleep t
 ## Classification sleep performance (quantity vs quality)
 
 
-We classified our users based on their average sleep time and the efficency of this. The categories are:
+We classified our users based on their average sleep time and efficency. The categories are:
 
 - *high-performance sleep*: average daily hours > 7 and sleep efficiency > 0.90 
 - *short but highly efficient sleep*: average daily hours < 7 and sleep efficiency > 0.90 
@@ -2237,7 +2242,7 @@ Query.
 	FROM sleep_quality_quantity
 
 
-Customize color palette:
+Color palette:
 
 - high-performance sleep: Green.
 - short but efficient sleep: Yellow.
