@@ -1336,6 +1336,29 @@ Query.
 	ORDER BY Id
 
 
+
+ Observations:
+
+1. 600–3999 MET-min/week (Low-active).
+
+- ***This is the largest group in the data with 18 users. Although they were involved in low physical activities, they not only achieved the minimum WHO recommendation, but they also were still gaining sustantial health benefits***.
+- ***12 users achieved in average 600-3000 MET-minutes/week***.
+- ***6 users achieved in average 3000-4000 MET-minutes/week***.
+
+2. 4000–7,999 MET-min/week (Moderately-active).
+
+- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
+- ***8 users are achieving in average 4000-6000 MET-minutes/week***.
+- ***3 users are achieving in average 6000-8000 MET-minutes/week***.
+  
+3. ≥8,000 MET-min/week (Highly-active).
+
+- ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
+- ***The two users are not only achieving 8000 MET-minutes/week, but they are even reaching range between 9000-10000 MET-minutes/week***.
+- ***Research suggests that health gains above 8,000 MET-min/week are smaller. For example, the diabetes risk drops only slightly (0.6%) when increasing from 9,000 to 12,000 MET-min/week**.
+
+
+
 ![image](https://github.com/user-attachments/assets/69c5735f-f715-403a-8706-79cac16cc59e)
 
 
@@ -1445,24 +1468,18 @@ Observations:
 
 1. 600–2999 MET-min/week (Low Risk Disease Reduction).
    
-- ***This is the largest group in the data with 18 users. Although they were involved in low physical activities, they not only achieved the minimum WHO recommendation, but they also were still gaining sustantial health benefits***.
-- ***12 users achieved in average 600-3000 MET-minutes/week***.
-- ***6 users achieved in average 3000-4000 MET-minutes/week***.
+- ***Over third part (12 users) of the sample were involved in low-physical activities. They not only achieved the minimum WHO recommendation, but they also reduced their risk disease in a minimum percentage***.
 
 2. 3000–4,000 MET-min/week (Significant Risk Disease Reduction).
 
-- ***A smaller but still substantial number of users are in the moderately-active group with 11 users in total. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention***.
-- ***8 users are achieving in average 4000-6000 MET-minutes/week***.
-- ***3 users are achieving in average 6000-8000 MET-minutes/week***.
+- ***A smaller but still substantial number of users were not only gaining sustantial health benefits, but research shows the largest gains in disease prevention. This group represents the 19.35% of the sample (6 users)***.
 
-4. ≥4,000 MET-min/week (High Risk Disease Reduction).
+3. ≥4,000 MET-min/week (High Risk Disease Reduction).
 
-- ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
-- ***The two users are not only achieving 8000 MET-minutes/week, but they are even reaching range between 9000-10000 MET-minutes/week***.
-- ***Research suggests that health gains above 8,000 MET-min/week are smaller. For example, the diabetes risk drops only slightly (0.6%) when increasing from 9,000 to 12,000 MET-min/week***.
+- ***This is the largest group in the data with 13 users. Although this group gained a significant risk disease reduction, when the threshold of 4,000 MET-min/week is exceeded, the gradual risk reduction diminishes. This group represents the 41.94% of the sample.
 
 
-  
+***Approximately 61.29% of the sample got the largest gains in disease prevention***.
 
 ---
 
