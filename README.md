@@ -1650,7 +1650,7 @@ However, ***Sleep Health*** reports that there are significant concerns with seg
 
 ---
 
-***Based on the researching, napping can contribute to your overall rest, altohugh it does not provide the same benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. Meanwhile, whether sleep is monophasic or biphasic, it is important to get enough hours of total sleep each day***
+***Based on the research, napping can contribute to your overall rest, altohugh it does not provide the same benefits as a complete sleep cycle. Naps are beneficial for immediate relief from sleepiness and can improve alertness and performance. Meanwhile, whether sleep is monophasic or biphasic, it is important to get enough hours of total sleep each day***
 
 ---
 
@@ -1705,7 +1705,7 @@ https://sleepdoctor.com/pages/health/how-much-sleep-do-you-need
 
 Observations.
 
-- ***We can observe two outliers. Two users getting 1.2 and 1.9 hours of daily average daily sleep***.
+- ***We can observe two outliers. Two users getting 1.2 and 1.9 hours of daily average sleep***.
 
 ---
 
@@ -1742,12 +1742,12 @@ Query.
 Observations.
 
 - ***We can notice both users having inconsistency tracking their sleep througout the two monts, they missed several days:***
-  ***User 4558609924 only tracked 12 days***.
-  ***User 7007744171 only tracked 10 days***.
-- ***User 4558609924 tracked an average daily sleep time of 1.88 hours***.
-- ***User 7007744171 tracked an average daily sleep time of 1.18 hours***.
+  - ***User 4558609924 only tracked 12 days***.
+  - ***User 7007744171 only tracked 10 days***.
+- ***User 4558609924 tracked an daily average sleep time of 1.88 hours***.
+- ***User 7007744171 tracked an daily average sleep time of 1.18 hours***.
 
-It's most likely these users were using their devices to only tracked their naps but only in some certain days of the whole two months. Therefore, we will exclude them from the analysis.
+It's most likely these users were using their devices to sporadically tracked their naps throughout the whole two-month period. Therefore, we will exclude them from the analysis.
 
 ---
 
@@ -1760,7 +1760,7 @@ It's most likely these users were using their devices to only tracked their naps
 
 Observations.
 
-- ***The average total daily sleep time across the participants in this case study is 7 hours. Which means, the average participants are achieving the daily goal of 7 hours of sleep  for maintaining optimal mental health, physical health, and overall well-being. However, we are including naps and sleep segmented in this result. This doesn't tell us the real average  daily sleep time that users get during the night and then offset with naps***.
+- ***The average total daily sleep time across the participants in this case study is 7 hours. Which means, the average sample were achieving the daily goal of 7 hours of sleep  for maintaining optimal mental health, physical health, and overall well-being. However, we are including naps and sleep segmented in this result. This doesn't tell us the real sleep time that users got during the night and then offset with naps***.
 
 ---
 
@@ -1779,9 +1779,9 @@ Your body cycles through all of the stages of sleep four to six times each night
 Therefore, we will estimate the average total daily sleep without counting the naps (<120 minutes) during daytime and including full cycles of sleep (>120 minutes).
 
 Daytime tipically is described as the period between the time when the sun rises and the time it goes down. It is the time when people usually go to work, school, or play outside. 
-However, we also know that people may *sleep in* especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. To cover this common situation, we will redefine the daytime period to capture effectively the naps that users used to have. We will filter out naps between 12:00 pm to 8:59 pm.
+However, we also know that people may *sleep in* especially during the days off, which is the action when people remain asleep or in bed later than usual in the morning. This means that users can remain asleep after 8:00 am or even 10:00 am. To cover this common situation, we will redefine the daytime period to capture effectively the naps that users could have had. We will filter out naps between 12:00 pm to 8:59 pm.
 
-This means that will take into account the the sleep records that happend to be from 9:00 pm to 11:59 am (next day). However, to filter by a TIME range that crosses midnight, we need to redefine our time range:
+This means that will take into account only the sleep records that happend to be from 9:00 pm to 11:59 am (next day). However, to filter by a TIME range that crosses midnight, we need to redefine our time range:
 
 - sleep that starts after 20:59:00 (8:59 PM) until 23:59:59 (11:59 PM)
 
@@ -1790,7 +1790,11 @@ This means that will take into account the the sleep records that happend to be 
 
 ---
 
-To calculate the total daily sleep (in a 24-hour period), we are only takning into account full cycles of sleep (>120 minutes). However, there is a dilema because participants could have started tracking their sleep record (logId) at 11:20 pm and finished at 2:00 am (next day) right? This makes the sleep record (logId) split in to two parts; 40 minutes of this sleep record goes to one day and the rest goes to the next day. It will lead to removing this 40 minutes from the day without knowing that they were part of longer sleep record that crosses the midnight. To avoid removing minutes that were part of a longer sleep record, we will allow all sleep records that started between 10:29 pm and 11:59 pm appear in the results, meaning it doesn't matter these records lasted less than 120 minutes, since it's most likely that they were part of longer sleep record.
+To calculate the total daily sleep (in a 24-hour period), we are only going to take into account full cycles of sleep (>120 minutes). 
+
+However, there is a dilema because participants could have started tracking their sleep record (logId) at 11:20 pm and finished at 2:00 am (next day) right? This makes the sleep record (logId) be splitted into two days; 40 minutes of this sleep record goes to the first day and the rest goes to the next day. Therefore, if we follow the full sleep cycle approach (>120 minutes), it will lead to remove the 40 minutes from the first day without knowing that they were part of longer sleep record that crosses the midnight because we are only covering sleep records that last more than 120 minutes. 
+
+To avoid removing minutes that were part of a longer sleep record, we will allow all sleep records that started between 10:29 pm and 11:59 pm appear in the results, meaning it doesn't matter these records lasted less than 120 minutes, since it's most likely that they were part of longer sleep record.
 
 
 
