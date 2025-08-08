@@ -2543,15 +2543,17 @@ Inactivity.
 
 
 
-**Bellabeat should carry out a survey about customer satisfaction oriented to user experience with the wereable and the app. This will help the company to identify the reasons why people 
+**Bellabeat should carry out a survey about customer satisfaction oriented to user experience with the wereable and the interface app. This will help the company to identify potential gaps, for example "the app is complex to use at first time", "I don't know how to interpret my physical activity", "I don't want to search online the company website to figure out how to track my sleep"**.
 
-**Bellabeat should promote the usage of the wearable specially throughout the first week by sending notifications about the benefits of tracking health data**.
+**Bellabeat should promote their products as more than a fitness tracker, it is a personal wellness assistant. The company should not only promote physical activity, but also a holistic wellness approach (sleep, hydration, meditation) to keep users engaged even when they are not in workout mode**.
 
-**Bellabeat should use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking the sleep**.
+**Bellabeat should send motivating, personalized reminders during week 2, when the risk of dropout is highest. For example, “You’re halfway through your first month! Let’s keep your streak alive today**.
 
-**Provide a detailed explanation about the different metrics, their interpretation, benefits, and recommendations throughout the first week (one day explaining steps, another day explaining METs)**. 
+**Bellabeat should use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about how to track sleep**.
 
-**Send reminders through the app when the system doesn't receive data about user metrics during two consecutive days**.
+**Bellabeat should provide a detailed explanation about the different metrics, their interpretation, benefits, and recommendations throughout the first week (one day explaining steps, another day explaining METs)**. 
+
+**Bellabeat should send personalized reminders through the app when the system doesn't receive data about user metrics during two, seven and four-teen consecutive days**.
 
 
 ---
