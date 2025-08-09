@@ -2543,22 +2543,33 @@ Inactivity.
 
 
 
-**Bellabeat should carry out a survey about customer satisfaction oriented to user experience with the wereable and the interface app. This will help the company to identify potential gaps, for example "the app is complex to use at first time", "I don't know how to interpret my physical activity", "I don't want to search online the company website to figure out how to track my sleep"**.
-
-**Bellabeat should promote their products as more than a fitness tracker, it is a personal wellness assistant. The company should not only promote physical activity, but also a holistic wellness approach (sleep, hydration, meditation) to keep users engaged even when they are not in workout mode**.
+**Bellabeat should send personalized reminders through the app when the system doesn't receive data about user metrics during two, seven and four-teen consecutive days**.
 
 **Bellabeat should send motivating, personalized reminders during week 2, when the risk of dropout is highest. For example, “You’re halfway through your first month! Let’s keep your streak alive today**.
 
-**Bellabeat should use friendly guided tutorials about how to use the wearable using spaced repetition through the App. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about how to track sleep**.
+**Bellabeat should focus on game design elements, such as streak counters, badges, leaderboards, or progress meters in the app to make early usage more engaging. They can even reward consistent users with special discounts or access to premimun features in the app for a certain period of time**.
 
-**Bellabeat should provide a detailed explanation about the different metrics, their interpretation, benefits, and recommendations throughout the first week (one day explaining steps, another day explaining METs)**. 
+**To address high levels of inactivty during the weekends, the company should promote a weekend campaign that involves challenges and encouraging light but enjoyable activities (walks in the park, yoga, family hikes)**.
 
-**Bellabeat should send personalized reminders through the app when the system doesn't receive data about user metrics during two, seven and four-teen consecutive days**.
+**Bellabeat should promote communities on social media. The company can host the online social groups and encourage users to post weekend activity photos with a campaign hashtag to build community and social proof**.
+
+**Bellabeat should provide friendly guided tutorials about how to use the app when the user is interacting with it**.
+
+**The company should send personalized reminders about when it is time to track certain variables using spaced repetition. For example, when the user is near to late hours (around 9 to 10 pm) the app automatically sends a reminder about tracking sleep**.
+	- Day 1: “Your sleep story starts tonight — ready to track it?”
+    - Day 3: “Tracking your sleep is like watering a plant — the more you do it, the more it grows”
+    - Day 7: “One week strong! Let’s see what your sleep journey reveals next.”
+    - Day 14: “Your dedication is paying off! Consistency is the key to unlocking better rest.”
+    - Day 30: “A month of tracking! You’re building a powerful wellness habit.”	 
+
+**Bellabeat should provide a detailed introduction when user download the app for the first time explainng about the different metrics and their interpretation. Then throughout the first week Bellabeat can send personalized recommendations and more deep explanations**. 
+
+**Bellabeat should carry out a survey about customer satisfaction oriented to user experience with the wereable and the interface app. This will help the company to identify potential gaps, for example "the app is complex to use at first time", "I don't know how to interpret my physical activity", "I don't want to search online on company's website to figure out how to track my sleep"**.
 
 
 ---
 
-Steps.
+Step activity analysis.
 
 - *75% of people are under the daily goal of 10,000 steps*.
 - *47% (almost the half) of users are sedentary and low active*.
@@ -2567,18 +2578,22 @@ Steps.
 - *Sunday and Friday were the days when the users gave less steps on average*.
 
 
-**10,000 steps per day is an overall goal for maintaining a good health. However, steps counting by itself doesn't encompasses intensity levels for accurate determine the daily physical activity and calories burnt. An user might give less than 10,000 steps but with high levels of intensity, for example running for 20 minutes. Rather than using total steps as a goal, a holistic approach would be using MET/minutes or Intensity Levels calculated from the type of step taken (walking, jogging, running)**.
+**Bellabeat should create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions about how users can achieve their daily steps taken**. 
 
+**The company should introduce progressive milestones throughout the day along with motivating messages that can make the step goals feel more achievable. "You have accomplished 7k steps, your dedication is inspiring. Stay focused and keep taking those steps, you are almost done!"**.
 
-**Send notifications throughout the day about different ways how the user can accomplish their physical activty based on step-activities to achieve their fitness/health goals**.
+**Bellabeat should send notifications throughout the day about different ways how the user can accomplish their physical activty based on step-activities to achieve their fitness/health goals**.
 
 For example:
 
-- Leverage the most of the afternoon by running for 20 minutes or walk for 45 minutes in your favorite park to achieve your daily goal, you are almost done! 
+- "Leverage the most of the afternoon by running for 20 minutes or walk for 45 minutes in your favorite park to achieve your daily goal, you are almost done!" 
 
 **Send suggestions through the app on Sundays and (Saturdays at night) about how the user can engage in more quite step-activities during Sunday, for example going for a relaxing walk during the morning or visiting a new place along with family. Sundays are more commonly used for resting or hanging out with family and friends**.  
 
-**Bellabeat should create an option that allow the user set out their physical activity that is mainly based on total steps taken. This will allow to not only better categorize physical activity based on steps, but also send customized suggestions about how users can achieve their daily steps taken**. 
+**The company can promote special rewards to those consistent women reaching their step-goals throughut the month**.
+
+**Bellabeat can create monthly challenge campaign based on steps to foster physical activity. Using gamification the company can engage more users to the monthly challenges and reward them with digital badges in their profile, exclusive discounts in Bellabeat's products or membership, and social promotion of the leaderboard**.
+
 
 
 ---
