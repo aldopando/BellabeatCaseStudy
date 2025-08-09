@@ -1358,7 +1358,7 @@ Observations:
   
 3. ≥8,000 MET-min/week (Highly-active).
 
-- ***This is the smallest group with 2 users in total. There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
+- ***This is the smallest group with 2 users in total. There is a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group***.
 - ***The two users not only achieved 8000 MET-minutes/week, but they even reached a range between 9000-10000 MET-minutes/week***.
 
 
@@ -2534,7 +2534,7 @@ Observations.
 
 ## Recommendations and insights.
 
-Inactivity. 
+Inactivity Patterns. 
 
 - *18.75% inactive users for at at least one full week*.
 - *12.75% inactive users for at least two full weeks*.
@@ -2598,33 +2598,34 @@ For example:
 
 ---
 
-METs.
+METs activity analysis.
 
 - *The last week of the first month (week 4) was not only the week with more users reaching their goal of 600 MET-minutes per week, but also it was the week with more users wearing their devices more consistenly*.
 - *There is a clear downward trend with the number of low-active users, suggesting a slight shift of users away from the low-active category over time. Possibly some users moved up to moderately active.*
 - *There is a strong upward trend with the number of moderately-active users during weeks 1-7, reaching the peak of users moderately-active in week 7. This group is growing over time, especially during the first half. This indicates a positive trend where users are increasing their activity levels.*
 - *There is a clear downward trend over the time of highly-active users. Highly active users reamin as the smallest group and there were even users that may have reduced their levels of activity over the time.*
-- *More than half participants of the whole sample are low-active users, representing the 58%. Although, they were involved in low-active levels and achieving the minimum WHO recommendation, they are still gaining sustantial health benefits.*
-- *More than a third part of the total users are moderately-active. This group are not only gaining sustantial health benefits, but research shows the largest gains in disease prevention*.
-- *A very small percentage of users are highly-active, representing only 6% of the whole. However, research suggests that health gains above 8,000 MET-min/week are smaller.*.
-- There a big difference of almost 2000 MET-minutes/week between the user with more MET-minutes/week in moderately-active group with the user with less MET-minutes/week in the highly-active group.
+- Over third part of users are involved in low-physical activities (600–2999 MET-min/week). However, they are achieving the minimum WHO recommendation (600 MET-min/week), and they are even reducing their risk disease in a minimum percentage.
+- 19.35% of users are achieving a range of physical activity between 3000–4,000 MET-min/week. This specific range not only offers sustantial health benefits, but research shows the largest gains in disease prevention.
+- 41.94% of users are achieving a range of physical activity over 4,000 MET-min/week. This group are getting the maximun gains in terms of disease prevention and sustantial health benefits.
+- 61.29% of users are getting largest gains in disease prevention.
 
 
-**Bellabeat should aim towards user's monthly health/fitness goals. Taking advantage of the inertia of more users using wearables more consistenly at the end of the first month, the company can provide a thorough summary about the metrics achieved in the end of each month to motivate users keep using their wearables with consistency.**
+**Bellabeat should aim towards user's monthly health/fitness goals. Taking advantage of the inertia of more users using wearables more consistenly at the end of the first month, the company can provide a thorough summary about the metrics achieved in the end of each month to motivate users keep consistent.**
 
-**Bellabeat should promote a customized plan that helps low-active users move up to more moderately physical activities through promoting how moderately physical activities can aid them gain sustantial health benefits, and how scientific reasearch has demonstrated that they can achieve the largest gains in disease prevention**.
+**Rather than encouraging low-active users reach high physical activity levels and sometimes unrealistic goals, Bellabeat can promote moderate and friendly activities to reach a range between 3000 and 4,000 MET-min/week. This goal is not only more achievable and realistic but it also offers the largest gains in disease prevention and sustantial health benefits. This corresponds to 25 minutes of walking each day, or 15 minutes of climbing stairs, etc**.
 
-**Bellabeat should more often send reminders to moderately-active and highly-active users about how well they are performing their physical activity levels. They should use friendly and encouraging messages that keep them accountable**.
+**Bellabeat should celebrate to moderately-active users about how well they are performing. The company should use friendly and encouraging messages that keep them accountable. Specific milestones can be celebrated with special rewards, exclusive badges and social promotion**.
+
+**Bellabeat should offer exclusive content (advanced workouts, performance insights) and special discounts or rewards to keep highly active users engaged, The company should also create recognition programs such as leaderboard and special badges to top high-active users**.
+
+**Bellabeat should target moderately-active users to help them streamline and optimize their routines, specially because data suggests how there is a strong upward trend of moderately-active users over the time. The company should promote coach and medical experts to these users, as well as promoting other products such as the "Spring" smart bottle water**.
 
 **Investigate in depth what factors made highly-active users reduce their physical activity over the time, specially after the first month. Is it a seasonal factor? Is it a motivational fator? Is it an external event?**
 
-**Bellabeat should target moderately-active users to help them streamline and optimize their routines, specially because data suggests how there is a strong upward trend of moderately-active users over the time. The company should promote coach and medical experts to these users, as well as promoting other products such as the "Spring" smart bottle water**.
 
 
 ---
 
-
-Calories.
 
 Calories vs Steps
 
@@ -2656,7 +2657,7 @@ Calories vs Intensity
 ---
 
 
-Sleep.
+Patterns in Sleep.
 
 - *The average total daily sleep time across the participants is 7.214 hours without including naps and sleep segmented in this result*.
 - *The average total daily sleep time across users interestingly decreased from 7.214 to 7.085 hours when including naps during daytime, and sleep records that lasted less than 120 minutes. This is due to the vast majority of users had several days tracking sleep records that lasted less than 120 minutes per day. These days with low minutes of sleep direclty decrease the average total daily sleep time*.
